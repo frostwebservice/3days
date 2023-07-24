@@ -12,7 +12,9 @@ import { BlogPostCard3 } from './blog-post-card3/blog-post-card3.component'
 import { FeatureCard2 } from './feature-card2/feature-card2.component'
 import { NavigationLinks } from './navigation-links/navigation-links.component'
 import { NavigationLinks1 } from './navigation-links1/navigation-links1.component'
-import { TestimonialCard2 } from './testimonial-card2/testimonial-card2.component'
+import { TestimonialCard2 } from './testimonial-card2/testimonial-card2.component';
+import { HeaderComponent } from './header/header.component'
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { TestimonialCard2 } from './testimonial-card2/testimonial-card2.componen
     NavigationLinks,
     NavigationLinks1,
     TestimonialCard2,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -41,6 +45,8 @@ import { TestimonialCard2 } from './testimonial-card2/testimonial-card2.componen
     NavigationLinks,
     NavigationLinks1,
     TestimonialCard2,
+    HeaderComponent,
+    FooterComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

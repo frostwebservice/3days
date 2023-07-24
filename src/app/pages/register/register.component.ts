@@ -2,18 +2,19 @@ import { Component } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: 'profile.component.html',
-  styleUrls: ['profile.component.css'],
+  selector: 'app-register',
+  templateUrl: 'register.component.html',
+  styleUrls: ['register.component.css'],
 })
-export class Profile {
+export class Register {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Profile - 3 Days')
+    this.title.setTitle('Authorization -3 Days')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Profile - Pristine Liquid Shark',
+        content: 'Authorization -3 Days',
       },
     ])
   }
 }
+

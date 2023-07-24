@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router'
 import { BrowserModule } from '@angular/platform-browser'
 
 import { ComponentsModule } from './components/components.module'
-import { AppComponent } from './app.component'
+import { AppComponent } from './app.component';
 
 const routes = [
   {
@@ -37,6 +37,11 @@ const routes = [
     path: 'bookings',
     loadChildren: () =>
       import('./pages/bookings/bookings.module').then((m) => m.BookingsModule),
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/register/register.module').then((m) => m.RegisterModule),
   },
 ]
 

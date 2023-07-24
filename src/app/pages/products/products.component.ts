@@ -9,11 +9,11 @@ import { Title, Meta } from '@angular/platform-browser'
 export class Products {
   rawdnp2: string = ' '
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Products - Pristine Liquid Shark')
+    this.title.setTitle('Products - 3 Days')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Products - Pristine Liquid Shark',
+        content: 'Products - 3 Days',
       },
     ])
   }

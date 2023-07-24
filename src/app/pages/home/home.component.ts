@@ -13,7 +13,7 @@ export class Home {
   rawbzek: string = ' '
   rawiiqk: string = ' '
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Pristine Liquid Shark')
+    this.title.setTitle('Home -3 Days')
     this.meta.addTags([
       {
         property: 'og:title',

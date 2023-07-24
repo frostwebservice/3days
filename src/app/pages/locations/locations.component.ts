@@ -8,11 +8,11 @@ import { Title, Meta } from '@angular/platform-browser'
 })
 export class Locations {
   constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Locations - Pristine Liquid Shark')
+    this.title.setTitle('Locations - 3 Dyas')
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Locations - Pristine Liquid Shark',
+        content: 'Locations - 3 Dyas',
       },
     ])
   }
