@@ -1,0 +1,263 @@
+.app-footer {
+	width: 100%;
+	display: flex;
+	/* max-width: var(--dl-size-size-maxwidth); */
+	align-items: center;
+	padding-top: var(--dl-space-space-twounits);
+	padding-left: var(--dl-space-space-threeunits);
+	padding-right: var(--dl-space-space-threeunits);
+	flex-direction: column;
+	padding-bottom: var(--dl-space-space-twounits);
+	justify-content: space-between;
+}
+.app-footer .app-container5 {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.app-footer .app-logo1 {
+	display: flex;
+	max-width: var(--dl-size-size-maxwidth);
+	align-items: flex-start;
+	flex-direction: column;
+}
+.app-footer .app-image1 {
+	height: 2rem;
+}
+.app-footer .app-text26 {
+	color: var(--dl-color-gray-white);
+	margin-top: var(--dl-space-space-oneandhalfunits);
+}
+.app-footer .app-links-container {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.app-footer .app-container6 {
+	display: flex;
+	align-items: flex-start;
+	margin-right: 10rem;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.app-footer .app-product-container {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: flex-start;
+	margin-right: 10rem;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.app-footer .app-text29 {
+	color: var(--dl-color-gray-900);
+	font-weight: 700;
+	margin-bottom: var(--dl-space-space-oneandhalfunits);
+}
+.app-footer .app-text30 {
+	color: var(--dl-color-gray-900);
+	margin-bottom: var(--dl-space-space-unit);
+}
+.app-footer .app-text31 {
+	color: var(--dl-color-gray-900);
+	margin-bottom: var(--dl-space-space-unit);
+}
+.app-footer .app-text32 {
+	color: var(--dl-color-gray-900);
+	margin-bottom: var(--dl-space-space-unit);
+}
+.app-footer .app-text33 {
+	color: var(--dl-color-gray-900);
+}
+.app-footer .app-company-container {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.app-footer .app-text34 {
+	color: var(--dl-color-gray-900);
+	font-weight: 700;
+	margin-bottom: var(--dl-space-space-oneandhalfunits);
+}
+.app-footer .app-text35 {
+	color: var(--dl-color-gray-900);
+	margin-bottom: var(--dl-space-space-unit);
+}
+.app-footer .app-text36 {
+	color: var(--dl-color-gray-900);
+	margin-bottom: var(--dl-space-space-unit);
+}
+.app-footer .app-text37 {
+	color: var(--dl-color-gray-900);
+	margin-bottom: var(--dl-space-space-unit);
+}
+.app-footer .app-text38 {
+	color: var(--dl-color-gray-900);
+}
+.app-footer .app-container7 {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.app-footer .app-contact {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: var(--dl-space-space-oneandhalfunits);
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.app-footer .app-text39 {
+	color: var(--dl-color-gray-900);
+	font-weight: 700;
+	margin-bottom: var(--dl-space-space-oneandhalfunits);
+}
+.app-footer .app-text40 {
+	color: var(--dl-color-gray-900);
+	margin-bottom: var(--dl-space-space-unit);
+}
+.app-footer .app-text41 {
+	color: var(--dl-color-gray-700);
+}
+.app-footer .app-socials {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.app-footer .app-text42 {
+	color: var(--dl-color-gray-900);
+	font-weight: 700;
+	margin-bottom: var(--dl-space-space-oneandhalfunits);
+}
+.app-footer .app-icon-group1 {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.app-footer .app-link {
+	display: contents;
+}
+.app-footer .app-icon10 {
+	fill: #D9D9D9;
+	width: var(--dl-size-size-xsmall);
+	height: var(--dl-size-size-xsmall);
+	margin-right: var(--dl-space-space-unit);
+	text-decoration: none;
+}
+.app-footer .app-link1 {
+	display: contents;
+}
+.app-footer .app-icon12 {
+	fill: #D9D9D9;
+	width: var(--dl-size-size-xsmall);
+	height: var(--dl-size-size-xsmall);
+	margin-right: var(--dl-space-space-unit);
+	text-decoration: none;
+}
+.app-footer .app-link2 {
+	display: contents;
+}
+.app-footer .app-icon14 {
+	fill: #D9D9D9;
+	width: var(--dl-size-size-xsmall);
+	height: var(--dl-size-size-xsmall);
+	text-decoration: none;
+}
+.app-footer .app-separator {
+	width: 100%;
+	height: 1px;
+	margin-top: var(--dl-space-space-twounits);
+	margin-bottom: var(--dl-space-space-twounits);
+	background-color: var(--dl-color-primary-3days);
+}
+.app-footer .app-text43 {
+	color: var(--dl-color-gray-white);
+	align-self: center;
+}
+@media(max-width: 991px) {
+    .app-footer {
+		flex-direction: column;
+	}
+	.app-footer .app-container6 {
+		margin-right: var(--dl-space-space-fourunits);
+	}
+	.app-footer .app-product-container {
+		margin-right: var(--dl-space-space-fourunits);
+	}
+}
+@media(max-width: 767px) {
+    .app-footer .app-footer {
+		padding-left: var(--dl-space-space-twounits);
+		padding-right: var(--dl-space-space-twounits);
+	}
+	.app-footer .app-container5 {
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.app-footer .app-logo1 {
+		align-items: center;
+	}
+	.app-footer .app-image1 {
+		margin-bottom: var(--dl-space-space-oneandhalfunits);
+	}
+	.app-footer .app-text26 {
+		margin-top: var(--dl-space-space-twounits);
+		text-align: center;
+		margin-bottom: var(--dl-space-space-twounits);
+	}
+	.app-footer .app-links-container {
+		width: 100%;
+		align-items: flex-start;
+		flex-direction: row;
+		justify-content: center;
+	}
+	.app-footer .app-container6 {
+		margin-right: var(--dl-space-space-fourunits);
+	}
+	.app-footer .app-product-container {
+		margin-right: var(--dl-space-space-fourunits);
+	}
+}
+
+@media(max-width: 479px) {
+    .app-footer .app-footer {
+		padding: var(--dl-space-space-unit);
+	}
+	.app-footer .app-container5 {
+		align-items: center;
+		flex-direction: column;
+	}
+	.app-footer .app-image1 {
+		margin-bottom: 0px;
+	}
+	.app-footer .app-text26 {
+		margin-top: var(--dl-space-space-twounits);
+		margin-bottom: var(--dl-space-space-twounits);
+	}
+	.app-footer .app-links-container {
+		align-items: center;
+		flex-direction: column;
+	}
+	.app-footer .app-container6 {
+		margin-right: 0px;
+	}
+	.app-footer .app-container7 {
+		margin-top: var(--dl-space-space-oneandhalfunits);
+		align-items: flex-start;
+		margin-bottom: 0px;
+	}
+	.app-footer .app-contact {
+		align-items: flex-start;
+		margin-bottom: var(--dl-space-space-unit);
+	}
+	.app-footer .app-text43 {
+		text-align: center;
+	}
+}

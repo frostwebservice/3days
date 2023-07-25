@@ -1,0 +1,60 @@
+.j-auth-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+.j-auth-section .j-app-logo{
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+}
+.j-auth-section .j-page-title{
+    color: var(--dl-color-grey-white);
+    font-size: 25px;
+    margin-bottom: var(--dl-space-space-threeunits);
+}
+.j-auth-section .j-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.j-auth-section .forgot-password-btn{
+    color : var(--dl-color-grey-white);
+    margin-top: 16px;
+    margin-bottom: 28px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+.j-auth-section .forgot-password-btn:hover{
+    color: #8E8D91;
+}
+.j-auth-section .j-submit-button span{
+    background: -webkit-linear-gradient(#121212, #454444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.j-login-section .j-login-btn{
+    position: absolute;
+    top:var(--dl-space-space-oneandhalfunits);
+    right:var(--dl-space-space-oneandhalfunits);
+    color: var(--dl-color-grey-white);
+	background:var(--dl-color-grey-black);
+    cursor: pointer;
+}
+.j-login-section .j-language-btn{
+    position: absolute;
+    top:var(--dl-space-space-oneandhalfunits);
+    left:var(--dl-space-space-oneandhalfunits);
+    color: var(--dl-color-grey-white);
+	background:var(--dl-color-grey-black);
+    padding: 11px;
+    cursor: pointer;
+}
+.j-login-section .j-language-btn .j-icon.i-icon-earth{
+    background: url(/assets/img/earth.svg) no-repeat;
+    background-position: center;
+    width: 15px;
+    height: 15px;
+    display: block;
+}
