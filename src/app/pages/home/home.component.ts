@@ -17,7 +17,7 @@ export class Home {
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Pristine Liquid Shark',
+        content: 'Home - 3 Days',
       },
     ])
   }

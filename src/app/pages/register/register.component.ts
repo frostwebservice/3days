@@ -1,20 +1,24 @@
-import { Component } from '@angular/core'
-import { Title, Meta } from '@angular/platform-browser'
-
+import { Component, OnInit } from '@angular/core';
+import { TabItem } from 'src/app/utils/data.types';
 @Component({
-  selector: 'app-register',
-  templateUrl: 'register.component.html',
-  styleUrls: ['register.component.css'],
+	selector: 'app-register',
+	templateUrl: 'register.component.html',
+	styleUrls: ['register.component.css']
 })
-export class Register {
-  constructor(private title: Title, private meta: Meta) {
-    this.title.setTitle('Authorization -3 Days')
-    this.meta.addTags([
-      {
-        property: 'og:title',
-        content: 'Authorization -3 Days',
-      },
-    ])
-  }
-}
+export class RegisterComponent implements OnInit {
 
+	constructor() { }
+	tabs: TabItem[] = [
+		{ icon: '', label: 'الجنس', id: 'gender' },
+		{ icon: '', label: 'الموقع', id: 'site' },
+		{ icon: '', label: 'البحث عن نادي', id: 'find a club' },
+		{ icon: '', label: 'Image', id: 'image' }
+	];
+	selectedTab: TabItem = this.tabs[0];
+
+	ngOnInit(): void {}
+	changeTab(tab: TabItem): void {
+		this.selectedTab = tab;
+	}
+
+}

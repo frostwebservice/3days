@@ -163,18 +163,6 @@
 	width: var(--dl-size-size-xsmall);
 	height: var(--dl-size-size-xsmall);
 }
-.home-introduction {
-	width: 100%;
-	display: flex;
-	padding: var(--dl-space-space-threeunits);
-	position: relative;
-	min-height: 80vh;
-	align-items: center;
-	flex-direction: column;
-	background-size: cover;
-	justify-content: center;
-	background-image: url("/assets/bg/hero-bg-1500h.png");
-}
 .home-text11 {
 	color: var(--dl-color-gray-white);
 	font-size: 3rem;
@@ -501,6 +489,40 @@
 .home-text43 {
 	color: var(--dl-color-gray-white);
 	align-self: center;
+}
+/* custom */
+.background-video{
+	width: 100%;
+	max-height: 80vh;
+    object-fit: cover;
+}
+.home-introduction {
+	width: 100%;
+	display: flex;
+	padding: var(--dl-space-space-threeunits);
+	position: relative;
+	min-height: 80vh;
+	align-items: center;
+	flex-direction: column;
+	background-size: cover;
+	justify-content: center;
+	margin-top:-80vh;
+	/* background-image: url("/assets/bg/hero-bg-1500h.png"); */
+}
+.home-introduction-section{
+	width: 100%;
+    display: flex;
+    position: relative;
+    min-height: 80vh;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    justify-content: center;
+}
+.home-login-btn{
+	background-color: #1C1A17AA;
+    color: var(--dl-color-grey-white);
+    border: none;
 }
 @media(max-width: 991px) {
 	.home-introduction {

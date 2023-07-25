@@ -12,7 +12,7 @@ export class Profile {
     this.meta.addTags([
       {
         property: 'og:title',
-        content: 'Profile - Pristine Liquid Shark',
+        content: 'Profile - 3 Days',
       },
     ])
   }

@@ -1,23 +1,27 @@
 <div class="home-container">
 	<app-header page_name="home" ngClass="j-page-section"></app-header>
-	<div class="home-introduction">
-		<h1 class="home-text11">
-			<span>
-				3 Days Will Be Enough
-				<span [innerHTML]="rawh6dp"></span>
+	<div class="home-introduction-section">
+		<video muted loop class="background-video" autoplay>
+			<source src="../../../assets/bg/rain.mp4" type="video/mp4">
+		</video>
+		<div class="home-introduction">
+			<h1 class="home-text11">
+				<span>
+					3 Days Will Be Enough
+					<span [innerHTML]="rawh6dp"></span>
+				</span>
+				<br />
+			</h1>
+			<span class="home-text14">
+				<br />
+				<span>
+					في 3 Days ، نؤمن أن اللياقة البدنية للجميع. مهمتنا هي تمكينك من أن تصبح أفضل نسخة من نفسك من خلال توفير بيئة داعمة وشاملة وتحفيزية.
+				</span>
 			</span>
-			<br />
-		</h1>
-		<span class="home-text14">
-			<br />
-			<span>
-				Whether your fitness goals include weight loss, toning up, building
-				muscle, or improving strength and endurance, we&apos;ve got you covered
-			</span>
-		</span>
-		<div class="home-btn-group1">
-			<button class="home-button button">Join US</button>
-			<button class="home-button1 button">Learn More</button>
+			<div class="home-btn-group1">
+				<a class="home-button button j-left-button" href="/signup">Create an acccount</a>
+				<a class="home-button1 home-login-btn button j-right-button" href="/login">Sign in</a>
+			</div>
 		</div>
 	</div>
 	<div class="home-introduction1">
