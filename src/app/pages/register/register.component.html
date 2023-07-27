@@ -1,0 +1,299 @@
+<div class="authentication-container page-container">
+	<div class="j-signup-section j-page-section j-auth-section">
+		<ng-container *ngIf="!isStarted && !isCompleted">
+			<div class="j-signup-splash-section">
+				<h5 class="j-page-title mb-5">إنشاء حساب</h5>
+				<div class="j-page-content">
+					<a routerLink="/" class="mb-2">
+						<img alt="logo" src="/assets/external/logo.svg" class="j-app-logo"/>
+					</a>
+					<h4 class="j-page-text mb-2">هل أنت مستعد لبدء رحلتك الرياضية؟</h4>
+					<p class="j-page-text">انضم إلى مجتمعنا من الأفراد الذين يلتزمون بأن يصبحوا أفضل إصدارات من أنفسهم.</p>
+					<button type="button" class="j-left-button button j-start-button" (click)="startJourney()"><span>ابدأ تجربتك</span></button>
+				</div>
+			</div>
+		</ng-container>
+		<ng-container *ngIf="isCompleted">
+			<div class="j-signup-splash-section">
+				<h5 class="j-page-title mb-5">إنشاء حساب</h5>
+				<div class="j-page-content">
+					<a routerLink="/" class="mb-2">
+						<img alt="logo" src="/assets/external/logo.svg" class="j-app-logo"/>
+					</a>
+					<h4 class="j-page-text mb-2">تهانينا</h4>
+					<p class="j-page-text">تمت العملية بنجاح، رقم العملية هو: MAV34522</p>
+					<a type="button" class="j-left-button button j-complete-button" routerLink = "/"><span>العودة للرئيسية</span></a>
+				</div>
+			</div>
+		</ng-container>
+		<form class="j-form" *ngIf="isStarted">
+			<div class="j-signup-process">
+				<app-page-tab [tabs]="tabs" [selected]="selectedTab" (onChange)="changeTab($event)" class="pl-0 rounded-0 j-tab-bar">
+				</app-page-tab>
+				<div class="j-tab-content">
+					<ng-container *ngIf="selectedTab.label == 'gender'">
+						<div class="j-content-wrap">
+							<h4 class="j-page-text mb-2">الجنس</h4>
+							<p class="j-page-text">الرجاء اختيار الفئة:</p>
+							<div class="j-gender-wrap">
+								<div class="j-gender-option active">
+									<label class="j-gender-option-card male-option" for="male-option">
+										<div class="gender-img"></div>
+										<div class="gender-label">رجال</div>
+										<input type="radio" id="male-option" name = "gender-option" value="male" checked>
+									</label>
+								</div>
+								<div class="j-gender-option">
+									<label class="j-gender-option-card female-option" for="female-option">
+										<div class="gender-img"></div>
+										<div class="gender-label">نساء</div>
+										<input type="radio" id="female-option" name = "gender-option" value="female">
+									</label>
+								</div>
+								<div class="j-gender-option">
+									<label class="j-gender-option-card kids-option" for="kids-option">
+										<div class="gender-img"></div>
+										<div class="gender-label">براعم</div>
+										<input type="radio" id="kids-option" name = "gender-option" value="kids">
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="go-btn-group">
+							<a class="btn j-next-btn j-left-button" (click)="nextTab('gender')">التالي</a>
+							<a class="btn j-prev-btn j-right-button" (click)="prevTab('gender')">سابق</a>
+						</div>
+					</ng-container>
+					<ng-container *ngIf="selectedTab.label == 'site'">
+						<div class="j-content-wrap">
+							<h4 class="j-page-text mb-2">الموقع</h4>
+							<p class="j-page-text">يرجى اختيار طريقة تحديد موقع النادي الرياضي:</p>
+							<div class="j-site-wrap">
+								<div class="j-site-option active">
+									<label class="j-site-option-card manual-option" for="manual-option">
+										<div class="site-img"></div>
+										<div class="site-label">يدوي</div>
+										<input type="radio" id="manual-option" name = "site-option" value="manual" checked>
+									</label>
+								</div>
+								<div class="j-site-option">
+									<label class="j-site-option-card map-option" for="map-option">
+										<div class="site-img"></div>
+										<div class="site-label">خريطة</div>
+										<input type="radio" id="map-option" name = "site-option" value="map">
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="go-btn-group">
+							<a class="btn j-next-btn j-left-button" (click)="nextTab('site')">التالي</a>
+							<a class="btn j-prev-btn j-right-button" (click)="prevTab('site')">سابق</a>
+						</div>
+					</ng-container>
+					<ng-container *ngIf="selectedTab.label == 'find a club'">
+						<div class="j-content-wrap">
+							<div class="j-club-wrap">
+								<div class="j-club-map-wrap pb-md-0 pb-2" id="club-map">
+									<agm-map [latitude]="lat" [longitude]="lng" class="armmap">
+										<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+									</agm-map>
+								</div>
+								<div class="j-club-search-wrap">
+									<h4 class="j-page-text mb-2">البحث عن نادي</h4>
+									<div class="j-form-group">
+										<div class="j-input-icons j-input-icon-right">
+											<input type="text" class="j-inputbox j-searchbox" placeholder="البحث عن طريق المدينة أو الدولة">
+											<i class="bi bi-search j-icon j-icon-right "></i>
+										</div>
+									</div>
+									<div class="j-club-list-panel">
+										<div class="club-card" *ngFor="let club of clubs;let i = index">
+											<p class="club_name">{{club.name}}</p>
+											<p class="club_address">{{club.address}}</p>
+											<div class="club-button-group">
+												<a class="btn j-left-button j-club-detail-btn">تفاصيل النادي</a>
+												<a class="btn j-right-button j-club-review-btn">مراجعة العضوية</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="go-btn-group">
+							<a class="btn j-next-btn j-left-button" (click)="nextTab('find a club')">التالي</a>
+							<a class="btn j-prev-btn j-right-button" (click)="prevTab('find a club')">سابق</a>
+						</div>
+					</ng-container>
+					<ng-container *ngIf="selectedTab.label == 'products'">
+						<div class="j-content-wrap">
+							<h4 class="j-page-text mb-2">المنتجات</h4>
+							<p class="j-page-text">يرجى اختيار باقة العضوية الخاصة بك:</p>
+							<div class="j-products-wrap">
+								<div class="j-personal-trainings-wrap pb-md-0 pb-2">
+									<div class="j-personalTrainings-list-panel j-product-list-panel">
+										<h4 class="j-page-text mb-2">التدريب الشخصي</h4>
+										<div class="personalTrainings-card j-product-card" *ngFor="let personalTraining of personalTrainings;let i = index">
+											<p class="product_share">{{personalTraining.shares}}</p>
+											<p class="product_price">{{personalTraining._per }} / <b>{{personalTraining.currency}} {{personalTraining.price}}</b></p>
+											<p class="product_description">{{personalTraining.description}}</p>
+											<label class="option_btn" for="personalTraining{{personalTraining.id}}">
+												<input type="radio" name="personalTraining" id="personalTraining{{personalTraining.id}}" value="{{personalTraining.id}}" class="product_opt">
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="j-subscriptions-wrap">
+									<div class="j-subscriptions-list-panel j-product-list-panel">
+										<h4 class="j-page-text mb-2">الاشتراكات</h4>
+										<div class="subscriptions-card j-product-card" *ngFor="let subscription of subscriptions;let i = index">
+											<p class="product_cycle">{{subscription.cycle}}</p>
+											<p class="product_price">{{subscription._per }} / <b>{{subscription.currency}} {{subscription.price}}</b></p>
+											<p class="product_description">{{subscription.description}}</p>
+											<label class="option_btn" for="subscription{{subscription.id}}">
+												<input type="radio" name="subscription" id="subscription{{subscription.id}}" value="{{subscription.id}}" class="product_opt">
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="go-btn-group">
+							<a class="btn j-next-btn j-left-button" (click)="nextTab('products')">التالي</a>
+							<a class="btn j-prev-btn j-right-button" (click)="prevTab('products')">سابق</a>
+						</div>
+					</ng-container>
+					<ng-container *ngIf="selectedTab.label == 'account'">
+						<div class="j-content-wrap">
+							<h4 class="j-page-text mb-2">الحساب</h4>
+							<p class="j-page-text">الرجاء ادخال بيانات حسابك</p>
+							<div class="j-account-wrap">
+								<div class="j-account-panel pb-md-0 pb-2">
+									<h4 class="j-page-text mb-2">الحساب</h4>
+									<div class="j-form-group">
+										<label for="phone" class="j-inputbox-label">رقم الجوال</label>
+										<div class="j-input-icons j-input-icon-both">
+											<i class="j-icon j-icon-left bi bi-chat-left-text"></i>
+											<input type="phone" class="j-inputbox" id="phone" name="phone" aria-describedby="phoneHelp" placeholder="رقم الجوال" required> 
+											<i class="j-icon j-icon-right j-icon-phone"></i>
+										</div>
+									</div>
+									<div class="j-form-group">
+										<label for="email" class="j-inputbox-label">البريد الإلكتروني</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="email" class="j-inputbox" id="email" name = "email" aria-describedby="emailHelp" placeholder="البريد الإلكتروني" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$"> 
+											<i class="j-icon j-icon-right j-icon-automark"></i>
+										</div>
+									</div>
+									<div class="j-form-group">
+										<label for="password" class="j-inputbox-label">كلمة المرور</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="password" class="j-inputbox" id="password" name ="password" placeholder="كلمة المرور">
+											<i class="j-icon j-icon-right j-icon-key"></i>
+										</div>
+									</div>
+									<div class="j-form-group">
+										<label for="confirm_password" class="j-inputbox-label">تأكيد كلمة المرور</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="password" class="j-inputbox" id="confirm_password" name = "confirm_password" placeholder="تأكيد كلمة المرور">
+											<i class="j-icon j-icon-right j-icon-key"></i>
+										</div>
+									</div>
+									<div class="j-form-group">
+										<p class="agree_terms_conditions">أوافق على <a class="j-tc-link" href="/terms-conditions" target="_blank">الشروط والأحكام</a> <input type="checkbox" name="agree_terms_conditions" class="agree_terms_conditions_checkbox ml-2" required></p>
+									</div>
+								</div>
+								<div class="j-profile-panel">
+									<h4 class="j-page-text mb-2">البيانات الشخصية</h4>
+									<div class="j-name-field">
+										<div class="j-first-name-field j-form-group">
+											<label for="first_name" class="j-inputbox-label">اسم العائلة</label>
+											<div class="j-input-icons j-input-icon-right">
+												<input type="first_name" class="j-inputbox" id="first_name" name="first_name" aria-describedby="first_nameHelp" placeholder="اسم العائلة" required> 
+												<i class="j-icon j-icon-right j-icon-person"></i>
+											</div>
+										</div>
+										<div class="j-last-name-field j-form-group">
+											<label for="last_name" class="j-inputbox-label">الاسم الأول</label>
+											<div class="j-input-icons j-input-icon-right">
+												<input type="last_name" class="j-inputbox" id="last_name" name="last_name" aria-describedby="last_nameHelp" placeholder="الاسم الأول" required> 
+												<i class="j-icon j-icon-right j-icon-person"></i>
+											</div>
+										</div>
+									</div>
+									<div class="j-form-group">
+										<label for="id_number" class="j-inputbox-label">رقم الهوية</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="text" class="j-inputbox" id="id_number" name = "id_number" placeholder="رقم الهوية">
+											<i class="j-icon j-icon-right j-icon-idcard"></i>
+										</div>
+									</div>
+									<div class="j-form-group">
+										<label for="birthday" class="j-inputbox-label">تاريخ الميلاد</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="text" class="j-inputbox" id="birthday" name = "birthday" placeholder="تاريخ الميلاد">
+											<i class="j-icon j-icon-right j-icon-calendar"></i>
+										</div>
+									</div>
+									<div class="j-form-group">
+										<label for="subscription_day" class="j-inputbox-label">تاريخ بدء الاشتراك</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="text" class="j-inputbox" id="subscription_day" name = "subscription_day" placeholder="تاريخ بدء الاشتراك">
+											<i class="j-icon j-icon-right j-icon-calendar"></i>
+										</div>
+									</div>
+									<div class="j-form-group">
+										<label for="promotional_code" class="j-inputbox-label">الكود الترويجي</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="text" class="j-inputbox" id="promotional_code" name = "promotional_code" placeholder="الكود الترويجي">
+											<i class="j-icon j-icon-right bi bi-person-lock"></i>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="go-btn-group">
+							<a class="btn j-next-btn j-left-button" (click)="nextTab('account')">التالي</a>
+							<a class="btn j-prev-btn j-right-button" (click)="prevTab('account')">سابق</a>
+						</div>
+					</ng-container>
+					<ng-container *ngIf="selectedTab.label == 'payment'">
+						<div class="j-content-wrap">
+							<h4 class="j-page-text mb-2">الدفع</h4>
+							<p class="j-page-text">الرجاء ادخال بيانات الدفع:</p>
+							<div class="j-payment-wrap">
+								<div class="j-form-group">
+									<label for="card_number" class="j-inputbox-label">رقم البطاقة</label>
+									<div class="j-input-icons j-input-icon-left">
+										<i class="j-icon j-icon-left j-clickable j-icon-visacard"></i>
+										<input type="text" class="j-inputbox" id="card_number" name = "card_number" placeholder="رقم البطاقة">
+									</div>
+								</div>
+								<div class="j-expired-date-field">
+									<div class="j-cvv-field j-form-group">
+										<label for="cvv" class="j-inputbox-label">CVV</label>
+										<input type="cvv" class="j-inputbox" id="cvv" name="cvv" aria-describedby="cvvHelp" placeholder="CVV" required> 
+									</div>
+									<div class="j-date-year-field j-form-group">
+										<label for="date_year" class="j-inputbox-label">السنة</label>
+										<input type="date_year" class="j-inputbox" id="date_year" name="date_year" aria-describedby="date_yearHelp" placeholder="السنة" required> 
+									</div>
+									<div class="j-date-month-field j-form-group">
+										<label for="date_month" class="j-inputbox-label">الشهر</label>
+										<input type="date_month" class="j-inputbox" id="date_month" name="date_month" aria-describedby="date_monthHelp" placeholder="الشهر" required> 
+									</div>
+								</div>
+								<div class="j-form-group">
+									<p class="save_payment_info">حفظ بطاقة الدفع لاستخدامها في عملية الدفع مستقبلا<input type="checkbox" name="save_payment_info" class="save_payment_info_checkbox ml-2" required></p>
+								</div>
+							</div>
+						</div>
+						<div class="go-btn-group">
+							<a class="btn j-next-btn j-left-button" (click)="nextTab('payment')">التالي</a>
+							<a class="btn j-prev-btn j-right-button" (click)="prevTab('payment')">سابق</a>
+						</div>
+					</ng-container>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

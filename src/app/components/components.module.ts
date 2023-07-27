@@ -14,7 +14,8 @@ import { NavigationLinks } from './navigation-links/navigation-links.component'
 import { NavigationLinks1 } from './navigation-links1/navigation-links1.component'
 import { TestimonialCard2 } from './testimonial-card2/testimonial-card2.component';
 import { HeaderComponent } from './header/header.component'
-import { FooterComponent } from './footer/footer.component'
+import { FooterComponent } from './footer/footer.component';
+import { PageTabComponent } from './page-tab/page-tab.component'
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FooterComponent } from './footer/footer.component'
     TestimonialCard2,
     HeaderComponent,
     FooterComponent,
+    PageTabComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -47,6 +49,7 @@ import { FooterComponent } from './footer/footer.component'
     TestimonialCard2,
     HeaderComponent,
     FooterComponent,
+    PageTabComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

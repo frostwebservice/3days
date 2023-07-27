@@ -1,0 +1,13 @@
+<ng-container>
+	<div class="tab-container {{class}}" #container>
+		<ng-container *ngFor="let tab of tabs;let i = index">
+			<div class="tab {{tab.id == _selected?.id ? 'active' : '' }} {{i < currentIndex ?  'processed' : ''}}" [class.disable]="isDisableTab(tab)"  (click)="changeTab($event, tab)">
+				<button type="button" class="tab-btn">
+					<i class="bi bi-chevron-left"></i>
+					<span class="tab-label">{{ tab.label }}</span>
+					<i class="bi bi-{{i+1}}-circle-fill"></i>
+				</button>
+			</div>
+	  	</ng-container>
+	</div>
+</ng-container>
