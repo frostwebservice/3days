@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 		{ icon: '', label: 'find a club', id: 'find a club' },
 		{ icon: '', label: 'products', id: 'products' },
 		{ icon: '', label: 'account', id: 'account' },
-		{ icon: '', label: 'payment', id: 'payment' },
+		{ icon: '', label: 'payment', id: 'payment' }
 	];
 	// tabs: TabItem[] = [
 	// 	{ icon: '', label: 'الجنس', id: 'gender' },

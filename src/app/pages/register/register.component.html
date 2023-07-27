@@ -1,6 +1,6 @@
 <div class="authentication-container page-container">
 	<div class="j-signup-section j-page-section j-auth-section">
-		<ng-container *ngIf="!isStarted && !isCompleted">
+		<ng-container *ngIf="!isStarted">
 			<div class="j-signup-splash-section">
 				<h5 class="j-page-title mb-5">إنشاء حساب</h5>
 				<div class="j-page-content">
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 		</ng-container>
-		<form class="j-form" *ngIf="isStarted">
+		<form class="j-form" *ngIf="isStarted && !isCompleted">
 			<div class="j-signup-process">
 				<app-page-tab [tabs]="tabs" [selected]="selectedTab" (onChange)="changeTab($event)" class="pl-0 rounded-0 j-tab-bar">
 				</app-page-tab>
