@@ -1,0 +1,470 @@
+.j-auth-section.j-signup-section{
+    max-width: none;
+}
+.j-auth-section .j-signup-splash-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: space-around;
+    background-image: url('/assets/bg/signupsplash.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--dl-color-grey-white);
+}
+.j-auth-section .j-page-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.j-auth-section .j-page-title,
+.j-auth-section .j-page-text{
+    color:var(--dl-color-grey-white);
+    text-align: right;
+    padding:15px;
+}
+.j-auth-section .j-page-title{
+    font-size: 17px;
+}
+.j-auth-section h4.j-page-text{
+    font-size: 24px;
+    font-weight: bolder;
+}
+.j-auth-section p.j-page-text{
+    font-size: 14px;
+}
+.j-auth-section .j-start-button{
+    min-width: 300px;
+    background-color: var(--dl-color-primary-3days);
+    height:56px;
+    margin-top:37px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #121212;
+}
+.j-auth-section .j-complete-button{
+    min-width: 300px;
+    background-color: var(--dl-color-primary-3days);
+    height:56px;
+    margin-top:37px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #121212;
+}
+
+.j-auth-section .j-signup-process{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10vh auto;
+    margin-bottom: 0;
+    justify-content: space-between;
+    max-width: 1400px;
+    min-height: 70vh;
+    padding: 0 var(--dl-space-space-threeunits);
+}
+.j-auth-section .j-signup-process .j-tab-bar{
+    width: 100%;
+}
+.j-auth-section .j-signup-process .j-tab-content {
+    width: 100%;
+    margin-top:var(--dl-space-space-threeunits);
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    min-height: 70vh;
+    justify-content: space-between;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-content-wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.j-auth-section .j-signup-process .j-tab-content .go-btn-group{
+    margin-top: var(--dl-space-space-threeunits);
+    margin-bottom: var(--dl-space-space-oneandhalfunits);
+    display: flex;
+}
+/* ------------------------------next / prev button------------------------- */
+.j-auth-section .j-signup-process .j-tab-content .go-btn-group .btn{
+    width: 162px;
+    height: 46px;
+    border-radius:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-next-btn{
+    background: var(--dl-color-primary-3days);
+}
+.j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-next-btn{
+    background: var(--dl-color-primary-3days);
+    color: #121212;
+    margin-right:8px;
+}
+.j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-prev-btn{
+    background: var(--dl-color-grey-black);
+    color: var(--dl-color-gray-dark);
+    margin-left:8px;
+}
+/* -----------------------------------gender tab------------------------------------ */
+.j-auth-section .j-signup-process .j-tab-content .j-gender-wrap{
+    display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-gender-option{
+    width: 32%;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-gender-option:hover .gender-label{
+    color: var(--dl-color-primary-3days) !important;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-gender-option.active .j-gender-option-card{
+    background-image: radial-gradient(circle 1500px at center -750px,rgb(0, 0, 0) 0%,rgb(0, 0, 0) 15.1%,rgb(0, 0, 0) 39.7%,rgb(0, 0, 0) 54.3%,rgb(253, 186, 99) 57.4%,rgb(255, 255, 255) 61%,rgb(255, 255, 255) 100%);
+}
+.j-auth-section .j-signup-process .j-tab-content .j-gender-option .j-gender-option-card{
+    background-image: url('/assets/bg/gendercard.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    display: flex;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-gender-option .j-gender-option-card .gender-img{
+    width: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    min-height: 120px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-gender-option .j-gender-option-card .gender-label{
+    width: 50%;
+    color: var(--dl-color-grey-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-gender-option .j-gender-option-card.male-option .gender-img{
+    background-image: url('/assets/img/gender1.png');
+}
+.j-auth-section .j-signup-process .j-tab-content .j-gender-option .j-gender-option-card.female-option .gender-img{
+    background-image: url('/assets/img/gender2.png');
+}
+.j-auth-section .j-signup-process .j-tab-content .j-gender-option .j-gender-option-card.kids-option .gender-img{
+    background-image: url('/assets/img/gender3.png');
+}
+.j-auth-section .j-signup-process .j-tab-content .j-gender-option .j-gender-option-card input{
+    display: none;
+}
+/* -----------------------------------site tab------------------------------------ */
+.j-auth-section .j-signup-process .j-tab-content .j-site-wrap{
+    display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-site-option{
+    width: 49%;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-site-option:hover .site-label{
+    color: var(--dl-color-primary-3days) !important;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-site-option.active .j-site-option-card{
+    background-image: radial-gradient(circle 1800px at center -900px,rgb(0, 0, 0) 0%,rgb(0, 0, 0) 15.1%,rgb(0, 0, 0) 39.7%,rgb(0, 0, 0) 54.3%,rgb(253, 186, 99) 57.4%,rgb(255, 255, 255) 61%,rgb(255, 255, 255) 100%);
+}
+.j-auth-section .j-signup-process .j-tab-content .j-site-option .j-site-option-card{
+    background-image: url('/assets/bg/sitecard.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    display: flex;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-site-option .j-site-option-card .site-img{
+    width: 65%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom 0;
+    min-height: 180px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-site-option .j-site-option-card .site-label{
+    width: 35%;
+    color: var(--dl-color-grey-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-site-option .j-site-option-card.manual-option .site-img{
+    background-image: url('/assets/img/site1.png');
+}
+.j-auth-section .j-signup-process .j-tab-content .j-site-option .j-site-option-card.map-option .site-img{
+    background-image: url('/assets/img/site2.png');
+}
+.j-auth-section .j-signup-process .j-tab-content .j-site-option .j-site-option-card input{
+    display: none;
+}
+/* -------------------------------Find a club-----------------------------------*/
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap{
+    display:flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap{
+    display:flex;
+    width: 49%;
+    /* margin:0 auto; */
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap{
+    display:flex;
+    width: 49%;
+    flex-direction: column;
+    /* margin:0 auto; */
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .j-searchbox{
+    width: 100%;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .j-page-text{
+    color:var(--dl-color-grey-white);
+    text-align: center;
+    font-size:18px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .j-club-list-panel{
+    margin-top:var(--dl-space-space-oneandhalfunits);
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card{
+    background-color:var(--dl-color-grey-black);
+    clip-path: polygon(0% 0%,calc(100% - 15px) 0%, 100% 15px,100% 100%,15px 100%, 0% calc(100% - 15px));
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club_name{
+    color:var(--dl-color-grey-white);
+    text-align: right;
+    font-size:16px;
+    margin-bottom: 6px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club_address{
+    color:var(--dl-color-grey-dark);
+    text-align: right;
+    font-size:14px;
+    margin-bottom: 16px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group{
+    display: flex;
+    justify-content: right;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .btn{
+    border-radius: 0;
+    opacity: 0.3;
+    background-color: var(--dl-color-gray-black);
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .j-club-detail-btn{
+    color: var(--dl-color-gray-dark);
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .j-club-review-btn{
+    color: var(--dl-color-primary-3days);
+    margin-left: 8px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap .armmap{
+    width:100%;
+    padding: 16px 0;
+    display: flex;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap .armmap > div{
+    height:100%;
+}
+/* -------------------------------Products-----------------------------------*/
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap{
+    display:flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap h4.j-page-text{
+    color:var(--dl-color-grey-white);
+    text-align: center;
+    font-size:18px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-personal-trainings-wrap{
+    display:flex;
+    width: 49%;
+    flex-direction: column;
+    align-items: center;
+    /* margin:0 auto; */
+}
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-subscriptions-wrap{
+    display:flex;
+    width: 49%;
+    flex-direction: column;
+    align-items: center;
+    /* margin:0 auto; */
+}
+
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-list-panel{
+    margin-top:var(--dl-space-space-oneandhalfunits);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card{
+    background-color:var(--dl-color-grey-black);
+    clip-path: polygon(0% 0%,calc(100% - 15px) 0%, 100% 15px,100% 100%,15px 100%, 0% calc(100% - 15px));
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    transition: 0.2s;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card:hover{
+    clip-path:none;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card .option_btn{
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    border: 3px solid var(--dl-color-gray-dark);
+    border-radius: 50%;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card .option_btn .product_opt{
+    display:none;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card .product_cycle,
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card .product_share{
+    color:var(--dl-color-grey-white);
+    text-align: right;
+    font-size:16px;
+    margin-bottom: 6px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card .product_price,
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card .product_description{
+    color:var(--dl-color-grey-dark);
+    text-align: right;
+    font-size:14px;
+    margin-bottom: 16px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card .product_description{
+    margin-bottom: 0 !important;
+}
+/* -------------------------------------accounts-------------------------------------------- */
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap{
+    display:flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap h4.j-page-text{
+    color:var(--dl-color-grey-white);
+    text-align: center;
+    font-size:18px;
+    margin-bottom: 0px !important;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-account-panel,
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-profile-panel{
+    display: flex;
+    flex-direction: column;
+    width: 46%;
+    /* padding : 0px 30px; */
+}
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-form-group{
+    text-align: right;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-account-panel .agree_terms_conditions{
+    color:var(--dl-color-grey-white);
+    font-size:14px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-account-panel .agree_terms_conditions .j-tc-link{
+    color:var(--dl-color-primary-3days);
+    font-size:14px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-account-panel .agree_terms_conditions .agree_terms_conditions_checkbox{
+    margin-left:10px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-profile-panel .j-name-field {
+    display: flex;
+    justify-content: space-between;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-profile-panel .j-name-field .j-first-name-field,
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-profile-panel .j-name-field .j-last-name-field{
+    width: 49%;
+}
+/* -------------------------------------------------payment---------------------------------------------------- */
+.j-auth-section .j-signup-process .j-tab-content .j-payment-wrap{
+    max-width: 100%;
+    width: 420px;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-payment-wrap .j-expired-date-field{
+    display: flex;
+    justify-content: space-between;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-payment-wrap .j-expired-date-field .j-cvv-field{
+    width: 18%;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-payment-wrap .j-expired-date-field .j-date-year-field{
+    width: 38%;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-payment-wrap .j-expired-date-field .j-date-month-field{
+    width: 38%;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-payment-wrap .save_payment_info{
+    text-align: right;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-payment-wrap .save_payment_info .save_payment_info_checkbox{
+    margin-left:10px;
+}
+@media(max-width: 767px) {
+    .j-auth-section .j-signup-process{
+        padding: 0 var(--dl-space-space-oneandhalfunits);
+    }
+    .j-auth-section .j-signup-process .j-tab-content .j-gender-wrap{
+        flex-direction: column;
+    }
+    .j-auth-section .j-signup-process .j-tab-content .j-gender-wrap .j-gender-option{
+        width: 100%;
+        margin-bottom:var(--dl-space-space-oneandhalfunits);
+    }
+    .j-auth-section .j-signup-process .j-tab-content .j-club-wrap{
+        display:flex;
+        flex-direction: column;
+    }
+    .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap{
+        width: 100%;
+        padding: 0 var(--dl-space-space-oneandhalfunits);
+    }
+    .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap{
+        width: 100%;
+        padding: 0 var(--dl-space-space-oneandhalfunits);
+    }
+    .j-auth-section .j-signup-process .j-tab-content .j-account-wrap {
+        flex-direction: column-reverse;
+    }
+    .j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-account-panel{
+        margin-top:var(--dl-space-space-fourunits);
+    }
+    .j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-account-panel,
+    .j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-profile-panel{
+        width: 100%;
+        padding: 0;
+    }
+    .j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-profile-panel .j-name-field {
+        flex-direction: column;
+    }
+    .j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-profile-panel .j-name-field .j-first-name-field,
+    .j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-profile-panel .j-name-field .j-last-name-field{
+        width: 100%;
+    }
+}
+@media(max-width: 380px) {
+    .j-auth-section .j-signup-process .j-tab-content .go-btn-group .btn{
+        width: 128px;
+    }
+}

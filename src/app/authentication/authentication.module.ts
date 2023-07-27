@@ -6,8 +6,8 @@ import { LoginComponent } from '../pages/login/login.component';
 import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from '../pages/reset-password/reset-password.component';
 import { RegisterComponent } from '../pages/register/register.component';
-// import { ComponentsModule } from '../components/components.module';
-
+import { ComponentsModule } from '../components/components.module';
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
 	declarations: [
 		LoginComponent,
@@ -16,9 +16,10 @@ import { RegisterComponent } from '../pages/register/register.component';
 		RegisterComponent,
 	],
 	imports: [
-		// ComponentsModule,
+		ComponentsModule,
 		CommonModule,
 		RouterModule.forChild(AuthenticationRoutingModule),
+		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
 	]
 })
 export class AuthenticationModule { }

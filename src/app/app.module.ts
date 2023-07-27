@@ -1,11 +1,10 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { BrowserModule } from '@angular/platform-browser'
-
 import { ComponentsModule } from './components/components.module'
 import { AppComponent } from './app.component'
 import { AuthenticationComponent } from './authentication/authentication.component'
-
+import { AgmCoreModule } from '@agm/core';
 const routes = [
 	{
 		path: '',
@@ -67,7 +66,10 @@ const routes = [
 	declarations: [
 		AppComponent,
 		AuthenticationComponent],
-	imports: [BrowserModule, RouterModule.forRoot(routes), ComponentsModule],
+	imports: [
+		BrowserModule, RouterModule.forRoot(routes), ComponentsModule,
+		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
+	],
 	providers: [],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],

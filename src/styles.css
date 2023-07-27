@@ -8,9 +8,11 @@
 	--dl-color-danger-500: #BF2626;
 	--dl-color-danger-700: #E14747;
 	--dl-color-gray-black: #000000;
+	--dl-color-gray-dark: #A7A7A7;
 	--dl-color-gray-white: #FFFFFF;
 	--dl-color-grey-white: #FAFAFAF7;
 	--dl-color-grey-black: #1C1A17;
+	--dl-color-grey-dark: #8E8D91;
 	--dl-size-size-medium: 96px;
 	--dl-size-size-xlarge: 192px;
 	--dl-size-size-xsmall: 16px;
@@ -133,7 +135,7 @@
 	width: 100%;
 }
 .j-inputbox-label{
-	color:#8E8D91;
+	color:var(--dl-color-grey-dark);
 	text-align: right;
 	font-size:12px;
 	margin-bottom: 5px;
@@ -142,11 +144,24 @@
 	background:var(--dl-color-grey-black);
 	text-align: right;
 	height: 44px;
-    min-width: 350px;
+    /* min-width: 350px; */
+	width:100%;
 	font-size: 14px;
 	color: white;
 	border:1px #FFFFFF14 solid;
+	padding: 2px 8px;
+}
+.j-input-icons .j-inputbox{
 	padding-right : var(--dl-space-space-threeunits);
+	padding-left: 8px;
+}
+.j-input-icons.j-input-icon-left .j-inputbox{
+	padding-right: 8px;
+	padding-left : var(--dl-space-space-threeunits);
+}
+.j-input-icons.j-input-icon-both .j-inputbox{
+	padding-left : var(--dl-space-space-threeunits);
+	padding-left : var(--dl-space-space-threeunits);
 }
 .j-form-group .j-submit-button{
 	width: 100%;
@@ -158,12 +173,26 @@
     position: relative;
 }
 .j-form-group .j-input-icons i.j-icon{
-    position: absolute;
-	right: 0;
-    top: 0;   
+	position: absolute;
+	top: 0;   
 	width: 44px;
-    height: 100%;
-    color: gray;
+	height: 100%;
+	color: gray;
+}
+.j-form-group .j-input-icons i.j-icon.j-clickable:hover{
+	background-color: var(--dl-color-primary-3days);
+	cursor: pointer;
+}
+.j-form-group .j-input-icons i.j-icon.j-icon-right{
+	right: 0;
+}
+.j-form-group .j-input-icons i.j-icon.j-icon-left{
+	left: 0;
+}
+.j-form-group .j-input-icons i.bi.j-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .j-icon.j-icon-automark{
     background: url(/assets/img/automark.svg) no-repeat;
@@ -180,3 +209,22 @@
     background-position: center;
 }
   
+.j-icon.j-icon-person{
+    background: url(/assets/img/person.svg) no-repeat;
+    background-position: center;
+}
+  
+.j-icon.j-icon-idcard{
+    background: url(/assets/img/idcard.svg) no-repeat;
+    background-position: center;
+}
+  
+.j-icon.j-icon-calendar{
+    background: url(/assets/img/calendar.svg) no-repeat;
+    background-position: center;
+}
+  
+.j-icon.j-icon-visacard{
+    background: url(/assets/img/visacard.svg) no-repeat;
+    background-position: center;
+}
