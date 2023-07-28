@@ -5,6 +5,10 @@ import { ComponentsModule } from './components/components.module'
 import { AppComponent } from './app.component'
 import { AuthenticationComponent } from './authentication/authentication.component'
 import { AgmCoreModule } from '@agm/core';
+import { ClassDetail } from './pages/class-detail/class-detail.component';
+import { PrivacyPolicy } from './pages/privacy-policy/privacy-policy.component';
+import { TermsConditons } from './pages/terms-conditions/terms-conditions.component';
+import { Checkout } from './pages/checkout/checkout.component';
 const routes = [
 	{
 		path: '',
@@ -57,6 +61,34 @@ const routes = [
 			import('./pages/bookings/bookings.module').then((m) => m.BookingsModule),
 	},
 	{
+		path: 'class-detail',
+		component: ClassDetail,
+		data: {
+			title: 'Class Detail'
+		}
+	},
+	{
+		path: 'privacy-policy',
+		component: PrivacyPolicy,
+		data: {
+			title: 'Privacy Policy'
+		}
+	},
+	{
+		path: 'terms-conditions',
+		component: TermsConditons,
+		data: {
+			title: 'Terms Conditions'
+		}
+	},
+	{
+		path: 'checkout',
+		component: Checkout,
+		data: {
+			title: 'Checkout'
+		}
+	},
+	{
 		path: '**',
 		redirectTo: '/'
 	}
@@ -65,7 +97,12 @@ const routes = [
 @NgModule({
 	declarations: [
 		AppComponent,
-		AuthenticationComponent],
+		AuthenticationComponent,
+		ClassDetail,
+		PrivacyPolicy,
+		TermsConditons,
+		Checkout,
+	],
 	imports: [
 		BrowserModule, RouterModule.forRoot(routes), ComponentsModule,
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),

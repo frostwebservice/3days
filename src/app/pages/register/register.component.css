@@ -41,7 +41,7 @@
     margin-top:37px;
     font-weight: bolder;
     font-size: 20px;
-    color: #121212;
+    color: var(--dl-color-black-dark);
 }
 .j-auth-section .j-complete-button{
     min-width: 300px;
@@ -55,7 +55,7 @@
     align-items: center;
     font-weight: bolder;
     font-size: 20px;
-    color: #121212;
+    color: var(--dl-color-black-dark);
 }
 
 .j-auth-section .j-signup-process{
@@ -106,7 +106,7 @@
 }
 .j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-next-btn{
     background: var(--dl-color-primary-3days);
-    color: #121212;
+    color: var(--dl-color-black-dark);
     margin-right:8px;
 }
 .j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-prev-btn{
@@ -270,11 +270,13 @@
     opacity: 0.3;
     background-color: var(--dl-color-gray-black);
 }
-.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .j-club-detail-btn{
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .j-club-detail-btn .btn{
     color: var(--dl-color-gray-dark);
 }
-.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .j-club-review-btn{
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .j-club-review-btn .btn{
     color: var(--dl-color-primary-3days);
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .j-club-review-btn{
     margin-left: 8px;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap .armmap{

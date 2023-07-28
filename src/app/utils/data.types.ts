@@ -23,6 +23,10 @@ export interface PersonalTrainingItem {
 	description: string;
 	currency: string;
 }
+export interface Member {
+	id: number;
+	name: string;
+}
 export interface TabOption {
 	label: string;
 	value: string;

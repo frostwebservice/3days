@@ -1,0 +1,40 @@
+.payment-form{
+    width: 100%;
+}
+.payment-form .promo-code-field .j-inner-wrap{
+    background-image: radial-gradient(circle 900px at center -425px,rgb(253, 186, 99) 1.6%,rgb(253, 186, 99) 1.9%,rgb(253, 186, 99) 5.8%,rgb(253, 186, 99) 28.7%,rgb(0, 0, 0) 64.7%) !important;
+}
+.payment-form .promo-code-field .j-active-wrap{
+    display: flex;
+    align-items:center;
+    left: 5px !important;
+}
+.payment-form .promo-code-field .j-active-wrap .j-active-btn{
+    background-color: var(--dl-color-primary-3days);
+    padding: 6px 16px;
+}
+.payment-form .promo-code-field .j-active-btn{
+    background-color: var(--dl-color-primary-3days);
+    padding: 6px 16px;
+}
+.payment-form .promo-code-field .j-form-group input#promoCode{
+    padding-left: 84px;
+}
+.payment-form .payment-result-field{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.payment-form .payment-result-field .price-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    text-align: right;
+}
+.payment-form .payment-result-field .price-item .p-value{
+    display: flex;
+}
+.payment-form .payment-result-field .price-item .p-value span{
+    margin-right: 8px;
+}

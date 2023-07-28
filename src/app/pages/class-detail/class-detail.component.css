@@ -1,0 +1,74 @@
+.class-detail-container{
+    align-items: flex-end;
+    text-align: right;
+    padding-top: 0 !important;
+}
+.class-detail-container .j-class-photo {
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    border-bottom: #484848 solid 1px;
+    width: 100%;
+}
+.class-detail-container .j-class-photo img{
+    height: 320px;
+    width: auto;
+}
+.class-detail-container .j-class-subject{
+    border-bottom: 1px solid var(--dl-color-grey-dark);
+    width:100%;
+}
+
+.class-detail-container .j-class-detail-item,
+.class-detail-container .j-apt-day-item,
+.class-detail-container .j-apt-time-item{
+    padding-left: var(--dl-space-space-halfunit);
+}
+.class-detail-container  .j-class-apt-time-list,
+.class-detail-container  .j-class-apt-date-list{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.class-detail-container .j-inner-wrap{
+    padding: var(--dl-space-space-halfunit);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.class-detail-container .j-inner-wrap .j-item-title{
+    padding: 0px var(--dl-space-space-halfunit);
+}
+.class-detail-container .j-item-img{
+    width: 36px;
+    height: 36px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.class-detail-container .j-item-img.j-type-img{
+    background-size: cover;
+    background-color:white;
+}
+.class-detail-container .j-item-img.j-type-icon{
+    background-size: 50% 50%;
+}
+.j-class-appointments .j-list{
+    flex-wrap: wrap;
+}
+.j-class-appointments .j-list .j-item{
+    min-width: 140px;
+    margin-top: var(--dl-space-space-halfunit);
+}
+.class-detail-container .j-class-reserve{
+    max-width: 360px;
+    width: 100%;
+}
+@media(max-width: 767px) {
+    .class-detail-container .j-class-photo img{
+        height: 240px;
+    }
+    .class-detail-container .j-item-img{
+        width: 32px;
+        height: 32px;
+    }
+}

@@ -1,0 +1,31 @@
+.privacy-policy-container{
+    align-items: flex-end;
+    text-align: right;
+}
+.privacy-policy-container .page-title{
+    width: 100%;
+    text-align: center;
+}
+.privacy-policy-container .j-phrase{
+    color: white;
+    align-items: flex-end;
+    text-align: right;
+    margin-top: var(--dl-space-space-oneunit);
+}
+.privacy-policy-container .j-phrase .j-phrase-title{
+    color: white;
+    font-size: 17px;
+}
+.privacy-policy-container .j-phrase .j-phrase-desc{
+    color: white;
+    font-size: 15px;
+    opacity: 0.87;
+}
+@media(max-width: 767px) {
+    .privacy-policy-container .j-phrase .j-phrase-title{
+        font-size: 14px;
+    }
+    .privacy-policy-container .j-phrase .j-phrase-desc{
+        font-size: 12px;
+    }
+}

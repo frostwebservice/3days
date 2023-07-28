@@ -1,0 +1,88 @@
+<div class="checkout-container page-container j-front-page">
+    <div class="page-title mb-5 mt-5">
+        <h3 class="j-title-size gwTColor">الدفع</h3>
+    </div>
+    <form class="payment-form">
+        <div class="row">
+            <div class="col-md-6 col-12 payment-input-field">
+                <div class="j-form-group">
+                    <label for="member" class="j-inputbox-label">Member</label>
+                    <div class="j-input-icons j-input-icon-right">
+                        <i class="j-icon j-icon-right j-clickable j-icon-person"></i>
+                        <select class="j-inputbox" id="member" name = "member">
+                            <option *ngFor="let member of members" value="{{member.id}}">
+                                {{member.name}}
+                            </option>
+                        </select>
+                        <!-- <input type="text" class="j-inputbox" id="member" name = "member" placeholder="Member"> -->
+                    </div>
+                </div>
+                <div class="j-form-group">
+                    <label for="product" class="j-inputbox-label">Product</label>
+                    <div class="j-input-icons j-input-icon-right">
+                        <i class="j-icon j-icon-right j-icon-product"></i>
+                        <input type="text" class="j-inputbox" id="product" name = "product" placeholder="Product">
+                    </div>
+                </div>
+                <div class="j-form-group">
+                    <label for="sub_date" class="j-inputbox-label">Subscription Start Date</label>
+                    <div class="j-input-icons j-input-icon-right">
+                        <i class="j-icon j-icon-right j-clickable j-icon-calendar"></i>
+                        <input type="text" class="j-inputbox" id="sub_date" name = "sub_date" placeholder="Subscription Start Date">
+                    </div>
+                </div>
+                <div class="j-form-group promo-code-field mt-5">
+                    <app-polygon-border-div class="" specify = "1" bgColor ="" borderColor="#c09043" [cornerStatus] = "[1,1,1,1]" cutRange = "15" weight="2" j-class = ''>
+                        <div class="j-inner-wrap p-3">
+                            <p class="text-center _3dayColor">رمز ترويجي</p>
+                            <app-polygon-border-div j-class = 'j-left'>
+                                <div class="j-form-group">
+                                    <div class="j-input-icons j-input-icon-left">
+                                        <i class="j-icon j-icon-left j-active-wrap">                                    
+                                            <app-polygon-border-div j-class = 'j-left j-icon' class="bdTColor">
+                                                <div class="j-active-btn">تفعيل</div>
+                                            </app-polygon-border-div>
+                                        </i>
+                                        <input type="text" class="j-inputbox" id="promoCode" name = "promoCode" placeholder="3DAYJOIN">
+                                    </div>
+                                </div>
+                            </app-polygon-border-div>
+                        </div>
+                    </app-polygon-border-div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 payment-result-field mt-4">
+                <app-polygon-border-div specify = "1" [cornerStatus] = "[1,1,1,1]" cutRange = "15" weight="2">
+                    <div class="j-inner-wrap p-4">
+                        <div class="price-item">
+                            <p class="gwTColor p-desc">قيمة الاشتراك</p>
+                            <p class="gdTColor p-value"><span>ر.س</span><span> 1200</span></p>
+                        </div>
+                        <div class="price-item">
+                            <p class="gwTColor p-desc">خصم</p>
+                            <p class="gdTColor p-value"><span>ر.س</span><span> 0</span></p>
+                        </div>
+                        <div class="price-item">
+                            <p class="gwTColor p-desc">السعر بعد الخصم</p>
+                            <p class="gdTColor p-value"><span>ر.س</span><span> 1200</span></p>
+                        </div>
+                        <div class="price-item">
+                            <p class="gwTColor p-desc">الضريبة 15%</p>
+                            <p class="gdTColor p-value"><span>ر.س</span><span> 180</span></p>
+                        </div>
+                        <div class="price-item">
+                            <p class="gwTColor p-desc">الإجمالي</p>
+                            <p class="gdTColor p-value"><span>ر.س</span><span> 1380</span></p>
+                        </div>
+                    </div>
+                </app-polygon-border-div>
+
+                <div class="j-checkout-pay mt-4">
+                    <div class="j-form-group">
+                        <button type="button" class="j-left-button button j-submit-button"><span>دفع</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

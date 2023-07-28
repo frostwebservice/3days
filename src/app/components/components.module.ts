@@ -16,7 +16,8 @@ import { TestimonialCard2 } from './testimonial-card2/testimonial-card2.componen
 import { HeaderComponent } from './header/header.component'
 import { FooterComponent } from './footer/footer.component';
 import { PageTabComponent } from './page-tab/page-tab.component';
-import { PolygonBorderDiv } from './polygon-border-div/polygon-border-div.component'
+import { PolygonBorderDiv } from './polygon-border-div/polygon-border-div.component';
+import { ClubBranchItemsComponent } from './club-branch-items/club-branch-items.component'
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PolygonBorderDiv } from './polygon-border-div/polygon-border-div.compon
     FooterComponent,
     PageTabComponent,
     PolygonBorderDiv,
+    ClubBranchItemsComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
