@@ -242,8 +242,8 @@
     margin-top:var(--dl-space-space-oneandhalfunits);
 }
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card{
-    background-color:var(--dl-color-grey-black);
-    clip-path: polygon(0% 0%,calc(100% - 15px) 0%, 100% 15px,100% 100%,15px 100%, 0% calc(100% - 15px));
+    /* background-color:var(--dl-color-grey-black);
+    clip-path: polygon(0% 0%,calc(100% - 15px) 0%, 100% 15px,100% 100%,15px 100%, 0% calc(100% - 15px)); */
     padding: 14px 16px;
     display: flex;
     flex-direction: column;

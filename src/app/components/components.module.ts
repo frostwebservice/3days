@@ -15,7 +15,8 @@ import { NavigationLinks1 } from './navigation-links1/navigation-links1.componen
 import { TestimonialCard2 } from './testimonial-card2/testimonial-card2.component';
 import { HeaderComponent } from './header/header.component'
 import { FooterComponent } from './footer/footer.component';
-import { PageTabComponent } from './page-tab/page-tab.component'
+import { PageTabComponent } from './page-tab/page-tab.component';
+import { PolygonBorderDiv } from './polygon-border-div/polygon-border-div.component'
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PageTabComponent } from './page-tab/page-tab.component'
     HeaderComponent,
     FooterComponent,
     PageTabComponent,
+    PolygonBorderDiv,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -50,6 +52,7 @@ import { PageTabComponent } from './page-tab/page-tab.component'
     HeaderComponent,
     FooterComponent,
     PageTabComponent,
+    PolygonBorderDiv,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

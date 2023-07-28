@@ -1,0 +1,18 @@
+<ng-container *ngIf="specify == '1'; else matTemplate">
+    <div class="pbd-parent j-special" style="--a0:{{pStr[0]}};--a1:{{pStr[1]}};--a2:{{pStr[2]}};--a3:{{pStr[3]}};--bgColor:{{borderColor}};">
+        <div class="pbd-child" style="--a0:{{cStr[0]}};--a1:{{cStr[1]}};--a2:{{cStr[2]}};--a3:{{cStr[3]}};--bgColor:{{bgColor}};--h0:{{hStr[0]}};--h1:{{hStr[1]}};--h2:{{hStr[2]}};--h3:{{hStr[3]}};">
+            <ng-container *ngTemplateOutlet="content"></ng-container>
+        </div>
+    </div>
+</ng-container>
+<ng-template #matTemplate>
+    <div class="pbd-parent j-normal {{j_class}}">
+        <div class="pbd-child">
+            <ng-container *ngTemplateOutlet="content"></ng-container>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #content>
+	<ng-content></ng-content>
+</ng-template>

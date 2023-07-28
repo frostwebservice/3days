@@ -61,7 +61,7 @@
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('gender')">التالي</a>
-							<a class="btn j-prev-btn j-right-button" (click)="prevTab('gender')">سابق</a>
+							<app-polygon-border-div specify="1" bgColor ="var(--dl-color-grey-black)" borderColor="var(--dl-color-grey-white)" [cornerStatus] = "[1,0,1,0]" cutRange = "15" weight="1"><a class="btn j-prev-btn j-right-button" (click)="prevTab('gender')">سابق</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'site'">
@@ -107,14 +107,16 @@
 										</div>
 									</div>
 									<div class="j-club-list-panel">
-										<div class="club-card" *ngFor="let club of clubs;let i = index">
-											<p class="club_name">{{club.name}}</p>
-											<p class="club_address">{{club.address}}</p>
-											<div class="club-button-group">
-												<a class="btn j-left-button j-club-detail-btn">تفاصيل النادي</a>
-												<a class="btn j-right-button j-club-review-btn">مراجعة العضوية</a>
+										<app-polygon-border-div *ngFor="let club of clubs;let i = index" >
+											<div class="club-card" >
+												<p class="club_name">{{club.name}}</p>
+												<p class="club_address">{{club.address}}</p>
+												<div class="club-button-group">
+													<a class="btn j-left-button j-club-detail-btn">تفاصيل النادي</a>
+													<a class="btn j-right-button j-club-review-btn">مراجعة العضوية</a>
+												</div>
 											</div>
-										</div>
+										</app-polygon-border-div>
 									</div>
 								</div>
 							</div>
