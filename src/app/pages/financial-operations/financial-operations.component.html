@@ -1,0 +1,45 @@
+<div class="financial-operations-container j-front-page page-container">
+    <div class="page-title mb-5 mt-5">
+        <h3 class="j-title-size text-white">العمليات المالية</h3>
+    </div>
+    <div class="j-invoice-list row">
+        <div class="j-invoice-item col-md-6 col-12" *ngFor="let invoice of invoice_list;let i = index">
+            <div class="invoice-card mt-3">
+                <div class="invoice-time text-white text-center mb-3">
+                    {{invoice.created_at}}
+                </div>
+                <app-polygon-border-div specify = "1" [cornerStatus] = "[1,1,1,1]">
+                    <div class="invoice-card-inner-wrap">
+                        <div class="j-status-bar">
+                            <app-polygon-border-div j-class="j-right j-icon">
+                                <div class="j-status-btn" [ngClass] = "{'paid':invoice.status == 'paid','unpaid':invoice.status == 'unpaid','pending':invoice.status=='pending' }">{{invoice.status == 'paid' ? 'paid' : invoice.status == 'unpaid' ? 'unpaid' : invoice.status=='pending' ? 'pending' : ''}}</div>
+                            </app-polygon-border-div>
+                            <span class="j-tnSize gwTColor">#{{invoice.id}}</span>
+                            <app-polygon-border-div j-class="j-left j-icon">
+                                <div class="j-method-btn">{{invoice.method}}</div>
+                            </app-polygon-border-div>
+                        </div>
+                        <div class="j-info-bar">
+                            <div class="j-info gwTColor">
+                                <p class="j-info-label">الإجمالي</p>
+                                <p class="j-info-value">{{invoice.total_price}}</p>
+                            </div>
+                            <div class="j-info gwTColor">
+                                <p class="j-info-label">الضريبة</p>
+                                <p class="j-info-value">{{invoice.tax}}</p>
+                            </div>
+                            <div class="j-info gwTColor">
+                                <p class="j-info-label">الخصم</p>
+                                <p class="j-info-value">{{invoice.discount}}</p>
+                            </div>
+                            <div class="j-info gwTColor">
+                                <p class="j-info-label">الصنف</p>
+                                <p class="j-info-value">{{invoice.item}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </app-polygon-border-div>
+            </div>
+        </div>
+    </div>
+</div>

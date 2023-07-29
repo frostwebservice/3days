@@ -1,0 +1,13 @@
+.suspend-subscription .j-inner-wrap{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+.suspend-subscription .j-item-img{
+    width: 48px;
+    height:48px;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+

@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="j-club-list-panel">
-                    <app-club-branch-items [selectItem]='selectedClub' (loadClub) = "loadClub($event)" *ngFor="let club of clubs;let i = index"></app-club-branch-items>
+                    <app-club-branch-items [selectItem]="selectedClub" [club]="club" (loadClub) = "loadClub($event)" *ngFor="let club of clubs;let i = index"></app-club-branch-items>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
             <ng-container *ngIf="cOption; else clubTemplate">
                 <div class="j-club-detail p-3 p-md-4">
                     <h4 class="j-subtitle-size gdTColor mb-5">تفاصيل النادي</h4>
-                    <h3 class="j-club-name j-smalltitle-size mb-5 text-white">Pulse & Power Gym</h3>
+                    <h3 class="j-club-name j-smalltitle-size mb-5 text-white">{{selectedClub.name}}</h3>
                     <div class="j-club-info row">
                         <div class="col-6 j-item">
                             <app-polygon-border-div j-class = 'j-left j-icon'>
@@ -28,7 +28,7 @@
                             </app-polygon-border-div>
                             <div class="j-item-desc">
                                 <span class="j-label">نوع الفرع</span>
-                                <span class="j-value">رجال</span>
+                                <span class="j-value">{{selectedClub.type}}</span>
                             </div>
                         </div>
                         <div class="col-6 j-item">
@@ -37,7 +37,7 @@
                             </app-polygon-border-div>
                             <div class="j-item-desc">
                                 <span class="j-label">السعة الاستيعابية</span>
-                                <span class="j-value">100منتسب</span>
+                                <span class="j-value">{{selectedClub.capacity}}منتسب</span>
                             </div>
                         </div>
                         <div class="col-6 j-item">
@@ -46,7 +46,7 @@
                             </app-polygon-border-div>
                             <div class="j-item-desc">
                                 <span class="j-label">الفرع</span>
-                                <span class="j-value">الفرع الرئيسي</span>
+                                <span class="j-value">{{selectedClub.branch}}</span>
                             </div>
                         </div>
                         <div class="col-6 j-item">
@@ -55,17 +55,17 @@
                             </app-polygon-border-div>
                             <div class="j-item-desc">
                                 <span class="j-label">تاريخ الاطلاق</span>
-                                <span class="j-value">2023-05-01</span>
+                                <span class="j-value">{{selectedClub.launch_date}}</span>
                             </div>
                         </div>
                     </div>
                     <div class="j-club-address pt-4 pb-2">
                         <h5 class="gdTColor">عنوان النادي</h5>
-                        <p class="text-white">شارع موسى بن نصير، العليا، الرياض 12241، المملكة العربية السعودية</p>
+                        <p class="text-white">{{selectedClub.address}}</p>
                     </div>
                     <div class="j-club-email pt-4 pb-2 mb-4">
                         <h5 class="gdTColor">الايميل</h5>
-                        <p class="text-white">pulsepowergym@hotmail.com</p>
+                        <p class="text-white">{{selectedClub.email}}</p>
                     </div>
                     <app-polygon-border-div specify = "1" [cornerStatus] = "[0,1,0,1]" borderColor="var(--dl-color-primary-3days)">
                         <div class="j-contact-btn-wrap">
@@ -78,12 +78,14 @@
             <ng-template #clubTemplate>
                 <div class="j-club-review p-3 p-md-4">
                     <h4 class="j-subtitle-size gdTColor mb-5">تقييم الحصة</h4>
-                    <h3 class="j-club-name j-smalltitle-size mb-4 text-white">Pulse & Power Gym</h3>
+                    <h3 class="j-club-name j-smalltitle-size mb-4 text-white">{{selectedClub.name}}</h3>
                     <h4 class="j-smallSubtitle-size mb-5 gdTColor">ما هو تقييمك للحصة؟</h4>
                     <div class="j-club-review-box-list">
-                        <app-polygon-border-div j-class="j-left" *ngFor="let number of [0,1,2,3,4]">
-                            <div class="j-star"></div>
-                        </app-polygon-border-div>
+                        <div (click) = "review(number)" *ngFor="let number of [1,2,3,4,5]">
+                            <app-polygon-border-div j-class="j-left" class="j-review-item" [ngClass]="{'active': number<=reviewStar}">
+                                <div class="j-star"></div>
+                            </app-polygon-border-div>
+                        </div>
                     </div>
                     <div class="j-comment-wrap mt-4">
                         <h5 class="j-tsSize gdTcolor mb-2">هل لديك أي تعليقات؟ اكتبها في الأسفل</h5>

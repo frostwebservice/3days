@@ -42,6 +42,13 @@
 	--dl-space-space-oneunit: 16px;
 	--dl-space-space-halfunit: 8px;
 }
+.dropdown-right-arrow {
+	background-image: url(/assets/img/downarrow.svg) !important;
+    background-repeat: no-repeat !important;
+    background-position: left 1rem center !important;
+    background-size: 1em !important;
+	appearance: none !important;
+}
 .button {
 	color: var(--dl-color-gray-black);
 	display: inline-block;
@@ -236,7 +243,14 @@
     font-size: 14px;
 }
 
-
+.j-front-page.modal-container{
+	width: 100%;
+	max-width: 480px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--dl-color-gray-black);
+}
 @media(max-width: 767px) {
 	.j-front-page{
 		padding: var(--dl-space-space-oneunit);
@@ -313,5 +327,25 @@
 }
 .j-icon.j-icon-product{
     background: url(/assets/img/product.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-marker{
+    background: url(/assets/img/marker.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-cash{
+    background: url(/assets/img/cash.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-person-cross{
+    background: url(/assets/img/person-cross.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-branch{
+    background: url(/assets/img/branch.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-twoperson{
+    background: url(/assets/img/twoperson.svg) no-repeat;
     background-position: center;
 }

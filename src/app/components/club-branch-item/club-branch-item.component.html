@@ -1,4 +1,4 @@
-<app-polygon-border-div j-class = 'j-left' class="j-club-branch-item"  ngClass= "{'selected':selected}">
+<app-polygon-border-div j-class = 'j-left' class="j-club-branch-item" [ngClass]="{'selected': selected}">
     <div class="club-card">
         <p class="club_name">{{club.name}}</p>
         <p class="club_address">{{club.address}}</p>

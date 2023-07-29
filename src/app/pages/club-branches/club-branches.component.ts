@@ -18,7 +18,7 @@ export class ClubBranches implements OnInit {
         // { name: '_Sculpt & Sprint Fitness Haven', address: 'الخالدية، المدينة المنورة 42317، المملكة العربية السعودية' },
     ];
     selectedClub : Club = this.clubs[0];
-
+    reviewStar: number = 0;
     loadClub(data):void{
         let club = data.club;
         let rd = data.rd;
@@ -28,6 +28,10 @@ export class ClubBranches implements OnInit {
         }else{ // open club review
             this.cOption = false;
         }
+        this.reviewStar = 0;
+    }
+    review(num:number){
+        this.reviewStar = num;
     }
     constructor() { }
 

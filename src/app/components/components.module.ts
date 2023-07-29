@@ -18,6 +18,11 @@ import { FooterComponent } from './footer/footer.component'
 import { PageTabComponent } from './page-tab/page-tab.component'
 import { PolygonBorderDiv } from './polygon-border-div/polygon-border-div.component'
 import { ClubBranchItem } from './club-branch-item/club-branch-item.component';
+import { AttendanceQrcodeComponent } from './attendance-qrcode/attendance-qrcode.component';
+import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
+import { BranchSelectionComponent } from './branch-selection/branch-selection.component';
+import { SuspendSubscriptionComponent } from './suspend-subscription/suspend-subscription.component';
+import { ReferralCodeComponent } from './referral-code/referral-code.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,11 @@ import { ClubBranchItem } from './club-branch-item/club-branch-item.component';
     PageTabComponent,
     PolygonBorderDiv,
     ClubBranchItem,
+    AttendanceQrcodeComponent,
+    CancelSubscriptionComponent,
+    BranchSelectionComponent,
+    SuspendSubscriptionComponent,
+    ReferralCodeComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -56,6 +66,11 @@ import { ClubBranchItem } from './club-branch-item/club-branch-item.component';
     PageTabComponent,
     PolygonBorderDiv,
     ClubBranchItem,
+    AttendanceQrcodeComponent,
+    CancelSubscriptionComponent,
+    BranchSelectionComponent,
+    SuspendSubscriptionComponent,
+    ReferralCodeComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

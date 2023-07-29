@@ -1,0 +1,29 @@
+<div class="branch-selection modal-container j-front-page">
+    <div class="j-inner-wrap">
+        <h4 class="j-tinySubtitle-size gdTColor mb-4 mt-4">اختيار الفرع</h4>
+        <div class="d-flex flex-row-reverse">
+            <app-polygon-border-div j-class="j-left">
+                <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/marker.svg);"></div>
+            </app-polygon-border-div>
+        </div>
+        <h3 class="j-smalltitle-size mb-4 mt-4 text-white">اختر فرع النادي</h3>
+        <!-- <p class="j-tnSize gdTColor">اختر الفرع الي تود التدرب فيه</p> -->
+        <div class="j-form-group">
+            <label for="branch" class="j-inputbox-label">اختر الفرع الي تود التدرب فيه</label>
+            <div class="j-input-icons j-input-icon-right">
+                <i class="j-icon j-icon-right j-clickable j-icon-person"></i>
+                <select class="j-inputbox dropdown-right-arrow" id="branch" name = "branch">
+                    <option>اختر الفرع من القائمة</option>
+                    <option *ngFor="let branch of branches" value="{{branch.id}}">
+                        {{branch.name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="j-select mt-4">
+            <div class="j-form-group">
+                <button type="button" class="j-left-button button j-submit-button"><span>حفظ التغييرات</span></button>
+            </div>
+        </div>
+    </div>
+</div>

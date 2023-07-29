@@ -24,7 +24,6 @@ export class ClubBranchItem implements OnInit {
 		}else{
 			this.selected = false;
 		}
-		this.club = club;
 	}
 	@Output() loadClub = new EventEmitter();
 
@@ -39,5 +38,6 @@ export class ClubBranchItem implements OnInit {
     }
 	constructor() { }
     ngOnInit(): void {
+		this.selected = false;
     }
 }

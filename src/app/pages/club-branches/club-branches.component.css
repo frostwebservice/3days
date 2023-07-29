@@ -55,7 +55,7 @@
     display: flex;
 }
 .club-branches-container .j-club-detail .j-contact-btn{ 
-    padding: 12px;
+    padding: 18px 12px;
     font-size: 14px;
 }
 /* ---------------------review---------------------- */
@@ -72,10 +72,22 @@
     width : 56px;
     height: 56px;
 }
+.club-branches-container .j-club-review .j-club-review-box-list .j-review-item.active .j-star{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50% 50%;
+    background-image: url(/assets/img/star.svg);
+}
 .club-branches-container .j-club-review .j-comment-box{
     height: 160px;
     padding :8px;
 }
 .club-branches-container .j-club-review .j-approval{
     width: 100%;
+}
+@media(max-width: 375px) {
+    .club-branches-container .j-club-review .j-club-review-box-list .j-star{
+        width : 42px;
+        height: 42px;
+    }
 }

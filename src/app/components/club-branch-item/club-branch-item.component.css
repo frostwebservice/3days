@@ -39,3 +39,10 @@
 .j-club-branch-item .club-card .club-button-group .j-club-review-btn{
     margin-left: 8px;
 }
+@media(max-width: 375px) {
+    .j-club-branch-item .club-card .club-button-group .j-club-review-btn .btn,
+    .j-club-branch-item .club-card .club-button-group .j-club-detail-btn .btn{
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
