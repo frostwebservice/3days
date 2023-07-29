@@ -1,0 +1,31 @@
+.terms-conditions-container{
+    align-items: flex-end;
+    text-align: right;
+}
+.terms-conditions-container .page-title{
+    width: 100%;
+    text-align: center;
+}
+.terms-conditions-container .j-phrase{
+    color: white;
+    align-items: flex-end;
+    text-align: right;
+    margin-top: var(--dl-space-space-oneunit);
+}
+.terms-conditions-container .j-phrase .j-phrase-title{
+    color: white;
+    font-size: 17px;
+}
+.terms-conditions-container .j-phrase .j-phrase-desc{
+    color: white;
+    font-size: 15px;
+    opacity: 0.87;
+}
+@media(max-width: 767px) {
+    .terms-conditions-container .j-phrase .j-phrase-title{
+        font-size: 14px;
+    }
+    .terms-conditions-container .j-phrase .j-phrase-desc{
+        font-size: 12px;
+    }
+}

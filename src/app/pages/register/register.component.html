@@ -61,7 +61,7 @@
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('gender')">التالي</a>
-							<a class="btn j-prev-btn j-right-button" (click)="prevTab('gender')">سابق</a>
+							<app-polygon-border-div j-class = 'j-left'><a class="btn j-prev-btn" (click)="prevTab('gender')">سابق</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'site'">
@@ -107,14 +107,7 @@
 										</div>
 									</div>
 									<div class="j-club-list-panel">
-										<div class="club-card" *ngFor="let club of clubs;let i = index">
-											<p class="club_name">{{club.name}}</p>
-											<p class="club_address">{{club.address}}</p>
-											<div class="club-button-group">
-												<a class="btn j-left-button j-club-detail-btn">تفاصيل النادي</a>
-												<a class="btn j-right-button j-club-review-btn">مراجعة العضوية</a>
-											</div>
-										</div>
+										<app-club-branch-items [club]='club' *ngFor="let club of clubs;let i = index"></app-club-branch-items>
 									</div>
 								</div>
 							</div>
@@ -132,27 +125,31 @@
 								<div class="j-personal-trainings-wrap pb-md-0 pb-2">
 									<div class="j-personalTrainings-list-panel j-product-list-panel">
 										<h4 class="j-page-text mb-2">التدريب الشخصي</h4>
-										<div class="personalTrainings-card j-product-card" *ngFor="let personalTraining of personalTrainings;let i = index">
-											<p class="product_share">{{personalTraining.shares}}</p>
-											<p class="product_price">{{personalTraining._per }} / <b>{{personalTraining.currency}} {{personalTraining.price}}</b></p>
-											<p class="product_description">{{personalTraining.description}}</p>
-											<label class="option_btn" for="personalTraining{{personalTraining.id}}">
-												<input type="radio" name="personalTraining" id="personalTraining{{personalTraining.id}}" value="{{personalTraining.id}}" class="product_opt">
-											</label>
-										</div>
+										<app-polygon-border-div j-class = 'j-left' *ngFor="let personalTraining of personalTrainings;let i = index">
+											<div class="personalTrainings-card j-product-card">
+												<p class="product_share">{{personalTraining.shares}}</p>
+												<p class="product_price">{{personalTraining._per }} / <b>{{personalTraining.currency}} {{personalTraining.price}}</b></p>
+												<p class="product_description">{{personalTraining.description}}</p>
+												<label class="option_btn" for="personalTraining{{personalTraining.id}}">
+													<input type="radio" name="personalTraining" id="personalTraining{{personalTraining.id}}" value="{{personalTraining.id}}" class="product_opt">
+												</label>
+											</div>
+										</app-polygon-border-div>
 									</div>
 								</div>
 								<div class="j-subscriptions-wrap">
 									<div class="j-subscriptions-list-panel j-product-list-panel">
 										<h4 class="j-page-text mb-2">الاشتراكات</h4>
-										<div class="subscriptions-card j-product-card" *ngFor="let subscription of subscriptions;let i = index">
-											<p class="product_cycle">{{subscription.cycle}}</p>
-											<p class="product_price">{{subscription._per }} / <b>{{subscription.currency}} {{subscription.price}}</b></p>
-											<p class="product_description">{{subscription.description}}</p>
-											<label class="option_btn" for="subscription{{subscription.id}}">
-												<input type="radio" name="subscription" id="subscription{{subscription.id}}" value="{{subscription.id}}" class="product_opt">
-											</label>
-										</div>
+										<app-polygon-border-div j-class = 'j-right' *ngFor="let subscription of subscriptions;let i = index">
+											<div class="subscriptions-card j-product-card" >
+												<p class="product_cycle">{{subscription.cycle}}</p>
+												<p class="product_price">{{subscription._per }} / <b>{{subscription.currency}} {{subscription.price}}</b></p>
+												<p class="product_description">{{subscription.description}}</p>
+												<label class="option_btn" for="subscription{{subscription.id}}">
+													<input type="radio" name="subscription" id="subscription{{subscription.id}}" value="{{subscription.id}}" class="product_opt">
+												</label>
+											</div>
+										</app-polygon-border-div>
 									</div>
 								</div>
 							</div>

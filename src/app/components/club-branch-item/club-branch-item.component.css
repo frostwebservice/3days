@@ -1,0 +1,48 @@
+.j-club-branch-item .club-card{
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+}
+.j-club-branch-item .club-card .club_name{
+    color:var(--dl-color-grey-white);
+    text-align: right;
+    font-size:16px;
+    margin-bottom: 6px;
+}
+.j-club-branch-item.selected .club-card .club_name{
+    color:var(--dl-color-primary-3days) !important;
+}
+.j-club-branch-item .club-card .club_address{
+    color:var(--dl-color-grey-dark);
+    text-align: right;
+    font-size:14px;
+    margin-bottom: 16px;
+}
+.j-club-branch-item .club-card .club-button-group{
+    display: flex;
+    justify-content: right;
+}
+.j-club-branch-item .club-card .club-button-group .btn{
+    border-radius: 0;
+    opacity: 0.3;
+    background-color: var(--dl-color-gray-black);
+}
+.j-club-branch-item .club-card .club-button-group .j-club-detail-btn .btn{
+    color: var(--dl-color-gray-dark);
+    padding : 8px 18px;
+}
+.j-club-branch-item .club-card .club-button-group .j-club-review-btn .btn{
+    color: var(--dl-color-primary-3days);
+    padding : 8px 18px;
+}
+.j-club-branch-item .club-card .club-button-group .j-club-review-btn{
+    margin-left: 8px;
+}
+@media(max-width: 375px) {
+    .j-club-branch-item .club-card .club-button-group .j-club-review-btn .btn,
+    .j-club-branch-item .club-card .club-button-group .j-club-detail-btn .btn{
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}

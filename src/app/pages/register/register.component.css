@@ -41,7 +41,7 @@
     margin-top:37px;
     font-weight: bolder;
     font-size: 20px;
-    color: #121212;
+    color: var(--dl-color-black-dark);
 }
 .j-auth-section .j-complete-button{
     min-width: 300px;
@@ -55,7 +55,7 @@
     align-items: center;
     font-weight: bolder;
     font-size: 20px;
-    color: #121212;
+    color: var(--dl-color-black-dark);
 }
 
 .j-auth-section .j-signup-process{
@@ -106,7 +106,7 @@
 }
 .j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-next-btn{
     background: var(--dl-color-primary-3days);
-    color: #121212;
+    color: var(--dl-color-black-dark);
     margin-right:8px;
 }
 .j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-prev-btn{
@@ -240,42 +240,6 @@
 }
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .j-club-list-panel{
     margin-top:var(--dl-space-space-oneandhalfunits);
-}
-.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card{
-    background-color:var(--dl-color-grey-black);
-    clip-path: polygon(0% 0%,calc(100% - 15px) 0%, 100% 15px,100% 100%,15px 100%, 0% calc(100% - 15px));
-    padding: 14px 16px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-}
-.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club_name{
-    color:var(--dl-color-grey-white);
-    text-align: right;
-    font-size:16px;
-    margin-bottom: 6px;
-}
-.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club_address{
-    color:var(--dl-color-grey-dark);
-    text-align: right;
-    font-size:14px;
-    margin-bottom: 16px;
-}
-.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group{
-    display: flex;
-    justify-content: right;
-}
-.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .btn{
-    border-radius: 0;
-    opacity: 0.3;
-    background-color: var(--dl-color-gray-black);
-}
-.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .j-club-detail-btn{
-    color: var(--dl-color-gray-dark);
-}
-.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .club-card .club-button-group .j-club-review-btn{
-    color: var(--dl-color-primary-3days);
-    margin-left: 8px;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap .armmap{
     width:100%;

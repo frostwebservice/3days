@@ -1,0 +1,78 @@
+.pbd-parent.j-special{
+    background-color: var(--bgColor);
+    clip-path: polygon(var(--a0) ,var(--a1) ,var(--a2) ,var(--a3));
+    transition: 0.3s;
+}
+.pbd-parent.j-special > .pbd-child{
+    background-color: var(--bgColor);
+    clip-path: polygon(var(--a0) ,var(--a1) ,var(--a2) ,var(--a3));
+}
+.pbd-parent.j-special:hover{
+    clip-path:none;
+}
+.pbd-parent.j-special:hover > .pbd-child{
+    clip-path: polygon(var(--h0) ,var(--h1) ,var(--h2) ,var(--h3));
+}
+/* ------------------------------------------------------------ */
+/* .pbd-parent{
+    background-color: var(--bgColor);
+    clip-path: polygon(var(--a0) ,var(--a1) ,var(--a2) ,var(--a3));
+    transition: 0.3s;
+}
+.pbd-parent .pbd-child{
+    background-color: var(--bgColor);
+    clip-path: polygon(var(--a0) ,var(--a1) ,var(--a2) ,var(--a3));
+}
+.pbd-parent:hover{
+    clip-path:none;
+}
+.pbd-parent:hover .pbd-child{
+    clip-path: polygon(var(--h0) ,var(--h1) ,var(--h2) ,var(--h3));
+} */
+/* -------------------------------------------------------------- */
+.j-normal.pbd-parent{
+    background-color: #ffffff35;
+}
+.j-normal.pbd-parent > .pbd-child{
+    background-color: #1C1A17;
+}
+/* -------------------------------------------------------------- */
+.j-normal.j-right.pbd-parent{
+    clip-path :polygon(0% 15px, 15px 0%, 100% 0%, 100% 0px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0px 100%, 0% 100%);
+}
+
+.j-normal.j-right.pbd-parent > .pbd-child{
+    clip-path :polygon(1px 15px, 15px 1px, calc(100% - 1px) 1px, calc(100% - 1px) 1px, calc(100% - 1px) calc(100% - 15px), calc(100% - 15px) calc(100% - 1px), 1px calc(100% - 1px), 1px calc(100% - 1px));
+}
+
+.j-normal.j-left.pbd-parent{
+    clip-path :polygon(0% 0px, 0px 0%, calc(100% - 15px) 0%, 100% 15px, 100% 100%, 100% 100%, 15px 100%, 0% calc(100% - 15px));
+}
+
+.j-normal.j-left.pbd-parent > .pbd-child{
+    clip-path :polygon(1px 1px, 1px 1px, calc(100% - 15px) 1px, calc(100% - 1px) 15px, calc(100% - 1px) calc(100% - 1px), calc(100% - 1px) calc(100% - 1px), 15px calc(100% - 1px), 1px calc(100% - 15px));
+}
+/* ---------------------------------------------------------------- */
+.j-normal.j-icon.j-right.pbd-parent{
+    clip-path :polygon(0% 10px, 10px 0%, 100% 0%, 100% 0px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0px 100%, 0% 100%);
+}
+
+.j-normal.j-icon.j-right.pbd-parent > .pbd-child{
+    clip-path :polygon(1px 10px, 10px 1px, calc(100% - 1px) 1px, calc(100% - 1px) 1px, calc(100% - 1px) calc(100% - 10px), calc(100% - 10px) calc(100% - 1px), 1px calc(100% - 1px), 1px calc(100% - 1px));
+}
+
+.j-normal.j-icon.j-left.pbd-parent{
+    clip-path :polygon(0% 0px, 0px 0%, calc(100% - 10px) 0%, 100% 10px, 100% 100%, 100% 100%, 10px 100%, 0% calc(100% - 10px));
+}
+
+.j-normal.j-icon.j-left.pbd-parent > .pbd-child{
+    clip-path :polygon(1px 1px, 1px 1px, calc(100% - 10px) 1px, calc(100% - 1px) 10px, calc(100% - 1px) calc(100% - 1px), calc(100% - 1px) calc(100% - 1px), 10px calc(100% - 1px), 1px calc(100% - 10px));
+}
+/* ----------------------------------------------------------------- */
+.j-normal.pbd-parent:hover > .pbd-child{
+    clip-path :polygon(1px 1px, 1px 1px, calc(100% - 1px) 1px, calc(100% - 1px) 1px, calc(100% - 1px) calc(100% - 1px), calc(100% - 1px) calc(100% - 1px), 1px calc(100% - 1px), 1px calc(100% - 1px)) !important;
+    cursor: pointer;
+}
+.j-normal.pbd-parent:hover{
+    clip-path :none !important;
+}

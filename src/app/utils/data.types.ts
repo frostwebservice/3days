@@ -23,7 +23,43 @@ export interface PersonalTrainingItem {
 	description: string;
 	currency: string;
 }
-export interface TabOption {
-	label: string;
-	value: string;
+export interface Member {
+	id: number;
+	name: string;
+}
+export interface Club {
+	id: number;
+	name: string;
+	address: string;
+	email: string;
+	launch_date: string;
+	capacity: number;
+	branch:string;
+	type:string;
+}
+export interface Branch {
+	id: number;
+	name: string;
+	address: string;
+	email: string;
+	launch_date: string;
+	capacity: number;
+	branch:string;
+	type:string;
+}
+export interface Notification {
+	id:number;
+	icon_class: string;
+	content: string;
+	launch_time: string;
+}
+export interface Invoice {
+	id:number;
+	total_price: number;
+	tax: number;
+	discount: number;
+	item: string;
+	status: string;
+	method: string;
+	created_at: string;
 }

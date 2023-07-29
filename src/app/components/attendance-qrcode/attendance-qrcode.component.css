@@ -1,0 +1,32 @@
+.attendance-qrcode-container .j-inner-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.attendance-qrcode-container .j-photo-img{
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.attendance-qrcode-container .j-qrcode-wrap{
+    width: 100%;
+    background-image: radial-gradient(circle 1260px at center -327px,rgb(0,0,0) 0%,rgb(0,0,0) 15.1%,rgb(0,0,0) 39.7%,rgb(253,186,99) 48.4%,rgb(255,255,255) 54%,rgb(255,255,255) 65%,rgb(255,255,255) 100%);
+}
+.attendance-qrcode-container .j-qrcode-wrap .j-qr-img{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50% 50%;
+    height: 350px;
+    width: 350px;
+}
+@media(max-width: 767px) {
+    .attendance-qrcode-container .j-qrcode-wrap{
+        background-image: radial-gradient(circle 1100px at center -327px,rgb(0,0,0) 0%,rgb(0,0,0) 15.1%,rgb(0,0,0) 39.7%,rgb(253,186,99) 48.4%,rgb(255,255,255) 54%,rgb(255,255,255) 65%,rgb(255,255,255) 100%);
+    }
+    .attendance-qrcode-container .j-qrcode-wrap .j-qr-img{
+        height: 280px;
+        width: 280px;
+    }
+}
