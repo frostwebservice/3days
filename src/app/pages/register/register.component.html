@@ -107,16 +107,7 @@
 										</div>
 									</div>
 									<div class="j-club-list-panel">
-										<app-polygon-border-div j-class = 'j-left' *ngFor="let club of clubs;let i = index" >
-											<div class="club-card" >
-												<p class="club_name">{{club.name}}</p>
-												<p class="club_address">{{club.address}}</p>
-												<div class="club-button-group">
-													<app-polygon-border-div j-class = 'j-left' class="j-club-detail-btn"><a class="btn">تفاصيل النادي</a></app-polygon-border-div>
-													<app-polygon-border-div j-class = 'j-right' class="j-club-review-btn"><a class="btn">مراجعة العضوية</a></app-polygon-border-div>
-												</div>
-											</div>
-										</app-polygon-border-div>
+										<app-club-branch-items [club]='club' *ngFor="let club of clubs;let i = index"></app-club-branch-items>
 									</div>
 								</div>
 							</div>

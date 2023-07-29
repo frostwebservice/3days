@@ -12,12 +12,12 @@ import { BlogPostCard3 } from './blog-post-card3/blog-post-card3.component'
 import { FeatureCard2 } from './feature-card2/feature-card2.component'
 import { NavigationLinks } from './navigation-links/navigation-links.component'
 import { NavigationLinks1 } from './navigation-links1/navigation-links1.component'
-import { TestimonialCard2 } from './testimonial-card2/testimonial-card2.component';
+import { TestimonialCard2 } from './testimonial-card2/testimonial-card2.component'
 import { HeaderComponent } from './header/header.component'
-import { FooterComponent } from './footer/footer.component';
-import { PageTabComponent } from './page-tab/page-tab.component';
-import { PolygonBorderDiv } from './polygon-border-div/polygon-border-div.component';
-import { ClubBranchItemsComponent } from './club-branch-items/club-branch-items.component'
+import { FooterComponent } from './footer/footer.component'
+import { PageTabComponent } from './page-tab/page-tab.component'
+import { PolygonBorderDiv } from './polygon-border-div/polygon-border-div.component'
+import { ClubBranchItem } from './club-branch-item/club-branch-item.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { ClubBranchItemsComponent } from './club-branch-items/club-branch-items.
     FooterComponent,
     PageTabComponent,
     PolygonBorderDiv,
-    ClubBranchItemsComponent,
+    ClubBranchItem,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -55,6 +55,7 @@ import { ClubBranchItemsComponent } from './club-branch-items/club-branch-items.
     FooterComponent,
     PageTabComponent,
     PolygonBorderDiv,
+    ClubBranchItem,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

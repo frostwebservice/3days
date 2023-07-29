@@ -27,6 +27,16 @@ export interface Member {
 	id: number;
 	name: string;
 }
+export interface Club {
+	id: number;
+	name: string;
+	address: string;
+	email: string;
+	launch_date: string;
+	capacity: number;
+	branch:string;
+	type:string;
+}
 export interface TabOption {
 	label: string;
 	value: string;

@@ -9,6 +9,7 @@ import { ClassDetail } from './pages/class-detail/class-detail.component';
 import { PrivacyPolicy } from './pages/privacy-policy/privacy-policy.component';
 import { TermsConditons } from './pages/terms-conditions/terms-conditions.component';
 import { Checkout } from './pages/checkout/checkout.component';
+import { ClubBranches } from './pages/club-branches/club-branches.component';
 const routes = [
 	{
 		path: '',
@@ -89,6 +90,13 @@ const routes = [
 		}
 	},
 	{
+		path: 'club-branches',
+		component: ClubBranches,
+		data: {
+			title: 'Club Branches'
+		}
+	},
+	{
 		path: '**',
 		redirectTo: '/'
 	}
@@ -102,6 +110,7 @@ const routes = [
 		PrivacyPolicy,
 		TermsConditons,
 		Checkout,
+		ClubBranches,
 	],
 	imports: [
 		BrowserModule, RouterModule.forRoot(routes), ComponentsModule,
