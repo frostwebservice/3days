@@ -221,6 +221,9 @@
 .j-front-page ._3dayColor{
     color: var(--dl-color-primary-3days);
 }
+.j-front-page .j-dangerColor{
+    color: #b6361a;
+}
 .j-front-page .j-title-size{
     font-size: 36px;
 }
@@ -236,7 +239,8 @@
 .j-front-page .j-tinySubtitle-size{
     font-size: 20px;
 }
-.j-front-page .j-tnSize{
+.j-front-page .j-tnSize,
+.j-front-page .j-normal-size{
     font-size: 16px;
 }
 .j-front-page .j-tsSize{
@@ -271,7 +275,8 @@
 	.j-front-page .j-tinySubtitle-size{
 		font-size: 16px;
 	}
-	.j-front-page .j-tnSize{
+	.j-front-page .j-tnSize,
+	.j-front-page .j-normal-size{
 		font-size: 12px;
 	}
 	.j-front-page .j-tsSize{
@@ -347,5 +352,29 @@
 }
 .j-icon.j-icon-twoperson{
     background: url(/assets/img/twoperson.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-capman{
+    background: url(/assets/img/capman.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-receiver{
+    background: url(/assets/img/receiver.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-file{
+    background: url(/assets/img/file.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-active-two-person{
+    background: url(/assets/img/active-twoperson.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-active-cash{
+    background: url(/assets/img/active-cash.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-active-person{
+    background: url(/assets/img/active-person.svg) no-repeat;
     background-position: center;
 }
