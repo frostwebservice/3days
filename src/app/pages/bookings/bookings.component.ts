@@ -1,7 +1,6 @@
 import { Component } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 import { TimeSession ,AppointmentItem} from 'src/app/utils/data.types';
-
 @Component({
 	selector: 'app-bookings',
 	templateUrl: 'bookings.component.html',

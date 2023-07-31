@@ -3,6 +3,10 @@ import { RouterModule } from '@angular/router'
 import { BrowserModule } from '@angular/platform-browser'
 import { ComponentsModule } from './components/components.module'
 import { AppComponent } from './app.component'
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 import { AuthenticationComponent } from './authentication/authentication.component'
 import { AgmCoreModule } from '@agm/core';
 import { ClassDetail } from './pages/class-detail/class-detail.component';
@@ -14,6 +18,7 @@ import { Notifications } from './pages/notifications/notifications.component';
 import { FinancialOperations } from './pages/financial-operations/financial-operations.component';
 import { Subscriptions } from './pages/subscriptions/subscriptions.component';
 import { PersonalTraining } from './pages/personal-training/personal-training.component';
+import { PersonalInfo } from './pages/personal-info/personal-info.component';
 const routes = [
 	{
 		path: '',
@@ -87,6 +92,13 @@ const routes = [
 		}
 	},
 	{
+		path: 'personal-info',
+		component: PersonalInfo,
+		data: {
+			title: 'Personal Information'
+		}
+	},
+	{
 		path: 'checkout',
 		component: Checkout,
 		data: {
@@ -147,9 +159,12 @@ const routes = [
 		FinancialOperations,
 		Subscriptions,
 		PersonalTraining,
+		PersonalInfo,
 	],
 	imports: [
 		BrowserModule, RouterModule.forRoot(routes), ComponentsModule,
+		BrowserAnimationsModule,
+		BsDatepickerModule.forRoot(),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
 	],
 	providers: [],
