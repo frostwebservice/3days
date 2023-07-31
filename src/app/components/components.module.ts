@@ -17,12 +17,13 @@ import { HeaderComponent } from './header/header.component'
 import { FooterComponent } from './footer/footer.component'
 import { PageTabComponent } from './page-tab/page-tab.component'
 import { PolygonBorderDiv } from './polygon-border-div/polygon-border-div.component'
-import { ClubBranchItem } from './club-branch-item/club-branch-item.component';
-import { AttendanceQrcodeComponent } from './attendance-qrcode/attendance-qrcode.component';
-import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component';
-import { BranchSelectionComponent } from './branch-selection/branch-selection.component';
-import { SuspendSubscriptionComponent } from './suspend-subscription/suspend-subscription.component';
-import { ReferralCodeComponent } from './referral-code/referral-code.component';
+import { ClubBranchItem } from './club-branch-item/club-branch-item.component'
+import { AttendanceQrcodeComponent } from './attendance-qrcode/attendance-qrcode.component'
+import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component'
+import { BranchSelectionComponent } from './branch-selection/branch-selection.component'
+import { SuspendSubscriptionComponent } from './suspend-subscription/suspend-subscription.component'
+import { ReferralCodeComponent } from './referral-code/referral-code.component'
+import { ConfirmCodeComponent } from './comfirm-code/confirm-code.component'
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ReferralCodeComponent } from './referral-code/referral-code.component';
     BranchSelectionComponent,
     SuspendSubscriptionComponent,
     ReferralCodeComponent,
+    ConfirmCodeComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -71,6 +73,7 @@ import { ReferralCodeComponent } from './referral-code/referral-code.component';
     BranchSelectionComponent,
     SuspendSubscriptionComponent,
     ReferralCodeComponent,
+    ConfirmCodeComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
