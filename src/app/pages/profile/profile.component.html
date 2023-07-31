@@ -1,3 +1,4 @@
+<app-header page_name="profile" ngClass="j-page-section"></app-header>
 <div class="profile-container page-container j-front-page">
 	<div class="container-inner">
 		<div class="profile-photo mb-3">
@@ -28,7 +29,7 @@
 			</div>
 			
 		</div>
-		<div class="profile-notification" [routerLink] = "'notifications'">
+		<div class="profile-notification" [routerLink] = "'/notifications'">
 			<app-polygon-border-div j-class="j-left">
 				<div class="notification-icon">
 					<i class="j-icon bi bi-bell"></i>
@@ -37,3 +38,4 @@
 		</div>
 	</div>
 </div>
+<app-footer ngClass="j-page-section"></app-footer>

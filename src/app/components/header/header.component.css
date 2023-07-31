@@ -169,6 +169,12 @@
 .app-navbar-text-color:hover {
     color: var(--dl-color-primary-3days);
 }
+@media(max-width: 1024px) {
+    .app-navbar-desktop-menu a{
+        font-size: 12px;
+        margin-left:12px;
+    }
+}
 @media(max-width: 767px) {
     .app-navbar-interactive {
         padding-left: var(--dl-space-space-twounits);

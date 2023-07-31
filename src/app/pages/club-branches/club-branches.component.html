@@ -1,105 +1,116 @@
+<app-header page_name="profile" ngClass="j-page-section"></app-header>
 <div class="club-branches-container page-container j-front-page">
-    <div class="page-title mb-5 mt-5">
-        <h3 class="j-title-size gwTColor">أفرع النادي</h3>
-    </div>
-    <div class="row club-content">
-        <div class="col-md-6 col-12 mb-3">
-            <div class="j-club-search-wrap">
-                <div class="j-form-group mt-0">
-                    <div class="j-input-icons j-input-icon-right">
-                        <input type="text" class="j-inputbox j-searchbox" placeholder="البحث عن طريق المدينة أو الدولة">
-                        <i class="bi bi-search j-icon j-icon-right "></i>
+    <div class="j-inner-container">
+        <div class="page-title mb-5 mt-5">
+            <h3 class="j-title-size gwTColor">أفرع النادي</h3>
+        </div>
+        <div class="row club-content">
+            <div class="col-md-6 col-12 mb-3">
+                <div class="j-club-search-wrap">
+                    <div class="j-form-group mt-0">
+                        <div class="j-input-icons j-input-icon-right">
+                            <input type="text" class="j-inputbox j-searchbox" placeholder="البحث عن طريق المدينة أو الدولة">
+                            <i class="bi bi-search j-icon j-icon-right "></i>
+                        </div>
                     </div>
-                </div>
-                <div class="j-club-list-panel">
-                    <app-club-branch-items [selectItem]="selectedClub" [club]="club" (loadClub) = "loadClub($event)" *ngFor="let club of clubs;let i = index"></app-club-branch-items>
+                    <div class="j-club-list-panel">
+                        <app-club-branch-items [selectItem]="selectedClub" [club]="club" (loadClub) = "loadClub($event)" *ngFor="let club of clubs;let i = index"></app-club-branch-items>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-6 col-12 mb-3">
+                <ng-container *ngIf="cOption; else clubTemplate">
+                    <div class="j-club-detail p-3 p-md-4">
+                        <h4 class="j-subtitle-size gdTColor mb-5">تفاصيل النادي</h4>
+                        <h3 class="j-club-name j-smalltitle-size mb-5 text-white">{{selectedClub.name}}</h3>
+                        <div class="j-club-info row">
+                            <div class="col-6 j-item">
+                                <app-polygon-border-div j-class = 'j-left j-icon'>
+                                    <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-stand-person.svg);"></div>
+                                </app-polygon-border-div>
+                                <div class="j-item-desc">
+                                    <span class="j-label">نوع الفرع</span>
+                                    <span class="j-value">{{selectedClub.type}}</span>
+                                </div>
+                            </div>
+                            <div class="col-6 j-item">
+                                <app-polygon-border-div j-class = 'j-left j-icon'>
+                                    <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-stand-person.svg);"></div>
+                                </app-polygon-border-div>
+                                <div class="j-item-desc">
+                                    <span class="j-label">السعة الاستيعابية</span>
+                                    <span class="j-value">{{selectedClub.capacity}}منتسب</span>
+                                </div>
+                            </div>
+                            <div class="col-6 j-item">
+                                <app-polygon-border-div j-class = 'j-left j-icon'>
+                                    <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-branch.svg);"></div>
+                                </app-polygon-border-div>
+                                <div class="j-item-desc">
+                                    <span class="j-label">الفرع</span>
+                                    <span class="j-value">{{selectedClub.branch}}</span>
+                                </div>
+                            </div>
+                            <div class="col-6 j-item">
+                                <app-polygon-border-div j-class = 'j-left j-icon'>
+                                    <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-calendar.svg);"></div>
+                                </app-polygon-border-div>
+                                <div class="j-item-desc">
+                                    <span class="j-label">تاريخ الاطلاق</span>
+                                    <span class="j-value">{{selectedClub.launch_date}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="j-club-address pt-4 pb-2">
+                            <h5 class="gdTColor">عنوان النادي</h5>
+                            <p class="text-white">{{selectedClub.address}}</p>
+                        </div>
+                        <div class="j-club-email pt-4 pb-2 mb-4">
+                            <h5 class="gdTColor">الايميل</h5>
+                            <p class="text-white">{{selectedClub.email}}</p>
+                        </div>
+                        <app-polygon-border-div specify = "1" [cornerStatus] = "[0,1,0,1]" borderColor="var(--dl-color-primary-3days)">
+                            <div class="j-contact-btn-wrap">
+                                <div class="_3dayColor j-contact-btn text-center">الاتصال بالنادي</div>
+                                <i class="j-icon j-icon-right j-icon-phone"></i>
+                            </div>
+                        </app-polygon-border-div>
+                    </div>
+                </ng-container>
+                <ng-template #clubTemplate>
+                    <div class="j-club-review p-3 p-md-4">
+                        <h4 class="j-subtitle-size gdTColor mb-5">تقييم الحصة</h4>
+                        <h3 class="j-club-name j-smalltitle-size mb-4 text-white">{{selectedClub.name}}</h3>
+                        <h4 class="j-smallSubtitle-size mb-5 gdTColor">ما هو تقييمك للحصة؟</h4>
+                        <div class="j-club-review-box-list">
+                            <div (click) = "review(number)" *ngFor="let number of [1,2,3,4,5]">
+                                <app-polygon-border-div j-class="j-left" class="j-review-item" [ngClass]="{'active': number<=reviewStar}">
+                                    <div class="j-star"></div>
+                                </app-polygon-border-div>
+                            </div>
+                        </div>
+                        <div class="j-comment-wrap mt-4">
+                            <h5 class="j-tsSize gdTcolor mb-2">هل لديك أي تعليقات؟ اكتبها في الأسفل</h5>
+                            <div class="j-form-group">
+                                <textarea class="j-inputbox j-comment-box" placeholder="اكتب هنا التفاصيل"></textarea>
+                            </div>
+                        </div>
+                        <div class="j-approval mt-4">
+                            <div class="j-form-group">
+                                <button type="button" class="j-left-button button j-submit-button j-tinySubtitle-size"><span>إعتماد التقييم</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
         </div>
-        <div class="col-md-6 col-12 mb-3">
-            <ng-container *ngIf="cOption; else clubTemplate">
-                <div class="j-club-detail p-3 p-md-4">
-                    <h4 class="j-subtitle-size gdTColor mb-5">تفاصيل النادي</h4>
-                    <h3 class="j-club-name j-smalltitle-size mb-5 text-white">{{selectedClub.name}}</h3>
-                    <div class="j-club-info row">
-                        <div class="col-6 j-item">
-                            <app-polygon-border-div j-class = 'j-left j-icon'>
-                                <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-stand-person.svg);"></div>
-                            </app-polygon-border-div>
-                            <div class="j-item-desc">
-                                <span class="j-label">نوع الفرع</span>
-                                <span class="j-value">{{selectedClub.type}}</span>
-                            </div>
-                        </div>
-                        <div class="col-6 j-item">
-                            <app-polygon-border-div j-class = 'j-left j-icon'>
-                                <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-stand-person.svg);"></div>
-                            </app-polygon-border-div>
-                            <div class="j-item-desc">
-                                <span class="j-label">السعة الاستيعابية</span>
-                                <span class="j-value">{{selectedClub.capacity}}منتسب</span>
-                            </div>
-                        </div>
-                        <div class="col-6 j-item">
-                            <app-polygon-border-div j-class = 'j-left j-icon'>
-                                <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-branch.svg);"></div>
-                            </app-polygon-border-div>
-                            <div class="j-item-desc">
-                                <span class="j-label">الفرع</span>
-                                <span class="j-value">{{selectedClub.branch}}</span>
-                            </div>
-                        </div>
-                        <div class="col-6 j-item">
-                            <app-polygon-border-div j-class = 'j-left j-icon'>
-                                <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-calendar.svg);"></div>
-                            </app-polygon-border-div>
-                            <div class="j-item-desc">
-                                <span class="j-label">تاريخ الاطلاق</span>
-                                <span class="j-value">{{selectedClub.launch_date}}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="j-club-address pt-4 pb-2">
-                        <h5 class="gdTColor">عنوان النادي</h5>
-                        <p class="text-white">{{selectedClub.address}}</p>
-                    </div>
-                    <div class="j-club-email pt-4 pb-2 mb-4">
-                        <h5 class="gdTColor">الايميل</h5>
-                        <p class="text-white">{{selectedClub.email}}</p>
-                    </div>
-                    <app-polygon-border-div specify = "1" [cornerStatus] = "[0,1,0,1]" borderColor="var(--dl-color-primary-3days)">
-                        <div class="j-contact-btn-wrap">
-                            <div class="_3dayColor j-contact-btn text-center">الاتصال بالنادي</div>
-                            <i class="j-icon j-icon-right j-icon-phone"></i>
-                        </div>
-                    </app-polygon-border-div>
+        <div class="backToProfile" [routerLink] = "'/profile'">
+            <app-polygon-border-div j-class="j-left">
+                <div class="back-icon">
+                    <i class="j-icon bi bi-person"></i>
                 </div>
-            </ng-container>
-            <ng-template #clubTemplate>
-                <div class="j-club-review p-3 p-md-4">
-                    <h4 class="j-subtitle-size gdTColor mb-5">تقييم الحصة</h4>
-                    <h3 class="j-club-name j-smalltitle-size mb-4 text-white">{{selectedClub.name}}</h3>
-                    <h4 class="j-smallSubtitle-size mb-5 gdTColor">ما هو تقييمك للحصة؟</h4>
-                    <div class="j-club-review-box-list">
-                        <div (click) = "review(number)" *ngFor="let number of [1,2,3,4,5]">
-                            <app-polygon-border-div j-class="j-left" class="j-review-item" [ngClass]="{'active': number<=reviewStar}">
-                                <div class="j-star"></div>
-                            </app-polygon-border-div>
-                        </div>
-                    </div>
-                    <div class="j-comment-wrap mt-4">
-                        <h5 class="j-tsSize gdTcolor mb-2">هل لديك أي تعليقات؟ اكتبها في الأسفل</h5>
-                        <div class="j-form-group">
-                            <textarea class="j-inputbox j-comment-box" placeholder="اكتب هنا التفاصيل"></textarea>
-                        </div>
-                    </div>
-                    <div class="j-approval mt-4">
-                        <div class="j-form-group">
-                            <button type="button" class="j-left-button button j-submit-button j-tinySubtitle-size"><span>إعتماد التقييم</span></button>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
+            </app-polygon-border-div>
         </div>
     </div>
 </div>
+<app-footer ngClass="j-page-section"></app-footer>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 import { AuthenticationComponent } from './authentication/authentication.component'
 import { AgmCoreModule } from '@agm/core';
@@ -92,7 +93,7 @@ const routes = [
 		}
 	},
 	{
-		path: 'personal-info',
+		path: 'personal-data',
 		component: PersonalInfo,
 		data: {
 			title: 'Personal Information'
@@ -106,7 +107,7 @@ const routes = [
 		}
 	},
 	{
-		path: 'club-branches',
+		path: 'branches',
 		component: ClubBranches,
 		data: {
 			title: 'Club Branches'

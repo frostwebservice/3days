@@ -7,6 +7,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ComponentsModule } from '../../components/components.module'
 import { Bookings } from './bookings.component'
 
+import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 const routes = [
 	{
 		path: '',
@@ -18,7 +20,8 @@ const routes = [
 		declarations: [Bookings],
 		imports: [CommonModule, ComponentsModule, RouterModule.forChild(routes),
 			BrowserAnimationsModule,
-			BsDatepickerModule.forRoot()
+			BsDatepickerModule.forRoot(),
+			NgbDatepickerModule,
 		],
 		exports: [Bookings],
 		schemas: [CUSTOM_ELEMENTS_SCHEMA],
