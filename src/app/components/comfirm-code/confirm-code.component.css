@@ -1,0 +1,16 @@
+.confirm-code .j-inner-wrap{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+.confirm-code .j-item-img{
+    width: 48px;
+    height:48px;
+    /* background-size: 50%,50%; */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.confirm-code .j-select .j-submit-button{
+    background-color: #F24822;
+}

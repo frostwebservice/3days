@@ -8,6 +8,9 @@ import { ResetPasswordComponent } from '../pages/reset-password/reset-password.c
 import { RegisterComponent } from '../pages/register/register.component';
 import { ComponentsModule } from '../components/components.module';
 import { AgmCoreModule } from '@agm/core';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 @NgModule({
 	declarations: [
 		LoginComponent,
@@ -20,6 +23,8 @@ import { AgmCoreModule } from '@agm/core';
 		CommonModule,
 		RouterModule.forChild(AuthenticationRoutingModule),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
+		BrowserAnimationsModule,
+		BsDatepickerModule.forRoot()
 	]
 })
 export class AuthenticationModule { }

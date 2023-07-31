@@ -2,12 +2,14 @@
 	background-color: #c6b9b923;
 }
 .bookings-container .select-booking-tab{
-    padding: 10px 60px;
+    padding: 10px 20px;
+    width: 127px;
+    font-size: 12px;
+	text-align: center;
 	cursor: pointer;
 	color: white;
 }
 .bookings-container .select-booking-tab.active{
-    padding: 10px 60px;
 	background-color: var(--dl-color-primary-3days);
 	color: var(--dl-color-grey-black);
 }
