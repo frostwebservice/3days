@@ -12,6 +12,8 @@ import { Checkout } from './pages/checkout/checkout.component';
 import { ClubBranches } from './pages/club-branches/club-branches.component';
 import { Notifications } from './pages/notifications/notifications.component';
 import { FinancialOperations } from './pages/financial-operations/financial-operations.component';
+import { Subscriptions } from './pages/subscriptions/subscriptions.component';
+import { PersonalTraining } from './pages/personal-training/personal-training.component';
 const routes = [
 	{
 		path: '',
@@ -113,6 +115,20 @@ const routes = [
 		}
 	},
 	{
+		path: 'subscriptions',
+		component: Subscriptions,
+		data: {
+			title: 'Subscriptions'
+		}
+	},
+	{
+		path: 'personal-training',
+		component: PersonalTraining,
+		data: {
+			title: 'Personal Training'
+		}
+	},
+	{
 		path: '**',
 		redirectTo: '/'
 	}
@@ -129,6 +145,8 @@ const routes = [
 		ClubBranches,
 		Notifications,
 		FinancialOperations,
+		Subscriptions,
+		PersonalTraining,
 	],
 	imports: [
 		BrowserModule, RouterModule.forRoot(routes), ComponentsModule,

@@ -58,10 +58,17 @@
 		<h1 class="test-text2">Magnificent things are very simple</h1>
 		<button class="test-button1 button">Get Started</button>
 	</div>
-	<app-polygon-border-div j-class = 'j-left'><div class="p-5">Hello world</div></app-polygon-border-div>
-	<app-polygon-border-div j-class = 'j-right'><div class="p-5">Hello world</div></app-polygon-border-div>
-	<app-polygon-border-div specify = "1" bgColor ="var(--dl-color-grey-black)" borderColor="red" [cornerStatus] = "[1,1,1,0]" cutRange = "15" weight="1" j-class = ''><div class="p-5">Hello world</div></app-polygon-border-div>
-	
+	<div class="test" style="width: 100%;display: flex; justify-content: center;">
+		<app-attendance-qrcode></app-attendance-qrcode>
+		<app-cancel-subscription></app-cancel-subscription>
+	</div>
+	<div class="test" style="width: 100%;display: flex; justify-content: center;">
+		<app-branch-selection></app-branch-selection>
+		<app-suspend-subscription></app-suspend-subscription>
+	</div>
+	<div class="test" style="width: 100%;display: flex; justify-content: center;">
+		<app-referral-code></app-referral-code>
+	</div>
 	<div class="test-gallery">
 		<gallery-card1
 			image_src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"

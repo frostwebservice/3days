@@ -1,0 +1,33 @@
+.subscriptions-container .j-subs-item{
+    border-bottom: 1px solid;
+    padding-bottom:16px;
+    margin-bottom:16px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+.subscriptions-container .j-subs-item .subs-img.j-item-img{
+    height: 120px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.subscriptions-container .j-subs-item .j-subs-content{
+    display: flex;
+    flex-direction: column;
+}
+.subscriptions-container .j-subs-item .j-subs-content .j-sub-info{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-bottom: 11px;
+}
+.subscriptions-container .j-subs-item .j-subs-content .j-submit{
+    text-align:center;
+}
+.subscriptions-container .j-subs-item .j-subs-content .j-submit-btn{
+    padding-top: 5px;
+    display: inline-block;
+    padding-bottom: 5px;
+}

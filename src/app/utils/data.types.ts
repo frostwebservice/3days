@@ -63,3 +63,30 @@ export interface Invoice {
 	method: string;
 	created_at: string;
 }
+export interface SubscriptionSession {
+	id:number;
+	title: string;
+	start_date:string;
+	expire_date:string;
+	price:number;
+	status:boolean;
+	banner:string;
+}
+export interface TimeSession {
+	id:number;
+	class_name:string;
+	trainer_name:string;
+	branch_name:string;
+	time:string;
+	count: number;
+	photo: string;
+}
+export interface AppointmentItem {
+	id:number;
+	class_name:string;
+	trainer_name:string;
+	date:string;
+	time:string;
+	status: string;
+	banner: string;
+}

@@ -1,0 +1,32 @@
+<div class="subscriptions-container j-front-page page-container">
+    <div class="page-title mb-5 mt-5">
+        <h3 class="j-title-size gwTColor">الاشتراكات</h3>
+    </div>
+    <div class="j-subs-lists row">
+        <div class="j-subs-item col-md-6 col-12" *ngFor="let subs of slist ;let i = index">
+            <app-polygon-border-div j-class = 'j-left'>
+                <div class="subs-img j-item-img" style="background-image:url('/assets/img/{{subs.banner}}')"></div>
+            </app-polygon-border-div>
+            <div class="j-subs-content mt-3">
+                <div class="j-sub-name gwTColor j-normal-size">{{subs.title}}</div>
+                <div class="j-sub-info mt-3">
+                    <div class="gdTColor j-tsSize">قيمة الاشتراك</div>
+                    <div class="gwTColor j-tsSize">{{subs.price}}</div>
+                </div>
+                <div class="j-sub-info">
+                    <div class="gwTColor j-tsSize">تـــاريــخ البــــــدء</div>
+                    <div class="gwTColor j-tsSize">{{subs.start_date}}</div>
+                </div>
+                <div class="j-sub-info">
+                    <div class="gwTColor j-tsSize">تـاريـخ الانتـهــاء</div>
+                    <div class="gwTColor j-tsSize">{{subs.expire_date}}</div>
+                </div>
+                <div class="j-submit mt-2">
+                    <app-polygon-border-div j-class="j-left j-3days">
+                        <a class="j-submit-btn _3dayColor p-2">تجميد الاشتراك</a>
+                    </app-polygon-border-div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

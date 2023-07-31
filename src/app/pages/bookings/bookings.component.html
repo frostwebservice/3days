@@ -1,15 +1,111 @@
-<div class="bookings-container">
-	<app-header page_name = "bookings" ngClass="j-page-section"></app-header>
-	<div class="bookings-blog">
-		<div class="bookings-container3">
-			<blog-post-card3 rootClassName="rootClassName1"></blog-post-card3>
-		</div>
-		<div class="bookings-container4">
-			<blog-post-card3
-				image_src="/assets/classes/cross%20training-min-1500w.jpg"
-				rootClassName="rootClassName2"
-			></blog-post-card3>
+<div class="bookings-container j-front-page page-container">
+	<div class="page-title mb-5 mt-5">
+		<h3 class="j-title-size gwTColor">الحصص</h3>
+	</div>
+	<div class="select-booking-tab-panel j-left-button">
+		<div class="p-2 d-flex">
+			<div class="appointments-tab select-booking-tab j-left-button" [ngClass]="{'active' : selected_tab == 1}" (click)="selectTab(1)">الحصص</div>
+			<div class="sessions-tab select-booking-tab j-left-button" [ngClass]="{'active' : selected_tab == 2}" (click)="selectTab(2)">الحجوزات</div>
 		</div>
 	</div>
-	<app-footer ngClass="j-page-section"></app-footer>
+	<div class="j-appointments-tab" *ngIf = 'selected_tab == 1'>
+		<div class="j-appointments-list row">
+			<div class="j-appointment-item col-md-6 col-12" *ngFor="let appointment of appointmentlist ; let i = index">
+				<app-polygon-border-div specify="1" [cornerStatus]="[1,1,1,1]">
+					<div class="j-appointment-card p-3">
+						<app-polygon-border-div specify="1" [cornerStatus]="[1,1,1,1]">
+							<div class="j-img j-banner" style="background-image: url(./assets/bg/{{appointment.banner}});">
+								<app-polygon-border-div j-class="j-right j-icon" class="j-appointment-status">
+									<div [ngSwitch]="appointment.status">
+										<div *ngSwitchCase="'completed'">
+											<div class="j-completed-appointment j-status-btn">مكتملة</div>
+										</div>
+										<div *ngSwitchCase="'pending'">
+											<div class="j-pending-appointment j-status-btn">فائتة</div>
+										</div>
+										<div *ngSwitchCase="'active'">
+											<div class="j-active-appointment j-status-btn">نشط</div>
+										</div>
+										<div *ngSwitchCase="'inactive'">
+											<div class="j-inactive-appointment j-status-btn">نشط</div>
+										</div>
+									</div>
+								</app-polygon-border-div>
+							</div>
+						</app-polygon-border-div>
+						<div class="p-2">
+							<div class="j-appointment-classname gwTColor mb-3 mt-3">{{appointment.class_name}}</div>
+							<div class="j-appointment-info gdTColor">
+								<div class="j-sub-info ">
+									<div class="j-info mb-3">
+										<app-polygon-border-div j-class="j-left j-icon">
+											<div class="j-item-img" style="background-image: url(/assets/img/automark.svg);"></div>
+										</app-polygon-border-div>
+										#{{appointment.id}}
+									</div>
+									<div class="j-info">
+										<app-polygon-border-div j-class="j-left j-icon">
+											<div class="j-item-img" style="background-image: url(/assets/img/l.svg);"></div>
+										</app-polygon-border-div>
+										{{appointment.time}}
+									</div>
+								</div>
+								<div class="j-sub-info">
+									<div class="j-info mb-3">
+										<app-polygon-border-div j-class="j-left j-icon">
+											<div class="j-item-img j-item-photo" style="background-image: url(/assets/img/person1.png);"></div>
+										</app-polygon-border-div>
+										{{appointment.trainer_name}}
+									</div>
+									<div class="j-info">
+										<app-polygon-border-div j-class="j-left j-icon">
+											<div class="j-item-img" style="background-image: url(/assets/img/l.svg);"></div>
+										</app-polygon-border-div>
+										{{appointment.date}}
+									</div>
+								</div>
+							</div>
+							<div *ngIf = "appointment.status=='completed'" class="mt-3 j-apply-btn">
+								<app-polygon-border-div j-class='j-left j-3days' class="text-center" >
+									<div class="j-btn _3dayColor p-2">تقييم الحصة</div>
+								</app-polygon-border-div>
+							</div>
+							
+							<div *ngIf = "appointment.status=='active'" class="mt-3 j-cancel-btn">
+								<app-polygon-border-div j-class='j-left j-danger' class="text-center" >
+									<div class="j-btn j-dangerColor p-2">إلغاء الحجز</div>
+								</app-polygon-border-div>
+							</div>
+						</div>
+					</div>
+				</app-polygon-border-div>
+			</div>
+		</div>
+	</div>
+	<div class="j-sessions-tab" *ngIf = 'selected_tab == 2'>
+		<div class="j-form-group mb-4">
+			<label for="session_date" class="j-inputbox-label">Select Date</label>
+			<div class="j-input-icons j-input-icon-left">
+				<input type="text" class="j-inputbox" id="session_date" name = "session_date" value="الاثنين,15 مارس">
+				<i class="j-icon j-icon-left j-icon-calendar"></i>
+			</div>
+		</div>
+		<div class="j-sessions-list row">
+			<div class="j-session-item col-md-6 col-12" *ngFor="let session of sessionlist ; let i = index">
+				<app-polygon-border-div specify="1" [cornerStatus]="[1,1,1,1]" cutRange="15"  weight = "1">
+					<div class="j-session-card">
+						<app-polygon-border-div j-class="j-left">
+							<div class="j-img j-trainer-photo" style="background-image: url(./assets/img/{{session.photo === '' ? 'personavata.png': session.photo }});"></div>
+						</app-polygon-border-div>
+						<div class="j-session-info gwTColor j-tnSize">
+							<p class="mb-1">{{session.class_name}} {{session.trainer_name}}</p>
+							<p class="mb-1">{{session.trainer_name}} . {{session.time}}</p>
+							<p class="mb-0">{{session.count}} / 10.</p>
+						</div>
+						<i class="j-icon bi bi-chevron-left"></i>
+					</div>
+				</app-polygon-border-div>
+			</div>
+		</div>
+	</div>
 </div>

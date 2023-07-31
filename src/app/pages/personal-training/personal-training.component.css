@@ -1,0 +1,35 @@
+.personal-training-container .j-session-item .j-session-card{
+    padding : 12px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+    position:relative;
+}
+.personal-training-container .j-session-item .j-img.j-trainer-photo{
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.personal-training-container .j-session-item .j-session-info{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+.personal-training-container .j-session-card .j-icon{
+    position: absolute;
+    left: 8px;
+    top: calc(50% - 8px);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+@media(max-width: 767px) {
+    .personal-training-container .j-session-item .j-img.j-trainer-photo{
+        width: 70px;
+        height: 70px;
+    }
+}
