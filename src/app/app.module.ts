@@ -6,7 +6,8 @@ import { AppComponent } from './app.component'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+
+// import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 import { AuthenticationComponent } from './authentication/authentication.component'
 import { AgmCoreModule } from '@agm/core';
@@ -166,6 +167,7 @@ const routes = [
 		BrowserModule, RouterModule.forRoot(routes), ComponentsModule,
 		BrowserAnimationsModule,
 		BsDatepickerModule.forRoot(),
+		// MdbModalModule,
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
 	],
 	providers: [],

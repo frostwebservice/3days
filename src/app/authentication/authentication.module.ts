@@ -23,8 +23,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 		CommonModule,
 		RouterModule.forChild(AuthenticationRoutingModule),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
-		BrowserAnimationsModule,
-		BsDatepickerModule.forRoot()
+		BsDatepickerModule
 	]
 })
 export class AuthenticationModule { }
