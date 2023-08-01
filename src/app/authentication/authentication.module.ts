@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { LoginComponent } from '../pages/login/login.component';
 import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-password.component';
@@ -21,6 +22,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 	imports: [
 		ComponentsModule,
 		CommonModule,
+		FormsModule, 
 		RouterModule.forChild(AuthenticationRoutingModule),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
 		BsDatepickerModule

@@ -112,6 +112,13 @@
 	padding: var(--dl-space-space-twounits) var(--dl-space-space-threeunits);
 	/* padding-bottom: var(--dl-space-space-twounits); */
 }
+.j-front-page .error {
+    font-size: 11px;
+    color: var(--dl-color-danger-300);
+}
+:not(.invalid) .error{
+	display: none;
+}
 .j-front-page .j-inner-container{
 	position: relative;
 	text-align: center;

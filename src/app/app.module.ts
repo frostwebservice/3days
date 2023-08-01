@@ -1,9 +1,10 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { RouterModule } from '@angular/router'
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser'
 import { ComponentsModule } from './components/components.module'
 import { AppComponent } from './app.component'
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
@@ -166,10 +167,12 @@ const routes = [
 	imports: [
 		BrowserModule, RouterModule.forRoot(routes), ComponentsModule,
 		BrowserAnimationsModule,
+		FormsModule, 
 		BsDatepickerModule.forRoot(),
 		// MdbModalModule,
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
 	],
+	// providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
 	providers: [],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
