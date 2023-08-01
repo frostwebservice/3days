@@ -27,7 +27,7 @@ export class ErrorService {
 
 	constructor(
 		private router: Router,
-		private toast: ToastrService,
+		// private toast: ToastrService,
 		private dialog: MatDialog
 	) {}
 	addError(operation: string, error: any) {
@@ -46,47 +46,50 @@ export class ErrorService {
 		switch (error.status) {
 			case 0:
 				// Network Error
-				if (
-					!document.querySelector('.toast-top-center div') &&
-					operation !== 'GET NOTIFICATION DELIVERY STATUS'
-				) {
-					this.toast.error(
-						Strings.NETWORK_ERROR_CONTENT,
-						Strings.NETWORK_ERROR_TITLE,
-						{
-							positionClass: 'toast-top-center',
-							timeOut: 360000
-						}
-					);
-				}
+				// if (
+				// 	!document.querySelector('.toast-top-center div') &&
+				// 	operation !== 'GET NOTIFICATION DELIVERY STATUS'
+				// ) {
+				// 	this.toast.error(
+				// 		Strings.NETWORK_ERROR_CONTENT,
+				// 		Strings.NETWORK_ERROR_TITLE,
+				// 		{
+				// 			positionClass: 'toast-top-center',
+				// 			timeOut: 360000
+				// 		}
+				// 	);
+				// }
+				console.log(Strings.NETWORK_ERROR_CONTENT);
 				break;
 			case 401:
 				// Authorization Error (Auth Page & Invalid Token)
-				if (this.router.url.indexOf('/login') === 0) {
-					this.toast.error(errorObj.message, Strings.LOGIN, {
-						closeButton: true
-					});
-				} else {
-					this.toast.error(errorObj.message, Strings.AUTHENTICATION, {
-						closeButton: true
-					});
-					this.clearData();
-					this.router.navigate(['/']);
-				}
+				// if (this.router.url.indexOf('/login') === 0) {
+				// 	this.toast.error(errorObj.message, Strings.LOGIN, {
+				// 		closeButton: true
+				// 	});
+				// } else {
+				// 	this.toast.error(errorObj.message, Strings.AUTHENTICATION, {
+				// 		closeButton: true
+				// 	});
+				// 	this.clearData();
+				// 	this.router.navigate(['/']);
+				// }
+				console.log(errorObj.message);
 				break;
 			default:
-				if (Array.isArray(errorObj.message)) {
-					errorObj.message.forEach((message) => {
-						this.toast.error(message, errorObj.operation, {
-							closeButton: true
-						});
-					});
-				} else {
-					this.toast.error(errorObj.message, errorObj.operation, {
-						closeButton: true
-					});
-				}
+				// if (Array.isArray(errorObj.message)) {
+				// 	errorObj.message.forEach((message) => {
+				// 		this.toast.error(message, errorObj.operation, {
+				// 			closeButton: true
+				// 		});
+				// 	});
+				// } else {
+				// 	this.toast.error(errorObj.message, errorObj.operation, {
+				// 		closeButton: true
+				// 	});
+				// }
 				this.errorSubject.next([errorObj, ...this.errorSubject.getValue()]);
+				console.log(errorObj.message);
 		}
 
 		this.lastError = errorObj;
@@ -94,7 +97,8 @@ export class ErrorService {
 	}
 
 	showSuccess(message): void {
-		this.toast.success('', message, { closeButton: true });
+		// this.toast.success('', message, { closeButton: true });
+		console.log("SUCCESS");
 	}
 
 	clearData(): void {
