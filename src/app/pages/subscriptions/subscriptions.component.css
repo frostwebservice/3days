@@ -1,3 +1,6 @@
+.subscriptions-container .j-subs-lists{
+    width: 100%;
+}
 .subscriptions-container .j-subs-item{
     border-bottom: 1px solid;
     padding-bottom:16px;

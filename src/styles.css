@@ -107,10 +107,31 @@
 	text-transform: none;
 	text-decoration: none;
 }
+
+.j-front-page{
+	padding: var(--dl-space-space-twounits) var(--dl-space-space-threeunits);
+	/* padding-bottom: var(--dl-space-space-twounits); */
+}
+.j-front-page .error {
+    font-size: 11px;
+    color: var(--dl-color-danger-300);
+}
+:not(.invalid) .error{
+	display: none;
+}
+.j-front-page .j-inner-container{
+	position: relative;
+	text-align: center;
+    max-width: 1075px;
+	width: 100%;
+}
 /* custom by Jfrost */
 .j-page-section{
 	width: 100%;
 	max-width: var(--dl-size-size-maxwidth);
+}
+.j-page-section .page-inner-section{
+	background-color: var(--dl-color-gray-black);
 }
 .page-container{
 	width: 100%;
@@ -205,10 +226,6 @@
     align-items: center;
 }
 
-.j-front-page{
-	padding: var(--dl-space-space-twounits) var(--dl-space-space-threeunits);
-	/* padding-bottom: var(--dl-space-space-twounits); */
-}
 .j-front-page .gwTColor{
 	color: var(--dl-color-grey-white); /*FAFAFAF7*/
 }
@@ -255,6 +272,24 @@
     flex-direction: column;
     background-color: var(--dl-color-gray-black);
 }
+
+.j-front-page .backToProfile {
+    display: flex;
+    position: absolute;
+    /* right: var(--dl-space-space-threeunits); */
+    top: 10px;
+}
+.j-front-page .backToProfile .back-icon{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.j-front-page .backToProfile i.j-icon{
+    color: white;
+}
+
 @media(max-width: 767px) {
 	.j-front-page{
 		padding: var(--dl-space-space-oneunit);

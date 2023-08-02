@@ -1,41 +1,52 @@
+<app-header page_name="profile" ngClass="j-page-section"></app-header>
 <div class="terms-conditions-container page-container j-front-page">
-    <div class="page-title mb-5 mt-5">
-        <h3 class="j-title-size gwTColor">الشروط والأحكام</h3>
-    </div>
-    <div class="j-phrase">
-        <h5 class="j-phrase-title">مقدمة:</h5>
-        <p class="j-phrase-desc">مرحباً بكم في تطبيق النادي الرياضي. الرجاء قراءة سياسة الخصوصية هذه بعناية قبل استخدام التطبيق. بمجرد استخدامك للتطبيق، يعتبر ذلك موافقتك على هذه السياسة.</p>
-    </div>
+    <div class="j-inner-container">
+        <div class="backToProfile" [routerLink] = "'/profile'">
+            <app-polygon-border-div j-class="j-left">
+                <div class="back-icon">
+                    <i class="j-icon bi bi-person"></i>
+                </div>
+            </app-polygon-border-div>
+        </div>
+        <div class="page-title mb-5 mt-5">
+            <h3 class="j-title-size gwTColor">الشروط والأحكام</h3>
+        </div>
+        <div class="j-phrase">
+            <h5 class="j-phrase-title">مقدمة:</h5>
+            <p class="j-phrase-desc">مرحباً بكم في تطبيق النادي الرياضي. الرجاء قراءة سياسة الخصوصية هذه بعناية قبل استخدام التطبيق. بمجرد استخدامك للتطبيق، يعتبر ذلك موافقتك على هذه السياسة.</p>
+        </div>
 
-    <div class="j-phrase">
-        <h5 class="j-phrase-title">جمع المعلومات:</h5>
-        <p class="j-phrase-desc">نحن نجمع المعلومات الشخصية التي تقدمها عند التسجيل في التطبيق، بما في ذلك اسمك، عنوان البريد الإلكتروني، رقم الهاتف، العمر، الجنس ومعلومات صحية أخرى ذات صلة باللياقة البدنية.</p>
-    </div>
+        <div class="j-phrase">
+            <h5 class="j-phrase-title">جمع المعلومات:</h5>
+            <p class="j-phrase-desc">نحن نجمع المعلومات الشخصية التي تقدمها عند التسجيل في التطبيق، بما في ذلك اسمك، عنوان البريد الإلكتروني، رقم الهاتف، العمر، الجنس ومعلومات صحية أخرى ذات صلة باللياقة البدنية.</p>
+        </div>
 
-    <div class="j-phrase">
-        <h5 class="j-phrase-title">استخدام المعلومات:</h5>
-        <p class="j-phrase-desc">نستخدم المعلومات التي نجمعها لتوفير وتحسين خدماتنا، للاتصال بك، ولتحسين تجربتك في استخدام التطبيق.</p>
-    </div>
+        <div class="j-phrase">
+            <h5 class="j-phrase-title">استخدام المعلومات:</h5>
+            <p class="j-phrase-desc">نستخدم المعلومات التي نجمعها لتوفير وتحسين خدماتنا، للاتصال بك، ولتحسين تجربتك في استخدام التطبيق.</p>
+        </div>
 
-    <div class="j-phrase">
-        <h5 class="j-phrase-title">مشاركة المعلومات:</h5>
-        <p class="j-phrase-desc">نحن لا نشارك معلوماتك الشخصية مع أطراف ثالثة دون موافقتك، ما لم يكن هذا مطلوباً بموجب القانون.</p>
-    </div>
+        <div class="j-phrase">
+            <h5 class="j-phrase-title">مشاركة المعلومات:</h5>
+            <p class="j-phrase-desc">نحن لا نشارك معلوماتك الشخصية مع أطراف ثالثة دون موافقتك، ما لم يكن هذا مطلوباً بموجب القانون.</p>
+        </div>
 
-    <div class="j-phrase">
-        <h5 class="j-phrase-title">حقوقك:</h5>
-        <p class="j-phrase-desc">لديك الحق في الوصول إلى معلوماتك الشخصية وتحديثها أو حذفها في أي وقت.</p>
-    </div>
-    <div class="j-phrase">
-        <h5 class="j-phrase-title">الأمان:</h5>
-        <p class="j-phrase-desc">نحن نتخذ جميع الاحتياطات اللازمة لحماية معلوماتك الشخصية.</p>
-    </div>
-    <div class="j-phrase">
-        <h5 class="j-phrase-title">التغييرات في سياسة الخصوصية:</h5>
-        <p class="j-phrase-desc">قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بإعلامك بأي تغييرات من خلال نشر السياسة المحدثة على هذا التطبيق.</p>
-        <p class="j-phrase-desc">إذا كانت لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا.</p>
-        <p class="j-phrase-desc">إن استخدامك المستمر للتطبيق بعد أي تغييرات في سياسة الخصوصية يعتبر موافقة على هذه التغييرات.</p>
-        <p class="j-phrase-desc">نشكرك على استخدامك لتطبيق 3Days .</p>
-        <p class="j-phrase-desc">تحديث: (20 Jun 2023 )</p>
+        <div class="j-phrase">
+            <h5 class="j-phrase-title">حقوقك:</h5>
+            <p class="j-phrase-desc">لديك الحق في الوصول إلى معلوماتك الشخصية وتحديثها أو حذفها في أي وقت.</p>
+        </div>
+        <div class="j-phrase">
+            <h5 class="j-phrase-title">الأمان:</h5>
+            <p class="j-phrase-desc">نحن نتخذ جميع الاحتياطات اللازمة لحماية معلوماتك الشخصية.</p>
+        </div>
+        <div class="j-phrase">
+            <h5 class="j-phrase-title">التغييرات في سياسة الخصوصية:</h5>
+            <p class="j-phrase-desc">قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بإعلامك بأي تغييرات من خلال نشر السياسة المحدثة على هذا التطبيق.</p>
+            <p class="j-phrase-desc">إذا كانت لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى الاتصال بنا.</p>
+            <p class="j-phrase-desc">إن استخدامك المستمر للتطبيق بعد أي تغييرات في سياسة الخصوصية يعتبر موافقة على هذه التغييرات.</p>
+            <p class="j-phrase-desc">نشكرك على استخدامك لتطبيق 3Days .</p>
+            <p class="j-phrase-desc">تحديث: (20 Jun 2023 )</p>
+        </div>
     </div>
 </div>
+<app-footer ngClass="j-page-section"></app-footer>

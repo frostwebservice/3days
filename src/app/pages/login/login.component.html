@@ -1,4 +1,5 @@
 <div class="authentication-container page-container">
+	<p class="text-white">{{this.article}}</p>
 	<div class="j-login-section j-page-section j-auth-section">
 		<a class="j-login-btn button j-left-button" routerLink="/signup">إنشاء حساب</a>
 		<a class="j-language-btn button j-right-button"><i class="j-icon i-icon-earth"></i></a>
@@ -6,24 +7,42 @@
 			<img alt="logo" src="/assets/external/logo.svg" class="j-app-logo"/>
 		</a>
 		<h4 class="j-page-title">تسجيل الدخول</h4>
-		<form class="j-form">
-			<div class="j-form-group">
+		<form class="j-form" #signForm="ngForm" (ngSubmit)="signForm.form.valid ? login() : false">
+			<!-- <div class="j-form-group" [ngClass]="{invalid: signForm.submitted && email.invalid && (email.dirty || email.touched || signForm.submitted)}">
 				<label for="email" class="j-inputbox-label">البريد الإلكتروني</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="email" class="j-inputbox" id="email" name="email" aria-describedby="emailHelp" placeholder="البريد الإلكتروني" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$"> 
+					<input type="email" class="j-inputbox" [(ngModel)]="user.email" id="email" name="email" aria-describedby="emailHelp" placeholder="البريد الإلكتروني" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$" #email="ngModel"> 
 					<i class="j-icon j-icon-right j-icon-automark"></i>
+					<span class="error" *ngIf="email.errors" translate>
+						<ng-container *ngIf="email.errors.required">Email Required</ng-container>
+						<ng-container *ngIf="email.errors.pattern">Invalid Email</ng-container>
+					</span>
+				</div>
+			</div> -->
+			<div class="j-form-group" [ngClass]="{invalid: signForm.submitted && mobile.invalid && (mobile.dirty || mobile.touched || signForm.submitted)}">
+				<label for="mobile" class="j-inputbox-label">البريد الإلكتروني</label>
+				<div class="j-input-icons j-input-icon-right">
+					<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="البريد الإلكتروني" required  #mobile="ngModel"> 
+					<i class="j-icon j-icon-right j-icon-phone"></i>
 				</div>
 			</div>
-			<div class="j-form-group">
+			<div class="j-form-group" [ngClass]="{invalid: signForm.submitted && client_id.invalid && (client_id.dirty || client_id.touched || signForm.submitted)}">
+				<label for="client_id" class="j-inputbox-label">البريد الإلكتروني</label>
+				<div class="j-input-icons j-input-icon-right">
+					<input type="number" class="j-inputbox" [(ngModel)]="user.client_id" id="client_id" name="client_id" aria-describedby="client_idHelp" placeholder="البريد الإلكتروني" required  #client_id="ngModel"> 
+					<i class="j-icon j-icon-right j-icon-person"></i>
+				</div>
+			</div>
+			<div class="j-form-group" [ngClass]="{invalid: signForm.submitted && password.invalid && (password.dirty || password.touched || signForm.submitted)}">
 				<label for="password" class="j-inputbox-label">كلمة المرور</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="password" class="j-inputbox" id="password" name="password" placeholder="كلمة المرور">
+					<input type="password" class="j-inputbox" id="password" name="password" [(ngModel)]="user.password" placeholder="كلمة المرور" #password="ngModel">
 					<i class="j-icon j-icon-right j-icon-key"></i>
 				</div>
 			</div>
-			<a class="forgot-password-btn" routerLink="/forgot-password">نسيت كلمة المرور؟</a>
+			<a class="forgot-password-btn" [routerLink]="['/forgot-password']">نسيت كلمة المرور؟</a>
 			<div class="j-form-group">
-				<button type="submit" class="j-left-button button j-submit-button"><span>تسجيل الدخول</span></button>
+				<button type="submit" class="j-left-button button j-submit-button" [class.loading]="submitting"><span>تسجيل الدخول</span></button>
 			</div>
 		</form>
 	</div>

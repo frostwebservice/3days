@@ -1,6 +1,12 @@
 import { Component } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 import { TimeSession ,AppointmentItem} from 'src/app/utils/data.types';
+import {
+	NgbDateStruct,
+	NgbCalendar,
+	NgbTimeStruct,
+	NgbDatepicker
+} from '@ng-bootstrap/ng-bootstrap';
 @Component({
 	selector: 'app-bookings',
 	templateUrl: 'bookings.component.html',
@@ -36,4 +42,5 @@ export class Bookings {
 			},
 		])
 	}
+
 }

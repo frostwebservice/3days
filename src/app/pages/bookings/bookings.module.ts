@@ -17,8 +17,7 @@ const routes = [
 @NgModule({
 		declarations: [Bookings],
 		imports: [CommonModule, ComponentsModule, RouterModule.forChild(routes),
-			BrowserAnimationsModule,
-			BsDatepickerModule.forRoot()
+			BsDatepickerModule,
 		],
 		exports: [Bookings],
 		schemas: [CUSTOM_ELEMENTS_SCHEMA],

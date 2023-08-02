@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TabItem, Club, SubscriptionItem ,PersonalTrainingItem } from 'src/app/utils/data.types';
+import {
+	NgbDateStruct,
+	NgbCalendar,
+	NgbTimeStruct,
+	NgbDatepicker
+} from '@ng-bootstrap/ng-bootstrap';
 @Component({
 	selector: 'app-register',
 	templateUrl: 'register.component.html',
