@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-// import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 // import { User } from 'src/app/models/user.model';
-// import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/user.service';
 import { ArticleService } from 'src/app/services/article.service';
 
 import { User } from 'src/app/models/user.model';
@@ -18,7 +18,7 @@ import { environment } from 'src/environments/environment';
 	templateUrl: 'login.component.html',
 	styleUrls: ['login.component.css'],
 	providers : [
-		// UserService,
+		UserService,
 		ArticleService
 	]  
 })
@@ -37,10 +37,10 @@ export class LoginComponent implements OnInit {
 	article;
 	returnUrl = '';
 	constructor(
-		// private userService: UserService,
+		private userService: UserService,
 		private articleService: ArticleService,
+		private router: Router,
 		// private route: ActivatedRoute,
-		// private router: Router,
 		// private dialog: MatDialog
 	) { }
 
@@ -52,20 +52,24 @@ export class LoginComponent implements OnInit {
     }  
 	login(): void {
 		// Login
-		this.getArticles();
+		// this.getArticles();
 		this.submitting = true;
 		console.log('login',this.user);
-		// this.userService.login(this.user).subscribe((res) => {
-			// 	this.submitting = false;
-			// 	if (!res) {
-				// 		return;
-		// 	}
-		// 	this.goHome(res['data']);
-		// });
+		this.userService.login(this.user).subscribe((res) => {
+				this.submitting = false;
+				if (!res) {
+						return;
+			}
+			console.log(res);
+			if (res.token !== undefined && res.token !== ""){
+				this.goHome(res);
+			}
+		});
 		// this.userService.test(this.user);
 	}
 	goHome(data: any): void {
-		Cookie.setLogin(data.user.id);
-		console.log('*******',data.user.id);
+		Cookie.setLogin(data.member.id);
+		console.log('*******',data.member);
+		this.router.navigate([this.returnUrl]);
 	}
 }

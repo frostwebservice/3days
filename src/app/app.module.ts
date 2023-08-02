@@ -16,6 +16,8 @@ import {
   } from '@angular/common/http';
 // import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { ApiInterceptor } from 'src/app/interceptors/api.interceptor';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AuthenticationComponent } from './authentication/authentication.component'
 import { AgmCoreModule } from '@agm/core';
@@ -156,6 +158,15 @@ const routes = [
 	}
 ]
 
+const config: SocketIoConfig = {
+	url: environment.api,
+	options: {}
+};
+  
+export function HttpLoaderFactory(httpClient: HttpClient) {
+	return new TranslateHttpLoader(httpClient);
+}
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -175,6 +186,7 @@ const routes = [
 		BrowserModule, RouterModule.forRoot(routes), ComponentsModule,
 		BrowserAnimationsModule,
 		FormsModule, 
+		HttpClientModule,
 		BsDatepickerModule.forRoot(),
 		// ServiceWorkerModule.register('ngsw-worker.js', {
 		// 	enabled: environment.production
