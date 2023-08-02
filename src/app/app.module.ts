@@ -8,7 +8,14 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
+import { environment } from '../environments/environment';
+import {
+	HttpClient,
+	HttpClientModule,
+	HTTP_INTERCEPTORS
+  } from '@angular/common/http';
 // import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { ApiInterceptor } from 'src/app/interceptors/api.interceptor';
 
 import { AuthenticationComponent } from './authentication/authentication.component'
 import { AgmCoreModule } from '@agm/core';
@@ -169,11 +176,16 @@ const routes = [
 		BrowserAnimationsModule,
 		FormsModule, 
 		BsDatepickerModule.forRoot(),
+		// ServiceWorkerModule.register('ngsw-worker.js', {
+		// 	enabled: environment.production
+		// }),
 		// MdbModalModule,
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
 	],
 	// providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
-	providers: [],
+	providers: [
+		{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

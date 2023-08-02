@@ -1,10 +1,12 @@
 import { Component } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
-
 @Component({
     selector: 'app-profile',
     templateUrl: 'profile.component.html',
     styleUrls: ['profile.component.css'],
+    providers : [
+        
+    ]  
 })
 export class Profile {
     pitems = [
@@ -25,4 +27,7 @@ export class Profile {
         },
         ])
     }
+   
+    ngOnInit() {     
+    }  
 }

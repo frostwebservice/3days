@@ -12,6 +12,7 @@ import { AgmCoreModule } from '@agm/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 @NgModule({
 	declarations: [
 		LoginComponent,
@@ -26,6 +27,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 		RouterModule.forChild(AuthenticationRoutingModule),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
 		BsDatepickerModule
-	]
+	],
+	providers : []
 })
 export class AuthenticationModule { }
