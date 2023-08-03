@@ -1,24 +1,20 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
-import { ArticleService } from 'src/app/services/article.service';
-
 import { User } from 'src/app/models/user.model';
-import { Cookie } from 'src/app/utils/cookie';
+import { UserService } from 'src/app/services/user.service';
+
 import { environment } from 'src/environments/environment';
+import { Cookie } from 'src/app/utils/cookie';
 // import { MatDialog } from '@angular/material/dialog';
 // import { ToastrService } from 'ngx-toastr';
-
-
-
 
 @Component({
 	selector: 'app-login',
 	templateUrl: 'login.component.html',
 	styleUrls: ['login.component.css'],
-	providers : [
-		UserService,
-	]  
+	// providers : [
+	// 	UserService,
+	// ]  
 })
 export class LoginComponent implements OnInit {
 	@ViewChild('serverFrame') serverWindow: ElementRef;
@@ -33,6 +29,8 @@ export class LoginComponent implements OnInit {
 	// };
 	submitting = false;
 	returnUrl = '';
+	loading = false;
+
 	constructor(
 		private userService: UserService,
 		private router: Router,
@@ -43,6 +41,7 @@ export class LoginComponent implements OnInit {
 	ngOnInit(): void {
 		this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 	}
+
 	login(): void {
 		// Login
 		this.submitting = true;

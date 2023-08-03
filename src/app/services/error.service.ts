@@ -26,29 +26,30 @@ export class ErrorService {
 
 	constructor(
 		private router: Router,
+		// private dialog: MatDialog
 		// private toast: ToastrService,
-		private dialog: MatDialog
 	) {}
 	addError(operation: string, error: any) {
 		const errorObj = {
-		operation,
-		message: (error.error && error.error.error) || 'Unknown Error',
-		detail: error.message,
-		statusText: error.statusText,
-		status: error.status
+			operation,
+			message: (error.error && error.error.error) || 'Unknown Error',
+			detail: error.message,
+			statusText: error.statusText,
+			status: error.status
 		};
 
 		if (operation === 'GET CONVERT STATUS') {
-		return;
+			return;
 		}
 
 		switch (error.status) {
 		case 0:
 			// Network Error
 			if (
-			!document.querySelector('.toast-top-center div') &&
-			operation !== 'GET NOTIFICATION DELIVERY STATUS'
+				!document.querySelector('.toast-top-center div') &&
+				operation !== 'GET NOTIFICATION DELIVERY STATUS'
 			) {
+
 			}
 			break;
 		case 401:
@@ -83,11 +84,11 @@ export class ErrorService {
 			break;
 		default:
 			if (Array.isArray(errorObj.message)) {
-			errorObj.message.forEach((message) => {
-				// this.toast.error(message, errorObj.operation, {
-				// closeButton: true
-				// });
-			});
+				errorObj.message.forEach((message) => {
+					// this.toast.error(message, errorObj.operation, {
+					// closeButton: true
+					// });
+				});
 			} else {
 			// this.toast.error(errorObj.message, errorObj.operation, {
 			// 	closeButton: true

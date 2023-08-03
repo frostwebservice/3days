@@ -9,7 +9,9 @@ import { ErrorService } from './error.service';
 })
 export class HttpService {
 	public server = environment.api;
-	constructor(private errorService: ErrorService) {}
+	constructor(
+		private errorService: ErrorService
+	) {}
 
 	handleError<T>(
 		operation = 'Server Connection',
@@ -17,7 +19,7 @@ export class HttpService {
 		returnError = false
 	) {
 		return (error: any): Observable<T> => {
-			this.errorService.addError(operation, error);
+			// this.errorService.addError(operation, error);
 			if (returnError) {
 				return of({ ...error.error, statusCode: error.status } as T);
 			} else {
@@ -28,9 +30,9 @@ export class HttpService {
 
 	handleSuccess<T>(operation = Strings.REQUEST_SUCCESS, result?: T) {
 		return (): Observable<T> => {
-		console.log(operation);
-		this.errorService.showSuccess(operation);
-		return of(result as T);
+			console.log(operation);
+			// this.errorService.showSuccess(operation);
+			return of(result as T);
 		};
 	}
 }

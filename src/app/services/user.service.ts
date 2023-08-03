@@ -1,27 +1,30 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { catchError, filter, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { AUTH } from '../constants/api.constant';
+import { Account, User } from '../models/user.model';
 import { ErrorService } from './error.service';
 import { HttpService } from './http.service';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { Account, User } from '../models/user.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService extends HttpService {
-
+    profile: BehaviorSubject<User> = new BehaviorSubject(new User());
+    profile$: Observable<User> = this.profile.asObservable();
+  
+    accounts: BehaviorSubject<any> = new BehaviorSubject(null);
+    accounts$: Observable<any> = this.accounts.asObservable();
+  
     constructor(
         private httpClient: HttpClient, 
         errorService: ErrorService
     ) {
         super(errorService);
     }
-    
-    test(data){
-        console.log(data);
-    }
+
     public register(): any {}
 
     // public login(user: { email: string; password: string }): Observable<any> {
