@@ -1,61 +1,63 @@
 <app-header page_name="products" ngClass="j-page-section"></app-header>
-<div class="products-container j-front-page page-container">
-	<div class="page-title mb-5 mt-5">
-		<h3 class="j-title-size gwTColor">المنتجات</h3>
-	</div>
-	<div class="select-product-tab-panel j-left-button mb-4">
-		<div class="p-2 d-flex">
-			<div class="pt-tab select-product-tab j-left-button" [ngClass]="{'active' : selected_tab == 1}" (click)="selectTab(1)">التدريب الشخصي</div>
-			<div class="subs-tab select-product-tab j-left-button" [ngClass]="{'active' : selected_tab == 2}" (click)="selectTab(2)">الاشتراكات</div>
+<div class="container">
+	<div class="products-container j-front-page page-container">
+		<div class="page-title mb-5 mt-5">
+			<h3 class="j-title-size gwTColor">المنتجات</h3>
 		</div>
-	</div>
-	<div class="j-pts-tab" *ngIf = 'selected_tab == 1'>
-		<div class="j-pts-list row">
-			<div class="j-pt-item col-md-6 col-12" *ngFor="let personalTraining of personalTrainings;let i = index">
-				<app-polygon-border-div j-class = 'j-left'>
-					<div class="personalTrainings-card j-product-card">
-						<p class="product_share">{{personalTraining.shares}}</p>
-						<p class="product_price">{{personalTraining._per }} / <b>{{personalTraining.currency}} {{personalTraining.price}}</b></p>
-						<p class="product_description">{{personalTraining.description}}</p>
-
-						<div *ngIf = "personalTraining.id !== current_personalTrainings.id" class="mt-3 j-cancel-btn">
-							<app-polygon-border-div j-class='j-left' class="text-center" >
-								<div class="j-btn p-2 gdTColor">اشتراكك الحالي</div>
-							</app-polygon-border-div>
-						</div>
-						
-						<div *ngIf = "personalTraining.id == current_personalTrainings.id"  class="mt-3 j-apply-btn">
-							<app-polygon-border-div j-class='j-left j-3days' class="text-center" >
-								<div class="j-btn _3dayColor p-2">اشتراكك الحالي</div>
-							</app-polygon-border-div>
-						</div>
-					</div>
-				</app-polygon-border-div>
+		<div class="select-product-tab-panel j-left-button mb-4">
+			<div class="p-2 d-flex">
+				<div class="pt-tab select-product-tab j-left-button" [ngClass]="{'active' : selected_tab == 1}" (click)="selectTab(1)">التدريب الشخصي</div>
+				<div class="subs-tab select-product-tab j-left-button" [ngClass]="{'active' : selected_tab == 2}" (click)="selectTab(2)">الاشتراكات</div>
 			</div>
 		</div>
-	</div>
-	<div class="j-subs-tab" *ngIf = 'selected_tab == 2'>
-		<div class="j-subs-list row">
-			<div class="j-subs-item col-md-6 col-12" *ngFor="let subscription of subscriptions;let i = index">
-				<app-polygon-border-div j-class = 'j-left'>
-					<div class="subscriptions-card j-product-card" >
-						<p class="product_cycle">{{subscription.cycle}}</p>
-						<p class="product_price">{{subscription._per }} / <b>{{subscription.currency}} {{subscription.price}}</b></p>
-						<p class="product_description">{{subscription.description}}</p>
-
-						<div *ngIf = "current_subscriptions.id !== subscription.id" class="mt-3 j-cancel-btn">
-							<app-polygon-border-div j-class='j-left' class="text-center" >
-								<div class="j-btn p-2 gdTColor">اشتراكك الحالي</div>
-							</app-polygon-border-div>
+		<div class="j-pts-tab" *ngIf = 'selected_tab == 1'>
+			<div class="j-pts-list row">
+				<div class="j-pt-item col-md-6 col-12" *ngFor="let personalTraining of personalTrainings;let i = index">
+					<app-polygon-border-div j-class = 'j-left'>
+						<div class="personalTrainings-card j-product-card">
+							<p class="product_share">{{personalTraining.shares}}</p>
+							<p class="product_price">{{personalTraining._per }} / <b>{{personalTraining.currency}} {{personalTraining.price}}</b></p>
+							<p class="product_description">{{personalTraining.description}}</p>
+	
+							<div *ngIf = "personalTraining.id !== current_personalTrainings.id" class="mt-3 j-cancel-btn">
+								<app-polygon-border-div j-class='j-left' class="text-center" >
+									<div class="j-btn p-2 gdTColor">اشتراكك الحالي</div>
+								</app-polygon-border-div>
+							</div>
+							
+							<div *ngIf = "personalTraining.id == current_personalTrainings.id"  class="mt-3 j-apply-btn">
+								<app-polygon-border-div j-class='j-left j-3days' class="text-center" >
+									<div class="j-btn _3dayColor p-2">اشتراكك الحالي</div>
+								</app-polygon-border-div>
+							</div>
 						</div>
-						
-						<div *ngIf = "current_subscriptions.id == subscription.id"  class="mt-3 j-apply-btn">
-							<app-polygon-border-div j-class='j-left j-3days' class="text-center" >
-								<div class="j-btn _3dayColor p-2">اشتراكك الحالي</div>
-							</app-polygon-border-div>
+					</app-polygon-border-div>
+				</div>
+			</div>
+		</div>
+		<div class="j-subs-tab" *ngIf = 'selected_tab == 2'>
+			<div class="j-subs-list row">
+				<div class="j-subs-item col-md-6 col-12" *ngFor="let subscription of subscriptions;let i = index">
+					<app-polygon-border-div j-class = 'j-left'>
+						<div class="subscriptions-card j-product-card" >
+							<p class="product_cycle">{{subscription.cycle}}</p>
+							<p class="product_price">{{subscription._per }} / <b>{{subscription.currency}} {{subscription.price}}</b></p>
+							<p class="product_description">{{subscription.description}}</p>
+	
+							<div *ngIf = "current_subscriptions.id !== subscription.id" class="mt-3 j-cancel-btn">
+								<app-polygon-border-div j-class='j-left' class="text-center" >
+									<div class="j-btn p-2 gdTColor">اشتراكك الحالي</div>
+								</app-polygon-border-div>
+							</div>
+							
+							<div *ngIf = "current_subscriptions.id == subscription.id"  class="mt-3 j-apply-btn">
+								<app-polygon-border-div j-class='j-left j-3days' class="text-center" >
+									<div class="j-btn _3dayColor p-2">اشتراكك الحالي</div>
+								</app-polygon-border-div>
+							</div>
 						</div>
-					</div>
-				</app-polygon-border-div>
+					</app-polygon-border-div>
+				</div>
 			</div>
 		</div>
 	</div>

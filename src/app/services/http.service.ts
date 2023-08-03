@@ -9,28 +9,30 @@ import { ErrorService } from './error.service';
 })
 export class HttpService {
 	public server = environment.api;
-	constructor(private errorService: ErrorService) {}
+	constructor(
+		private errorService: ErrorService
+	) {}
 
-	// handleError<T>(
-	// 	operation = 'Server Connection',
-	// 	result?: T,
-	// 	returnError = false
-	// ) {
-	// 	return (error: any): Observable<T> => {
-	// 		this.errorService.addError(operation, error);
-	// 		if (returnError) {
-	// 			return of({ ...error.error, statusCode: error.status } as T);
-	// 		} else {
-	// 			return of(result as T);
-	// 		}
-	// 	};
-	// }
+	handleError<T>(
+		operation = 'Server Connection',
+		result?: T,
+		returnError = false
+	) {
+		return (error: any): Observable<T> => {
+			// this.errorService.addError(operation, error);
+			if (returnError) {
+				return of({ ...error.error, statusCode: error.status } as T);
+			} else {
+				return of(result as T);
+			}
+		};
+	}
 
-	// handleSuccess<T>(operation = Strings.REQUEST_SUCCESS, result?: T) {
-	// 	return (): Observable<T> => {
-	// 	console.log(operation);
-	// 	this.errorService.showSuccess(operation);
-	// 	return of(result as T);
-	// 	};
-	// }
+	handleSuccess<T>(operation = Strings.REQUEST_SUCCESS, result?: T) {
+		return (): Observable<T> => {
+			console.log(operation);
+			// this.errorService.showSuccess(operation);
+			return of(result as T);
+		};
+	}
 }

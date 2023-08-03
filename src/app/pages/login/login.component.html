@@ -1,13 +1,13 @@
 <div class="authentication-container page-container">
-	<p class="text-white">{{this.article}}</p>
 	<div class="j-login-section j-page-section j-auth-section">
-		<a class="j-login-btn button j-left-button" routerLink="/signup">إنشاء حساب</a>
+		<a class="j-login-btn button j-left-button" [routerLink]="['/signup']">إنشاء حساب</a>
 		<a class="j-language-btn button j-right-button"><i class="j-icon i-icon-earth"></i></a>
-		<a routerLink="/">
+		<a [routerLink]="['/']">
 			<img alt="logo" src="/assets/external/logo.svg" class="j-app-logo"/>
 		</a>
 		<h4 class="j-page-title">تسجيل الدخول</h4>
 		<form class="j-form" #signForm="ngForm" (ngSubmit)="signForm.form.valid ? login() : false">
+		<!-- <form class="j-form" #signForm="ngForm"> -->
 			<!-- <div class="j-form-group" [ngClass]="{invalid: signForm.submitted && email.invalid && (email.dirty || email.touched || signForm.submitted)}">
 				<label for="email" class="j-inputbox-label">البريد الإلكتروني</label>
 				<div class="j-input-icons j-input-icon-right">
