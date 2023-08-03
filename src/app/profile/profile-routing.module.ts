@@ -8,7 +8,6 @@ import { Notifications } from '../pages/notifications/notifications.component';
 import { FinancialOperations } from '../pages/financial-operations/financial-operations.component';
 import { PersonalInfo } from '../pages/personal-info/personal-info.component';
 
-
 export const ProfileRoutingModule: Routes = [
 	{
 		path: 'privacy-policy',
