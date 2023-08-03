@@ -1,36 +1,36 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
-import { RouterModule } from '@angular/router'
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser'
-import { ComponentsModule } from './components/components.module'
-import { AppComponent } from './app.component'
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
-import { environment } from '../environments/environment';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {
 	HttpClient,
 	HttpClientModule,
 	HTTP_INTERCEPTORS
-  } from '@angular/common/http';
-// import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+} from '@angular/common/http';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ComponentsModule } from './components/components.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { ApiInterceptor } from 'src/app/interceptors/api.interceptor';
+import { AppComponent } from './app.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { ProfileComponent } from './profile/profile.component';
+import { environment } from '../environments/environment';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AuthenticationComponent } from './authentication/authentication.component'
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+// import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { BrowserModule } from '@angular/platform-browser';
+
 import { AgmCoreModule } from '@agm/core';
+
+
 import { ClassDetail } from './pages/class-detail/class-detail.component';
-import { PrivacyPolicy } from './pages/privacy-policy/privacy-policy.component';
-import { TermsConditons } from './pages/terms-conditions/terms-conditions.component';
-import { Checkout } from './pages/checkout/checkout.component';
-import { ClubBranches } from './pages/club-branches/club-branches.component';
-import { Notifications } from './pages/notifications/notifications.component';
-import { FinancialOperations } from './pages/financial-operations/financial-operations.component';
 import { Subscriptions } from './pages/subscriptions/subscriptions.component';
 import { PersonalTraining } from './pages/personal-training/personal-training.component';
-import { PersonalInfo } from './pages/personal-info/personal-info.component';
 const routes = [
 	{
 		path: '',
@@ -46,6 +46,19 @@ const routes = [
 				loadChildren: () =>
 					import('src/app/authentication/authentication.module').then(
 						(m) => m.AuthenticationModule
+					)
+			}
+		],
+	},
+	{
+		path: '',
+		component: ProfileComponent,
+		children: [
+			{
+				path: '',
+				loadChildren: () =>
+					import('src/app/profile/profile.module').then(
+						(m) => m.ProfileModule
 					)
 			}
 		],
@@ -90,55 +103,6 @@ const routes = [
 		}
 	},
 	{
-		path: 'privacy-policy',
-		component: PrivacyPolicy,
-		data: {
-			title: 'Privacy Policy'
-		}
-	},
-	{
-		path: 'terms-conditions',
-		component: TermsConditons,
-		data: {
-			title: 'Terms Conditions'
-		}
-	},
-	{
-		path: 'personal-data',
-		component: PersonalInfo,
-		data: {
-			title: 'Personal Information'
-		}
-	},
-	{
-		path: 'checkout',
-		component: Checkout,
-		data: {
-			title: 'Checkout'
-		}
-	},
-	{
-		path: 'branches',
-		component: ClubBranches,
-		data: {
-			title: 'Club Branches'
-		}
-	},
-	{
-		path: 'notifications',
-		component: Notifications,
-		data: {
-			title: 'Notifications'
-		}
-	},
-	{
-		path: 'financial-operations',
-		component: FinancialOperations,
-		data: {
-			title: 'Financial Operations'
-		}
-	},
-	{
 		path: 'subscriptions',
 		component: Subscriptions,
 		data: {
@@ -171,28 +135,33 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 	declarations: [
 		AppComponent,
 		AuthenticationComponent,
+		ProfileComponent,
 		ClassDetail,
-		PrivacyPolicy,
-		TermsConditons,
-		Checkout,
-		ClubBranches,
-		Notifications,
-		FinancialOperations,
 		Subscriptions,
 		PersonalTraining,
-		PersonalInfo,
 	],
 	imports: [
-		BrowserModule, RouterModule.forRoot(routes), ComponentsModule,
+		BrowserModule, 
+		RouterModule.forRoot(routes), 
+		ComponentsModule,
 		BrowserAnimationsModule,
 		FormsModule, 
 		HttpClientModule,
+		TranslateModule.forRoot({
+			loader: {
+				provide: TranslateLoader,
+				useFactory: HttpLoaderFactory,
+				deps: [HttpClient]
+			}
+		}),
 		BsDatepickerModule.forRoot(),
 		// ServiceWorkerModule.register('ngsw-worker.js', {
 		// 	enabled: environment.production
 		// }),
 		// MdbModalModule,
+		// NgbModule,
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
+  		// AppRoutingModule,
 	],
 	// providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
 	providers: [

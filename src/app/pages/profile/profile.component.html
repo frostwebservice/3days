@@ -1,40 +1,42 @@
 <app-header page_name="profile" ngClass="j-page-section"></app-header>
-<div class="profile-container page-container j-front-page">
-	<div class="container-inner">
-		<div class="profile-photo mb-3">
-			<app-polygon-border-div specify="1" [cornerStatus] = "[0,1,0,1]" weight="4" cutRange = "24" borderColor = "var(--dl-color-primary-3days)">
-				<div class="j-img" style="background-image: url(./assets/img/manavatar.png);">
-					<button type="button" class="j-edit-btn">تعديل</button>
-				</div>
-			</app-polygon-border-div>
-		</div>
-		<div class="profile-name text-white j-subtitle-size mb-2">
-			أحمد سمير عبد الرحمن
-		</div>
-		<div class="profile-email j-tnSize gdTColor mb-2">
-			Ahmedamouna@icloud.com
-		</div>
-		<div class="profile-detail row mt-5">
-			<div class="detail-item col-md-3 col-6 p-{{pitem.id}} p-3" [routerLink] = "pitem.href" *ngFor="let pitem of pitems">
-				<app-polygon-border-div j-class = 'j-left'>
-					<div class="detail-inner-wrap p-4">
-						<app-polygon-border-div j-class="j-right">
-							<div class="detail-icon j-icon {{pitem.iconclass}}"></div>
-						</app-polygon-border-div>
-						<div class="text-white p-item mt-2">
-							{{pitem.label}}
-						</div>
+<div class="container">
+	<div class="profile-container page-container j-front-page">
+		<div class="container-inner">
+			<div class="profile-photo mb-3">
+				<app-polygon-border-div specify="1" [cornerStatus] = "[0,1,0,1]" weight="4" cutRange = "24" borderColor = "var(--dl-color-primary-3days)">
+					<div class="j-img" style="background-image: url(./assets/img/manavatar.png);">
+						<button type="button" class="j-edit-btn">تعديل</button>
 					</div>
 				</app-polygon-border-div>
 			</div>
-			
-		</div>
-		<div class="profile-notification" [routerLink] = "'/notifications'">
-			<app-polygon-border-div j-class="j-left">
-				<div class="notification-icon">
-					<i class="j-icon bi bi-bell"></i>
+			<div class="profile-name text-white j-subtitle-size mb-2">
+				أحمد سمير عبد الرحمن
+			</div>
+			<div class="profile-email j-tnSize gdTColor mb-2">
+				Ahmedamouna@icloud.com
+			</div>
+			<div class="profile-detail row mt-5">
+				<div class="detail-item col-md-3 col-6 p-{{pitem.id}} p-3" [routerLink] = "pitem.href" *ngFor="let pitem of pitems">
+					<app-polygon-border-div j-class = 'j-left'>
+						<div class="detail-inner-wrap p-4">
+							<app-polygon-border-div j-class="j-right">
+								<div class="detail-icon j-icon {{pitem.iconclass}}"></div>
+							</app-polygon-border-div>
+							<div class="text-white p-item mt-2">
+								{{pitem.label}}
+							</div>
+						</div>
+					</app-polygon-border-div>
 				</div>
-			</app-polygon-border-div>
+				
+			</div>
+			<div class="profile-notification" [routerLink] = "'/notifications'">
+				<app-polygon-border-div j-class="j-left">
+					<div class="notification-icon">
+						<i class="j-icon bi bi-bell"></i>
+					</div>
+				</app-polygon-border-div>
+			</div>
 		</div>
 	</div>
 </div>
