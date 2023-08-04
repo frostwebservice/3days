@@ -24,6 +24,7 @@ import { BranchSelectionComponent } from './branch-selection/branch-selection.co
 import { SuspendSubscriptionComponent } from './suspend-subscription/suspend-subscription.component'
 import { ReferralCodeComponent } from './referral-code/referral-code.component'
 import { ConfirmCodeComponent } from './comfirm-code/confirm-code.component'
+import { SpinnerComponent } from './spinner/spinner.component'
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ConfirmCodeComponent } from './comfirm-code/confirm-code.component'
     SuspendSubscriptionComponent,
     ReferralCodeComponent,
     ConfirmCodeComponent,
+    SpinnerComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -74,6 +76,7 @@ import { ConfirmCodeComponent } from './comfirm-code/confirm-code.component'
     SuspendSubscriptionComponent,
     ReferralCodeComponent,
     ConfirmCodeComponent,
+    SpinnerComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

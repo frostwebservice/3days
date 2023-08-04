@@ -26,7 +26,7 @@
 				</div>
 			</div>
 		</ng-container>
-		<form class="j-form" *ngIf="isStarted && !isCompleted">
+		<form class="j-form" *ngIf="isStarted && !isCompleted" #signupForm="ngForm" (ngSubmit)="signupForm.form.valid ? signup() : false">
 			<div class="j-signup-process">
 				<app-page-tab [tabs]="tabs" [selected]="selectedTab" (onChange)="changeTab($event)" class="pl-0 rounded-0 j-tab-bar">
 				</app-page-tab>
@@ -36,32 +36,38 @@
 							<h4 class="j-page-text mb-2">الجنس</h4>
 							<p class="j-page-text">الرجاء اختيار الفئة:</p>
 							<div class="j-gender-wrap">
-								<div class="j-gender-option active">
-									<label class="j-gender-option-card male-option" for="male-option">
+								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: gender_option == "male" }'>
+									<label class="j-gender-option-card male-option" for="male-option" (click)="setGenderOption('male')" >
 										<div class="gender-img"></div>
 										<div class="gender-label">رجال</div>
-										<input type="radio" id="male-option" name = "gender-option" value="male" checked>
+										<div class="option_btn">
+											<input type="radio" id="male-option" name = "gender-option" value="male"   [checked]="gender_option == 'male'" >
+										</div>
 									</label>
-								</div>
-								<div class="j-gender-option">
-									<label class="j-gender-option-card female-option" for="female-option">
+								</app-polygon-border-div>
+								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: gender_option == "female" }'>
+									<label class="j-gender-option-card female-option" for="female-option" (click)="setGenderOption('female')" >
 										<div class="gender-img"></div>
 										<div class="gender-label">نساء</div>
-										<input type="radio" id="female-option" name = "gender-option" value="female">
+										<div class="option_btn">
+											<input type="radio" id="female-option" name = "gender-option" value="female"  [checked]="gender_option == 'female'">
+										</div>
 									</label>
-								</div>
-								<div class="j-gender-option">
-									<label class="j-gender-option-card kids-option" for="kids-option">
+								</app-polygon-border-div>
+								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: gender_option == "kids" }'>
+									<label class="j-gender-option-card kids-option" for="kids-option" (click)="setGenderOption('kids')" >
 										<div class="gender-img"></div>
 										<div class="gender-label">براعم</div>
-										<input type="radio" id="kids-option" name = "gender-option" value="kids">
+										<div class="option_btn">
+											<input type="radio" id="kids-option" name = "gender-option" value="kids"  [checked]="gender_option == 'kids'">
+										</div>
 									</label>
-								</div>
+								</app-polygon-border-div>
 							</div>
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('gender')">التالي</a>
-							<app-polygon-border-div j-class = 'j-left'><a class="btn j-prev-btn" (click)="prevTab('gender')">سابق</a></app-polygon-border-div>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('gender')">سابق</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'site'">
@@ -69,25 +75,29 @@
 							<h4 class="j-page-text mb-2">الموقع</h4>
 							<p class="j-page-text">يرجى اختيار طريقة تحديد موقع النادي الرياضي:</p>
 							<div class="j-site-wrap">
-								<div class="j-site-option active">
-									<label class="j-site-option-card manual-option" for="manual-option">
+								<app-polygon-border-div j-class = "j-left" class="j-site-option" [ngClass]='{active: site_option == "manual" }'>
+									<label class="j-site-option-card manual-option" for="manual-option" (click)="setSiteOption('manual')" >
 										<div class="site-img"></div>
 										<div class="site-label">يدوي</div>
-										<input type="radio" id="manual-option" name = "site-option" value="manual" checked>
+										<div class="option_btn">
+											<input type="radio" id="manual-option" name = "site-option" value="manual" [checked]="gender_option == 'manual'">
+										</div>
 									</label>
-								</div>
-								<div class="j-site-option">
-									<label class="j-site-option-card map-option" for="map-option">
+								</app-polygon-border-div>
+								<app-polygon-border-div j-class = "j-left" class="j-site-option" [ngClass]='{active: site_option == "map" }'>
+									<label class="j-site-option-card map-option" for="map-option" (click)="setSiteOption('map')" >
 										<div class="site-img"></div>
 										<div class="site-label">خريطة</div>
-										<input type="radio" id="map-option" name = "site-option" value="map">
+										<div class="option_btn">
+											<input type="radio" id="map-option" name = "site-option" value="map" [checked]="gender_option == 'map'">
+										</div>
 									</label>
-								</div>
+								</app-polygon-border-div>
 							</div>
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('site')">التالي</a>
-							<a class="btn j-prev-btn j-right-button" (click)="prevTab('site')">سابق</a>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('site')">سابق</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'find a club'">
@@ -114,7 +124,7 @@
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('find a club')">التالي</a>
-							<a class="btn j-prev-btn j-right-button" (click)="prevTab('find a club')">سابق</a>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('find a club')">سابق</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'products'">
@@ -126,12 +136,12 @@
 									<div class="j-personalTrainings-list-panel j-product-list-panel">
 										<h4 class="j-page-text mb-2">التدريب الشخصي</h4>
 										<app-polygon-border-div j-class = 'j-left' *ngFor="let personalTraining of personalTrainings;let i = index">
-											<div class="personalTrainings-card j-product-card">
+											<div class="personalTrainings-card j-product-card" (click)="setPTOption(personalTraining.id)"  [ngClass] = '{ active : pt_option == personalTraining.id}'>
 												<p class="product_share">{{personalTraining.shares}}</p>
 												<p class="product_price">{{personalTraining._per }} / <b>{{personalTraining.currency}} {{personalTraining.price}}</b></p>
 												<p class="product_description">{{personalTraining.description}}</p>
 												<label class="option_btn" for="personalTraining{{personalTraining.id}}">
-													<input type="radio" name="personalTraining" id="personalTraining{{personalTraining.id}}" value="{{personalTraining.id}}" class="product_opt">
+													<input type="radio" name="personalTraining" id="personalTraining{{personalTraining.id}}" value="{{personalTraining.id}}" class="product_opt" [checked]="pt_option == personalTraining.id">
 												</label>
 											</div>
 										</app-polygon-border-div>
@@ -141,12 +151,12 @@
 									<div class="j-subscriptions-list-panel j-product-list-panel">
 										<h4 class="j-page-text mb-2">الاشتراكات</h4>
 										<app-polygon-border-div j-class = 'j-right' *ngFor="let subscription of subscriptions;let i = index">
-											<div class="subscriptions-card j-product-card" >
+											<div class="subscriptions-card j-product-card" (click)="setSubOption(subscription.id)" [ngClass]="{active: sub_option == subscription.id}">
 												<p class="product_cycle">{{subscription.cycle}}</p>
 												<p class="product_price">{{subscription._per }} / <b>{{subscription.currency}} {{subscription.price}}</b></p>
 												<p class="product_description">{{subscription.description}}</p>
 												<label class="option_btn" for="subscription{{subscription.id}}">
-													<input type="radio" name="subscription" id="subscription{{subscription.id}}" value="{{subscription.id}}" class="product_opt">
+													<input type="radio" name="subscription" id="subscription{{subscription.id}}" value="{{subscription.id}}" class="product_opt" [checked]="sub_option == subscription.id">
 												</label>
 											</div>
 										</app-polygon-border-div>
@@ -156,7 +166,7 @@
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('products')">التالي</a>
-							<a class="btn j-prev-btn j-right-button" (click)="prevTab('products')">سابق</a>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('products')">سابق</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'account'">
@@ -166,11 +176,17 @@
 							<div class="j-account-wrap">
 								<div class="j-account-panel pb-md-0 pb-2">
 									<h4 class="j-page-text mb-2">الحساب</h4>
-									<div class="j-form-group">
-										<label for="phone" class="j-inputbox-label">رقم الجوال</label>
+									<div class="j-form-group" [ngClass]="{invalid: signupForm.submitted && mobile.invalid && (mobile.dirty || mobile.touched )}">
+										<label for="mobile" class="j-inputbox-label j-flex-row-reverse">
+											<span>Mobile Number</span>
+											<span class="j-error" *ngIf="mobile.errors" translate>
+												<ng-container *ngIf="mobile.errors.required">Required!</ng-container>
+												<ng-container *ngIf="mobile.errors.pattern">Wrong mobile number format!</ng-container>
+											</span>
+										</label>
 										<div class="j-input-icons j-input-icon-both">
 											<i class="j-icon j-icon-left bi bi-chat-left-text"></i>
-											<input type="phone" class="j-inputbox" id="phone" name="phone" aria-describedby="phoneHelp" placeholder="رقم الجوال" required> 
+											<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="رقم الجوال" required  pattern = '[- +()0-9]+' #mobile="ngModel"> 
 											<i class="j-icon j-icon-right j-icon-phone"></i>
 										</div>
 									</div>
@@ -250,7 +266,7 @@
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('account')">التالي</a>
-							<a class="btn j-prev-btn j-right-button" (click)="prevTab('account')">سابق</a>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('account')">سابق</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'payment'">
@@ -286,7 +302,7 @@
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('payment')">التالي</a>
-							<a class="btn j-prev-btn j-right-button" (click)="prevTab('payment')">سابق</a>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('payment')">سابق</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 				</div>

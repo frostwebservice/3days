@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 import { PersonalTrainingItem , SubscriptionItem} from 'src/app/utils/data.types';
+
 @Component({
 	selector: 'app-products',
 	templateUrl: 'products.component.html',
@@ -35,4 +36,5 @@ export class Products {
 			},
 		])
 	}
+
 }

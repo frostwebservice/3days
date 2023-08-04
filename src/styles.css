@@ -107,14 +107,37 @@
 	text-transform: none;
 	text-decoration: none;
 }
-
+/* custom by Jfrost */
+body {
+	background-color: var(--dl-color-gray-black) !important;
+}
+.loader {
+	position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #fff9;
+    z-index: 10002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.j-flex-row-reverse{
+	display: flex;
+	flex-direction: row-reverse;
+}
+.j-error{
+	color: var(--dl-color-danger-500);
+	display: none;
+}
 .j-front-page{
 	padding: var(--dl-space-space-twounits) var(--dl-space-space-threeunits);
 	/* padding-bottom: var(--dl-space-space-twounits); */
 }
 .j-front-page .error {
-    font-size: 11px;
-    color: var(--dl-color-danger-300);
+	font-size: 11px;
+	color: var(--dl-color-danger-300);
 }
 :not(.invalid) .error{
 	display: none;
@@ -122,12 +145,8 @@
 .j-front-page .j-inner-container{
 	position: relative;
 	text-align: center;
-    max-width: 1075px;
+	max-width: 1075px;
 	width: 100%;
-}
-/* custom by Jfrost */
-body {
-	background-color: var(--dl-color-gray-black) !important;
 }
 .j-page-section{
 	width: 100%;
@@ -167,11 +186,19 @@ body {
 	margin-top: 16px;
 	width: 100%;
 }
+.j-form-group.invalid .j-inputbox{
+	border-color: var(--dl-color-danger-500);
+}
+.j-form-group.invalid .j-error{
+	display: block;
+}
 .j-inputbox-label{
 	color:var(--dl-color-grey-dark);
 	text-align: right;
 	font-size:12px;
 	margin-bottom: 5px;
+	display: flex;
+	justify-content: space-between;
 }
 .j-inputbox{
 	background:var(--dl-color-grey-black);
@@ -196,11 +223,23 @@ body {
 	padding-left : var(--dl-space-space-threeunits);
 	padding-left : var(--dl-space-space-threeunits);
 }
+.j-submit-button.loading{
+	color: transparent!important;
+    background-image: url(/assets/img/spinner.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+}
+.j-submit-button.loading *{
+	color: transparent!important;
+	background: transparent !important;
+}
 .j-form-group .j-submit-button{
 	width: 100%;
 	height: 56px;
 	background-color: var(--dl-color-primary-3days);
-	font-size:24px;
+	font-size:20px;
 }
 
 .j-form-group .j-input-icons {
@@ -211,7 +250,7 @@ body {
 	top: 0;   
 	width: 44px;
 	height: 100%;
-	color: gray;
+	color: var(--dl-color-grey-white);
 }
 .j-form-group .j-input-icons i.j-icon.j-clickable:hover{
 	background-color: var(--dl-color-primary-3days);
@@ -291,6 +330,32 @@ body {
 }
 .j-front-page .backToProfile i.j-icon{
     color: white;
+}
+.j-form-group .j-input-icon-right .ng-spin-box-wrapper button{
+	left: 0 !important;
+    right: unset !important;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30px;
+}
+.j-form-group .j-input-icon-right .ng-spin-box-wrapper button:hover{
+	opacity:0.5;
+}
+.j-form-group .j-input-icon-right .ng-spin-box-wrapper .ng-spin-box-btn-up{
+	background-image: url(./assets/img/caret-up-fill.svg);
+}
+.j-form-group .j-input-icon-right .ng-spin-box-wrapper .ng-spin-box-btn-down{
+	background-image: url(./assets/img/caret-down-fill.svg);
+}
+.j-form-group .j-input-icon-right .ng-spin-box-wrapper input[type="number"]::-webkit-outer-spin-button,
+.j-form-group .j-input-icon-right .ng-spin-box-wrapper input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+.page-container a.j-text-hover:hover{
+	text-decoration: none;
+    color: var(--dl-color-grey-dark) !important;
 }
 
 @media(max-width: 767px) {

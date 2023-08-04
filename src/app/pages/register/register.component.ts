@@ -14,7 +14,12 @@ import {
 export class RegisterComponent implements OnInit {
 
 	constructor() { }
-
+	user = {
+		mobile: '',
+		password: '',
+		client_id : 0
+	};
+	
 	tabs: TabItem[] = [
 		{ icon: '', label: 'gender', id: 'gender' },
 		{ icon: '', label: 'site', id: 'site' },
@@ -59,6 +64,10 @@ export class RegisterComponent implements OnInit {
 	selectedTab: TabItem = this.tabs[0];
 	isStarted : boolean = false;
 	isCompleted : boolean = false;
+	gender_option : string = "male";
+	site_option : string = "manual";
+	pt_option : number = 1;
+	sub_option : number = 1;
 	lat = 21.4858;
 	lng = 39.1925;
 	ngOnInit(): void {	}
@@ -87,6 +96,22 @@ export class RegisterComponent implements OnInit {
 		}else{
 			this.selectedTab = this.tabs[index - 1];
 		}
+	}
+	setGenderOption(option:string){
+		this.gender_option = option;
+	}
+	setSiteOption(option:string){
+		this.site_option = option;
+	}
+	setPTOption(option:number){
+		this.pt_option = option;
+	}
+	setSubOption(option:number){
+		this.sub_option = option;
+	}
+
+	signup(){
+
 	}
 
 }
