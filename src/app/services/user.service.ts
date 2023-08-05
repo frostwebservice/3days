@@ -116,8 +116,19 @@ export class UserService extends HttpService {
     public setToken(token: string): void {
         localStorage.setItem('token', token);
     }
+    public setUser(user: User): any {
+        localStorage.setItem('user', JSON.stringify(user));
+    }
     public getToken(): any {
         return localStorage.getItem('token');
+    }
+    public getUser(): any {
+        const user = localStorage.getItem('user');
+        if (user) {
+            return JSON.parse(localStorage.getItem('user'));
+        } else {
+            return {};
+        }
     }
     public updateLocalStorageItem(item: string, value: string): void {
         localStorage.setItem(item, value);

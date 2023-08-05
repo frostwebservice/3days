@@ -2,6 +2,7 @@ export interface TabItem {
 	icon: string;
 	label: string;
 	id: string;
+	passed:boolean;
 }
 export interface ClubItem {
 	name: string;

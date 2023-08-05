@@ -386,7 +386,12 @@ body {
 		font-size: 10px;
 	}
 }
-
+@media(max-width: 425px) {
+	.j-form-group.invalid .j-error {
+		font-size: 8px;
+		line-height: 18px;
+	}
+}
 
 
 

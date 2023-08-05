@@ -223,7 +223,7 @@
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap{
     display:flex;
     width: 49%;
-    /* margin:0 auto; */
+    max-height: 90vh;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap{
     display:flex;
@@ -241,6 +241,13 @@
 }
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .j-club-list-panel{
     margin-top:var(--dl-space-space-oneandhalfunits);
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .j-club-list-panel .branch_item {
+    position: relative;
+    display: block;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .j-club-list-panel .branch_item input{
+    display: none;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap .armmap{
     width:100%;
@@ -357,6 +364,9 @@
     color:var(--dl-color-primary-3days);
     font-size:14px;
 }
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-account-panel .invalid .agree_terms_conditions{
+    color:var(--dl-color-danger-500);
+}
 .j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-account-panel .agree_terms_conditions .agree_terms_conditions_checkbox{
     margin-left:10px;
 }
@@ -388,6 +398,7 @@
 }
 .j-auth-section .j-signup-process .j-tab-content .j-payment-wrap .save_payment_info{
     text-align: right;
+    color: var(--dl-color-grey-dark);
 }
 .j-auth-section .j-signup-process .j-tab-content .j-payment-wrap .save_payment_info .save_payment_info_checkbox{
     margin-left:10px;
