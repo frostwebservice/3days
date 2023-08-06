@@ -41,8 +41,10 @@ export class Profile {
                     console.log('get_non_profile');
                     return;
                 }
-                this.current_user_profile = res;
+                this.current_user_profile = res.data;
                 console.log(res);
+            }).catch((err) => {
+                console.log(err);
             });
     }
    

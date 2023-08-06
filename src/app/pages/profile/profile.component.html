@@ -10,10 +10,10 @@
 				</app-polygon-border-div>
 			</div>
 			<div class="profile-name text-white j-subtitle-size mb-2">
-				أحمد سمير عبد الرحمن
+				{{current_user_profile.arabic_name}}
 			</div>
 			<div class="profile-email j-tnSize gdTColor mb-2">
-				Ahmedamouna@icloud.com
+				{{current_user_profile.email}}
 			</div>
 			<div class="profile-detail row mt-5">
 				<div class="detail-item col-md-3 col-6 p-{{pitem.id}} p-3" [routerLink] = "pitem.href" *ngFor="let pitem of pitems">
