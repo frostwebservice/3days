@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { BranchService } from 'src/app/services/branch.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Branch } from 'src/app/models/branch.model';
+import { Product } from 'src/app/models/product.model';
 import { Cookie } from 'src/app/utils/cookie';
 
 import {
@@ -41,6 +42,7 @@ export class RegisterComponent implements OnInit {
 		private route: ActivatedRoute,
 	) {
 		this.onSearchBranch();
+		this.getProducts();
 	}
 	user = {
 		client_id : 3,
@@ -92,17 +94,19 @@ export class RegisterComponent implements OnInit {
 		// { name: '_Sculpt & Sprint Fitness Haven', address: 'الخالدية، المدينة المنورة 42317، المملكة العربية السعودية' },
 	// ];
 
-	subscriptions: SubscriptionItem[] = [
-		{ id:0, cycle: 'شهـــري', price: 2999 , currency: '$', _per: 'كل شهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-		{ id:1, cycle: 'ثـــلاث أشـــهـر', price: 5990 , currency: '$', _per: 'كل ٣ أشهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-		{ id:2, cycle: 'ستــــة أشـــهر', price: 7999 , currency: '$', _per: 'كل ٦ أشهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-	];
+	subscriptions: Product[] = [];
+		//  = [
+		// { id:0, cycle: 'شهـــري', price: 2999 , currency: '$', _per: 'كل شهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
+		// { id:1, cycle: 'ثـــلاث أشـــهـر', price: 5990 , currency: '$', _per: 'كل ٣ أشهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
+		// { id:2, cycle: 'ستــــة أشـــهر', price: 7999 , currency: '$', _per: 'كل ٦ أشهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
+	// ];
 
-	personalTrainings: PersonalTrainingItem[] = [
-		{ id:1, shares: 'حصص 10', price: 500 , currency: '$', _per: 'كل 10 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-		{ id:2, shares: '5 حصص', price: 350 , currency: '$', _per: 'كل 5 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-		{ id:3, shares: 'حصة واحدة', price: 100 , currency: '$', _per: 'كل 5 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-	];
+	personalTrainings: Product[] = [];
+	// PersonalTrainingItem[] = [
+	// 	{ id:1, shares: 'حصص 10', price: 500 , currency: '$', _per: 'كل 10 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
+	// 	{ id:2, shares: '5 حصص', price: 350 , currency: '$', _per: 'كل 5 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
+	// 	{ id:3, shares: 'حصة واحدة', price: 100 , currency: '$', _per: 'كل 5 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
+	// ];
 	
 	selectedTab: TabItem = this.tabs[0];
 	submittedTab: TabItem =this.tabs[0];
@@ -119,6 +123,7 @@ export class RegisterComponent implements OnInit {
     confirm_password = '';
 	keyword= '';
     agree_terms_conditions_checkbox = false;
+	currency = "﷼";
 
 	lat = 21.4858;
 	lng = 39.1925;
@@ -231,22 +236,41 @@ export class RegisterComponent implements OnInit {
 			this.user.default_branch = this.clubs[0]?.id;
 		});
 	}
+	getProducts(){
+		this.branchService.getProductList(this.user.client_id,this.keyword).subscribe((res) => {
+			if (!res) {
+				return;
+			}
+			console.log(res);
+			res['data'].forEach(element => {
+				if (element.type == "subscription"){
+					this.subscriptions.push(element);
+					// console.log(element);
+				}else{
+					// console.log(element);
+					this.personalTrainings.push(element);
+				}
+			});
+			this.pt_option = this.personalTrainings[0]?.id;
+			this.sub_option = this.subscriptions[0]?.id;
+		});
+	}
 	signup(){
 		console.log(this.user);
-		// this.userService.signup(this.user).subscribe((res) => {
-		// 	if (res) {
-		// 		this.token = res['data']['token'];
-		// 		this.member_id = res['data']['id'];
-		// 		this.currentUser = res['data'];
-		// 		if (this.token) {
-		// 				Cookie.setLogin(this.member_id);
-		// 				this.userService.setToken(this.token);
-		// 				this.userService.setUser(this.currentUser);
-		// 		}
-		// 	}
-		// });
-		// this.isCompleted = true;
-		// this.isSubmitted = true;
+		this.userService.signup(this.user).subscribe((res) => {
+			if (res) {
+				this.token = res['data']['token'];
+				this.member_id = res['data']['id'];
+				this.currentUser = res['data'];
+				if (this.token) {
+						Cookie.setLogin(this.member_id);
+						this.userService.setToken(this.token);
+						this.userService.setUser(this.currentUser);
+				}
+				this.isCompleted = true;
+				this.isSubmitted = true;
+			}
+		});
 	}
 
 }

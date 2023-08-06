@@ -10,4 +10,5 @@ export const AUTH = {
 export const BRANCH = {
     GET_BRNACH_LIST: 'branches',
     GET_BRANCH_DETAILS: 'branch/details',
+    GET_PRODUCT_LIST: 'products',
 };

@@ -57,4 +57,25 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('Get Branches', false))
 			);
 	}
+	public getProductList(client_id:number,keyword: string = ""): Observable<any> {
+		const reqHeader = new HttpHeaders({
+		  'Content-Type': 'application/json',
+		  'No-Auth': 'True'
+		});
+		return this.httpClient
+			.post(
+				this.server + BRANCH.GET_PRODUCT_LIST,
+				{ 
+					client_id: client_id ,
+					keyword: keyword 
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('Get products', false))
+			);
+	}
 }

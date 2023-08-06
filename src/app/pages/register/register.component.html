@@ -112,7 +112,7 @@
 									<h4 class="j-page-text mb-2">البحث عن نادي</h4>
 									<div class="j-form-group">
 										<div class="j-input-icons j-input-icon-right">
-											<input type="text" class="j-inputbox j-searchbox" placeholder="البحث عن طريق المدينة أو الدولة" (input)="onSearchChange($event.target.value)">
+											<input type="text" class="j-inputbox j-searchbox" placeholder="البحث عن طريق المدينة أو الدولة" (input)="onSearchBranch($event.target.value)">
 											<i class="bi bi-search j-icon j-icon-right "></i>
 										</div>
 									</div>
@@ -142,9 +142,9 @@
 										<h4 class="j-page-text mb-2">التدريب الشخصي</h4>
 										<app-polygon-border-div j-class = 'j-left' *ngFor="let personalTraining of personalTrainings;let i = index">
 											<div class="personalTrainings-card j-product-card" (click)="setPTOption(personalTraining.id)"  [ngClass] = '{ active : pt_option == personalTraining.id}'>
-												<p class="product_share">{{personalTraining.shares}}</p>
-												<p class="product_price">{{personalTraining._per }} / <b>{{personalTraining.currency}} {{personalTraining.price}}</b></p>
-												<p class="product_description">{{personalTraining.description}}</p>
+												<p class="product_share">{{personalTraining.number_of_bookings}}</p>
+												<p class="product_price">كل {{personalTraining.number_of_bookings}} حصص / <b>{{currency}} {{personalTraining.price}}</b></p>
+												<p class="product_description">بإمكانك إلغاء الاشتراك في أي وقت.</p>
 												<label class="option_btn" for="personalTraining{{personalTraining.id}}">
 													<input type="radio" name="personalTraining" id="personalTraining{{personalTraining.id}}" value="{{personalTraining.id}}" class="product_opt" [checked]="pt_option == personalTraining.id">
 												</label>
@@ -157,9 +157,9 @@
 										<h4 class="j-page-text mb-2">الاشتراكات</h4>
 										<app-polygon-border-div j-class = 'j-right' *ngFor="let subscription of subscriptions;let i = index">
 											<div class="subscriptions-card j-product-card" (click)="setSubOption(subscription.id)" [ngClass]="{active: sub_option == subscription.id}">
-												<p class="product_cycle">{{subscription.cycle}}</p>
-												<p class="product_price">{{subscription._per }} / <b>{{subscription.currency}} {{subscription.price}}</b></p>
-												<p class="product_description">{{subscription.description}}</p>
+												<p class="product_cycle">{{subscription.period }} {{subscription.period_unit }}</p>
+												<p class="product_price">{{subscription.period }} {{subscription.period_unit }} / <b>{{currency}} {{subscription.price}}</b></p>
+												<p class="product_description">بإمكانك إلغاء الاشتراك في أي وقت.</p>
 												<label class="option_btn" for="subscription{{subscription.id}}">
 													<input type="radio" name="subscription" id="subscription{{subscription.id}}" value="{{subscription.id}}" class="product_opt" [checked]="sub_option == subscription.id">
 												</label>
