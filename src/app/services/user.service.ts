@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { catchError, filter, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { AUTH } from '../constants/api.constant';
+import { AUTH,PROFILE } from '../constants/api.constant';
 import { Account, User } from '../models/user.model';
 import { ErrorService } from './error.service';
 import { HttpService } from './http.service';
@@ -135,5 +135,32 @@ export class UserService extends HttpService {
     }
     public clearLocalStorageItem(item: string): void {
         localStorage.removeItem(item);
+    }
+
+    public getProfile():any{
+        const method = 'GET';
+        const myHeaders = new Headers();
+        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
+        return fetch(
+            this.server + PROFILE.GET_PROFILE,
+            {
+                method,
+                headers: myHeaders
+            }
+        ).then((res) => res.json(), catchError(this.handleError('GET PROFILE', null)));
+
+        // const reqHeader = new HttpHeaders({
+        //     'Content-Type': 'application/json',
+        //     // 'No-Auth': 'True',
+        //     'Authorization': "Bearer " + this.getToken(),
+        // });
+        // return this.httpClient
+        //     .get(this.server + PROFILE.GET_PROFILE , {
+        //         headers: reqHeader
+        //     })
+        //     .pipe(
+        //         map((res) => res),
+        //         catchError(this.handleError('GET PROFILE REQUEST'))
+        //     );
     }
 }

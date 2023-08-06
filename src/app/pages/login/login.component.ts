@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
 	}
 	goHome(data: any): void {
 		Cookie.setLogin(data.member.id);
+		this.userService.setToken(data.token);
 		console.log('*******',data.member);
 		this.returnUrl = '/profile';
 		this.router.navigate([this.returnUrl]);
