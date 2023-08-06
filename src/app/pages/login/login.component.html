@@ -20,23 +20,41 @@
 				</div>
 			</div> -->
 			<div class="j-form-group" [ngClass]="{invalid: signForm.submitted && mobile.invalid && (mobile.dirty || mobile.touched || signForm.submitted)}">
-				<label for="mobile" class="j-inputbox-label">البريد الإلكتروني</label>
+				<label for="mobile" class="j-inputbox-label j-flex-row-reverse">
+					<span>Mobile Number</span>
+					<span class="j-error" *ngIf="mobile.errors" translate>
+						<ng-container *ngIf="mobile.errors.required">Required!</ng-container>
+						<ng-container *ngIf="mobile.errors.pattern">Wrong phone number format!</ng-container>
+					</span>
+				</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="البريد الإلكتروني" required  #mobile="ngModel"> 
+					<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="Mobile Number" required  #mobile="ngModel" pattern = '[- +()0-9]+'> 
 					<i class="j-icon j-icon-right j-icon-phone"></i>
 				</div>
 			</div>
 			<div class="j-form-group" [ngClass]="{invalid: signForm.submitted && client_id.invalid && (client_id.dirty || client_id.touched || signForm.submitted)}">
-				<label for="client_id" class="j-inputbox-label">البريد الإلكتروني</label>
+				<label for="client_id" class="j-inputbox-label j-flex-row-reverse">
+					<span>Client ID</span>
+					<span class="j-error" *ngIf="client_id.errors" translate>
+						<ng-container *ngIf="client_id.errors.required">Required!</ng-container>
+						<ng-container *ngIf="client_id.errors.min">Invaild ID</ng-container>
+					</span>
+				</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="number" class="j-inputbox" [(ngModel)]="user.client_id" id="client_id" name="client_id" aria-describedby="client_idHelp" placeholder="البريد الإلكتروني" required  #client_id="ngModel"> 
+					<input type="number" ngSpinBox  class="j-inputbox" [(ngModel)]="user.client_id" id="client_id" name="client_id" aria-describedby="client_idHelp" placeholder="Client ID" required  #client_id="ngModel" min = 0 > 
+					
 					<i class="j-icon j-icon-right j-icon-person"></i>
 				</div>
 			</div>
 			<div class="j-form-group" [ngClass]="{invalid: signForm.submitted && password.invalid && (password.dirty || password.touched || signForm.submitted)}">
-				<label for="password" class="j-inputbox-label">كلمة المرور</label>
+				<label for="password" class="j-inputbox-label j-flex-row-reverse">
+					<span>Password</span>
+					<span class="j-error" *ngIf="password.errors" translate>
+						<ng-container *ngIf="password.errors.required">Required!</ng-container>
+					</span>
+				</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="password" class="j-inputbox" id="password" name="password" [(ngModel)]="user.password" placeholder="كلمة المرور" #password="ngModel">
+					<input type="password" class="j-inputbox" id="password" name="password" [(ngModel)]="user.password" placeholder="كلمة المرور" #password="ngModel" required>
 					<i class="j-icon j-icon-right j-icon-key"></i>
 				</div>
 			</div>

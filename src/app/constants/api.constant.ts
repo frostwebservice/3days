@@ -7,3 +7,8 @@ export const AUTH = {
     SEND_OTP: 'verify/send-otp',
     VERIFY_OTP: 'verify/verify-otp',
 };
+export const BRANCH = {
+    GET_BRNACH_LIST: 'branches',
+    GET_BRANCH_DETAILS: 'branch/details',
+    GET_PRODUCT_LIST: 'products',
+};

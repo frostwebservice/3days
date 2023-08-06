@@ -14,6 +14,7 @@ import { AgmCoreModule } from '@agm/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { NgSpinBoxModule } from 'ng-spin-box';
 
 @NgModule({
 	declarations: [
@@ -29,7 +30,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 		RouterModule.forChild(AuthenticationRoutingModule),
 		TranslateModule.forChild({ extend: true }),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
-		BsDatepickerModule
+		BsDatepickerModule,
+		NgSpinBoxModule
 	],
 	providers : []
 })

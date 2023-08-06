@@ -107,12 +107,11 @@
 .j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-next-btn{
     background: var(--dl-color-primary-3days);
     color: var(--dl-color-black-dark);
-    margin-right:8px;
+    margin-right:16px;
 }
 .j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-prev-btn{
     background: var(--dl-color-grey-black);
     color: var(--dl-color-gray-dark);
-    margin-left:8px;
 }
 /* -----------------------------------gender tab------------------------------------ */
 .j-auth-section .j-signup-process .j-tab-content .j-gender-wrap{
@@ -123,27 +122,28 @@
 }
 .j-auth-section .j-signup-process .j-tab-content .j-gender-option{
     width: 32%;
+    position: relative;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-gender-option:hover .gender-label{
     color: var(--dl-color-primary-3days) !important;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-gender-option.active .j-gender-option-card{
     background-image: radial-gradient(circle 1500px at center -750px,rgb(0, 0, 0) 0%,rgb(0, 0, 0) 15.1%,rgb(0, 0, 0) 39.7%,rgb(0, 0, 0) 54.3%,rgb(253, 186, 99) 57.4%,rgb(255, 255, 255) 61%,rgb(255, 255, 255) 100%);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-gender-option .j-gender-option-card{
-    background-image: url('/assets/bg/gendercard.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url('/assets/bg/grid.svg');
+    background-size: 55%;
     width: 100%;
     display: flex;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-gender-option .j-gender-option-card .gender-img{
     width: 50%;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom center;
-    min-height: 120px;
+    min-height: 150px;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-gender-option .j-gender-option-card .gender-label{
     width: 50%;
@@ -174,18 +174,19 @@
 }
 .j-auth-section .j-signup-process .j-tab-content .j-site-option{
     width: 49%;
+    position: relative;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-site-option:hover .site-label{
     color: var(--dl-color-primary-3days) !important;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-site-option.active .j-site-option-card{
     background-image: radial-gradient(circle 1800px at center -900px,rgb(0, 0, 0) 0%,rgb(0, 0, 0) 15.1%,rgb(0, 0, 0) 39.7%,rgb(0, 0, 0) 54.3%,rgb(253, 186, 99) 57.4%,rgb(255, 255, 255) 61%,rgb(255, 255, 255) 100%);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-site-option .j-site-option-card{
-    background-image: url('/assets/bg/sitecard.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url('/assets/bg/grid.svg');
+    background-size: 45%;
     width: 100%;
     display: flex;
 }
@@ -222,7 +223,7 @@
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap{
     display:flex;
     width: 49%;
-    /* margin:0 auto; */
+    max-height: 90vh;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap{
     display:flex;
@@ -241,9 +242,16 @@
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .j-club-list-panel{
     margin-top:var(--dl-space-space-oneandhalfunits);
 }
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .j-club-list-panel .branch_item {
+    position: relative;
+    display: block;
+}
+.j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-search-wrap .j-club-list-panel .branch_item input{
+    display: none;
+}
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap .armmap{
     width:100%;
-    padding: 16px 0;
+    /* padding: 16px 0; */
     display: flex;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-club-wrap .j-club-map-wrap .armmap > div{
@@ -289,16 +297,22 @@
     flex-direction: column;
     margin-bottom: 16px;
     transition: 0.2s;
+    position: relative;
 }
 .j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card:hover{
     clip-path:none;
 }
-.j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card .option_btn{
+.j-auth-section .j-signup-process .j-tab-content .option_btn{
     height: 24px;
     width: 24px;
     position: absolute;
     border: 3px solid var(--dl-color-gray-dark);
     border-radius: 50%;
+    left: 20px;
+    top: 20px;
+}
+.j-auth-section .j-signup-process .j-tab-content .active .option_btn{
+    border-color: var(--dl-color-primary-3days);
 }
 .j-auth-section .j-signup-process .j-tab-content .j-products-wrap .j-product-card .option_btn .product_opt{
     display:none;
@@ -350,6 +364,9 @@
     color:var(--dl-color-primary-3days);
     font-size:14px;
 }
+.j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-account-panel .invalid .agree_terms_conditions{
+    color:var(--dl-color-danger-500);
+}
 .j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-account-panel .agree_terms_conditions .agree_terms_conditions_checkbox{
     margin-left:10px;
 }
@@ -381,6 +398,7 @@
 }
 .j-auth-section .j-signup-process .j-tab-content .j-payment-wrap .save_payment_info{
     text-align: right;
+    color: var(--dl-color-grey-dark);
 }
 .j-auth-section .j-signup-process .j-tab-content .j-payment-wrap .save_payment_info .save_payment_info_checkbox{
     margin-left:10px;

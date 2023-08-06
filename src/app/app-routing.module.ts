@@ -43,6 +43,7 @@ const routes: Routes = [
 					)
 			}
 		],
+		canActivate: [AuthGuard]
 	},
 	{
 		path: '',
@@ -56,6 +57,7 @@ const routes: Routes = [
 					)
 			}
 		],
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'test',
@@ -66,6 +68,7 @@ const routes: Routes = [
 		path: 'profile',
 		loadChildren: () =>
 			import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+		canActivate: [AuthGuard]
 	},
 	{
 		path: '',
@@ -81,27 +84,31 @@ const routes: Routes = [
 		path: 'bookings',
 		loadChildren: () =>
 			import('./pages/bookings/bookings.module').then((m) => m.BookingsModule),
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'class-detail',
 		component: ClassDetail,
 		data: {
 			title: 'Class Detail'
-		}
+		},
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'subscriptions',
 		component: Subscriptions,
 		data: {
 			title: 'Subscriptions'
-		}
+		},
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'personal-training',
 		component: PersonalTraining,
 		data: {
 			title: 'Personal Training'
-		}
+		},
+		canActivate: [AuthGuard]
 	},
 	{
 		path: '**',

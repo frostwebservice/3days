@@ -73,17 +73,17 @@ export class UserService extends HttpService {
                 catchError(this.handleError('LOG OUT', false))
             );
     }
-    public requestResetPassword(email): Observable<boolean> {
+    public requestResetPassword(user : {mobile : string; client_id: number}): Observable<boolean> {
         const reqHeader = new HttpHeaders({
             'Content-Type': 'application/json',
             'No-Auth': 'True'
         });
         return this.httpClient
         .post(
-            this.server + AUTH.RESET_PASSWORD,
-            { email: email },
+            this.server + AUTH.SEND_OTP,
+            JSON.stringify(user),
             {
-            headers: reqHeader
+                headers: reqHeader
             }
         )
         .pipe(
@@ -97,7 +97,7 @@ export class UserService extends HttpService {
             'No-Auth': 'True'
         });
         return this.httpClient
-        .post(this.server + AUTH.LOG_OUT, JSON.stringify(requestData), {
+        .post(this.server + AUTH.RESET_PASSWORD, JSON.stringify(requestData), {
             headers: reqHeader
         })
         .pipe(
@@ -116,8 +116,19 @@ export class UserService extends HttpService {
     public setToken(token: string): void {
         localStorage.setItem('token', token);
     }
+    public setUser(user: User): any {
+        localStorage.setItem('user', JSON.stringify(user));
+    }
     public getToken(): any {
         return localStorage.getItem('token');
+    }
+    public getUser(): any {
+        const user = localStorage.getItem('user');
+        if (user) {
+            return JSON.parse(localStorage.getItem('user'));
+        } else {
+            return {};
+        }
     }
     public updateLocalStorageItem(item: string, value: string): void {
         localStorage.setItem(item, value);
