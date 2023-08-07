@@ -38,7 +38,7 @@ canActivate(
 		) {
 			// UnAuthorized URL
 			if (this.auth.isAuthenticated()) {
-				this.router.navigate(['/']);
+				this.router.navigate(['/profile']);
 				return false;
 			} else {
 				return true;

@@ -12,48 +12,63 @@
             <h3 class="j-title-size text-white">البيانات الشخصية</h3>
         </div>
         <div class="j-profile-panel">
-            <div class="j-name-field d-flex">
-                <div class="j-first-name-field j-form-group">
-                    <label for="first_name" class="j-inputbox-label">اسم العائلة</label>
-                    <div class="j-input-icons j-input-icon-right">
-                        <input type="first_name" class="j-inputbox" id="first_name" name="first_name" aria-describedby="first_nameHelp" placeholder="اسم العائلة" required> 
-                        <i class="j-icon j-icon-right j-icon-person"></i>
+            <form class="j-form" #updateForm="ngForm" (ngSubmit)="updateForm.form.valid ? update() : false">
+                <div class="j-name-field d-flex">
+                    <div class="j-arabic-name-field j-form-group" [ngClass]="{invalid: (updateForm.submitted  || arabic_name.touched || arabic_name.dirty )  && arabic_name.invalid}">
+                        <label for="arabic_name" class="j-inputbox-label j-flex-row-reverse">
+                            <span>Arabic Name</span>
+                            <span class="j-error" *ngIf="arabic_name.errors">
+                                <ng-container *ngIf="arabic_name.errors.required">Required !</ng-container>
+                            </span>
+                        </label>
+                        <div class="j-input-icons j-input-icon-right">
+                            <input type="arabic_name" class="j-inputbox" id="arabic_name" name="arabic_name" aria-describedby="arabic_nameHelp" placeholder="Arabic Name" [(ngModel)]="current_user_data.arabic_name" #arabic_name="ngModel" required> 
+                            <i class="j-icon j-icon-right j-icon-person"></i>
+                        </div>
+                    </div>
+                    <div class="j-english-name-field j-form-group" [ngClass]="{invalid: (updateForm.submitted || english_name.touched || english_name.dirty ) && english_name.invalid}">
+                        <label for="english_name" class="j-inputbox-label j-flex-row-reverse">
+                            <span>English Name</span>
+                            <span class="j-error" *ngIf="english_name.errors">
+                                <ng-container *ngIf="english_name.errors.required">Required !</ng-container>
+                            </span>
+                        </label>
+                        <div class="j-input-icons j-input-icon-right">
+                            <input type="english_name" class="j-inputbox" id="english_name" name="english_name" aria-describedby="english_nameHelp" placeholder="English Name" [(ngModel)]="current_user_data.english_name" #english_name="ngModel" required> 
+                            <i class="j-icon j-icon-right j-icon-person"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="j-last-name-field j-form-group">
-                    <label for="last_name" class="j-inputbox-label">الاسم الأول</label>
+                <div class="j-form-group" [ngClass]="{invalid: (updateForm.submitted || national_id.touched || national_id.dirty ) && national_id.invalid}">
+                    <label for="national_id" class="j-inputbox-label j-flex-row-reverse" >
+                        <span>رقم الهوية</span>
+                        <span class="j-error" *ngIf="national_id.errors">
+                            <ng-container *ngIf="national_id.errors.required">Required !</ng-container>
+                        </span>
+                    </label>
                     <div class="j-input-icons j-input-icon-right">
-                        <input type="last_name" class="j-inputbox" id="last_name" name="last_name" aria-describedby="last_nameHelp" placeholder="الاسم الأول" required> 
-                        <i class="j-icon j-icon-right j-icon-person"></i>
+                        <input type="text" class="j-inputbox" id="national_id" name = "national_id" placeholder="رقم الهوية" [(ngModel)]="current_user_data.national_id" #national_id="ngModel" required>
+                        <i class="j-icon j-icon-right j-icon-idcard"></i>
                     </div>
                 </div>
-            </div>
-            <div class="j-form-group">
-                <label for="id_number" class="j-inputbox-label">رقم الهوية</label>
-                <div class="j-input-icons j-input-icon-right">
-                    <input type="text" class="j-inputbox" id="id_number" name = "id_number" placeholder="رقم الهوية">
-                    <i class="j-icon j-icon-right j-icon-idcard"></i>
+                <div class="j-form-group"  [ngClass]="{invalid: (updateForm.submitted || dob.touched || dob.dirty ) && dob.invalid}">
+                    <label for="dob" class="j-inputbox-label j-flex-row-reverse">
+                        <span>تاريخ الميلاد</span>
+                        <span class="j-error" *ngIf="dob.errors">
+                            <ng-container *ngIf="dob.errors.required">Required !</ng-container>
+                        </span>
+                    </label>
+                    <div class="j-input-icons j-input-icon-right">
+                        <input type="text" class="j-inputbox" id="dob" name = "dob" placeholder="تاريخ الميلاد" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" [(ngModel)]="current_user_data.dob" #dob="ngModel" required>
+                        <i class="j-icon j-icon-right j-icon-calendar"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="j-form-group">
-                <label for="birthday" class="j-inputbox-label">تاريخ الميلاد</label>
-                <div class="j-input-icons j-input-icon-right">
-                    <input type="text" class="j-inputbox" id="birthday" name = "birthday" placeholder="تاريخ الميلاد" bsDatepicker>
-                    <i class="j-icon j-icon-right j-icon-calendar"></i>
+                <div class="j-submit mt-5">
+                    <div class="j-form-group">
+                        <button type="submit" class="j-left-button button j-submit-button" [class.loading]="submitting"><span>حفظ التغييرات</span></button>
+                    </div>
                 </div>
-            </div>
-            <div class="j-form-group">
-                <label for="subscription_day" class="j-inputbox-label">تاريخ بدء الاشتراك</label>
-                <div class="j-input-icons j-input-icon-right">
-                    <input type="text" class="j-inputbox" id="subscription_day" name = "subscription_day" bsDatepicker  placeholder="تاريخ بدء الاشتراك">
-                    <i class="j-icon j-icon-right j-icon-calendar"></i>
-                </div>
-            </div>
-            <div class="j-submit mt-5">
-                <div class="j-form-group">
-                    <button type="button" class="j-left-button button j-submit-button"><span>حفظ التغييرات</span></button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

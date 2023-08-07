@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { Cookie } from 'src/app/utils/cookie';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
     selector: 'app-profile',
@@ -28,7 +29,9 @@ export class Profile {
         private userService: UserService,
 		private router: Router,
 		private route: ActivatedRoute,
+        private loadingService: LoaderService,
     ) {
+            this.loadingService.setLoading(true);
             this.title.setTitle('Profile - 3 Days');
             this.meta.addTags([
                 {
@@ -43,6 +46,8 @@ export class Profile {
                 }
                 this.current_user_profile = res.data;
                 console.log(res);
+                this.loadingService.setLoading(false);
+
             }).catch((err) => {
                 console.log(err);
             });

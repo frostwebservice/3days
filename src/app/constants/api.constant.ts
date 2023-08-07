@@ -30,6 +30,7 @@ export const PROFILE = {
     UPDATE_PROFILE: 'update-profile',
     GET_NOTIFICATIONS: 'member/notifications',
     TERMS_CONDITIONS: 'terms-and-conditions',
+    GET_INVOICES: 'member/payments',
     POLICY: 'policy',
     CHECK_COUPON: 'check-coupon',
 };

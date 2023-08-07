@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Invoice } from 'src/app/utils/data.types';
+import { LoaderService } from 'src/app/services/loader.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector: 'app-financial-operations',
@@ -8,14 +10,26 @@ import { Invoice } from 'src/app/utils/data.types';
 })
 export class FinancialOperations implements OnInit {
     invoice_list:Invoice[] = [
-        {id: 104,total_price: 1150.45,tax: 150.00,discount: 0,item: "اشتراك 3 أشهر",method:"نقدي",status:"paid",created_at: '21 Jun 2023 14:30'},
-        {id: 106,total_price: 1550.45,tax: 150.00,discount: 230,item: "اشتراك 3 أشهر",method:"نقدي",status:"paid",created_at: '16 Jan 2023 16:10'},
-        {id: 107,total_price: 190.45,tax: 150.00,discount: 0,item: "اشتراك 3 أشهر",method:"نقدي",status:"paid",created_at: '16 July 2023 08:00'},
-        {id: 109,total_price: 4150.45,tax: 150.00,discount: 110,item: "اشتراك 3 أشهر",method:"نقدي",status:"paid",created_at: '11 Sept 2023 15:50'},
-        {id: 112,total_price: 2323.45,tax: 150.00,discount: 0,item: "اشتراك 3 أشهر",method:"نقدي",status:"paid",created_at: '8 Jun 2023 23:20'},
-        {id: 113,total_price: 3666.00,tax: 150.00,discount: 0,item: "اشتراك 3 أشهر",method:"نقدي",status:"paid",created_at: '1 Jun 2023 14:30'},
+        {id: 104,amount_after_vat: 1150.45,vat_amount: 150.00,amount: 1000.45,name: "اشتراك 3 أشهر",payment_way:"نقدي",status:"paid",created_at: '21 Jun 2023 14:30'},
     ];
-    constructor() { }
+    constructor(
+        private userService: UserService,
+        private loadingService: LoaderService,
+    ) { 
+        this.loadingService.setLoading(true);
+        this.userService.getInvoices().then((res) => {
+            if (!res) {
+                console.log('get_non_invoices');
+                return;
+            }
+            console.log(res);
+            this.invoice_list = res.data;
+            this.loadingService.setLoading(false);
+
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
 
     ngOnInit(): void {
     }

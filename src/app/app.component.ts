@@ -12,9 +12,9 @@ export class AppComponent {
 	constructor( private loadingService: LoaderService) {
 	}
 
-	async ngAfterViewInit() {
-		setTimeout(() => {
-			this.loadingService.setLoading(false);
-		},1000);
-	}
+	// async ngAfterViewInit() {
+	// 	setTimeout(() => {
+	// 		this.loadingService.setLoading(false);
+	// 	},1000);
+	// }
 }

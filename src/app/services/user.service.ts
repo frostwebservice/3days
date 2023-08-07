@@ -42,7 +42,7 @@ export class UserService extends HttpService {
                 // catchError(this.handleError('SIGNIN REQUEST'))
             );
     }
-    signup(user: any): any {
+    public signup(user: any): any {
         const reqHeader = new HttpHeaders({
             'Content-Type': 'application/json',
             'No-Auth': 'True'
@@ -116,6 +116,12 @@ export class UserService extends HttpService {
     public setToken(token: string): void {
         localStorage.setItem('token', token);
     }
+    public setClientId(clientId: number): void {
+        localStorage.setItem('clientId', clientId.toString());
+    }
+    public getClientId():number {
+        return Number(localStorage.getItem('clientId'));
+    }
     public setUser(user: User): any {
         localStorage.setItem('user', JSON.stringify(user));
     }
@@ -162,5 +168,41 @@ export class UserService extends HttpService {
         //         map((res) => res),
         //         catchError(this.handleError('GET PROFILE REQUEST'))
         //     );
+    }
+    
+    public getInvoices():any{
+        const method = 'POST';
+        const myHeaders = new Headers();
+        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
+        return fetch(
+            this.server + PROFILE.GET_INVOICES,
+            {
+                method,
+                headers: myHeaders
+            }
+        ).then((res) => res.json(), catchError(this.handleError('GET INVOICES', null)));
+    }
+    public getNotifications():any{
+        const method = 'GET';
+        const myHeaders = new Headers();
+        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
+        return fetch(
+            this.server + PROFILE.GET_NOTIFICATIONS,
+            {
+                method,
+                headers: myHeaders
+            }
+        ).then((res) => res.json(), catchError(this.handleError('GET NOTIFICATIONS', null)));
+    }
+    public updateProfile(profile: any): any {
+        const reqHeader = new HttpHeaders();
+        return this.httpClient
+            .post(this.server + PROFILE.UPDATE_PROFILE, JSON.stringify(profile), {
+                headers: reqHeader
+            })
+            .pipe(
+                map((res) => res),
+                catchError(this.handleError('UPDATE PROFILE', null))
+            );
     }
 }
