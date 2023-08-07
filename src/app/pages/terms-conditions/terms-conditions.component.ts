@@ -16,9 +16,9 @@ export class TermsConditons implements OnInit {
 		this.userService.getTermsConditions().then((res) => {
             if (!res) {
                 console.log('get_non_terms_conditions');
-				this.termsConditions = res;
                 return;
             }
+			this.termsConditions = res;
             this.loadingService.setLoading(false);
         });
 	}

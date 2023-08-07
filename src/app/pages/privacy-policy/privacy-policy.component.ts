@@ -17,9 +17,9 @@ export class PrivacyPolicy implements OnInit {
 		this.userService.getPrivacyPolicy().then((res) => {
             if (!res) {
                 console.log('get_non_privacy_policy');
-				this.policy = res;
                 return;
             }
+			this.policy = res.policy;
             this.loadingService.setLoading(false);
         });
 	}

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 import { PersonalTrainingItem , SubscriptionItem} from 'src/app/utils/data.types';
+import { UserService } from 'src/app/services/user.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
 	selector: 'app-products',
@@ -27,7 +29,9 @@ export class Products {
 	}
 	current_subscriptions :SubscriptionItem = this.subscriptions[2];
 	current_personalTrainings : PersonalTrainingItem = this.personalTrainings[1];
-	constructor(private title: Title, private meta: Meta) {
+	constructor(private title: Title, private meta: Meta,        
+		private userService: UserService,
+        private loadingService: LoaderService) {
 		this.title.setTitle('Products - 3 Days')
 		this.meta.addTags([
 			{
@@ -35,6 +39,8 @@ export class Products {
 				content: 'Products - 3 Days',
 			},
 		])
+		this.loadingService.setLoading(false);
+
 	}
 
 }

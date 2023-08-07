@@ -45,11 +45,24 @@ export interface Branch {
 	lng: number;
 	location_type:string;
 }
+
+export interface Lang {
+	code: string;
+	country: string;
+	icon: string;
+}
+  
 export interface Notification {
-	id:number;
-	icon_class: string;
-	content: string;
-	launch_time: string;
+    id: string;
+    english_title: string;
+    arabic_title: string;
+    english_description: string;
+    arabic_description: string;
+    created_at: string;
+    type: string;
+    icon: string;
+    arabic_created_at: string;
+    english_created_at: string;
 }
 export interface Invoice {
 	created_at: string;

@@ -183,21 +183,29 @@ export class UserService extends HttpService {
         ).then((res) => res.json(), catchError(this.handleError('GET INVOICES', null)));
     }
     public getNotifications():any{
-        const method = 'GET';
-        const myHeaders = new Headers();
-        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
-        return fetch(
-            this.server + PROFILE.GET_NOTIFICATIONS,
-            {
-                method,
-                headers: myHeaders
-            }
-        ).then((res) => res.json(), catchError(this.handleError('GET NOTIFICATIONS', null)));
+        // const reqHeader = new HttpHeaders();
+        // myHeaders.append('Authorization', 'Bearer ' + this.getToken());
+        // return fetch(
+        //     this.server + PROFILE.GET_NOTIFICATIONS,
+        //     {
+        //         method,
+        //         headers: myHeaders
+        //     }
+        // ).then((res) => res.json(), catchError(this.handleError('GET NOTIFICATIONS', null)));
+
+        const reqHeader = new HttpHeaders();
+        return this.httpClient
+            .get(this.server + PROFILE.GET_NOTIFICATIONS, {
+                headers: reqHeader
+            })
+            .pipe(
+                map((res) => res),
+                catchError(this.handleError('GET NOTIFICATIONS', null))
+            );
     }
     public getTermsConditions():any{
         const method = 'GET';
         const myHeaders = new Headers();
-        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
         return fetch(
             this.server + PROFILE.TERMS_CONDITIONS,
             {
@@ -209,7 +217,6 @@ export class UserService extends HttpService {
     public getPrivacyPolicy():any{
         const method = 'GET';
         const myHeaders = new Headers();
-        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
         return fetch(
             this.server + PROFILE.POLICY,
             {

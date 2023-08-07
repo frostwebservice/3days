@@ -8,6 +8,9 @@ import { ClassDetail } from './pages/class-detail/class-detail.component';
 import { Subscriptions } from './pages/subscriptions/subscriptions.component';
 import { PersonalTraining } from './pages/personal-training/personal-training.component';
 
+import { PrivacyPolicy } from './pages/privacy-policy/privacy-policy.component';
+import { TermsConditons } from './pages/terms-conditions/terms-conditions.component';
+
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthGuard } from './guards/auth.guard';
@@ -109,6 +112,20 @@ const routes: Routes = [
 			title: 'Personal Training'
 		},
 		canActivate: [AuthGuard]
+	},
+	{
+		path: 'privacy-policy',
+		component: PrivacyPolicy,
+		data: {
+			title: 'Privacy Policy'
+		}
+	},
+	{
+		path: 'terms-conditions',
+		component: TermsConditons,
+		data: {
+			title: 'Terms Conditions'
+		}
 	},
 	{
 		path: '**',
