@@ -194,6 +194,30 @@ export class UserService extends HttpService {
             }
         ).then((res) => res.json(), catchError(this.handleError('GET NOTIFICATIONS', null)));
     }
+    public getTermsConditions():any{
+        const method = 'GET';
+        const myHeaders = new Headers();
+        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
+        return fetch(
+            this.server + PROFILE.TERMS_CONDITIONS,
+            {
+                method,
+                headers: myHeaders
+            }
+        ).then((res) => res.json(), catchError(this.handleError('GET TERMS AND CONDITIONS', null)));
+    }
+    public getPrivacyPolicy():any{
+        const method = 'GET';
+        const myHeaders = new Headers();
+        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
+        return fetch(
+            this.server + PROFILE.POLICY,
+            {
+                method,
+                headers: myHeaders
+            }
+        ).then((res) => res.json(), catchError(this.handleError('GET PRIVACY POLICY', null)));
+    }
     public updateProfile(profile: any): any {
         const reqHeader = new HttpHeaders();
         return this.httpClient
