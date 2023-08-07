@@ -1,5 +1,11 @@
-import { Component } from '@angular/core'
-import { Title, Meta } from '@angular/platform-browser'
+import { Title, Meta } from '@angular/platform-browser';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user.service';
+import { Cookie } from 'src/app/utils/cookie';
+import { LoaderService } from 'src/app/services/loader.service';
+
 @Component({
     selector: 'app-profile',
     templateUrl: 'profile.component.html',
@@ -18,16 +24,36 @@ export class Profile {
         {id:'privacy-policy',label: 'سياسة الخصوصية',iconclass: 'j-icon-capman',href:'/privacy-policy'},
         {id:'terms-conditions',label: 'الشروط والاحكام',iconclass: 'j-icon-file',href:'/terms-conditions'},
     ];
-    constructor(private title: Title, private meta: Meta) {
-        this.title.setTitle('Profile - 3 Days')
-        this.meta.addTags([
-        {
-            property: 'og:title',
-            content: 'Profile - 3 Days',
-        },
-        ])
+    constructor(
+        private title: Title, private meta: Meta,
+        private userService: UserService,
+		private router: Router,
+		private route: ActivatedRoute,
+        private loadingService: LoaderService,
+    ) {
+            this.loadingService.setLoading(true);
+            this.title.setTitle('Profile - 3 Days');
+            this.meta.addTags([
+                {
+                    property: 'og:title',
+                    content: 'Profile - 3 Days',
+                },
+            ]);
+            this.userService.getProfile().then((res) => {
+                if (!res) {
+                    console.log('get_non_profile');
+                    return;
+                }
+                this.current_user_profile = res.data;
+                console.log(res);
+                this.loadingService.setLoading(false);
+
+            }).catch((err) => {
+                console.log(err);
+            });
     }
    
+    current_user_profile;
     ngOnInit() {     
     }  
 }

@@ -28,25 +28,22 @@ export interface Member {
 	id: number;
 	name: string;
 }
-export interface Club {
-	id: number;
-	name: string;
-	address: string;
-	email: string;
-	launch_date: string;
-	capacity: number;
-	branch:string;
-	type:string;
-}
+
 export interface Branch {
 	id: number;
-	name: string;
-	address: string;
+    name_ar: string;
+	name_en: string;
+	address1: string;
+	address2 : string;
+	city_id: number ;
+	phone: string;
+	branch_category:string;
+	branch_capacity: number;
+	startup_date: string;
 	email: string;
-	launch_date: string;
-	capacity: number;
-	branch:string;
-	type:string;
+	lat: number;
+	lng: number;
+	location_type:string;
 }
 export interface Notification {
 	id:number;
@@ -55,14 +52,14 @@ export interface Notification {
 	launch_time: string;
 }
 export interface Invoice {
-	id:number;
-	total_price: number;
-	tax: number;
-	discount: number;
-	item: string;
-	status: string;
-	method: string;
 	created_at: string;
+	id:number;
+	amount_after_vat: number;
+	amount: number;
+	payment_way: string;
+	status: string;
+	vat_amount: number;
+	name: string;
 }
 export interface SubscriptionSession {
 	id:number;

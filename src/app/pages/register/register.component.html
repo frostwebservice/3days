@@ -265,8 +265,8 @@
 										<div class="j-last-name-field j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || last_name.touched || last_name.dirty ) && last_name.invalid}">
 											<label for="last_name" class="j-inputbox-label j-flex-row-reverse">
 												<span>الاسم الأول</span>
-												<span class="j-error" *ngIf="first_name.errors">
-													<ng-container *ngIf="first_name.errors.required">Required !</ng-container>
+												<span class="j-error" *ngIf="last_name.errors">
+													<ng-container *ngIf="last_name.errors.required">Required !</ng-container>
 												</span>
 											</label>
 											<div class="j-input-icons j-input-icon-right">
@@ -295,7 +295,7 @@
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
-											<input type="text" class="j-inputbox" id="dob" name = "dob" placeholder="تاريخ الميلاد" bsDatepicker [(ngModel)]="user.dob" #dob="ngModel" required>
+											<input type="text" class="j-inputbox" id="dob" name = "dob" placeholder="تاريخ الميلاد" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" [(ngModel)]="user.dob" #dob="ngModel" required>
 											<i class="j-icon j-icon-right j-icon-calendar"></i>
 										</div>
 									</div>
@@ -307,7 +307,7 @@
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
-											<input type="text" class="j-inputbox" id="subscription_day" name = "subscription_day" bsDatepicker  placeholder="تاريخ بدء الاشتراك" [(ngModel)]="user.subscription_day" #subscription_day="ngModel" required>
+											<input type="text" class="j-inputbox" id="subscription_day" name = "subscription_day" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" placeholder="تاريخ بدء الاشتراك" [(ngModel)]="user.subscription_day" #subscription_day="ngModel" required>
 											<i class="j-icon j-icon-right j-icon-calendar"></i>
 										</div>
 									</div>

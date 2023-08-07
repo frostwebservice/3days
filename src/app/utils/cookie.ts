@@ -87,9 +87,16 @@ export const Cookie = {
 		Cookie.set('userId', userId, '');
 	},
 
+	setClientId: function (clientId) {
+		Cookie.set('userLogin' + location.host, 'logged', '');
+		Cookie.set('domain', environment.domain.server, '');
+		Cookie.set('clientId', clientId, '');
+	},
+
 	setLogout: function () {
 		Cookie.set('userLogin' + location.host, 'out', '');
 		Cookie.set('domain', environment.domain.server, '');
 		Cookie.set('userId', '', '');
+		Cookie.set('clientId', '', '');
 	}
 };

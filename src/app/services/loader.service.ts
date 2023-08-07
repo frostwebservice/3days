@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable ,  OnDestroy} from '@angular/core';
 
 @Injectable({
 	providedIn: 'root'
@@ -7,7 +7,8 @@ export class LoaderService {
 
 	private loading: boolean = true;
 
-	constructor() { }
+	constructor() { 
+	}
 
 	setLoading(loading: boolean) {
 		this.loading = loading;

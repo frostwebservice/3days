@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { TabItem, Club, SubscriptionItem ,PersonalTrainingItem } from 'src/app/utils/data.types';
+import { TabItem, SubscriptionItem ,PersonalTrainingItem } from 'src/app/utils/data.types';
 import { UserService } from 'src/app/services/user.service';
 import { BranchService } from 'src/app/services/branch.service';
 import { ActivatedRoute, Router } from '@angular/router';

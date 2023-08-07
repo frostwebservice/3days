@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-
+import { LoaderService } from '../services/loader.service';
 @Component({
     selector: 'app-authentication',
     templateUrl: './authentication.component.html',
@@ -8,9 +8,14 @@ import { Subscription } from 'rxjs';
 })
 export class AuthenticationComponent implements OnInit {
 
-    constructor() { }
+    constructor(
+        private loadingService: LoaderService
+    ) { }
 
     ngOnInit(): void {
+        setTimeout(() => {
+            this.loadingService.setLoading(false);
+        }, 1000);
     }
 
 }

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { catchError, filter, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { AUTH } from '../constants/api.constant';
+import { AUTH,PROFILE } from '../constants/api.constant';
 import { Account, User } from '../models/user.model';
 import { ErrorService } from './error.service';
 import { HttpService } from './http.service';
@@ -42,7 +42,7 @@ export class UserService extends HttpService {
                 // catchError(this.handleError('SIGNIN REQUEST'))
             );
     }
-    signup(user: any): any {
+    public signup(user: any): any {
         const reqHeader = new HttpHeaders({
             'Content-Type': 'application/json',
             'No-Auth': 'True'
@@ -116,6 +116,12 @@ export class UserService extends HttpService {
     public setToken(token: string): void {
         localStorage.setItem('token', token);
     }
+    public setClientId(clientId: number): void {
+        localStorage.setItem('clientId', clientId.toString());
+    }
+    public getClientId():number {
+        return Number(localStorage.getItem('clientId'));
+    }
     public setUser(user: User): any {
         localStorage.setItem('user', JSON.stringify(user));
     }
@@ -135,5 +141,68 @@ export class UserService extends HttpService {
     }
     public clearLocalStorageItem(item: string): void {
         localStorage.removeItem(item);
+    }
+
+    public getProfile():any{
+        const method = 'GET';
+        const myHeaders = new Headers();
+        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
+        return fetch(
+            this.server + PROFILE.GET_PROFILE,
+            {
+                method,
+                headers: myHeaders
+            }
+        ).then((res) => res.json(), catchError(this.handleError('GET PROFILE', null)));
+
+        // const reqHeader = new HttpHeaders({
+        //     'Content-Type': 'application/json',
+        //     // 'No-Auth': 'True',
+        //     'Authorization': "Bearer " + this.getToken(),
+        // });
+        // return this.httpClient
+        //     .get(this.server + PROFILE.GET_PROFILE , {
+        //         headers: reqHeader
+        //     })
+        //     .pipe(
+        //         map((res) => res),
+        //         catchError(this.handleError('GET PROFILE REQUEST'))
+        //     );
+    }
+    
+    public getInvoices():any{
+        const method = 'POST';
+        const myHeaders = new Headers();
+        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
+        return fetch(
+            this.server + PROFILE.GET_INVOICES,
+            {
+                method,
+                headers: myHeaders
+            }
+        ).then((res) => res.json(), catchError(this.handleError('GET INVOICES', null)));
+    }
+    public getNotifications():any{
+        const method = 'GET';
+        const myHeaders = new Headers();
+        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
+        return fetch(
+            this.server + PROFILE.GET_NOTIFICATIONS,
+            {
+                method,
+                headers: myHeaders
+            }
+        ).then((res) => res.json(), catchError(this.handleError('GET NOTIFICATIONS', null)));
+    }
+    public updateProfile(profile: any): any {
+        const reqHeader = new HttpHeaders();
+        return this.httpClient
+            .post(this.server + PROFILE.UPDATE_PROFILE, JSON.stringify(profile), {
+                headers: reqHeader
+            })
+            .pipe(
+                map((res) => res),
+                catchError(this.handleError('UPDATE PROFILE', null))
+            );
     }
 }

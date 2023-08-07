@@ -10,7 +10,7 @@ export class Branch implements Deserializable {
 	phone?: string = '';
 	branch_category?: string = '';
 	branch_capacity?: number ;
-	startup_date?: Date;
+	startup_date?: string = '';
 	email?: string = '';
 	lat?: number ;
 	lng?: number ;

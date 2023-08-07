@@ -14,9 +14,7 @@ import { UserService } from '../services/user.service';
 export class ApiInterceptor implements HttpInterceptor {
 	private role = '';
 	constructor(private userService: UserService) {
-		// this.userService.profile$.subscribe((user) => {
-		// 	this.role = user.role ? 'guest' : '';
-		// });
+
 	}
 
 	intercept(
@@ -45,7 +43,7 @@ export class ApiInterceptor implements HttpInterceptor {
 			if (!req.headers.has('No-Auth')) {
 				req = req.clone({
 					setHeaders: {
-						Authorization: localStorage.getItem('token'),
+						Authorization: 'Bearer ' + localStorage.getItem('token'),
 						Role: this.role,
 						'ngsw-bypass': 'true'
 					}
