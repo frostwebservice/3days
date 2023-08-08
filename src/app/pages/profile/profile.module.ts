@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common'
 
 import { ComponentsModule } from '../../components/components.module'
 import { Profile } from './profile.component'
+import { TranslateModule } from '@ngx-translate/core'
 
 const routes = [
   {
@@ -14,7 +15,7 @@ const routes = [
 
 @NgModule({
   declarations: [Profile],
-  imports: [CommonModule, ComponentsModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, ComponentsModule, RouterModule.forChild(routes),TranslateModule.forChild({ extend: true }),],
   exports: [Profile],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

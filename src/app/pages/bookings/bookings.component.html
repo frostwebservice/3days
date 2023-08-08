@@ -26,11 +26,11 @@
 												<div *ngSwitchCase="'pending'">
 													<div class="j-pending-appointment j-status-btn">{{'missed'|translate}}</div>
 												</div>
-												<div *ngSwitchCase="'active'">
-													<div class="j-active-appointment j-status-btn">{{'active'|translate}}</div>
+												<div *ngSwitchCase="'created'">
+													<div class="j-active-appointment j-status-btn">{{'created'|translate}}</div>
 												</div>
-												<div *ngSwitchCase="'inactive'">
-													<div class="j-inactive-appointment j-status-btn">{{'active'|translate}}</div>
+												<div *ngSwitchCase="'cancelled'">
+													<div class="j-inactive-appointment j-status-btn">{{'cancelled'|translate}}</div>
 												</div>
 											</div>
 										</app-polygon-border-div>
@@ -70,7 +70,8 @@
 									</div>
 									<div *ngIf = "appointment.status=='completed'" class="mt-3 j-apply-btn">
 										<app-polygon-border-div j-class='j-left j-3days' class="text-center" >
-											<div class="j-btn _3dayColor p-2">{{'share evaluation'|translate}}</div>
+											<div class="j-btn _3dayColor p-2">{{'Rate review'|translate}}</div>
+										</app-polygon-border-div>
 									</div>
 									
 									<div *ngIf = "appointment.status=='active'" class="mt-3 j-cancel-btn">

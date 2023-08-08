@@ -51,10 +51,6 @@
 	"Start_date":"تاريخ بداية الايقاف",
 	"Number_days":"عدد أيام الايقاف",
 	"return":"تاريخ العودة هو:",
-
-
-
-
 	"amendment":"تعديل",
 	"Quotas":"الحصص",
 	"bookings":"الحجوزات",
@@ -75,6 +71,16 @@
 	"Tax":"الضريبة",
 	"Total":"الإجمالي",
 	"to push":"دفع",
+	"Rate review":"تقييم الحصة",
+	"Membership":"Membership",
+	"register_price": "قيمة الاشتراك",
+	"Start Date": "تـــاريــخ البــــــدء",
+	"End Date": "تـاريـخ الانتـهــاء",
+	"Subscription Freeze" : "تجميد الاشتراك",
+	"Subscription Cancel" : "Cancel",
+	"cancelled" : "cancelled",
+	"created" : "created",
+
 	
 
 

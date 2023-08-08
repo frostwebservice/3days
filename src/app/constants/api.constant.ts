@@ -14,6 +14,7 @@ export const BRANCH = {
     GET_SUBSCRIPTIONS_PER_BRANCH: 'branch/member/subscription/sessions',
     GET_PTS_PER_BRANCH: 'branch/member/pt/sessions',
     GET_ALL_PT_SESSIONS_PER_BRANCH: 'branch/member/pt/allsessions',
+    GET_MEMBER_SUBSCRIPTIONS: 'member/subscriptions',
 };
 export const BOOKING = {
     GET_MEMBER_BOOKINGS: 'member-bookings',
