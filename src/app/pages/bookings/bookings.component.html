@@ -76,7 +76,7 @@
 									
 									<div *ngIf = "appointment.status=='active'" class="mt-3 j-cancel-btn">
 										<app-polygon-border-div j-class='j-left j-danger' class="text-center" >
-											<div class="j-btn j-dangerColor p-2">إلغاء الحجز</div>
+											<div class="j-btn j-dangerColor p-2">{{'cancel_reservation'|translate}}</div>
 										</app-polygon-border-div>
 									</div>
 								</div>
@@ -89,7 +89,7 @@
 		<ng-template #elseTab>
 			<div class="j-sessions-tab">
 				<div class="j-form-group mb-4">
-					<label for="session_date" class="j-inputbox-label">Select Date</label>
+					<label for="session_date" class="j-inputbox-label">{{'Select Date'|translate}}</label>
 					<div class="j-input-icons j-input-icon-left">
 						<input type="text" class="j-inputbox" id="session_date" name = "session_date"
 						bsDatepicker [bsConfig]="{ isAnimated: false }"
