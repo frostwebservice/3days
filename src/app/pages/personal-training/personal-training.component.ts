@@ -21,7 +21,7 @@ export class PersonalTraining implements OnInit {
     //     {id: 1, class_name:"Cross-training",trainer_name:"مع راسم",branch_name:"Al-sahafa male",time:"4:00-5:00",count:0,photo:"person1.png"},
     //     {id: 1, class_name:"Cross-fit",trainer_name:"مع ماركوس",branch_name:"Al-sahafa male",time:"4:00-5:00",count:5,photo:""},
     // ];
-    
+
     personalTrainings: [] = [];
     constructor(
         private userService: UserService,
@@ -45,6 +45,9 @@ export class PersonalTraining implements OnInit {
 			this.personalTrainings = res.data;
 			this.loadingService.setLoading(false);
 		});
+	}
+    changeDate($event){
+		this.getAllPts();
 	}
     ngOnInit(): void {
     }
