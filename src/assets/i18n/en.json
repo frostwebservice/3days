@@ -98,7 +98,6 @@
 	"share_evaluation":"share evaluation",
 	"share_assessnment":"What is your assessment of the share?",
 	"comments":"Do you have any comments? Write it down",
-	"Evaluation approval":"Evaluation approval"
-
-
+	"Evaluation approval":"Evaluation approval",
+	"reservation_cancel": "Reservation Cancel"
 }

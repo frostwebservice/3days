@@ -17,7 +17,7 @@
 						<app-polygon-border-div specify="1" [cornerStatus]="[1,1,1,1]">
 							<div class="j-appointment-card p-3">
 								<app-polygon-border-div specify="1" [cornerStatus]="[1,1,1,1]">
-									<div class="j-img j-banner" style="background-image: url(./assets/bg/{{appointment.banner}});">
+									<div class="j-img j-banner" style="background-image: url({{appointment.product_banner}});">
 										<app-polygon-border-div j-class="j-right j-icon" class="j-appointment-status">
 											<div [ngSwitch]="appointment.status">
 												<div *ngSwitchCase="'completed'">
@@ -37,7 +37,8 @@
 									</div>
 								</app-polygon-border-div>
 								<div class="p-2">
-									<div class="j-appointment-classname gwTColor mb-3 mt-3">{{appointment.class_name}}</div>
+									<div class="j-appointment-classname gwTColor mb-3 mt-3 d-none">{{appointment.english_class_name}}</div>
+									<div class="j-appointment-classname gwTColor mb-3 mt-3">{{appointment.arabic_class_name}}</div>
 									<div class="j-appointment-info gdTColor">
 										<div class="j-sub-info ">
 											<div class="j-info mb-3">
@@ -50,21 +51,21 @@
 												<app-polygon-border-div j-class="j-left j-icon">
 													<div class="j-item-img" style="background-image: url(/assets/img/l.svg);"></div>
 												</app-polygon-border-div>
-												{{appointment.time}}
+												{{appointment.start_time}} - {{appointment.end_time}}
 											</div>
 										</div>
 										<div class="j-sub-info">
 											<div class="j-info mb-3">
 												<app-polygon-border-div j-class="j-left j-icon">
-													<div class="j-item-img j-item-photo" style="background-image: url(/assets/img/person1.png);"></div>
+													<div class="j-item-img j-item-photo" style="background-image: url({{appointment.trainer_banner}});"></div>
 												</app-polygon-border-div>
 												{{appointment.trainer_name}}
 											</div>
 											<div class="j-info">
 												<app-polygon-border-div j-class="j-left j-icon">
-													<div class="j-item-img" style="background-image: url(/assets/img/l.svg);"></div>
+													<div class="j-item-img" style="background-image: url(/assets/img/calendar.svg);"></div>
 												</app-polygon-border-div>
-												{{appointment.date}}
+												{{appointment.session_date}}
 											</div>
 										</div>
 									</div>
@@ -74,9 +75,9 @@
 										</app-polygon-border-div>
 									</div>
 									
-									<div *ngIf = "appointment.status=='active'" class="mt-3 j-cancel-btn">
+									<div *ngIf = "appointment.status=='created'" class="mt-3 j-cancel-btn">
 										<app-polygon-border-div j-class='j-left j-danger' class="text-center" >
-											<div class="j-btn j-dangerColor p-2">{{'cancel_reservation'|translate}}</div>
+											<div class="j-btn j-dangerColor p-2">{{'reservation_cancel' | translate}}</div>
 										</app-polygon-border-div>
 									</div>
 								</div>
@@ -91,9 +92,8 @@
 				<div class="j-form-group mb-4">
 					<label for="session_date" class="j-inputbox-label">{{'Select Date'|translate}}</label>
 					<div class="j-input-icons j-input-icon-left">
-						<input type="text" class="j-inputbox" id="session_date" name = "session_date"
-						bsDatepicker [bsConfig]="{ isAnimated: false }"
-						value="الاثنين,15 مارس" >
+						<input type="text" class="j-inputbox" id="session_date" name = "session_date" #sessionDate="ngModel" name = "session_date" (ngModelChange)="changeDate($event)" 
+						bsDatepicker [bsConfig]="{ isAnimated: false }" >
 						<i class="j-icon j-icon-left j-icon-calendar"></i>
 					</div>
 				</div>
@@ -102,12 +102,13 @@
 						<app-polygon-border-div specify="1" [cornerStatus]="[1,1,1,1]" cutRange="15"  weight = "1">
 							<div class="j-session-card">
 								<app-polygon-border-div j-class="j-left">
-									<div class="j-img j-trainer-photo" style="background-image: url(./assets/img/{{session.photo === '' ? 'personavata.png': session.photo }});"></div>
+									<div class="j-img j-trainer-photo" style="background-image: url({{session.trainer_banner === '' ? './assets/img/personavata.png': session.trainer_banner }});"></div>
 								</app-polygon-border-div>
 								<div class="j-session-info gwTColor j-tnSize">
-									<p class="mb-1">{{session.class_name}} {{session.trainer_name}}</p>
-									<p class="mb-1">{{session.trainer_name}} . {{session.time}}</p>
-									<p class="mb-0">{{session.count}} / 10.</p>
+									<p class="mb-1">{{session.arabic_class_name}} {{session.trainer_name}}</p>
+									<p class="mb-1 d-none">{{session.english_class_name}} {{session.trainer_name}}</p>
+									<p class="mb-1">{{session.trainer_name}} . {{session.start_time}} - {{session.end_time}}</p>
+									<!-- <p class="mb-0">{{session.count}} / 10.</p> -->
 								</div>
 								<i class="j-icon bi bi-chevron-left"></i>
 							</div>
