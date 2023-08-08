@@ -1,6 +1,6 @@
 {
 	"Notifications": "التنبيهات",
-  "cancel_subscription": "Cancel Subscription",
+  	"cancel_subscription": "Cancel Subscription",
 	"buy_subscription": "Buy Subscription",
 	"share_your_code": "شارك الكود مع مدربك لاثبات حضورك.",
 	"Date &amp; Time: date":"التاريخ والوقت: {{date}}",
@@ -61,10 +61,20 @@
 	"completed":"مكتملة",
 	"active":"نشط",
 	"missed":"فائتة",
-	"":"تقييم الحصة"
-
-
-	
+	"share evaluation":"إلغاء الحجز",
+	"Select Date":"حدد تاريخ",
+	"paying off":"الدفع",
+	"Member":"عضو",
+	"Subscription_Start_Date":"تاريخ بدء الاشتراك",
+	"promotional code":"رمز ترويجي",
+	"activation":"تفعيل",
+	"regist_price":"قيمة الاشتراك",
+	"SAR":"ر.س",
+	"discount":"خصم",
+	"after_discount_price":"السعر بعد الخصم",
+	"Tax":"الضريبة",
+	"Total":"الإجمالي",
+	"to push":"دفع",
 	
 
 

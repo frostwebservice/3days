@@ -1,6 +1,6 @@
 {
 	"Notifications": "Notifications",
-  "cancel_subscription": "Cancel Subscription",
+ 	"cancel_subscription": "Cancel Subscription",
 	"buy_subscription": "Buy Subscription",
 	"share_your_code": "Share the code with your coach to verify your attendance.",
 	"Date &amp; Time:date":"Date & time:{{date}}",
@@ -59,8 +59,22 @@
 	"bookings":"bookings",
 	"completed":"completed",
 	"missed":"missed",
-	"active":"active"
-
+	"active":"active",
+	"share evaluation":"share evaluation",
+	"Select Date":"Select Date",
+	"paying off":"paying off",
+	"Member":"Member",
+	"Subscription_Start_Date":"Subscription Start Date",
+	"promotional code":"promotional code",
+	"activation":"activation",
+	"regist_price":"The price of registration",
+	"SAR":"SAR",
+	"discount":"discount",
+	"after_discount_price":"The price after discount",
+	"Tax":"Tax",
+	"Total":"Total",
+	"to push":"to push",
+	
 
 
 
