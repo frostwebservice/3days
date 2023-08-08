@@ -5,7 +5,7 @@ import { catchError, filter, map } from 'rxjs/operators';
 import { ErrorService } from './error.service';
 import { HttpService } from './http.service';
 import { Branch } from '../models/branch.model';
-import { BRANCH } from '../constants/api.constant';
+import { BOOKING, BRANCH } from '../constants/api.constant';
 
 @Injectable({
   providedIn: 'root'
@@ -112,6 +112,23 @@ export class BranchService extends HttpService {
 			.pipe(
 				map((res) => res),
 				catchError(this.handleError('GET MEMBER SUBSCRIPTIONS', false))
+			);
+	}
+	public getMemberBookings(branch_id:number): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.GET_MEMBER_BOOKINGS,
+				{},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('GET MEMBER BOOKINGS', false))
 			);
 	}
 	
