@@ -7,6 +7,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ComponentsModule } from '../../components/components.module'
 import { Bookings } from './bookings.component'
 import { TranslateModule } from '@ngx-translate/core'
+import { UserService } from 'src/app/services/user.service';
+import { BranchService } from 'src/app/services/branch.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 const routes = [
 	{

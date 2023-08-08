@@ -97,5 +97,22 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('Get ALL PT SESSIONS PER BRNACH', false))
 			);
 	}
+	public getMemberSubscriptions(): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BRANCH.GET_MEMBER_SUBSCRIPTIONS,
+				{},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('GET MEMBER SUBSCRIPTIONS', false))
+			);
+	}
 	
 }

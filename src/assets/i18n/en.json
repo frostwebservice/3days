@@ -51,19 +51,19 @@
 	"Start_date":"The start date of the suspension",
 	"Number_days":"The number of days of suspension",
 	"return":"return Data is:",
-
-
-
 	"amendment":"amendment",
 	"Quotas":"Quotas",
 	"bookings":"bookings",
 	"completed":"completed",
 	"missed":"missed",
 	"active":"active",
-	"Rate review":"Rate review"
-
-
-
+	"Rate review":"Rate review",
+	"Membership":"Membership",
+	"register_price": "Price of Register",
+	"Start Date": "Start date",
+	"End Date": "End date",
+	"Subscription Freeze" : "Freeze",
+	"Subscription Cancel" : "Cancel",
 
 
 

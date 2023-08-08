@@ -1,6 +1,6 @@
 {
 	"Notifications": "التنبيهات",
-  "cancel_subscription": "Cancel Subscription",
+  	"cancel_subscription": "Cancel Subscription",
 	"buy_subscription": "Buy Subscription",
 	"share_your_code": "شارك الكود مع مدربك لاثبات حضورك.",
 	"Date &amp; Time: date":"التاريخ والوقت: {{date}}",
@@ -51,19 +51,19 @@
 	"Start_date":"تاريخ بداية الايقاف",
 	"Number_days":"عدد أيام الايقاف",
 	"return":"تاريخ العودة هو:",
-
-
-
-
 	"amendment":"تعديل",
 	"Quotas":"الحصص",
 	"bookings":"الحجوزات",
 	"completed":"مكتملة",
 	"active":"نشط",
 	"missed":"فائتة",
-	"Rate review":"تقييم الحصة"
-
-
+	"Rate review":"تقييم الحصة",
+	"Membership":"Membership",
+	"register_price": "قيمة الاشتراك",
+	"Start Date": "تـــاريــخ البــــــدء",
+	"End Date": "تـاريـخ الانتـهــاء",
+	"Subscription Freeze" : "تجميد الاشتراك",
+	"Subscription Cancel" : "Cancel",
 	
 	
 

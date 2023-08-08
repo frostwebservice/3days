@@ -7,6 +7,10 @@ import {
 	NgbTimeStruct,
 	NgbDatepicker
 } from '@ng-bootstrap/ng-bootstrap';
+import { UserService } from 'src/app/services/user.service';
+import { BranchService } from 'src/app/services/branch.service';
+import { LoaderService } from 'src/app/services/loader.service';
+
 @Component({
 	selector: 'app-bookings',
 	templateUrl: 'bookings.component.html',
@@ -33,14 +37,18 @@ export class Bookings {
 	selectTab (tab:number):void{
 		this.selected_tab = tab;
 	}
-	constructor(private title: Title, private meta: Meta) {
-		this.title.setTitle('Bookings - 3 Days')
-		this.meta.addTags([
-			{
-				property: 'og:title',
-				content: 'Bookings - 3 Days',
-			},
-		])
+	constructor(private title: Title, private meta: Meta,
+		private userService: UserService,
+        private loadingService: LoaderService,
+		private branchService: BranchService) 
+		{
+			this.title.setTitle('Bookings - 3 Days')
+			this.meta.addTags([
+				{
+					property: 'og:title',
+					content: 'Bookings - 3 Days',
+				},
+			])
 	}
 
 }
