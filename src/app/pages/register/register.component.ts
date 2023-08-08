@@ -237,7 +237,7 @@ export class RegisterComponent implements OnInit {
 		});
 	}
 	getProducts(){
-		this.branchService.getProductList(this.user.client_id,this.keyword).subscribe((res) => {
+		this.branchService.getProductList(this.user.client_id).subscribe((res) => {
 			if (!res) {
 				return;
 			}

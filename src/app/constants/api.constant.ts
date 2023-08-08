@@ -13,6 +13,7 @@ export const BRANCH = {
     GET_PRODUCT_LIST: 'products',
     GET_SUBSCRIPTIONS_PER_BRANCH: 'branch/member/subscription/sessions',
     GET_PTS_PER_BRANCH: 'branch/member/pt/sessions',
+    GET_ALL_PT_SESSIONS_PER_BRANCH: 'branch/member/pt/allsessions',
 };
 export const BOOKING = {
     GET_MEMBER_BOOKINGS: 'member-bookings',
