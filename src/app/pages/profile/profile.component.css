@@ -63,6 +63,20 @@
     justify-content: center;
     align-items: center;
 }
+
 .profile-container .profile-notification i.j-icon{
     color: white;
+}
+.profile-container .profile-language {
+    display: flex;
+    position: absolute;
+    left: 10px;
+    top: 0px;
+}
+.profile-container .profile-language .language-icon{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
