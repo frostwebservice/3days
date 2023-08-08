@@ -67,8 +67,9 @@ export class Bookings {
 		});
 	}
 	getMemberPTSessions(){
+		console.log(this.session_date);
 		this.loadingService.setLoading(true);
-		this.branchService.getMemberPTSessions(this.userService.getDefaultBranchId(),this.session_date).subscribe((res) => {
+		this.branchService.getMemberPTSessions(this.userService.getDefaultBranchId(),moment(this.session_date).format('YYYY-MM-DD')).subscribe((res) => {
 			if (!res) {
 				return;
 			}
