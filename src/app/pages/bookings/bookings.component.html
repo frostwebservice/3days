@@ -92,9 +92,7 @@
 				<div class="j-form-group mb-4">
 					<label for="session_date" class="j-inputbox-label">{{'Select Date'|translate}}</label>
 					<div class="j-input-icons j-input-icon-left">
-						<input type="text" class="j-inputbox" id="session_date" name = "session_date"
-						bsDatepicker [bsConfig]="{ isAnimated: false }"
-						value="الاثنين,15 مارس" >
+						<input type="text" class="j-inputbox" id="session_date"  [(ngModel)] = "session_date"  #sessionDate="ngModel" name = "session_date" (ngModelChange)="changeDate($event)" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" >
 						<i class="j-icon j-icon-left j-icon-calendar"></i>
 					</div>
 				</div>
@@ -103,12 +101,13 @@
 						<app-polygon-border-div specify="1" [cornerStatus]="[1,1,1,1]" cutRange="15"  weight = "1">
 							<div class="j-session-card">
 								<app-polygon-border-div j-class="j-left">
-									<div class="j-img j-trainer-photo" style="background-image: url(./assets/img/{{session.photo === '' ? 'personavata.png': session.photo }});"></div>
+									<div class="j-img j-trainer-photo" style="background-image: url({{session.trainer_banner === '' ? './assets/img/personavata.png': session.trainer_banner }});"></div>
 								</app-polygon-border-div>
 								<div class="j-session-info gwTColor j-tnSize">
-									<p class="mb-1">{{session.class_name}} {{session.trainer_name}}</p>
-									<p class="mb-1">{{session.trainer_name}} . {{session.time}}</p>
-									<p class="mb-0">{{session.count}} / 10.</p>
+									<p class="mb-1">{{session.arabic_class_name}} {{session.trainer_name}}</p>
+									<p class="mb-1 d-none">{{session.english_class_name}} {{session.trainer_name}}</p>
+									<p class="mb-1">{{session.trainer_name}} . {{session.start_time}} - {{session.end_time}}</p>
+									<!-- <p class="mb-0">{{session.count}} / 10.</p> -->
 								</div>
 								<i class="j-icon bi bi-chevron-left"></i>
 							</div>
