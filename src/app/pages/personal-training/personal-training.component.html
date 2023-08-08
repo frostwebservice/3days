@@ -7,7 +7,7 @@
         <div class="j-form-group mb-4">
             <label for="session_date" class="j-inputbox-label">Select Date</label>
             <div class="j-input-icons j-input-icon-left">
-                <input type="text" class="j-inputbox" id="session_date" name = "session_date" value="الاثنين,15 مارس">
+                <input type="text" class="j-inputbox" id="session_date" [(ngModel)] = "session_date" #sessionDate="ngModel" name = "session_date" (ngModelChange)="changeDate($event)" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}">
                 <i class="j-icon j-icon-left j-icon-calendar"></i>
             </div>
         </div>
