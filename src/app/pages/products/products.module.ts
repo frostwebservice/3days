@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common'
 import { ComponentsModule } from '../../components/components.module'
 import { Products } from './products.component'
-
+import { TranslateModule } from '@ngx-translate/core';
 const routes = [
   {
     path: '',
@@ -13,7 +13,7 @@ const routes = [
 
 @NgModule({
   declarations: [Products],
-  imports: [CommonModule, ComponentsModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, ComponentsModule, RouterModule.forChild(routes),TranslateModule],
   exports: [Products],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

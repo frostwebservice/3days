@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnDestroy } from '@angular/core';
 import { LoaderService } from 'src/app/services/loader.service';
 import { LangService } from './services/lang.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -36,9 +36,8 @@ export class AppComponent {
 		this.langService.changeLang(lang);
 	}
 	langSubscription: Subscription;
-	// async ngAfterViewInit() {
-	// 	setTimeout(() => {
-	// 		this.loadingService.setLoading(false);
-	// 	},1000);
-	// }
+
+	ngOnDestroy(): void {
+		this.langSubscription && this.langSubscription.unsubscribe();
+	}
 }

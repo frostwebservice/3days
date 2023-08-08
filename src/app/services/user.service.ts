@@ -136,6 +136,11 @@ export class UserService extends HttpService {
             return {};
         }
     }
+    public getDefaultBranchId():number{
+        let user = this.getUser();
+        let branch_id :number = Number(user?.default_branch);
+        return branch_id; 
+    }
     public updateLocalStorageItem(item: string, value: string): void {
         localStorage.setItem(item, value);
     }
@@ -183,16 +188,6 @@ export class UserService extends HttpService {
         ).then((res) => res.json(), catchError(this.handleError('GET INVOICES', null)));
     }
     public getNotifications():any{
-        // const reqHeader = new HttpHeaders();
-        // myHeaders.append('Authorization', 'Bearer ' + this.getToken());
-        // return fetch(
-        //     this.server + PROFILE.GET_NOTIFICATIONS,
-        //     {
-        //         method,
-        //         headers: myHeaders
-        //     }
-        // ).then((res) => res.json(), catchError(this.handleError('GET NOTIFICATIONS', null)));
-
         const reqHeader = new HttpHeaders();
         return this.httpClient
             .get(this.server + PROFILE.GET_NOTIFICATIONS, {

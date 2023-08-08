@@ -42,6 +42,9 @@
 					<div class="language-icon">
 						<i class="j-icon j-icon-earth"></i>
 					</div>
+					<div class="lang-list text-white">
+						<div class="lang-item" *ngFor="let option of languages" (click)="changeLang(option)" >{{option.country}}</div>
+					</div>
 				</app-polygon-border-div>
 			</div>
 		</div>
