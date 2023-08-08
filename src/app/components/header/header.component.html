@@ -2,17 +2,17 @@
     <img alt="logo" src="/assets/external/logo.svg" class="app-navbar-logo"/>
     <div data-thq="thq-navbar-nav" data-role="Nav" class="app-navbar-desktop-menu">
         <nav data-thq="thq-navbar-nav-links" data-role="Nav" class="app-navbar-nav" >
-            <a href="{{page_name == 'home' ? '' : '/' }}" class="app-navbar-text-color app-navbar-text {{page_name == 'home' ? 'app-navbar-active' : '' }}">Home</a>
-            <a href="{{page_name == 'products' ? '' : '/products' }}" class="app-navbar-text-color app-navbar-text01 {{page_name == 'products' ? 'app-navbar-active' : '' }}">Products</a>
-            <a href="{{page_name == 'personal-training' ? '' : '/personal-training' }}" class="app-navbar-text-color app-navbar-text02 {{page_name == 'personal-training' ? 'app-navbar-active' : '' }}">Personal Training</a>
-            <a href="{{page_name == 'bookings' ? '' : '/bookings' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'bookings' ? 'app-navbar-active' : '' }}">Sessions</a>
-            <a href="{{page_name == 'subscriptions' ? '' : '/subscriptions' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'subscriptions' ? 'app-navbar-active' : '' }}">Subscription</a>
-            <a href="{{page_name == 'profile' ? '' : '/profile' }}" class="app-navbar-text-color app-navbar-text04 {{page_name == 'profile' ? 'app-navbar-active' : '' }}">Profile</a>
+            <a href="{{page_name == 'home' ? '' : '/' }}" class="app-navbar-text-color app-navbar-text {{page_name == 'home' ? 'app-navbar-active' : '' }}">{{'Home'|translate}}</a>
+            <a href="{{page_name == 'products' ? '' : '/products' }}" class="app-navbar-text-color app-navbar-text01 {{page_name == 'products' ? 'app-navbar-active' : '' }}">{{'Products'|translate}}</a>
+            <a href="{{page_name == 'personal-training' ? '' : '/personal-training' }}" class="app-navbar-text-color app-navbar-text02 {{page_name == 'personal-training' ? 'app-navbar-active' : '' }}">{{'Personal Training'|translate}}</a>
+            <a href="{{page_name == 'bookings' ? '' : '/bookings' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'bookings' ? 'app-navbar-active' : '' }}">{{[Sessions]|translate}}</a>
+            <a href="{{page_name == 'subscriptions' ? '' : '/subscriptions' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'subscriptions' ? 'app-navbar-active' : '' }}">{{'Subscription'|translate}}</a>
+            <a href="{{page_name == 'profile' ? '' : '/profile' }}" class="app-navbar-text-color app-navbar-text04 {{page_name == 'profile' ? 'app-navbar-active' : '' }}">{{'Profile|translate'}}</a>
         </nav>
     </div>
     <div data-thq="thq-navbar-btn-group" class="app-navbar-btn-group">
         <a class="app-navbar-login button" routerLink="/signup">
-            <span>Join Us</span>
+            <span>{{'Join Us'|translate}}</span>
         </a>
     </div>
     <div data-thq="thq-mobile-menu" class="app-navbar-mobile-menu {{temp}}" ngClass="{{tF ? 'j-nav-toggled' : ''}}">
@@ -28,16 +28,16 @@
                 </div>
             </div>
             <nav data-thq="thq-mobile-menu-nav-links" data-role="Nav" class="app-navbar-nav2" >
-                <a href="{{page_name == 'home' ? '' : '/' }}" class="app-navbar-text-color app-navbar-text {{page_name == 'home' ? 'app-navbar-active' : '' }}">Home</a>
-                <a href="{{page_name == 'products' ? '' : '/products' }}" class="app-navbar-text-color app-navbar-text01 {{page_name == 'products' ? 'app-navbar-active' : '' }}">Products</a>
-                <a href="{{page_name == 'personal-training' ? '' : '/personal-training' }}" class="app-navbar-text-color app-navbar-text02 {{page_name == 'personal-training' ? 'app-navbar-active' : '' }}">Personal Training</a>
-                <a href="{{page_name == 'bookings' ? '' : '/bookings' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'bookings' ? 'app-navbar-active' : '' }}">Sessions</a>
-                <a href="{{page_name == 'subscriptions' ? '' : '/subscriptions' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'subscriptions' ? 'app-navbar-active' : '' }}">Subscription</a>
-                <a href="{{page_name == 'profile' ? '' : '/profile' }}" class="app-navbar-text-color app-navbar-text04 {{page_name == 'profile' ? 'app-navbar-active' : '' }}">Profile</a>
+                <a href="{{page_name == 'home' ? '' : '/' }}" class="app-navbar-text-color app-navbar-text {{page_name == 'home' ? 'app-navbar-active' : '' }}">{{'Home'|translate}}</a>
+                <a href="{{page_name == 'products' ? '' : '/products' }}" class="app-navbar-text-color app-navbar-text01 {{page_name == 'products' ? 'app-navbar-active' : '' }}">{{'Products'|translate}}</a>
+                <a href="{{page_name == 'personal-training' ? '' : '/personal-training' }}" class="app-navbar-text-color app-navbar-text02 {{page_name == 'personal-training' ? 'app-navbar-active' : '' }}">{{'Personal Training'|translate}}</a>
+                <a href="{{page_name == 'bookings' ? '' : '/bookings' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'bookings' ? 'app-navbar-active' : '' }}">{{'Sessions'|translate}}</a>
+                <a href="{{page_name == 'subscriptions' ? '' : '/subscriptions' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'subscriptions' ? 'app-navbar-active' : '' }}">{{'Subscription'|translate}}</a>
+                <a href="{{page_name == 'profile' ? '' : '/profile' }}" class="app-navbar-text-color app-navbar-text04 {{page_name == 'profile' ? 'app-navbar-active' : '' }}">{{'Profile'|translate}}</a>
             </nav>
             <div class="app-navbar-container2">
                 <a name="Join Us" class="app-navbar-login button" routerLink="/signup">
-                    Join Us
+                    {{'Join Us'|translate}}
                 </a>
             </div>
         </div>

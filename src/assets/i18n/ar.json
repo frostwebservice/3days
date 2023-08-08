@@ -1,6 +1,6 @@
 {
 	"Notifications": "التنبيهات",
-  	"cancel_subscription": "Cancel Subscription",
+    "cancel_subscription": "Cancel Subscription",
 	"buy_subscription": "Buy Subscription",
 	"share_your_code": "شارك الكود مع مدربك لاثبات حضورك.",
 	"Date &amp; Time: date":"التاريخ والوقت: {{date}}",
@@ -29,6 +29,44 @@
 	"Company":"شركة",
 	"About":"عن",
 	"Careers":"وظائف",
-	"Contact":"وظائف"
+	"Contact":"وظائف",
+	"Blog":"مدونة",
+	"Contact_Us":"اتصل بنا",
+	"Follow_Us":"تابعنا",
+	"All_Reserved":"3 أيام ، جميع الحقوق محفوظة.",
+	"Home":"بيت",
+	"Products":"منتجات",
+	"Personal_Training":"تمرين شخصي",
+	"Sessions":"الجلسات",
+	"Subscription":"الاشتراك",
+	"Profile":"حساب تعريفي",
+	"Join_Us":"انضم إلينا",
+	"Promotional_code":"الكود الترويجي",
+	"Share_code_25%":"شارك الكود مع أصدقائك لتحصل على خصم25%",
+	"times ":"مرة",
+	"code_used_number":"عدد مرات استخدم الكود:",
+	"Code_sharing":"مشاركة الكود",
+	"Subscription_freeze":"تجميد الاشتراك",
+	"Temp_suspension_subscription":"تجميد مؤقت للاشتراك",
+	"Start_date":"تاريخ بداية الايقاف",
+	"Number_days":"عدد أيام الايقاف",
+	"return":"تاريخ العودة هو:",
+
+
+
+
+	"amendment":"تعديل",
+	"Quotas":"الحصص",
+	"bookings":"الحجوزات",
+	"completed":"مكتملة",
+	"active":"نشط",
+	"missed":"فائتة",
+	"":"تقييم الحصة"
+
+
+	
+	
+
+
 
 }
