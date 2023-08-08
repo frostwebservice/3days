@@ -6,6 +6,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { ComponentsModule } from '../../components/components.module'
 import { Bookings } from './bookings.component'
+import { TranslateModule } from '@ngx-translate/core'
 
 const routes = [
 	{
@@ -18,6 +19,7 @@ const routes = [
 		declarations: [Bookings],
 		imports: [CommonModule, ComponentsModule, RouterModule.forChild(routes),
 			BsDatepickerModule,
+			TranslateModule.forChild({ extend: true }),
 		],
 		exports: [Bookings],
 		schemas: [CUSTOM_ELEMENTS_SCHEMA],

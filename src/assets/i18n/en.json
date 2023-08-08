@@ -1,6 +1,6 @@
 {
 	"Notifications": "Notifications",
-  "cancel_subscription": "Cancel Subscription",
+  	"cancel_subscription": "Cancel Subscription",
 	"buy_subscription": "Buy Subscription",
 	"share_your_code": "Share the code with your coach to verify your attendance.",
 	"Date &amp; Time:date":"Date & time:{{date}}",
@@ -59,7 +59,8 @@
 	"bookings":"bookings",
 	"completed":"completed",
 	"missed":"missed",
-	"active":"active"
+	"active":"active",
+	"Rate review":"Rate review"
 
 
 
