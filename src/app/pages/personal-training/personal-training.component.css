@@ -1,3 +1,6 @@
+.personal-training-container .j-sessions-list{
+    width: 100%;
+}
 .personal-training-container .j-session-item .j-session-card{
     padding : 12px;
     margin-bottom: 12px;

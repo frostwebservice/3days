@@ -20,3 +20,18 @@
     background-position: center;
     display: block;
 }
+.notifications-container .j-icon.j-notification-icon-account{
+    background-image: url(/assets/img/person.svg);
+}
+.notifications-container .j-icon.j-notification-icon-subscription{
+    background-image: url(/assets/img/key.svg);
+}
+.notifications-container .j-icon.j-notification-icon-session{
+    background-image: url(/assets/img/person-cross.svg);
+}
+.notifications-container .j-icon.j-notification-icon-branch{
+    background-image: url(/assets/img/branch.svg);
+}
+.notifications-container .j-icon.j-notification-icon-payment{
+    background-image: url(/assets/img/cash.svg);
+}

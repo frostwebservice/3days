@@ -40,3 +40,40 @@
 .products-container .j-product-card .product_description{
     margin-bottom: 0 !important;
 }
+
+
+.products-container .j-session-item .j-session-card{
+    padding : 12px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+    position:relative;
+}
+.products-container .j-session-item .j-img.j-trainer-photo{
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.products-container .j-session-item .j-session-info{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+.products-container .j-session-card .j-icon{
+    position: absolute;
+    left: 8px;
+    top: calc(50% - 8px);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+@media(max-width: 767px) {
+    .products-container .j-session-item .j-img.j-trainer-photo{
+        width: 70px;
+        height: 70px;
+    }
+}

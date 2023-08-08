@@ -136,6 +136,11 @@ export class UserService extends HttpService {
             return {};
         }
     }
+    public getDefaultBranchId():number{
+        let user = this.getUser();
+        let branch_id :number = Number(user?.default_branch);
+        return branch_id; 
+    }
     public updateLocalStorageItem(item: string, value: string): void {
         localStorage.setItem(item, value);
     }
@@ -183,16 +188,37 @@ export class UserService extends HttpService {
         ).then((res) => res.json(), catchError(this.handleError('GET INVOICES', null)));
     }
     public getNotifications():any{
+        const reqHeader = new HttpHeaders();
+        return this.httpClient
+            .get(this.server + PROFILE.GET_NOTIFICATIONS, {
+                headers: reqHeader
+            })
+            .pipe(
+                map((res) => res),
+                catchError(this.handleError('GET NOTIFICATIONS', null))
+            );
+    }
+    public getTermsConditions():any{
         const method = 'GET';
         const myHeaders = new Headers();
-        myHeaders.append('Authorization', 'Bearer ' + this.getToken());
         return fetch(
-            this.server + PROFILE.GET_NOTIFICATIONS,
+            this.server + PROFILE.TERMS_CONDITIONS,
             {
                 method,
                 headers: myHeaders
             }
-        ).then((res) => res.json(), catchError(this.handleError('GET NOTIFICATIONS', null)));
+        ).then((res) => res.json(), catchError(this.handleError('GET TERMS AND CONDITIONS', null)));
+    }
+    public getPrivacyPolicy():any{
+        const method = 'GET';
+        const myHeaders = new Headers();
+        return fetch(
+            this.server + PROFILE.POLICY,
+            {
+                method,
+                headers: myHeaders
+            }
+        ).then((res) => res.json(), catchError(this.handleError('GET PRIVACY POLICY', null)));
     }
     public updateProfile(profile: any): any {
         const reqHeader = new HttpHeaders();

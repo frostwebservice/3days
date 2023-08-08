@@ -5,7 +5,7 @@ import { catchError, filter, map } from 'rxjs/operators';
 import { ErrorService } from './error.service';
 import { HttpService } from './http.service';
 import { Branch } from '../models/branch.model';
-import { BRANCH } from '../constants/api.constant';
+import { BOOKING, BRANCH } from '../constants/api.constant';
 
 @Injectable({
   providedIn: 'root'
@@ -57,7 +57,7 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('Get Branches', false))
 			);
 	}
-	public getProductList(client_id:number,keyword: string = ""): Observable<any> {
+	public getProductList(client_id:number): Observable<any> {
 		const reqHeader = new HttpHeaders({
 		  'Content-Type': 'application/json',
 		  'No-Auth': 'True'
@@ -66,8 +66,7 @@ export class BranchService extends HttpService {
 			.post(
 				this.server + BRANCH.GET_PRODUCT_LIST,
 				{ 
-					client_id: client_id ,
-					keyword: keyword 
+					client_id: client_id
 				},
 				{
 					headers: reqHeader
@@ -78,4 +77,59 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('Get products', false))
 			);
 	}
+	public getBranchAllPTSessions(branch_id:number,session_date: string = ""): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BRANCH.GET_ALL_PT_SESSIONS_PER_BRANCH,
+				{ 
+					branch_id: branch_id ,
+					session_date: session_date 
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('Get ALL PT SESSIONS PER BRNACH', false))
+			);
+	}
+	public getMemberSubscriptions(): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BRANCH.GET_MEMBER_SUBSCRIPTIONS,
+				{},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('GET MEMBER SUBSCRIPTIONS', false))
+			);
+	}
+	public getMemberBookings(branch_id:number): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.GET_MEMBER_BOOKINGS,
+				{},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('GET MEMBER BOOKINGS', false))
+			);
+	}
+	
 }

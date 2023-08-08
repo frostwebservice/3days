@@ -474,6 +474,10 @@ body {
     background: url(/assets/img/file.svg) no-repeat;
     background-position: center;
 }
+.j-icon.j-icon-earth{
+    background: url(/assets/img/earth.svg) no-repeat;
+    background-position: center;
+}
 .j-icon.j-icon-active-two-person{
     background: url(/assets/img/active-twoperson.svg) no-repeat;
     background-position: center;

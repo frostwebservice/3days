@@ -28,9 +28,10 @@
 }
 .subscriptions-container .j-subs-item .j-subs-content .j-submit{
     text-align:center;
+    display: flex;
+    justify-content: space-between;
 }
 .subscriptions-container .j-subs-item .j-subs-content .j-submit-btn{
-    padding-top: 5px;
     display: inline-block;
-    padding-bottom: 5px;
+    padding: 8px 25px;
 }

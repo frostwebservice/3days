@@ -1,40 +1,71 @@
-import { Component } from '@angular/core'
+import { Component ,OnInit} from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 import { PersonalTrainingItem , SubscriptionItem} from 'src/app/utils/data.types';
+import { UserService } from 'src/app/services/user.service';
+import { BranchService } from 'src/app/services/branch.service';
+import { LoaderService } from 'src/app/services/loader.service';
+import { Product } from 'src/app/models/product.model';
+import * as moment from 'moment';
 
 @Component({
 	selector: 'app-products',
 	templateUrl: 'products.component.html',
 	styleUrls: ['products.component.css'],
 })
-export class Products {
-	subscriptions: SubscriptionItem[] = [
-		{ id:0, cycle: 'شهـــري', price: 2999 , currency: '$', _per: 'كل شهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-		{ id:1, cycle: 'ثـــلاث أشـــهـر', price: 5990 , currency: '$', _per: 'كل ٣ أشهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-		{ id:2, cycle: 'ستــــة أشـــهر', price: 7999 , currency: '$', _per: 'كل ٦ أشهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-	];
-	
-	personalTrainings: PersonalTrainingItem[] = [
-		{ id:1, shares: 'حصص 10', price: 500 , currency: '$', _per: 'كل 10 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-		{ id:2, shares: '5 حصص', price: 350 , currency: '$', _per: 'كل 5 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-		{ id:3, shares: 'حصة واحدة', price: 100 , currency: '$', _per: 'كل 5 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-	];
+export class Products implements OnInit {
+	subscriptions: Product[] = [];
+	personalTrainings: [] = [];
 	
 	selected_tab :number = 2;
+	// session_date = "2000-01-01" ;
+	session_date = moment().format('YYYY-MM-DD') ;
+	branch_id = 4;
+	currency = "SAR";
 
+	constructor(private title: Title, private meta: Meta,        
+		private userService: UserService,
+        private loadingService: LoaderService,
+		private branchService: BranchService) {
+			this.title.setTitle('Products - 3 Days');
+			this.meta.addTags([
+				{
+					property: 'og:title',
+					content: 'Products - 3 Days',
+				},
+			]);
+			this.branch_id = this.userService.getDefaultBranchId();
+			
+			// this.loadingService.setLoading(false);
+			this.getProducts();
+			this.getAllPts();
+	}
 	selectTab (tab:number):void{
 		this.selected_tab = tab;
 	}
-	current_subscriptions :SubscriptionItem = this.subscriptions[2];
-	current_personalTrainings : PersonalTrainingItem = this.personalTrainings[1];
-	constructor(private title: Title, private meta: Meta) {
-		this.title.setTitle('Products - 3 Days')
-		this.meta.addTags([
-			{
-				property: 'og:title',
-				content: 'Products - 3 Days',
-			},
-		])
+	getProducts(){
+		this.loadingService.setLoading(true);
+		this.branchService.getProductList(this.userService.getClientId()).subscribe((res) => {
+			if (!res) {
+				return;
+			}
+			console.log(res);
+			this.subscriptions = res.data;
+			this.loadingService.setLoading(false);
+		});
 	}
-
+	getAllPts(){
+		this.loadingService.setLoading(true);
+		this.branchService.getBranchAllPTSessions(this.branch_id,moment(this.session_date).format('YYYY-MM-DD')).subscribe((res) => {
+			if (!res) {
+				return;
+			}
+			console.log(res);
+			this.personalTrainings = res.data;
+			this.loadingService.setLoading(false);
+		});
+	}
+	changeDate($event){
+		this.getAllPts();
+	}
+	ngOnInit(): void {}
 }
