@@ -19,6 +19,7 @@ import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
 	declarations: [
 		PrivacyPolicy,
@@ -35,7 +36,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 		FormsModule, 
 		RouterModule.forChild(ProfileRoutingModule),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
-		BsDatepickerModule
+		BsDatepickerModule,
+		TranslateModule, 
 	],
 	providers : []
 })
