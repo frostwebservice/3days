@@ -55,7 +55,7 @@ export class Products implements OnInit {
 	}
 	getAllPts(){
 		this.loadingService.setLoading(true);
-		this.branchService.getBranchAllPTSessions(this.branch_id,this.session_date).subscribe((res) => {
+		this.branchService.getBranchAllPTSessions(this.branch_id,moment(this.session_date).format('YYYY-MM-DD')).subscribe((res) => {
 			if (!res) {
 				return;
 			}
