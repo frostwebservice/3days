@@ -1,5 +1,7 @@
 {
 	"Notifications": "التنبيهات",
+  "cancel_subscription": "Cancel Subscription",
+	"buy_subscription": "Buy Subscription",
 	"share_your_code": "شارك الكود مع مدربك لاثبات حضورك.",
 	"Date &amp; Time: date":"التاريخ والوقت: {{date}}",
 	"Available Seats: num":"المقاعد المتاحة: {{number}}",

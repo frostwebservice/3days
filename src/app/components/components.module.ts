@@ -25,6 +25,7 @@ import { SuspendSubscriptionComponent } from './suspend-subscription/suspend-sub
 import { ReferralCodeComponent } from './referral-code/referral-code.component'
 import { ConfirmCodeComponent } from './comfirm-code/confirm-code.component'
 import { SpinnerComponent } from './spinner/spinner.component'
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { SpinnerComponent } from './spinner/spinner.component'
     ConfirmCodeComponent,
     SpinnerComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   exports: [
     GalleryCard1,
     GalleryCard12,

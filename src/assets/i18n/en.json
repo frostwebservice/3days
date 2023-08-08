@@ -1,7 +1,7 @@
 {
-
-
 	"Notifications": "Notifications",
+  "cancel_subscription": "Cancel Subscription",
+	"buy_subscription": "Buy Subscription",
 	"share_your_code": "Share the code with your coach to verify your attendance.",
 	"Date &amp; Time:date":"Date & time:{{date}}",
 	"Available Seats: num":"'Available Seats: {{number}}",

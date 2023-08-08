@@ -1,22 +1,24 @@
-import { Component } from '@angular/core'
+import { Component ,OnInit} from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 import { PersonalTrainingItem , SubscriptionItem} from 'src/app/utils/data.types';
 import { UserService } from 'src/app/services/user.service';
 import { BranchService } from 'src/app/services/branch.service';
 import { LoaderService } from 'src/app/services/loader.service';
 import { Product } from 'src/app/models/product.model';
+import * as moment from 'moment';
 
 @Component({
 	selector: 'app-products',
 	templateUrl: 'products.component.html',
 	styleUrls: ['products.component.css'],
 })
-export class Products {
+export class Products implements OnInit {
 	subscriptions: Product[] = [];
 	personalTrainings: [] = [];
 	
 	selected_tab :number = 2;
-	session_date = (new Date()).toString();
+	// session_date = "2000-01-01" ;
+	session_date = moment().format('YYYY-MM-DD') ;
 	branch_id = 4;
 	currency = "SAR";
 
@@ -32,6 +34,8 @@ export class Products {
 				},
 			]);
 			this.branch_id = this.userService.getDefaultBranchId();
+			
+			// this.loadingService.setLoading(false);
 			this.getProducts();
 			this.getAllPts();
 	}
@@ -60,5 +64,8 @@ export class Products {
 			this.loadingService.setLoading(false);
 		});
 	}
-
+	changeDate($event){
+		this.getAllPts();
+	}
+	ngOnInit(): void {}
 }
