@@ -4,10 +4,10 @@
     </div>
     <div class="j-class-subject mt-4">
         <h3 class="j-class-title j-title-size gwTColor">كورن هوفمان</h3>
-        <p class="j-class-description j-tnSize gdTColor mt-4 mb-4">حصة تدريب على الجري في الصالة الرياضية لتحسين لياقتك البدنية وحرق السعرات الحرارية.</p>
+        <p class="j-class-description j-tnSize gdTColor mt-4 mb-4">{{'run_train_class'|translate}}.</p>
     </div>
     <div class="j-class-detail mt-4 mb-5">
-        <h4 class="j-class-subtitle j-subtitle-size gwTColor">التفاصيل</h4>
+        <h4 class="j-class-subtitle j-subtitle-size gwTColor">{{'details'|translate}}</h4>
         <div class="j-class-detail-wrap d-flex flex-row-reverse mt-4 j-tnSize">
             <app-polygon-border-div j-class = 'j-left' class="j-class-detail-item">
                 <div class="j-inner-wrap gdTColor">
@@ -19,7 +19,7 @@
             </app-polygon-border-div>
             <app-polygon-border-div j-class = 'j-left' class="j-class-detail-item">
                 <div class="j-inner-wrap gdTColor">
-                    <div class="j-item-title">14 seats available</div>
+                    <div class="j-item-title">14 {{'seats available'|translate}}</div>
                     <app-polygon-border-div j-class = 'j-left j-icon'>
                         <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/earth.svg);"></div>
                     </app-polygon-border-div>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="j-class-appointments mt-4">
-        <h4 class="j-class-subtitle j-subtitle-size gwTColor">المواعيد</h4>
+        <h4 class="j-class-subtitle j-subtitle-size gwTColor">{{'Appointments'|translate}}</h4>
         <div class="j-class-apt-date-list j-list j-tnSize mt-4">
             <app-polygon-border-div class="j-apt-day-item j-item" j-class = 'j-left' *ngFor="let pday of openDays" >
                 <div class="j-inner-wrap gdTColor">
@@ -52,7 +52,7 @@
     </div>
     <div class="j-class-reserve mt-4">
         <div class="j-form-group">
-            <button type="button" class="j-left-button button j-submit-button"><span>reserve a seat</span></button>
+            <button type="button" class="j-left-button button j-submit-button"><span>{{'reserve a seat'|translate}}</span></button>
         </div>
     </div>
 </div>

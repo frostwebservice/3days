@@ -80,8 +80,25 @@
 	"Subscription Cancel" : "Cancel",
 	"cancelled" : "cancelled",
 	"created" : "created",
-
-
+	"run_train_class":"A running training class in the gym to improve your fitness and burn calories",
+	"details":"the details",
+	"seats available":"seats available",
+	"Appointments":"Appointments",
+	"reserve a seat":"reserve a seat",
+	"Club branches":"Club branches",
+	"Search_city":"Search by city or state",
+	"Club details":"Club details",
+	"branch type":"branch type",
+	"absorptive capacity":"absorptive capacity",
+	"branch":"branch",
+	"launch date":"launch date",
+	"Club address":"Club address",
+	"Email":"Email",
+	"club connection":"club connection",
+	"share_evaluation":"share evaluation",
+	"share_assessnment":"What is your assessment of the share?",
+	"comments":"Do you have any comments? Write it down",
+	"Evaluation approval":"Evaluation approval"
 
 
 }
