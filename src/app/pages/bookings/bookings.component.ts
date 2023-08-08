@@ -41,8 +41,7 @@ export class Bookings {
 	constructor(private title: Title, private meta: Meta,
 		private userService: UserService,
         private loadingService: LoaderService,
-		private branchService: BranchService) 
-		{
+		private branchService: BranchService) {
 			this.title.setTitle('Bookings - 3 Days')
 			this.meta.addTags([
 				{
@@ -50,6 +49,8 @@ export class Bookings {
 					content: 'Bookings - 3 Days',
 				},
 			])
+			this.getMemberBookings();
+			
 	}
 	getMemberBookings(){
 		this.loadingService.setLoading(true);
