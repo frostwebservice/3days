@@ -15,7 +15,6 @@ export class Notifications implements OnInit {
         private userService: UserService,
         private loadingService: LoaderService
     ) {
-        console.log(this.lang);
         this.loadingService.setLoading(true);
         this.userService.getNotifications()
             .subscribe((res) => {

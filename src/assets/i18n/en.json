@@ -2,6 +2,8 @@
 
 
 	"Notifications": "Notifications",
+  "cancel_subscription": "Cancel Subscription",
+	"buy_subscription": "Buy Subscription",
 	"share_your_code": "Share the code with your coach to verify your attendance.",
 	"Date &amp; Time:date":"Date & time:{{date}}",
 	"Available Seats: num":"'Available Seats: {{number}}",
@@ -29,44 +31,9 @@
 	"Company":"Company",
 	"About":"About",
 	"Careers":"Careers",
-	"Contact":"Contact",
-	"Blog":"Blog",
-	"Contact_Us":"Contact Us",
-	"Follow_Us":"Follow Us",
-	"All_Reserved":"3 Days, All Rights Reserved.",
-	"Home":"Home",
-	"Products":"Products",
-	"Personal_Training":"Personal Training",
-	"Sessions":"Sessions",
-	"Subscription":"Subscription",
-	"Profile":"Profile",
-	"Join_Us":"Join Us",
-	"Promotional_code":"Promotional code",
-	"share_code_25%":"Share the code with your friends to get 25% off.",
-	"times":"times",
-	"code_used_number":"Number of times the code is used:",
-	"Code_sharing":"Code sharing",
-	"Subscription_freeze":"Subscription freeze",
-	"Temp_suspension_subscription":"Temporary suspension of subscription",
-	"Start_date":"The start date of the suspension",
-	"Number_days":"The number of days of suspension",
-	"return":"return Data is:",
+	"Contact":"Contact"
 
 
-
-	"amendment":"amendment",
-	"Quotas":"Quotas",
-	"bookings":"bookings",
-	"completed":"completed",
-	"missed":"missed",
-	"active":"active",
-	"":"",
-	"":"",
-	"":"",
-	"":"",
-	"":"",
-	"":"",
-	"":"",
 
 
 
