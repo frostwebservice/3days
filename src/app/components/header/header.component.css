@@ -56,20 +56,24 @@
 }
 .app-navbar-login {
     border-width: 0px;
-    margin-right: var(--dl-space-space-twounits);
     background-color: var(--dl-color-primary-3days);
     text-decoration: none;
 }
 .app-navbar-logout {
-    border-width: 0px;
-    margin-right: var(--dl-space-space-twounits);
-    background-color: var(--dl-color-primary-3days);
+    border: 1px solid var(--dl-color-grey-black);
+    background-color: var(--dl-color-grey-black);
     text-decoration: none;
+}
+.app-navbar-logout:hover {
+    border-color: #ffffff35;
 }
 .app-navbar-logout i{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
 }
 .app-navbar-mobile-menu {
     top: 0px;
