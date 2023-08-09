@@ -14,13 +14,14 @@ export class HeaderComponent {
     page_name: string = '3 Days'
 	public tF:boolean = false;
 	public temp:string = "public";
-	isLoggedIn :boolean;
-	user:{password:string,email:string};
+	isLoggedIn :boolean = false;
+	user :{password:string;email:string} = {password:"", email:""};
 	constructor(
 		private router: Router,
 		private userService: UserService
 	) {
-		this.isLoggedIn = userService.getUser()?.token !== "" && userService.getUser()?.token == userService.getToken();	
+		this.isLoggedIn = this.userService.getUser()?.id > 0 && this.userService.getToken() !== "";	
+
 	}
 
 	toggleNavbar(nF = false) {

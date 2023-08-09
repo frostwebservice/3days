@@ -6,7 +6,7 @@
     justify-content: center;
 }
 .j-auth-section .j-inputbox{
-    min-width: 340px;
+    min-width: 310px;
 }
 .j-auth-section .j-app-logo{
     margin-bottom: var(--dl-space-space-oneandhalfunits);
@@ -37,22 +37,33 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.j-login-section .j-login-btn{
+
+.j-login-section{
+    position: relative;
+}
+.j-login-section .j-signup-btn{
     position: absolute;
     top:var(--dl-space-space-oneandhalfunits);
     right:var(--dl-space-space-oneandhalfunits);
     color: var(--dl-color-grey-white);
-	background:var(--dl-color-grey-black);
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.j-login-section .j-signup-btn .j-btn{
+    text-decoration: none;
+    color: var(--dl-color-grey-white);
+    padding: 10px 20px;
+    display: flex;
 }
 .j-login-section .j-language-btn{
     position: absolute;
     top:var(--dl-space-space-oneandhalfunits);
     left:var(--dl-space-space-oneandhalfunits);
     color: var(--dl-color-grey-white);
-	background:var(--dl-color-grey-black);
-    padding: 11px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 .j-login-section .j-language-btn .j-icon.i-icon-earth{
     background: url(/assets/img/earth.svg) no-repeat;
@@ -60,4 +71,30 @@
     width: 15px;
     height: 15px;
     display: block;
+}
+.j-login-section .j-language-btn:hover .lang-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.j-login-section .j-language-btn .lang-list{
+    max-width: 44px;
+    border: 1px solid #ffffff35;
+    font-size: 10px;
+    cursor: pointer;
+    display: none;
+}
+.j-login-section .j-language-btn .lang-list .lang-item{
+    margin: 10px 0;
+}
+.j-login-section .j-language-btn .lang-list .lang-item:hover{
+    opacity: 0.7;
+}
+.j-login-section .j-language-btn .language-icon i{
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }

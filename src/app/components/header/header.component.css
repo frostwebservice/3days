@@ -70,7 +70,7 @@
 .app-navbar-logout i{
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    /* background-size: cover; */
     min-width: 20px;
     min-height: 20px;
     display: flex;

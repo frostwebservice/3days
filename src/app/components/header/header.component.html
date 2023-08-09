@@ -11,10 +11,10 @@
         </nav>
     </div>
     <div data-thq="thq-navbar-btn-group" class="app-navbar-btn-group">
-        <a class="app-navbar-login button" *ngIf = "isLoggedIn" routerLink="/signup">
+        <a class="app-navbar-login button" *ngIf = "!isLoggedIn" routerLink="/signup">
             <span>{{'Join Us'|translate}}</span>
         </a>
-        <a class="app-navbar-logout button" *ngIf = "!isLoggedIn" (click) = "logout($event)">
+        <a class="app-navbar-logout button" *ngIf = "isLoggedIn" (click) = "logout($event)">
             <i class="j-icon j-icon-out"></i>
         </a>
     </div>
@@ -39,8 +39,11 @@
                 <a href="{{page_name == 'profile' ? '' : '/profile' }}" class="app-navbar-text-color app-navbar-text04 {{page_name == 'profile' ? 'app-navbar-active' : '' }}">{{'Profile'|translate}}</a>
             </nav>
             <div class="app-navbar-container2">
-                <a name="Join Us" class="app-navbar-login button" routerLink="/signup">
+                <a class="app-navbar-login button" *ngIf = "!isLoggedIn" routerLink="/signup">
                     {{'Join Us'|translate}}
+                </a>
+                <a class="app-navbar-logout button" *ngIf = "isLoggedIn" (click) = "logout($event)">
+                    {{'Log out'|translate}}
                 </a>
             </div>
         </div>
