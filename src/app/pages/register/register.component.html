@@ -2,27 +2,27 @@
 	<div class="j-signup-section j-page-section j-auth-section">
 		<ng-container *ngIf="!isStarted">
 			<div class="j-signup-splash-section">
-				<h5 class="j-page-title mb-5">إنشاء حساب</h5>
+				<h5 class="j-page-title mb-5">{{'Create_account'|translate}}</h5>
 				<div class="j-page-content">
 					<a routerLink="/" class="mb-2">
 						<img alt="logo" src="/assets/external/logo.svg" class="j-app-logo"/>
 					</a>
-					<h4 class="j-page-text mb-2">هل أنت مستعد لبدء رحلتك الرياضية؟</h4>
-					<p class="j-page-text">انضم إلى مجتمعنا من الأفراد الذين يلتزمون بأن يصبحوا أفضل إصدارات من أنفسهم.</p>
-					<button type="button" class="j-left-button button j-start-button" (click)="startJourney()"><span>ابدأ تجربتك</span></button>
+					<h4 class="j-page-text mb-2">{{'ready'|translate}}</h4>
+					<p class="j-page-text">{{'join_com'|translate}}</p>
+					<button type="button" class="j-left-button button j-start-button" (click)="startJourney()"><span>{{'Start your experiment'|translate}}</span></button>
 				</div>
 			</div>
 		</ng-container>
 		<ng-container *ngIf="isCompleted">
 			<div class="j-signup-splash-section">
-				<h5 class="j-page-title mb-5">إنشاء حساب</h5>
+				<h5 class="j-page-title mb-5">{{'Create_account'|translate}}</h5>
 				<div class="j-page-content">
 					<a routerLink="/" class="mb-2">
 						<img alt="logo" src="/assets/external/logo.svg" class="j-app-logo"/>
 					</a>
-					<h4 class="j-page-text mb-2">تهانينا</h4>
-					<p class="j-page-text">تمت العملية بنجاح، رقم العملية هو: MAV34522</p>
-					<a type="button" class="j-left-button button j-complete-button" routerLink = "/"><span>العودة للرئيسية</span></a>
+					<h4 class="j-page-text mb-2">{{'Congratulations'|translate}}</h4>
+					<p class="j-page-text">{{'success'|translate}}: MAV34522</p>
+					<a type="button" class="j-left-button button j-complete-button" routerLink = "/"><span>{{'Back to main'|translate}}</span></a>
 				</div>
 			</div>
 		</ng-container>
@@ -33,13 +33,13 @@
 				<div class="j-tab-content">
 					<ng-container *ngIf="selectedTab.label == 'gender'">
 						<div class="j-content-wrap">
-							<h4 class="j-page-text mb-2">الجنس</h4>
-							<p class="j-page-text">الرجاء اختيار الفئة:</p>
+							<h4 class="j-page-text mb-2">{{'sex'|translate}}</h4>
+							<p class="j-page-text">{{'sel_category'|translate}}:</p>
 							<div class="j-gender-wrap">
 								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: gender_option == "male" }'>
 									<label class="j-gender-option-card male-option" for="male-option" (click)="setGenderOption('male')" >
 										<div class="gender-img"></div>
-										<div class="gender-label">رجال</div>
+										<div class="gender-label">{{'men'|translate}}</div>
 										<div class="option_btn">
 											<input type="radio" id="male-option" name = "gender" value="male"   [checked]="gender_option == 'male'" >
 										</div>
@@ -48,7 +48,7 @@
 								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: gender_option == "female" }'>
 									<label class="j-gender-option-card female-option" for="female-option" (click)="setGenderOption('female')" >
 										<div class="gender-img"></div>
-										<div class="gender-label">نساء</div>
+										<div class="gender-label">{{'women'|translate}}</div>
 										<div class="option_btn">
 											<input type="radio" id="female-option" name = "gender" value="female"  [checked]="gender_option == 'female'">
 										</div>
@@ -57,7 +57,7 @@
 								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: gender_option == "kids" }'>
 									<label class="j-gender-option-card kids-option" for="kids-option" (click)="setGenderOption('kids')" >
 										<div class="gender-img"></div>
-										<div class="gender-label">براعم</div>
+										<div class="gender-label">{{'sprouts'|translate}}</div>
 										<div class="option_btn">
 											<input type="radio" id="kids-option" name = "gender" value="kids"  [checked]="gender_option == 'kids'">
 										</div>
@@ -67,18 +67,18 @@
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('gender')">التالي</a>
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('gender')">سابق</a></app-polygon-border-div>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('gender')">{{'previous'|translate}}</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'site'">
 						<div class="j-content-wrap">
-							<h4 class="j-page-text mb-2">الموقع</h4>
-							<p class="j-page-text">يرجى اختيار طريقة تحديد موقع النادي الرياضي:</p>
+							<h4 class="j-page-text mb-2">{{'site'|translate}}</h4>
+							<p class="j-page-text">{{'location'|translate}}:</p>
 							<div class="j-site-wrap">
 								<app-polygon-border-div j-class = "j-left" class="j-site-option" [ngClass]='{active: site_option == "manual" }'>
 									<label class="j-site-option-card manual-option" for="manual-option" (click)="setSiteOption('manual')" >
 										<div class="site-img"></div>
-										<div class="site-label">يدوي</div>
+										<div class="site-label">{{'manual'|translate}}</div>
 										<div class="option_btn">
 											<input type="radio" id="manual-option" name = "site-option" value="manual" [checked]="gender_option == 'manual'">
 										</div>
@@ -87,7 +87,7 @@
 								<app-polygon-border-div j-class = "j-left" class="j-site-option" [ngClass]='{active: site_option == "map" }'>
 									<label class="j-site-option-card map-option" for="map-option" (click)="setSiteOption('map')" >
 										<div class="site-img"></div>
-										<div class="site-label">خريطة</div>
+										<div class="site-label">{{'map'|translate}}</div>
 										<div class="option_btn">
 											<input type="radio" id="map-option" name = "site-option" value="map" [checked]="gender_option == 'map'">
 										</div>
@@ -96,8 +96,8 @@
 							</div>
 						</div>
 						<div class="go-btn-group">
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('site')">التالي</a>
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('site')">سابق</a></app-polygon-border-div>
+							<a class="btn j-next-btn j-left-button" (click)="nextTab('site')">{{'next'|translate}}</a>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('site')">{{'previous'|translate}}</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'find a club'">
@@ -109,7 +109,7 @@
 									</agm-map>
 								</div>
 								<div class="j-club-search-wrap">
-									<h4 class="j-page-text mb-2">البحث عن نادي</h4>
+									<h4 class="j-page-text mb-2">{{'Find_club'|translate}}</h4>
 									<div class="j-form-group">
 										<div class="j-input-icons j-input-icon-right">
 											<input type="text" class="j-inputbox j-searchbox" placeholder="البحث عن طريق المدينة أو الدولة" (input)="onSearchBranch($event.target.value)">
@@ -129,22 +129,22 @@
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('find a club')">التالي</a>
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('find a club')">سابق</a></app-polygon-border-div>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('find a club')">{{'previous'|translate}}</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'products'">
 						<div class="j-content-wrap">
-							<h4 class="j-page-text mb-2">المنتجات</h4>
-							<p class="j-page-text">يرجى اختيار باقة العضوية الخاصة بك:</p>
+							<h4 class="j-page-text mb-2">{{'products'|translate}}</h4>
+							<p class="j-page-text">{{'choose_membership'|translate}}:</p>
 							<div class="j-products-wrap">
 								<div class="j-personal-trainings-wrap pb-md-0 pb-2">
 									<div class="j-personalTrainings-list-panel j-product-list-panel">
-										<h4 class="j-page-text mb-2">التدريب الشخصي</h4>
+										<h4 class="j-page-text mb-2">{{'personal training'|translate}}</h4>
 										<app-polygon-border-div j-class = 'j-left' *ngFor="let personalTraining of personalTrainings;let i = index">
 											<div class="personalTrainings-card j-product-card" (click)="setPTOption(personalTraining.id)"  [ngClass] = '{ active : pt_option == personalTraining.id}'>
 												<p class="product_share">{{personalTraining.number_of_bookings}}</p>
 												<p class="product_price">كل {{personalTraining.number_of_bookings}} حصص / <b>{{currency}} {{personalTraining.price}}</b></p>
-												<p class="product_description">بإمكانك إلغاء الاشتراك في أي وقت.</p>
+												<p class="product_description">{{'subscribe'|translate}}.</p>
 												<label class="option_btn" for="personalTraining{{personalTraining.id}}">
 													<input type="radio" name="personalTraining" id="personalTraining{{personalTraining.id}}" value="{{personalTraining.id}}" class="product_opt" [checked]="pt_option == personalTraining.id">
 												</label>
@@ -154,12 +154,12 @@
 								</div>
 								<div class="j-subscriptions-wrap">
 									<div class="j-subscriptions-list-panel j-product-list-panel">
-										<h4 class="j-page-text mb-2">الاشتراكات</h4>
+										<h4 class="j-page-text mb-2">{{'Subscriptions'|translate}}</h4>
 										<app-polygon-border-div j-class = 'j-right' *ngFor="let subscription of subscriptions;let i = index">
 											<div class="subscriptions-card j-product-card" (click)="setSubOption(subscription.id)" [ngClass]="{active: sub_option == subscription.id}">
 												<p class="product_cycle">{{subscription.period }} {{subscription.period_unit }}</p>
 												<p class="product_price">{{subscription.period }} {{subscription.period_unit }} / <b>{{currency}} {{subscription.price}}</b></p>
-												<p class="product_description">بإمكانك إلغاء الاشتراك في أي وقت.</p>
+												<p class="product_description">{{'unSubscript'|translate}}.</p>
 												<label class="option_btn" for="subscription{{subscription.id}}">
 													<input type="radio" name="subscription" id="subscription{{subscription.id}}" value="{{subscription.id}}" class="product_opt" [checked]="sub_option == subscription.id">
 												</label>
@@ -170,23 +170,23 @@
 							</div>
 						</div>
 						<div class="go-btn-group">
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('products')">التالي</a>
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('products')">سابق</a></app-polygon-border-div>
+							<a class="btn j-next-btn j-left-button" (click)="nextTab('products')">{{'next'|translate}}</a>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('products')">{{'previous'|translate}}</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'account'">
 						<div class="j-content-wrap">
-							<h4 class="j-page-text mb-2">الحساب</h4>
-							<p class="j-page-text">الرجاء ادخال بيانات حسابك</p>
+							<h4 class="j-page-text mb-2">{{'next'|translate}}</h4>
+							<p class="j-page-text">{{'enter_account'|translate}}</p>
 							<div class="j-account-wrap">
 								<div class="j-account-panel pb-md-0 pb-2">
-									<h4 class="j-page-text mb-2">الحساب</h4>
+									<h4 class="j-page-text mb-2">{{'account'|translate}}</h4>
 									<div class="j-form-group" [ngClass]="{invalid:  (stepSubmitted('account') || mobile.touched || mobile.dirty )  && mobile.invalid}">
 										<label for="mobile" class="j-inputbox-label j-flex-row-reverse">
-											<span>Mobile Number</span>
+											<span>{{"Mobile Number"|translate}}</span>
 											<span class="j-error" *ngIf="mobile.errors" translate>
-												<ng-container *ngIf="mobile.errors.required">Required !</ng-container>
-												<ng-container *ngIf="mobile.errors.pattern">Wrong mobile number format !</ng-container>
+												<ng-container *ngIf="mobile.errors.required">{{'Required'|translate}} !</ng-container>
+												<ng-container *ngIf="mobile.errors.pattern">{{'Wrong_format|translate'}}!</ng-container>
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-both">
@@ -210,9 +210,9 @@
 									</div>
 									<div class="j-form-group" [ngClass]="{invalid:  (stepSubmitted('account') || password.touched || password.dirty ) && password.invalid}">
 										<label for="password" class="j-inputbox-label j-flex-row-reverse">
-											<span>كلمة المرور</span>
+											<span>{{'password'|translate}}</span>
 											<span class="j-error" *ngIf="password.errors" translate>
-												<ng-container *ngIf="password.errors.required">Required !</ng-container>
+												<ng-container *ngIf="password.errors.required">{{'Required'|translate}} !</ng-container>
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
@@ -223,10 +223,10 @@
 									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || confirmPassword.touched || confirmPassword.dirty ) && (confirmPassword.errors && (confirmPassword.touched || confirmPassword.dirty ) || confirm_password != user.password )}">
 										<label for="confirmPassword" class="j-inputbox-label j-flex-row-reverse">
 											<span>
-												تأكيد كلمة المرور
+												
 											</span>
 											<span class="j-error" *ngIf="confirmPassword.errors && (confirmPassword.touched || confirmPassword.dirty ) || confirm_password != user.password">
-												<ng-container>Confirm Password !</ng-container>
+												<ng-container>{{'confirm password'|translate}} !</ng-container>
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
@@ -237,24 +237,24 @@
 									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || agree_terms_conditions.touched || agree_terms_conditions.dirty ) && agree_terms_conditions.invalid}">
 										<div class="agree_terms_conditions j-flex-row-reverse justify-content-between">
 											<div>
-												<span>أوافق على </span>
-												<a class="j-tc-link" href="/terms-conditions" target="_blank">الشروط والأحكام</a> 
+												<span>{{'I agree'|translate}}</span>
+												<a class="j-tc-link" href="/terms-conditions" target="_blank">{{'Terms and Conditions'|translate}}</a> 
 												<input type="checkbox" name="agree_terms_conditions" class="agree_terms_conditions_checkbox ml-2" [(ngModel)]="agree_terms_conditions_checkbox" #agree_terms_conditions="ngModel" required>
 											</div>
 											<span class="j-error" *ngIf="agree_terms_conditions.errors">
-												Required !
+												{{'Required'|required}} !
 											</span>
 										</div>
 									</div>
 								</div>
 								<div class="j-profile-panel">
-									<h4 class="j-page-text mb-2">البيانات الشخصية</h4>
+									<h4 class="j-page-text mb-2">{{'Personal data'|translate}}</h4>
 									<div class="j-name-field">
 										<div class="j-first-name-field j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || first_name.touched || first_name.dirty ) && first_name.invalid}">
 											<label for="first_name" class="j-inputbox-label j-flex-row-reverse">
-												<span>اسم العائلة</span>
+												<span>{{'family name'|translate}}</span>
 												<span class="j-error" *ngIf="first_name.errors" translate>
-													<ng-container *ngIf="first_name.errors.required">Required !</ng-container>
+													<ng-container *ngIf="first_name.errors.required">{{'Required'|translate}} !</ng-container>
 												</span>
 											</label>
 											<div class="j-input-icons j-input-icon-right">
@@ -264,9 +264,9 @@
 										</div>
 										<div class="j-last-name-field j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || last_name.touched || last_name.dirty ) && last_name.invalid}">
 											<label for="last_name" class="j-inputbox-label j-flex-row-reverse">
-												<span>الاسم الأول</span>
+												<span>{{'First Name'|translate}}</span>
 												<span class="j-error" *ngIf="last_name.errors">
-													<ng-container *ngIf="last_name.errors.required">Required !</ng-container>
+													<ng-container *ngIf="last_name.errors.required">{{'Required'|translate}} !</ng-container>
 												</span>
 											</label>
 											<div class="j-input-icons j-input-icon-right">
@@ -277,9 +277,9 @@
 									</div>
 									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || national_id.touched || national_id.dirty ) && national_id.invalid}">
 										<label for="national_id" class="j-inputbox-label j-flex-row-reverse" >
-											<span>رقم الهوية</span>
+											<span>{{'ID Number'|translate}}</span>
 											<span class="j-error" *ngIf="national_id.errors">
-												<ng-container *ngIf="national_id.errors.required">Required !</ng-container>
+												<ng-container *ngIf="national_id.errors.required">{{'Required'|translate}} !</ng-container>
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
@@ -289,9 +289,9 @@
 									</div>
 									<div class="j-form-group"  [ngClass]="{invalid: (stepSubmitted('account') || dob.touched || dob.dirty ) && dob.invalid}">
 										<label for="dob" class="j-inputbox-label j-flex-row-reverse">
-											<span>تاريخ الميلاد</span>
+											<span>{{'date of birth'|translate}}</span>
 											<span class="j-error" *ngIf="dob.errors">
-												<ng-container *ngIf="dob.errors.required">Required !</ng-container>
+												<ng-container *ngIf="dob.errors.required">{{'Required'|translate}} !</ng-container>
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
@@ -301,9 +301,9 @@
 									</div>
 									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || subscription_day.touched || subscription_day.dirty ) && subscription_day.invalid}">
 										<label for="subscription_day" class="j-inputbox-label j-flex-row-reverse">
-											<span>تاريخ بدء الاشتراك</span>
+											<span>{{'Subscription start date'|translate}}</span>
 											<span class="j-error" *ngIf="subscription_day.errors">
-												<ng-container *ngIf="subscription_day.errors.required">Required !</ng-container>
+												<ng-container *ngIf="subscription_day.errors.required">{{'Required'|translate}} !</ng-container>
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
@@ -313,7 +313,7 @@
 									</div>
 									<div class="j-form-group">
 										<label for="promotional_code" class="j-inputbox-label j-flex-row-reverse">
-											<span>الكود الترويجي</span>
+											<span>{{'Promotional code'|translate}}</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
 											<input type="text" class="j-inputbox" id="promotional_code" name = "promotional_code" placeholder="الكود الترويجي" [(ngModel)]="user.promotional_code" #promotional_code="ngModel">
@@ -325,20 +325,20 @@
 						</div>
 						<div class="go-btn-group">
 							<a class="btn j-next-btn j-left-button" (click)="nextTab('account')">التالي</a>
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('account')">سابق</a></app-polygon-border-div>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('account')">{{'previous'|translate}}</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'payment'">
 						<div class="j-content-wrap">
-							<h4 class="j-page-text mb-2">الدفع</h4>
-							<p class="j-page-text">الرجاء ادخال بيانات الدفع:</p>
+							<h4 class="j-page-text mb-2">{{'paying_off'|translate}}</h4>
+							<p class="j-page-text">{{'payment_info'|translate}}:</p>
 							<div class="j-payment-wrap">
 								<div class="j-form-group" [ngClass]="{invalid:  (stepSubmitted('payment') || card_number.touched || card_number.dirty )  && card_number.invalid}">
 									<label for="card_number" class="j-inputbox-label j-flex-row-reverse">
 										<span>رقم البطاقة</span>
 										<span class="j-error" *ngIf="card_number.errors" translate>
-											<ng-container *ngIf="card_number.errors.required">Required !</ng-container>
-											<ng-container *ngIf="card_number.errors.pattern">Wrong card number format !</ng-container>
+											<ng-container *ngIf="card_number.errors.required">{{'Required'|translate}} !</ng-container>
+											<ng-container *ngIf="card_number.errors.pattern">{{'Wrong_format'|translate}} !</ng-container>
 										</span>
 									</label>
 									<div class="j-input-icons j-input-icon-left">
@@ -351,18 +351,18 @@
 										<label for="cvv" class="j-inputbox-label j-flex-row-reverse">
 											<span>CVV</span>
 											<span class="j-error" *ngIf="cvv.errors" translate>
-												<ng-container *ngIf="cvv.errors.required">Required</ng-container>
-												<ng-container *ngIf="cvv.errors.pattern">Wrong!</ng-container>
+												<ng-container *ngIf="cvv.errors.required">{{'Required'|translate}}</ng-container>
+												<ng-container *ngIf="cvv.errors.pattern">{{'Wrong_format'|translate}}!</ng-container>
 											</span>
 										</label>
 										<input type="cvv" class="j-inputbox" id="cvv" name="cvv" aria-describedby="cvvHelp" placeholder="CVV" required pattern = '^[0-9]{3,4}$'  [(ngModel)]="user.cvv" #cvv="ngModel" maxlength="4"> 
 									</div>
 									<div class="j-date-year-field j-form-group" [ngClass]="{invalid:  (stepSubmitted('payment') || date_year.touched || date_year.dirty )  && date_year.invalid}">
 										<label for="date_year" class="j-inputbox-label j-flex-row-reverse">
-											<span>السنة</span>
+											<span>{{'year'|translate}}</span>
 											<span class="j-error" *ngIf="date_year.errors" translate>
-												<ng-container *ngIf="date_year.errors.required">Required !</ng-container>
-												<ng-container *ngIf="date_year.errors.pattern">Wrong year format !</ng-container>
+												<ng-container *ngIf="date_year.errors.required">{{'Required'|translate}} !</ng-container>
+												<ng-container *ngIf="date_year.errors.pattern">{{'Wrong_format'|translate}} !</ng-container>
 											</span>
 										</label>
 										<input type="text" class="j-inputbox" id="date_year" name="date_year" aria-describedby="date_yearHelp" placeholder="السنة" required pattern = '^(?:20(?:2[3-9]|[3-9][\d])|2[1-9][\d]{2}|[3-9][\d]{3})$'  [(ngModel)]="user.date_year" #date_year="ngModel"> 
@@ -371,21 +371,21 @@
 										<label for="date_month" class="j-inputbox-label j-flex-row-reverse">
 											<span>الشهر</span>
 											<span class="j-error" *ngIf="date_month.errors" translate>
-												<ng-container *ngIf="date_month.errors.required">Required !</ng-container>
-												<ng-container *ngIf="date_month.errors.pattern">Wrong month format !</ng-container>
+												<ng-container *ngIf="date_month.errors.required">{{'Required'|translate}} !</ng-container>
+												<ng-container *ngIf="date_month.errors.pattern">{{'Wrong_format'|translate}} !</ng-container>
 											</span>
 										</label>
 										<input type="text" class="j-inputbox" id="date_month" name="date_month" aria-describedby="date_monthHelp" placeholder="الشهر" required pattern = '^(0?[1-9]|1[012])$'  [(ngModel)]="user.date_month" #date_month="ngModel"> 
 									</div>
 								</div>
 								<div class="j-form-group">
-									<p class="save_payment_info">حفظ بطاقة الدفع لاستخدامها في عملية الدفع مستقبلا<input type="checkbox" name="save_payment_info" class="save_payment_info_checkbox ml-2" required></p>
+									<p class="save_payment_info">{{'save_payment'|translate}}<input type="checkbox" name="save_payment_info" class="save_payment_info_checkbox ml-2" required></p>
 								</div>
 							</div>
 						</div>
 						<div class="go-btn-group">
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('payment')">التالي</a>
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('payment')">سابق</a></app-polygon-border-div>
+							<a class="btn j-next-btn j-left-button" (click)="nextTab('payment')">{{'next'|translate}}</a>
+							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('payment')">{{'previous'|translate}}</a></app-polygon-border-div>
 						</div>
 					</ng-container>
 				</div>
