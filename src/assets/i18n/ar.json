@@ -153,6 +153,7 @@
 	"confirm password":"تأكيد كلمة المرور",
 	"I agree":"أوافق على ",
 	"Terms and Conditions":"الشروط والأحكام",
+	"Personal_data":"Personal data",
 	"family name":"اسم العائلة",
 	"First Name":"الاسم الأول",
 	"Subscription start date":"تاريخ بدء الاشتراك",
@@ -168,6 +169,6 @@
 	"Sign up here":"سجل هنا",
 	"Buy now":"اشتري الآن",
 	"Magnificent_simple":"الأشياء الرائعة بسيطة للغاية",
-	"Get Started":"البدء"
-
+	"Get Started":"البدء",
+	"Log out":"Log out"
 }
