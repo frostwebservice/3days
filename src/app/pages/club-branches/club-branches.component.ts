@@ -18,7 +18,7 @@ export class ClubBranches {
     ) { 
         this.onSearchBranch();
     }
-    cOption: boolean = false;
+    cOption: boolean = true;
     keyword: string = "";
     branches: Branch[] = [
         { name_ar: 'Pulse & Power Gym',name_en: 'Pulse & Power Gym', address1: 'شارع موسى بن نصير، العليا، الرياض 12241، المملكة العربية السعودية',address2 : '', id: 100,email: 'pulsepowergym@hotmail.com',startup_date: '2023-05-01',branch_capacity: 100,branch_category:'الفرع الرئيسي',location_type:'رجال',lat: 24.800569,lng:46.647642,phone:"123456789",city_id:2 },
@@ -35,6 +35,7 @@ export class ClubBranches {
         }else{ // open club review
             this.cOption = false;
         }
+        this.cOption = true;
         this.reviewStar = 0;
     }
     review(num:number){
