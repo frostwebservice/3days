@@ -264,8 +264,11 @@ export class RegisterComponent implements OnInit {
 				this.currentUser = res['data'];
 				if (this.token) {
 						Cookie.setLogin(this.member_id);
+						Cookie.setClientId(this.user.client_id);
 						this.userService.setToken(this.token);
+						this.userService.setClientId(this.user.client_id);
 						this.userService.setUser(this.currentUser);
+						localStorage.setItem('u_pass', this.user.password);
 				}
 				this.isCompleted = true;
 				this.isSubmitted = true;

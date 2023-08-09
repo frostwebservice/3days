@@ -4,15 +4,18 @@
         <nav data-thq="thq-navbar-nav-links" data-role="Nav" class="app-navbar-nav" >
             <a href="{{page_name == 'home' ? '' : '/' }}" class="app-navbar-text-color app-navbar-text {{page_name == 'home' ? 'app-navbar-active' : '' }}">{{'Home'|translate}}</a>
             <a href="{{page_name == 'products' ? '' : '/products' }}" class="app-navbar-text-color app-navbar-text01 {{page_name == 'products' ? 'app-navbar-active' : '' }}">{{'Products'|translate}}</a>
-            <a href="{{page_name == 'personal-training' ? '' : '/personal-training' }}" class="app-navbar-text-color app-navbar-text02 {{page_name == 'personal-training' ? 'app-navbar-active' : '' }}">{{'Personal Training'|translate}}</a>
+            <a href="{{page_name == 'personal-training' ? '' : '/personal-training' }}" class="app-navbar-text-color app-navbar-text02 {{page_name == 'personal-training' ? 'app-navbar-active' : '' }}">{{'Personal_Training'|translate}}</a>
             <a href="{{page_name == 'subscriptions' ? '' : '/subscriptions' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'subscriptions' ? 'app-navbar-active' : '' }}">{{'Membership'|translate}}</a>
             <a href="{{page_name == 'bookings' ? '' : '/bookings' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'bookings' ? 'app-navbar-active' : '' }}">{{'Sessions'|translate}}</a>
             <a href="{{page_name == 'profile' ? '' : '/profile' }}" class="app-navbar-text-color app-navbar-text04 {{page_name == 'profile' ? 'app-navbar-active' : '' }}">{{'Profile'|translate}}</a>
         </nav>
     </div>
     <div data-thq="thq-navbar-btn-group" class="app-navbar-btn-group">
-        <a class="app-navbar-login button" routerLink="/signup">
+        <a class="app-navbar-login button" *ngIf = "!isLoggedIn" routerLink="/signup">
             <span>{{'Join Us'|translate}}</span>
+        </a>
+        <a class="app-navbar-logout button" *ngIf = "isLoggedIn" (click) = "logout($event)">
+            <i class="j-icon j-icon-out"></i>
         </a>
     </div>
     <div data-thq="thq-mobile-menu" class="app-navbar-mobile-menu {{temp}}" ngClass="{{tF ? 'j-nav-toggled' : ''}}">
@@ -36,8 +39,11 @@
                 <a href="{{page_name == 'profile' ? '' : '/profile' }}" class="app-navbar-text-color app-navbar-text04 {{page_name == 'profile' ? 'app-navbar-active' : '' }}">{{'Profile'|translate}}</a>
             </nav>
             <div class="app-navbar-container2">
-                <a name="Join Us" class="app-navbar-login button" routerLink="/signup">
+                <a class="app-navbar-login button" *ngIf = "!isLoggedIn" routerLink="/signup">
                     {{'Join Us'|translate}}
+                </a>
+                <a class="app-navbar-logout button" *ngIf = "isLoggedIn" (click) = "logout($event)">
+                    {{'Log out'|translate}}
                 </a>
             </div>
         </div>

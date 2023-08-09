@@ -1,12 +1,28 @@
 <div class="authentication-container page-container">
 	<div class="j-login-section j-page-section j-auth-section">
-		<a class="j-login-btn button j-left-button" [routerLink]="['/signup']">إنشاء حساب</a>
-		<a class="j-language-btn button j-right-button"><i class="j-icon i-icon-earth"></i></a>
+		<div class="j-signup-btn">
+			<app-polygon-border-div j-class="j-left">
+				<a class="j-btn" [routerLink]="['/signup']">{{'Create_account'|translate}}</a>
+			</app-polygon-border-div>
+		</div>
+		<!-- <a class="j-language-btn button j-right-button"><i class="j-icon i-icon-earth"></i></a> -->
+
+		<div class="j-language-btn">
+			<app-polygon-border-div j-class="j-right">
+				<div class="language-icon">
+					<i class="j-icon j-icon-earth"></i>
+				</div>
+				<div class="lang-list text-white">
+					<div class="lang-item" *ngFor="let option of languages" (click)="changeLang(option)" >{{option.country}}</div>
+				</div>
+			</app-polygon-border-div>
+		</div>
+
 		<a [routerLink]="['/']">
 			<img alt="logo" src="/assets/external/logo.svg" class="j-app-logo"/>
 		</a>
-		<h4 class="j-page-title">تسجيل الدخول</h4>
-		<form class="j-form" #signForm="ngForm" (ngSubmit)="signForm.form.valid ? login() : false">
+		<h4 class="j-page-title">{{'sign in'|translate}}</h4>
+		<form class="j-form" (keydown.enter)="signForm.form.valid ? login(true) : false" #signForm="ngForm" (ngSubmit)="signForm.form.valid ? login() : false">
 		<!-- <form class="j-form" #signForm="ngForm"> -->
 			<!-- <div class="j-form-group" [ngClass]="{invalid: signForm.submitted && email.invalid && (email.dirty || email.touched || signForm.submitted)}">
 				<label for="email" class="j-inputbox-label">البريد الإلكتروني</label>
@@ -21,46 +37,46 @@
 			</div> -->
 			<div class="j-form-group" [ngClass]="{invalid: signForm.submitted && mobile.invalid && (mobile.dirty || mobile.touched || signForm.submitted)}">
 				<label for="mobile" class="j-inputbox-label j-flex-row-reverse">
-					<span>Mobile Number</span>
+					<span>{{'Mobile Number'|translate}}</span>
 					<span class="j-error" *ngIf="mobile.errors" translate>
-						<ng-container *ngIf="mobile.errors.required">Required!</ng-container>
-						<ng-container *ngIf="mobile.errors.pattern">Wrong phone number format!</ng-container>
+						<ng-container *ngIf="mobile.errors.required">{{'Required'|translate}}!</ng-container>
+						<ng-container *ngIf="mobile.errors.pattern">{{'Wrong_format'|translate}}!</ng-container>
 					</span>
 				</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="Mobile Number" required  #mobile="ngModel" pattern = '[- +()0-9]+'> 
+					<input type="text" class="j-inputbox" tabindex = "1" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="Mobile Number" required  #mobile="ngModel" pattern = '[- +()0-9]+'> 
 					<i class="j-icon j-icon-right j-icon-phone"></i>
 				</div>
 			</div>
 			<div class="j-form-group" [ngClass]="{invalid: signForm.submitted && client_id.invalid && (client_id.dirty || client_id.touched || signForm.submitted)}">
 				<label for="client_id" class="j-inputbox-label j-flex-row-reverse">
-					<span>Client ID</span>
+					<span>{{'Client ID'|translate}}</span>
 					<span class="j-error" *ngIf="client_id.errors" translate>
-						<ng-container *ngIf="client_id.errors.required">Required!</ng-container>
-						<ng-container *ngIf="client_id.errors.min">Invaild ID</ng-container>
+						<ng-container *ngIf="client_id.errors.required">{{'Required'|translate}}!</ng-container>
+						<ng-container *ngIf="client_id.errors.min">{{'Invaild ID'|translate}}</ng-container>
 					</span>
 				</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="number" ngSpinBox  class="j-inputbox" [(ngModel)]="user.client_id" id="client_id" name="client_id" aria-describedby="client_idHelp" placeholder="Client ID" required  #client_id="ngModel" min = 0 > 
+					<input type="text" ngSpinBox  stepperIncrementOnEnter="false" class="j-inputbox" tabindex = "2" [(ngModel)]="user.client_id" id="client_id" name="client_id" aria-describedby="client_idHelp" placeholder="Client ID" required  #client_id="ngModel" min = 0 > 
 					
 					<i class="j-icon j-icon-right j-icon-person"></i>
 				</div>
 			</div>
 			<div class="j-form-group" [ngClass]="{invalid: signForm.submitted && password.invalid && (password.dirty || password.touched || signForm.submitted)}">
 				<label for="password" class="j-inputbox-label j-flex-row-reverse">
-					<span>Password</span>
+					<span>{{'Password'|translate}}</span>
 					<span class="j-error" *ngIf="password.errors" translate>
-						<ng-container *ngIf="password.errors.required">Required!</ng-container>
+						<ng-container *ngIf="password.errors.required">{{'Required'|translate}}!</ng-container>
 					</span>
 				</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="password" class="j-inputbox" id="password" name="password" [(ngModel)]="user.password" placeholder="كلمة المرور" #password="ngModel" required>
+					<input type="password" class="j-inputbox" id="password" name="password" tabindex = "3" [(ngModel)]="user.password" placeholder="كلمة المرور" #password="ngModel" required>
 					<i class="j-icon j-icon-right j-icon-key"></i>
 				</div>
 			</div>
-			<a class="forgot-password-btn" [routerLink]="['/forgot-password']">نسيت كلمة المرور؟</a>
+			<a class="forgot-password-btn" [routerLink]="['/forgot-password']" tabindex = "5">{{'Forgot_password'|translate}}</a>
 			<div class="j-form-group">
-				<button type="submit" class="j-left-button button j-submit-button" [class.loading]="submitting"><span>تسجيل الدخول</span></button>
+				<button type="submit" class="j-left-button button j-submit-button" tabindex = "4" [class.loading]="submitting"><span>{{'sign in'|translate}}</span></button>
 			</div>
 		</form>
 	</div>

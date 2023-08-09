@@ -153,7 +153,9 @@ body {
 	max-width: var(--dl-size-size-maxwidth);
 }
 .j-page-section .page-inner-section{
+	max-width: var(--dl-size-size-maxwidth);
 	background-color: var(--dl-color-gray-black);
+	margin: auto;
 }
 .page-container{
 	width: 100%;
@@ -472,6 +474,10 @@ body {
 }
 .j-icon.j-icon-file{
     background: url(/assets/img/file.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-out{
+    background: url(/assets/img/out.svg) no-repeat;
     background-position: center;
 }
 .j-icon.j-icon-earth{

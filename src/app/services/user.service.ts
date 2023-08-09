@@ -147,6 +147,9 @@ export class UserService extends HttpService {
     public clearLocalStorageItem(item: string): void {
         localStorage.removeItem(item);
     }
+    public getPassword(): string {
+        return localStorage.getItem("u_pass");
+    }
 
     public getProfile():any{
         const method = 'GET';

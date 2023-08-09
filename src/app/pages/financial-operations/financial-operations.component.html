@@ -2,7 +2,7 @@
 <div class="financial-operations-container j-front-page page-container">
     <div class="j-inner-container">
         <div class="page-title mb-5 mt-5">
-            <h3 class="j-title-size text-white">العمليات المالية</h3>
+            <h3 class="j-title-size text-white">{{'financial operations'|translate}}</h3>
         </div>
         <div class="j-invoice-list row">
             <div class="j-invoice-item col-md-6 col-12" *ngFor="let invoice of invoice_list;let i = index">
@@ -23,19 +23,19 @@
                             </div>
                             <div class="j-info-bar">
                                 <div class="j-info gwTColor">
-                                    <p class="j-info-label">الإجمالي</p>
+                                    <p class="j-info-label">{{'Total'|translate}}</p>
                                     <p class="j-info-value">{{invoice.amount_after_vat}}</p>
                                 </div>
                                 <div class="j-info gwTColor">
-                                    <p class="j-info-label">VAT</p>
+                                    <p class="j-info-label">{{'VAT'|translate}}</p>
                                     <p class="j-info-value">{{invoice.vat_amount}}</p>
                                 </div>
                                 <div class="j-info gwTColor">
-                                    <p class="j-info-label">Amount</p>
+                                    <p class="j-info-label">{{'Amount'|translate}}</p>
                                     <p class="j-info-value">{{invoice.amount}}</p>
                                 </div>
                                 <div class="j-info gwTColor">
-                                    <p class="j-info-label">الصنف</p>
+                                    <p class="j-info-label">{{'item'|translate}}</p>
                                     <p class="j-info-value">{{invoice.arabic_name}}</p>
                                     <p class="j-info-value d-none">{{invoice.english_name}}</p>
                                 </div>

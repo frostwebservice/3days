@@ -71,10 +71,10 @@
                             <p class="text-white">{{selectedBranch?.email}}</p>
                         </div>
                         <app-polygon-border-div specify = "1" [cornerStatus] = "[0,1,0,1]" borderColor="var(--dl-color-primary-3days)">
-                            <div class="j-contact-btn-wrap">
+                            <a class="j-contact-btn-wrap" href="tel:{{selectedBranch?.phone}}">
                                 <div class="_3dayColor j-contact-btn text-center">{{'club connection'|translate}}</div>
                                 <i class="j-icon j-icon-right j-icon-phone"></i>
-                            </div>
+                            </a>
                         </app-polygon-border-div>
                     </div>
                 </ng-container>
