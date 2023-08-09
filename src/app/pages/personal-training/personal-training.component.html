@@ -2,10 +2,10 @@
 <div class="container">
     <div class="personal-training-container j-front-page page-container">
         <div class="page-title mb-5 mt-5">
-            <h3 class="j-title-size gwTColor">التدريب الشخصي</h3>
+            <h3 class="j-title-size gwTColor">{{'personal training'|translate}}</h3>
         </div>
         <div class="j-form-group mb-4">
-            <label for="session_date" class="j-inputbox-label">Select Date</label>
+            <label for="session_date" class="j-inputbox-label">{{'Select_Date'|translate}}</label>
             <div class="j-input-icons j-input-icon-left">
                 <input type="text" class="j-inputbox" id="session_date" [(ngModel)] = "session_date" #sessionDate="ngModel" name = "session_date" (ngModelChange)="changeDate($event)" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}">
                 <i class="j-icon j-icon-left j-icon-calendar"></i>
