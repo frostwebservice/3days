@@ -199,7 +199,7 @@
 										<label for="email" class="j-inputbox-label j-flex-row-reverse">
 											<span>Email</span>
 											<span class="j-error" *ngIf="email.errors" translate>
-												<ng-container *ngIf="email.errors.required">Required !</ng-container>
+												<ng-container *ngIf="email.errors.required">{{'Required'|translate}} !</ng-container>
 												<ng-container *ngIf="email.errors.pattern">Wrong email format !</ng-container>
 											</span>
 										</label>
@@ -242,7 +242,7 @@
 												<input type="checkbox" name="agree_terms_conditions" class="agree_terms_conditions_checkbox ml-2" [(ngModel)]="agree_terms_conditions_checkbox" #agree_terms_conditions="ngModel" required>
 											</div>
 											<span class="j-error" *ngIf="agree_terms_conditions.errors">
-												{{'Required'|required}} !
+												{{'Required'|translate}} !
 											</span>
 										</div>
 									</div>
