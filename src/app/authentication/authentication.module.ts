@@ -8,13 +8,16 @@ import { LoginComponent } from '../pages/login/login.component';
 import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from '../pages/reset-password/reset-password.component';
 import { RegisterComponent } from '../pages/register/register.component';
+import { ReferralCodeComponent } from '../components/referral-code/referral-code.component';
 import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 
+import { SharedModule } from '../shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NgSpinBoxModule } from 'ng-spin-box';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
 	declarations: [
@@ -26,13 +29,16 @@ import { NgSpinBoxModule } from 'ng-spin-box';
 	imports: [
 		ComponentsModule,
 		CommonModule,
+		SharedModule,
 		FormsModule, 
 		RouterModule.forChild(AuthenticationRoutingModule),
 		TranslateModule.forChild({ extend: true }),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
 		BsDatepickerModule,
-		NgSpinBoxModule
+		NgSpinBoxModule,
+		MatDialogModule
 	],
-	providers : []
+	providers : [],
+	entryComponents: [ReferralCodeComponent]
 })
 export class AuthenticationModule { }

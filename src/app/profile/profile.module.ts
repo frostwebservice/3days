@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { SharedModule } from '../shared/shared.module';
 import { ProfileRoutingModule } from './profile-routing.module';
 
 import { PrivacyPolicy } from '../pages/privacy-policy/privacy-policy.component';
@@ -15,8 +15,6 @@ import { PersonalInfo } from '../pages/personal-info/personal-info.component';
 
 import { ComponentsModule } from '../components/components.module';
 import { AgmCoreModule } from '@agm/core';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { TranslateModule } from '@ngx-translate/core';
@@ -33,6 +31,7 @@ import { TranslateModule } from '@ngx-translate/core';
 	imports: [
 		ComponentsModule,
 		CommonModule,
+		SharedModule,
 		FormsModule, 
 		RouterModule.forChild(ProfileRoutingModule),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),

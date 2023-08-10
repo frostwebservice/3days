@@ -353,6 +353,9 @@
     width: 46%;
     /* padding : 0px 30px; */
 }
+.j-auth-section .j-signup-process .j-form-group .j-verified{
+    opacity: .6;
+}
 .j-auth-section .j-signup-process .j-tab-content .j-account-wrap .j-form-group{
     text-align: right;
 }

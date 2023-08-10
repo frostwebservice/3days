@@ -16,7 +16,7 @@
 	"Membership_review":"مراجعة العضوية",
 	"Confirm_mobile":"تأكيد رقم الجوال",
 	"Validation_code":"كود التحقق",
-	"Enter_code":"يرجى ادخال الكود المرسل على الرقم 0512345678",
+	"Enter_code":"يرجى ادخال الكود المرسل على الرقم {{numbers}}",
 	"Resend":"إعادة إرسال",
 	"Not_receive":"لم يصلك الكود؟ ",
 	"sure":"تأكيد",
@@ -42,7 +42,7 @@
 	"Profile":"حساب تعريفي",
 	"Join_Us":"انضم إلينا",
 	"Promotional_code":"الكود الترويجي",
-	"Share_code_25%":"شارك الكود مع أصدقائك لتحصل على خصم25%",
+	"share_code_25%":"شارك الكود مع أصدقائك لتحصل على خصم25%",
 	"times ":"مرة",
 	"code_used_number":"عدد مرات استخدم الكود:",
 	"Code_sharing":"مشاركة الكود",
@@ -170,5 +170,10 @@
 	"Buy now":"اشتري الآن",
 	"Magnificent_simple":"الأشياء الرائعة بسيطة للغاية",
 	"Get Started":"البدء",
-	"Log out":"Log out"
+	"Log out":"Log out",
+	"Technical support":"الدعم الفني",
+	"Terms and conditions":"الشروط والاحكام",
+	"resent_otp" : "Resent Code Successfully",
+	"Verified" : "Verified",
+	"Password doesn't match" : "Password doesn't match"
 }

@@ -2,6 +2,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from './shared/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {
@@ -54,6 +55,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 		ComponentsModule,
 		BrowserAnimationsModule,
 		FormsModule, 
+		SharedModule,
 		HttpClientModule,
 		TranslateModule.forRoot({
 			loader: {

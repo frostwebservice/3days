@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common'
+import { SharedModule } from '../shared/shared.module'
 
 import { GalleryCard1 } from './gallery-card1/gallery-card1.component'
 import { GalleryCard12 } from './gallery-card12/gallery-card12.component'
@@ -26,6 +27,7 @@ import { ReferralCodeComponent } from './referral-code/referral-code.component'
 import { ConfirmCodeComponent } from './comfirm-code/confirm-code.component'
 import { SpinnerComponent } from './spinner/spinner.component'
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -53,7 +55,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ConfirmCodeComponent,
     SpinnerComponent,
   ],
-  imports: [CommonModule, RouterModule, TranslateModule],
+  imports: [CommonModule, SharedModule,RouterModule, TranslateModule ,FormsModule],
   exports: [
     GalleryCard1,
     GalleryCard12,

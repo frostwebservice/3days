@@ -36,30 +36,30 @@
 							<h4 class="j-page-text mb-2">{{'sex'|translate}}</h4>
 							<p class="j-page-text">{{'sel_category'|translate}}:</p>
 							<div class="j-gender-wrap">
-								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: gender_option == "male" }'>
+								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: user.gender == "male" }'>
 									<label class="j-gender-option-card male-option" for="male-option" (click)="setGenderOption('male')" >
 										<div class="gender-img"></div>
 										<div class="gender-label">{{'men'|translate}}</div>
 										<div class="option_btn">
-											<input type="radio" id="male-option" name = "gender" value="male"   [checked]="gender_option == 'male'" >
+											<input type="radio" id="male-option" name = "gender" value="male"   [checked]="user.gender == 'male'" >
 										</div>
 									</label>
 								</app-polygon-border-div>
-								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: gender_option == "female" }'>
+								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: user.gender == "female" }'>
 									<label class="j-gender-option-card female-option" for="female-option" (click)="setGenderOption('female')" >
 										<div class="gender-img"></div>
 										<div class="gender-label">{{'women'|translate}}</div>
 										<div class="option_btn">
-											<input type="radio" id="female-option" name = "gender" value="female"  [checked]="gender_option == 'female'">
+											<input type="radio" id="female-option" name = "gender" value="female"  [checked]="user.gender == 'female'">
 										</div>
 									</label>
 								</app-polygon-border-div>
-								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: gender_option == "kids" }'>
+								<app-polygon-border-div j-class = 'j-left' class="j-gender-option" [ngClass]='{active: user.gender == "kids" }'>
 									<label class="j-gender-option-card kids-option" for="kids-option" (click)="setGenderOption('kids')" >
 										<div class="gender-img"></div>
 										<div class="gender-label">{{'sprouts'|translate}}</div>
 										<div class="option_btn">
-											<input type="radio" id="kids-option" name = "gender" value="kids"  [checked]="gender_option == 'kids'">
+											<input type="radio" id="kids-option" name = "gender" value="kids"  [checked]="user.gender == 'kids'">
 										</div>
 									</label>
 								</app-polygon-border-div>
@@ -176,22 +176,24 @@
 					</ng-container>
 					<ng-container *ngIf="selectedTab.label == 'account'">
 						<div class="j-content-wrap">
-							<h4 class="j-page-text mb-2">{{'next'|translate}}</h4>
+							<h4 class="j-page-text mb-2">{{'account'|translate}}</h4>
 							<p class="j-page-text">{{'enter_account'|translate}}</p>
 							<div class="j-account-wrap">
 								<div class="j-account-panel pb-md-0 pb-2">
 									<h4 class="j-page-text mb-2">{{'account'|translate}}</h4>
 									<div class="j-form-group" [ngClass]="{invalid:  (stepSubmitted('account') || mobile.touched || mobile.dirty )  && mobile.invalid}">
 										<label for="mobile" class="j-inputbox-label j-flex-row-reverse">
-											<span>{{"Mobile Number"|translate}}</span>
+											<span>{{"Mobile Number"|translate}} </span>
+
+											<span *ngIf ="phone_verified" class="text-success">{{"Verified"|translate}}</span>
 											<span class="j-error" *ngIf="mobile.errors" translate>
 												<ng-container *ngIf="mobile.errors.required">{{'Required'|translate}} !</ng-container>
 												<ng-container *ngIf="mobile.errors.pattern">{{'Wrong_format|translate'}}!</ng-container>
 											</span>
 										</label>
-										<div class="j-input-icons j-input-icon-both">
-											<i class="j-icon j-icon-left bi bi-chat-left-text"></i>
-											<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="رقم الجوال" required  pattern = '[- +()0-9]+' #mobile="ngModel"> 
+										<div class="j-input-icons j-input-icon-both" [ngClass] = "{'j-verified' : phone_verified}">
+											<i class="j-icon j-icon-left bi bi-chat-left-text" [ngClass]="{'j-clickable':!mobile.invalid}" (click) = "openConfirmDialog()"></i>
+											<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="رقم الجوال" required  pattern = '^[- +()0-9]+' #mobile="ngModel" [readonly]="phone_verified"> 
 											<i class="j-icon j-icon-right j-icon-phone"></i>
 										</div>
 									</div>
@@ -223,10 +225,10 @@
 									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || confirmPassword.touched || confirmPassword.dirty ) && (confirmPassword.errors && (confirmPassword.touched || confirmPassword.dirty ) || confirm_password != user.password )}">
 										<label for="confirmPassword" class="j-inputbox-label j-flex-row-reverse">
 											<span>
-												
+												{{'confirm password'|translate}}
 											</span>
 											<span class="j-error" *ngIf="confirmPassword.errors && (confirmPassword.touched || confirmPassword.dirty ) || confirm_password != user.password">
-												<ng-container>{{'confirm password'|translate}} !</ng-container>
+												<ng-container>{{"Password doesn't match"|translate}} !</ng-container>
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
@@ -237,7 +239,7 @@
 									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || agree_terms_conditions.touched || agree_terms_conditions.dirty ) && agree_terms_conditions.invalid}">
 										<div class="agree_terms_conditions j-flex-row-reverse justify-content-between">
 											<div>
-												<span>{{'I agree'|translate}}</span>
+												<span>{{'I agree'|translate}} </span>
 												<a class="j-tc-link" href="/terms-conditions" target="_blank">{{'Terms and Conditions'|translate}}</a> 
 												<input type="checkbox" name="agree_terms_conditions" class="agree_terms_conditions_checkbox ml-2" [(ngModel)]="agree_terms_conditions_checkbox" #agree_terms_conditions="ngModel" required>
 											</div>

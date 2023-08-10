@@ -16,14 +16,14 @@
 				{{current_user_profile?.email}}
 			</div>
 			<div class="profile-detail row mt-5">
-				<div class="detail-item col-md-3 col-6 p-{{pitem.id}} p-3" [routerLink] = "pitem.href" *ngFor="let pitem of pitems">
+				<div class="detail-item col-md-3 col-6 p-{{pitem.id}} p-3" (click) = "doActive(pitem.href)" *ngFor="let pitem of pitems">
 					<app-polygon-border-div j-class = 'j-left'>
 						<div class="detail-inner-wrap p-4">
 							<app-polygon-border-div j-class="j-right">
 								<div class="detail-icon j-icon {{pitem.iconclass}}"></div>
 							</app-polygon-border-div>
 							<div class="text-white p-item mt-2">
-								{{pitem.label}}
+								{{pitem.label | translate}}
 							</div>
 						</div>
 					</app-polygon-border-div>
