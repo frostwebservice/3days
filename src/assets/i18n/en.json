@@ -170,5 +170,10 @@
 	"Buy now":"Buy now",
 	"Magnificent_simple":"Magnificent things are very simple",
 	"Get Started":"Get Started",
-	"Log out":"Log out"
+	"Log out":"Log out",
+	"Technical support":"Technical support",
+	"Terms and conditions": "Terms and conditions",
+	"resent_otp" : "Resent Code Successfully",
+	"Verified" : "Verified",
+	"Password doesn't match" : "Password doesn't match"
 }

@@ -14,7 +14,7 @@ export class ForgotPasswordComponent implements OnInit {
 
 	user = {
 		mobile: '',
-		client_id : 0
+		client_id : 3
 	};
 
     constructor(private userService: UserService, private router: Router) {}

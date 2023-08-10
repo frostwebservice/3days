@@ -1,3 +1,4 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 :root {
 	--dl-color-gray-500: #595959;
 	--dl-color-gray-700: #999999;
@@ -315,8 +316,12 @@ body {
     align-items: center;
     flex-direction: column;
     background-color: var(--dl-color-gray-black);
+	border: 1px solid var(--dl-color-grey-white);
+	border-radius: 4px;
 }
-
+.cdk-overlay-dark-backdrop {
+    background: rgba(94, 94, 94, 0.32);
+}
 .j-front-page .backToProfile {
     display: flex;
     position: absolute;

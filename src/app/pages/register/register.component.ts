@@ -6,13 +6,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Branch } from 'src/app/models/branch.model';
 import { Product } from 'src/app/models/product.model';
 import { Cookie } from 'src/app/utils/cookie';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { ConfirmCodeComponent } from 'src/app/components/comfirm-code/confirm-code.component';
 
-import {
-	NgbDateStruct,
-	NgbCalendar,
-	NgbTimeStruct,
-	NgbDatepicker
-} from '@ng-bootstrap/ng-bootstrap';
 @Component({
 	selector: 'app-register',
 	templateUrl: 'register.component.html',
@@ -40,6 +36,7 @@ export class RegisterComponent implements OnInit {
 		private branchService: BranchService,
 		private router: Router,
 		private route: ActivatedRoute,
+		private dialog: MatDialog
 	) {
 		this.onSearchBranch();
 		this.getProducts();
@@ -51,7 +48,7 @@ export class RegisterComponent implements OnInit {
 		email: '',
 		password: '',
 		mobile: '',
-		gender: '',
+		gender: 'male',
 		dob: '',
 		national_id: '',
 		default_branch: 4,
@@ -62,14 +59,15 @@ export class RegisterComponent implements OnInit {
 		cvv: '',
 		date_year: '',
 		date_month: '',
+		fcm_token: "firebase token",
 	};
 
 	tabs: TabItem[] = [
 		{ icon: '', label: 'gender', id: 'gender', passed: false },
 		{ icon: '', label: 'site', id: 'site' , passed: false},
 		{ icon: '', label: 'find a club', id: 'find a club' , passed: false},
-		{ icon: '', label: 'products', id: 'products' , passed: false},
 		{ icon: '', label: 'account', id: 'account' , passed: false},
+		{ icon: '', label: 'products', id: 'products' , passed: false},
 		{ icon: '', label: 'payment', id: 'payment' , passed: false}
 	];
 	// tabs: TabItem[] = [
@@ -124,7 +122,7 @@ export class RegisterComponent implements OnInit {
 	keyword= '';
     agree_terms_conditions_checkbox = false;
 	currency = "﷼";
-
+	phone_verified = false;
 	lat = 21.4858;
 	lng = 39.1925;
 	ngOnInit(): void {	}
@@ -141,7 +139,6 @@ export class RegisterComponent implements OnInit {
 	
 			switch (id) {
 				case 'site':
-
 					break;
 				case 'account':
 					invalid = this.mobile['invalid'] 
@@ -181,8 +178,11 @@ export class RegisterComponent implements OnInit {
 			this.submittedTab = this.tabs[0];
 		}else {
 			if (index === this.tabs.length - 1) {
-				this.signup();
+				this.isCompleted = true;
 			}else{
+				if (this.selectedTab.id == 'account'){
+					this.signup();
+				}
 				this.changeTab(this.tabs[index + 1]);
 			}
 		}
@@ -200,7 +200,7 @@ export class RegisterComponent implements OnInit {
 	}
 	setGenderOption(option:string){
 		this.gender_option = option;
-		this.user.gender = option;
+		this.user.gender = this.gender_option;
 	}
 	setSiteOption(option:string){
 		this.site_option = option;
@@ -270,10 +270,28 @@ export class RegisterComponent implements OnInit {
 						this.userService.setUser(this.currentUser);
 						localStorage.setItem('u_pass', this.user.password);
 				}
-				this.isCompleted = true;
+				// this.isCompleted = true;
 				this.isSubmitted = true;
 			}
 		});
 	}
 
+	openConfirmDialog() {
+		if (!this.mobile['invalid']){
+			const dialogConfig = new MatDialogConfig();
+			dialogConfig.autoFocus = true;
+			dialogConfig.data = {
+				title: 'Confirm OTP',
+				mobile : this.user.mobile,
+			};
+			this.dialog.open(ConfirmCodeComponent, dialogConfig)
+			.afterClosed()
+			.subscribe((status) => {
+				if (status) {
+					console.log("sstatus",status);
+					this.phone_verified = status;
+				}
+			});
+		}
+	}
 }

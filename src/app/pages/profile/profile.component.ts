@@ -10,6 +10,9 @@ import { Subscription } from 'rxjs';
 import { LANG_OPTIONS } from 'src/app/constants/variable.constants';
 import { LangService } from 'src/app/services/lang.service';
 
+import { MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { ReferralCodeComponent } from 'src/app/components/referral-code/referral-code.component';
+
 @Component({
     selector: 'app-profile',
     templateUrl: 'profile.component.html',
@@ -20,13 +23,13 @@ import { LangService } from 'src/app/services/lang.service';
 })
 export class Profile {
     pitems = [
-        {id:'personal-data',label: 'البيانات الشخصية',iconclass: 'j-icon-active-person',href:'/personal-data'},
-        {id:'club-branches',label: 'أفرع النادي',iconclass: 'j-icon-marker',href:'/branches'},
-        {id:'referral-code',label: 'الكود الترويجي',iconclass: 'j-icon-active-two-person',href:'/profile'},
-        {id:'financial-operations',label: 'العمليات المالية',iconclass: 'j-icon-active-cash',href:'/financial-operations'},
-        {id:'technical-support',label: 'الدعم الفني',iconclass: 'j-icon-receiver',href:'/profile'},
-        {id:'privacy-policy',label: 'سياسة الخصوصية',iconclass: 'j-icon-capman',href:'/privacy-policy'},
-        {id:'terms-conditions',label: 'الشروط والاحكام',iconclass: 'j-icon-file',href:'/terms-conditions'},
+        {id:'personal-data',label: 'Personal data',iconclass: 'j-icon-active-person',href:'/personal-data'},
+        {id:'club-branches',label: 'Club branches',iconclass: 'j-icon-marker',href:'/branches'},
+        {id:'referral-code',label: 'Promotional code',iconclass: 'j-icon-active-two-person',href:'/referral-code'},
+        {id:'financial-operations',label: 'financial operations',iconclass: 'j-icon-active-cash',href:'/financial-operations'},
+        {id:'technical-support',label: 'Technical support',iconclass: 'j-icon-receiver',href:'/profile'},
+        {id:'privacy-policy',label: 'privacy policy',iconclass: 'j-icon-capman',href:'/privacy-policy'},
+        {id:'terms-conditions',label: 'Terms and conditions',iconclass: 'j-icon-file',href:'/terms-conditions'},
     ];
     constructor(
         private title: Title, private meta: Meta,
@@ -34,7 +37,8 @@ export class Profile {
 		private router: Router,
 		private route: ActivatedRoute,
         private loadingService: LoaderService,
-        private langService: LangService
+        private langService: LangService,
+        private dialog: MatDialog
     ) {
             this.loadingService.setLoading(true);
             this.title.setTitle('Profile - 3 Days');
@@ -66,7 +70,30 @@ export class Profile {
     changeLang(lang: Lang): void {
         this.langService.changeLang(lang.code);
     }
+    openReferralCodeDialog() {
+        const dialogConfig = new MatDialogConfig();
 
+        // dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.data = {
+            id: 1,
+            title: 'Referral Code',
+            code : this.current_user_profile.referral_code,
+            count : this.current_user_profile.number_of_use_referral_code
+        };
+   
+        const dialogRef = this.dialog.open(ReferralCodeComponent, dialogConfig);
+        dialogRef.afterClosed().subscribe(
+            data => console.log("Dialog output:", data)
+        );    
+    }
+    doActive(hr): void{
+        if (hr == "/referral-code"){
+            this.openReferralCodeDialog();
+        }else{
+            this.router.navigate([hr]);
+        }
+    }
     ngOnInit(): void {
         this.languageSubscription && this.languageSubscription.unsubscribe();
         this.languageSubscription = this.langService.language$.subscribe(

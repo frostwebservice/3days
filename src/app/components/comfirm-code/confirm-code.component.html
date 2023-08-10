@@ -8,18 +8,19 @@
             </app-polygon-border-div>
         </div>
         <h3 class="j-smalltitle-size mb-4 mt-4 text-white">{{'Validation_code'|translate}}</h3>
-        <p class="j-tnSize gdTColor">{{'Enter_code'|translate}}</p>
+        <p class="j-tnSize gdTColor" [innerHTML]="'Enter_code'|translate : {numbers:user.mobile}"></p>
+        <p class="j-tsSize gdTColor mb-0" *ngIf="isSent" [innerHTML]="'resent_otp'| translate"></p>
         <div class="j-form-group">
             <label for="code" class="j-inputbox-label"></label>
             <div class="j-input-icons j-input-icon-right">
                 <i class="j-icon j-icon-right bi bi-chat-left-text"></i>
-                <input class="j-inputbox" id="code" name="code" placeholder="ادخل الكود">
+                <input class="j-inputbox" id="code" name="code" [(ngModel)] = "user.otp" #code="ngModel" placeholder="ادخل الكود">
             </div>
         </div>
-        <p class="j-tnSize gdTColor mt-2 mb-3">{{'Not_receive'|translate}}<a class="_3daysColor">{{'Resend'|translate}}</a></p>
+        <p class="j-tnSize gdTColor mt-2 mb-3">{{'Not_receive' | translate}} <span (click)="sendOTP(true)" class="_3dayColor j-btn">{{'Resend'|translate}}</span></p>
         <div class="j-select mt-4">
             <div class="j-form-group">
-                <button type="button" class="j-left-button button j-submit-button"><span>{{'sure'|translate}}</span></button>
+                <button type="button" class="j-left-button button j-submit-button" (click)="checkOTP()" [class.loading]="submitting" ><span>{{'sure'|translate}}</span></button>
             </div>
         </div>
     </div>

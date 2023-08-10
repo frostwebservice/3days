@@ -106,6 +106,42 @@ export class UserService extends HttpService {
         );
     }
 
+    public sendOTP(user : {mobile : string; client_id: number}): Observable<boolean> {
+        const reqHeader = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'No-Auth': 'True'
+        });
+        return this.httpClient
+        .post(
+            this.server + AUTH.SEND_OTP,
+            JSON.stringify(user),
+            {
+                headers: reqHeader
+            }
+        )
+        .pipe(
+            map((res) => res['status']),
+            catchError(this.handleError('SEND OTP', false))
+        );
+    }
+    public verifyOTP(user : {mobile : string; client_id: number; otp:string;}): Observable<boolean> {
+        const reqHeader = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'No-Auth': 'True'
+        });
+        return this.httpClient
+        .post(
+            this.server + AUTH.VERIFY_OTP,
+            JSON.stringify(user),
+            {
+                headers: reqHeader
+            }
+        )
+        .pipe(
+            map((res) => res['status']),
+            catchError(this.handleError('VERIFY OTP', false))
+        );
+    }
     public isAuthenticated(): boolean {
         if (localStorage.getItem('token') != null) {
             return true;
