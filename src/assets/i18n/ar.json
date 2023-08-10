@@ -6,7 +6,7 @@
 	"Date &amp; Time: date":"التاريخ والوقت: {{date}}",
 	"Available Seats: num":"المقاعد المتاحة: {{number}}",
 	"Branch selection":"اختيار الفرع",
-	"Select_branch_ which_train.":"اختر الفرع الي تود التدرب فيه",
+	"Select_branch_which_train.":"اختر الفرع الي تود التدرب فيه",
 	"choose_branch":"اختر الفرع من القائمة",
 	"Save":"حفظ التغييرات",
 	"cancel_reservation":"إلغاء الحجز",

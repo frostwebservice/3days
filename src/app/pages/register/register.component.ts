@@ -277,7 +277,7 @@ export class RegisterComponent implements OnInit {
 	}
 
 	openConfirmDialog() {
-		if (!this.mobile['invalid']){
+		if (!this.mobile['invalid'] && !this.phone_verified){
 			const dialogConfig = new MatDialogConfig();
 			dialogConfig.autoFocus = true;
 			dialogConfig.data = {
@@ -288,7 +288,6 @@ export class RegisterComponent implements OnInit {
 			.afterClosed()
 			.subscribe((status) => {
 				if (status) {
-					console.log("sstatus",status);
 					this.phone_verified = status;
 				}
 			});

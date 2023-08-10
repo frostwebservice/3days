@@ -42,7 +42,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 			if (status) {
 				this.isSent = true;
 			}
-			this.phone_verified = true;
+			this.phone_verified = status;
 			this.dialogRef.close(this.phone_verified);
 			this.submitting = false;
 		});

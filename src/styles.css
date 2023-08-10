@@ -319,25 +319,35 @@ body {
 	border: 1px solid var(--dl-color-grey-white);
 	border-radius: 4px;
 }
+.j-front-page.modal-container .j-form-group .j-submit-button{
+	height: 46px;
+    font-size: 18px;
+}
 .cdk-overlay-dark-backdrop {
     background: rgba(94, 94, 94, 0.32);
 }
-.j-front-page .backToProfile {
-    display: flex;
+.j-front-page .j-profileTopSideBtn {
+	display: flex;
     position: absolute;
-    /* right: var(--dl-space-space-threeunits); */
-    top: 10px;
+	top: 10px;
 }
-.j-front-page .backToProfile .back-icon{
-    width: 48px;
+.j-front-page .j-profileTopSideBtn .back-icon{
+	width: 48px;
     height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.j-front-page .backToProfile i.j-icon{
-    color: white;
+.j-front-page .j-profileTopSideBtn i.j-icon{
+	color: white;
 }
+.j-front-page .j-backToProfile {
+	left: 0;
+}
+.j-front-page .j-selectBranch {
+	right: 0;
+}
+
 .j-form-group .j-input-icon-right .ng-spin-box-wrapper button{
 	left: 0 !important;
     right: unset !important;

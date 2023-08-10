@@ -26,8 +26,10 @@ import { SuspendSubscriptionComponent } from './suspend-subscription/suspend-sub
 import { ReferralCodeComponent } from './referral-code/referral-code.component'
 import { ConfirmCodeComponent } from './comfirm-code/confirm-code.component'
 import { SpinnerComponent } from './spinner/spinner.component'
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core'
 import { FormsModule } from '@angular/forms'
+import { SelectBranchIconComponent } from './select-branch-icon/select-branch-icon.component';
+import { BackProfileIconComponent } from './back-profile-icon/back-profile-icon.component'
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { FormsModule } from '@angular/forms'
     ReferralCodeComponent,
     ConfirmCodeComponent,
     SpinnerComponent,
+    SelectBranchIconComponent,
+    BackProfileIconComponent,
   ],
   imports: [CommonModule, SharedModule,RouterModule, TranslateModule ,FormsModule],
   exports: [
@@ -80,6 +84,8 @@ import { FormsModule } from '@angular/forms'
     ReferralCodeComponent,
     ConfirmCodeComponent,
     SpinnerComponent,
+    SelectBranchIconComponent,
+    BackProfileIconComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

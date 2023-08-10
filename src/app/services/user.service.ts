@@ -177,6 +177,11 @@ export class UserService extends HttpService {
         let branch_id :number = Number(user?.default_branch);
         return branch_id; 
     }
+    public setDefaultBranchId(dbid:number){
+        let user = this.getUser();
+        user.default_branch = dbid;
+        this.setUser(user);
+    }
     public updateLocalStorageItem(item: string, value: string): void {
         localStorage.setItem(item, value);
     }
