@@ -62,14 +62,15 @@ export class RegisterComponent implements OnInit {
 		cvv: '',
 		date_year: '',
 		date_month: '',
+		fcm_token: "firebase token",
 	};
 
 	tabs: TabItem[] = [
 		{ icon: '', label: 'gender', id: 'gender', passed: false },
 		{ icon: '', label: 'site', id: 'site' , passed: false},
 		{ icon: '', label: 'find a club', id: 'find a club' , passed: false},
-		{ icon: '', label: 'products', id: 'products' , passed: false},
 		{ icon: '', label: 'account', id: 'account' , passed: false},
+		{ icon: '', label: 'products', id: 'products' , passed: false},
 		{ icon: '', label: 'payment', id: 'payment' , passed: false}
 	];
 	// tabs: TabItem[] = [
@@ -141,7 +142,6 @@ export class RegisterComponent implements OnInit {
 	
 			switch (id) {
 				case 'site':
-
 					break;
 				case 'account':
 					invalid = this.mobile['invalid'] 
@@ -181,8 +181,11 @@ export class RegisterComponent implements OnInit {
 			this.submittedTab = this.tabs[0];
 		}else {
 			if (index === this.tabs.length - 1) {
-				this.signup();
+				this.isCompleted = true;
 			}else{
+				if (this.selectedTab.id == 'account'){
+					this.signup();
+				}
 				this.changeTab(this.tabs[index + 1]);
 			}
 		}
