@@ -268,5 +268,24 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('BUY SUBSCRIPTION', false))
 			);
 	}
-	
+	public checkCoupon(product_id:number,coupon_code: string = ""): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BRANCH.GET_PTS_PER_BRANCH,
+				{ 
+					coupon_code: coupon_code ,
+					product_id: product_id 
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('CEHCK COUPON', false))
+			);
+	}
 }

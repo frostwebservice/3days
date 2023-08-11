@@ -7,7 +7,6 @@ import { ProfileRoutingModule } from './profile-routing.module';
 
 import { PrivacyPolicy } from '../pages/privacy-policy/privacy-policy.component';
 import { TermsConditons } from '../pages/terms-conditions/terms-conditions.component';
-import { Checkout } from '../pages/checkout/checkout.component';
 import { ClubBranches } from '../pages/club-branches/club-branches.component';
 import { Notifications } from '../pages/notifications/notifications.component';
 import { FinancialOperations } from '../pages/financial-operations/financial-operations.component';
@@ -22,7 +21,6 @@ import { TranslateModule } from '@ngx-translate/core';
 	declarations: [
 		PrivacyPolicy,
 		TermsConditons,
-		Checkout,
 		ClubBranches,
 		Notifications,
 		FinancialOperations,

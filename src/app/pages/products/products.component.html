@@ -54,13 +54,13 @@
 							<p class="product_price"><b> {{subscription.period_unit}}</b> / {{subscription.price }} {{subscription.currency}}</p>
 							<p class="product_description">{{subscription.arabic_description}}</p>
 	
-							<div *ngIf = "subscription.type == 'session' " class="mt-3 j-cancel-btn">
+							<!-- <div *ngIf = "subscription.type == 'session' " class="mt-3 j-cancel-btn">
 								<app-polygon-border-div j-class='j-left' class="text-center" >
 									<div class="j-btn p-2 gdTColor">{{'cancel_subscription' | translate}}</div>
 								</app-polygon-border-div>
-							</div>
+							</div> -->
 							
-							<div *ngIf = "subscription.type == 'subscription'"  class="mt-3 j-apply-btn">
+							<div *ngIf = "subscription.type == 'subscription'"  class="mt-3 j-apply-btn" (click)="buySubscription(subscription)">
 								<app-polygon-border-div j-class='j-left j-3days' class="text-center" >
 									<div class="j-btn _3dayColor p-2">{{'buy_subscription' | translate}}</div>
 								</app-polygon-border-div>

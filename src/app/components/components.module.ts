@@ -33,7 +33,7 @@ import { SelectBranchIconComponent } from './select-branch-icon/select-branch-ic
 import { BackProfileIconComponent } from './back-profile-icon/back-profile-icon.component'
 import { RateBookingComponent } from './rate-booking/rate-booking.component'
 import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component'
-
+import { Checkout } from './checkout/checkout.component'
 @NgModule({
 	declarations: [
 		GalleryCard1,
@@ -63,6 +63,7 @@ import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscr
 		BackProfileIconComponent,
 		RateBookingComponent,
 		CancelSubscriptionComponent,
+		Checkout,
 	],
 	imports: [CommonModule, 
 		SharedModule,
@@ -98,6 +99,7 @@ import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscr
 		SelectBranchIconComponent,
 		BackProfileIconComponent,
 		CancelSubscriptionComponent,
+		Checkout,
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
