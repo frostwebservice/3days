@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { MAT_DIALOG_DATA,MatDialog,MatDialogRef} from "@angular/material/dialog";
 import { BranchService } from 'src/app/services/branch.service';
+import * as moment from 'moment';
 
 @Component({
 	selector: 'app-suspend-subscription',
@@ -9,6 +10,7 @@ import { BranchService } from 'src/app/services/branch.service';
 })
 export class SuspendSubscriptionComponent implements OnInit {
 	submitting = false;
+	return_date = "";
 	param = {
 		"subscription_id": 0,
 		"suspension_days": 0,
@@ -21,8 +23,12 @@ export class SuspendSubscriptionComponent implements OnInit {
 	) {
 		console.log(data.subscription);
 		this.param.subscription_id = data.subscription.id;
+		this.param.suspension_date = moment().format('YYYY-MM-DD') ;
 	}
 
+	calcReturnDate(){
+		this.return_date =moment(this.param.suspension_date).add(this.param.suspension_days, 'days').format('YYYY-MM-DD');
+	}
 	ngOnInit(): void {
 	}
 
