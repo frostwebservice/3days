@@ -6,6 +6,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgSpinBoxModule } from 'ng-spin-box';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -37,6 +39,8 @@ import { MatRadioModule } from '@angular/material/radio';
   ],
   imports: [
     MatDialogModule,
+    NgSpinBoxModule,
+    BsDatepickerModule
   ],
   exports: [
     MatDialogModule,

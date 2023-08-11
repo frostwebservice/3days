@@ -3,6 +3,9 @@ import { SubscriptionSession } from 'src/app/utils/data.types';
 import { UserService } from 'src/app/services/user.service';
 import { BranchService } from 'src/app/services/branch.service';
 import { LoaderService } from 'src/app/services/loader.service';
+import { SuspendSubscriptionComponent } from 'src/app/components/suspend-subscription/suspend-subscription.component';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { CancelSubscriptionComponent } from 'src/app/components/cancel-subscription/cancel-subscription.component';
 
 @Component({
     selector: 'app-subscriptions',
@@ -22,7 +25,8 @@ export class Subscriptions implements OnInit {
     constructor(
         private userService: UserService,
         private loadingService: LoaderService,
-		private branchService: BranchService
+		private branchService: BranchService,
+		private dialog: MatDialog
     ) { 
         this.getMemberSubscriptions();
     }
@@ -39,4 +43,32 @@ export class Subscriptions implements OnInit {
 			this.loadingService.setLoading(false);
 		});
 	}
+    suspendSubscription(subs){
+        const dialogConfig = new MatDialogConfig();
+		dialogConfig.autoFocus = true;
+		dialogConfig.data = {
+			title: 'Suspend Subscription',
+			subscription : subs
+		};
+
+		this.dialog.open(SuspendSubscriptionComponent, dialogConfig)
+		.afterClosed()
+		.subscribe((res) => {
+			console.log(res);
+		});
+    }
+    cancelSubscription(subs){
+        const dialogConfig = new MatDialogConfig();
+		dialogConfig.autoFocus = true;
+		dialogConfig.data = {
+			title: 'Cancel Subscription',
+			subscription : subs
+		};
+
+		this.dialog.open(CancelSubscriptionComponent, dialogConfig)
+		.afterClosed()
+		.subscribe((res) => {
+			console.log(res);
+		});
+    }
 }

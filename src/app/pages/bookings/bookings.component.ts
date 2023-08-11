@@ -1,6 +1,9 @@
 import { Component } from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 import { TimeSession ,AppointmentItem} from 'src/app/utils/data.types';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { CancelBookingComponent } from 'src/app/components/cancel-booking/cancel-booking.component';
+import { RateBookingComponent } from 'src/app/components/rate-booking/rate-booking.component';
 import {
 	NgbDateStruct,
 	NgbCalendar,
@@ -43,7 +46,9 @@ export class Bookings {
 	constructor(private title: Title, private meta: Meta,
 		private userService: UserService,
         private loadingService: LoaderService,
-		private branchService: BranchService) {
+		private branchService: BranchService,
+		private dialog: MatDialog
+		) {
 			this.title.setTitle('Bookings - 3 Days')
 			this.meta.addTags([
 				{
@@ -80,5 +85,36 @@ export class Bookings {
 	}
 	changeDate($event){
 		this.getMemberPTSessions();
+	}
+	cancelBooking(appointment){
+		const dialogConfig = new MatDialogConfig();
+		dialogConfig.autoFocus = true;
+		dialogConfig.data = {
+			title: 'Cancel Booking',
+			appointment : appointment
+		};
+		this.dialog.open(CancelBookingComponent, dialogConfig)
+		.afterClosed()
+		.subscribe((res) => {
+			console.log(res);
+			if (res.status) {
+				this.getMemberBookings();
+			}
+		});
+	}
+
+	rateBooking(appointment){
+		const dialogConfig = new MatDialogConfig();
+		dialogConfig.autoFocus = true;
+		dialogConfig.data = {
+			title: 'Rate Booking',
+			appointment : appointment
+		};
+
+		this.dialog.open(RateBookingComponent, dialogConfig)
+		.afterClosed()
+		.subscribe((res) => {
+			console.log(res);
+		});
 	}
 }

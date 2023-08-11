@@ -8,20 +8,20 @@
         </div>
         <h3 class="j-smalltitle-size mb-4 mt-4 text-white">{{'Temp_suspension_subscription'|translate}}</h3>
         <div class="j-form-group">
-            <label for="branch" class="j-inputbox-label">{{'Start_date'|translate}}</label>
+            <label for="suspension_date" class="j-inputbox-label">{{'Start_date'|translate}}</label>
             <div class="j-input-icons j-input-icon-right">
                 <i class="j-icon j-icon-right j-clickable j-icon-calendar"></i>
-                <input class="j-inputbox" id="branch" name = "branch" placeholder="اختر التاريخ">
+                <input class="j-inputbox" id="suspension_date" name = "suspension_date" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" [(ngModel)]="param.suspension_date" #suspension_date="ngModel" required>
             </div>
         </div>
         <div class="j-form-group">
-            <label for="branch" class="j-inputbox-label">{{'Number_days'|translate}}</label>
-            <input class="j-inputbox"  type =  "number" id="branch" name = "branch" placeholder="">
+            <label for="number_days" class="j-inputbox-label">{{'Number_days'|translate}}</label>
+            <input class="j-inputbox"  type = "number" id="number_days" name = "number_days" ngSpinBox  stepperIncrementOnEnter="false" placeholder="">
         </div>
-        <p class="mt-4 text-center"><span class="gwTColor j-tsSize">21 /07/2023</span> <span class="gdTColor j-tsSize">{{'return'|translate}}:</span></p>
+        <p class="mt-4 text-center"><span class="gwTColor j-tsSize">21 /07/2023</span> <span class="gdTColor j-tsSize">{{'return'|translate}}</span></p>
         <div class="j-suspend">
             <div class="j-form-group">
-                <button type="button" class="j-left-button button j-submit-button"><span>{{'Subscription_freeze'|translate}}</span></button>
+                <button type="button" class="j-left-button button j-submit-button" [class.loading]="submitting"><span>{{'Subscription_freeze'|translate}}</span></button>
             </div>
         </div>
     </div>

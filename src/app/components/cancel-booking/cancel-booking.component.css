@@ -1,0 +1,16 @@
+.app-cancel-booking .j-inner-wrap{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+.app-cancel-booking .j-item-img{
+    width: 48px;
+    height:48px;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.app-cancel-booking .j-cancel .j-submit-button{
+    background-color: #F24822;
+}

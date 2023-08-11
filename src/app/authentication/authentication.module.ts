@@ -16,7 +16,6 @@ import { AgmCoreModule } from '@agm/core';
 import { SharedModule } from '../shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { NgSpinBoxModule } from 'ng-spin-box';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
@@ -35,7 +34,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 		TranslateModule.forChild({ extend: true }),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
 		BsDatepickerModule,
-		NgSpinBoxModule,
 		MatDialogModule
 	],
 	providers : [],

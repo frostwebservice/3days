@@ -1,0 +1,26 @@
+<div class="j-booking-review modal-container j-front-page">
+    <div class="j-inner-wrap">
+        <h4 class="j-subtitle-size gdTColor mb-5">{{'share_evaluation'|translate}}</h4>
+        <h3 class="j-booking-name j-smalltitle-size mb-4 text-white">{{data.appointment?.arabic_class_name}}</h3>
+        <h3 class="j-booking-name j-smalltitle-size mb-4 text-white d-none">{{data.appointment?.english_class_name}}</h3>
+        <h4 class="j-smallSubtitle-size mb-5 gdTColor">{{'share_assessnment'|translate}}</h4>
+        <div class="j-booking-review-box-list">
+            <div (click) = "rate(star)" *ngFor="let star of [1,2,3,4,5]">
+                <app-polygon-border-div j-class="j-left" class="j-review-item" [ngClass]="{'active': star<=review.rating}">
+                    <div class="j-star"></div>
+                </app-polygon-border-div>
+            </div>
+        </div>
+        <div class="j-comment-wrap mt-4">
+            <h5 class="j-tsSize gdTcolor mb-2">{{'comments'|translate}}</h5>
+            <div class="j-form-group">
+                <textarea class="j-inputbox j-comment-box" placeholder="اكتب هنا التفاصيل"></textarea>
+            </div>
+        </div>
+        <div class="j-approval mt-4">
+            <div class="j-form-group">
+                <button type="button" class="j-left-button j-submit-button j-tinySubtitle-size" [class.loading]="submitting" (click)="rateSession()"><span>{{'Evaluation approval'|translate}}</span></button>
+            </div>
+        </div>
+    </div>
+</div>
