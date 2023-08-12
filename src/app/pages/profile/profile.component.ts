@@ -12,6 +12,7 @@ import { LangService } from 'src/app/services/lang.service';
 
 import { MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { ReferralCodeComponent } from 'src/app/components/referral-code/referral-code.component';
+// import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-profile',
@@ -38,7 +39,8 @@ export class Profile {
 		private route: ActivatedRoute,
         private loadingService: LoaderService,
         private langService: LangService,
-        private dialog: MatDialog
+        private dialog: MatDialog,
+        // private toastr: ToastrService
     ) {
             this.loadingService.setLoading(true);
             this.title.setTitle('Profile - 3 Days');
@@ -69,6 +71,7 @@ export class Profile {
     
     changeLang(lang: Lang): void {
         this.langService.changeLang(lang.code);
+        // this.toastr.success('Language Changed to ' + lang + ' successfully.', 'Language');
     }
     openReferralCodeDialog() {
         const dialogConfig = new MatDialogConfig();

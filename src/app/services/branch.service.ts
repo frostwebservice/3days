@@ -176,10 +176,7 @@ export class BranchService extends HttpService {
 		});
 		return this.httpClient
 			.post(
-				this.server + BOOKING.SESSION_RATING,
-				{
-					review
-				},
+				this.server + BOOKING.SESSION_RATING,review,
 				{
 					headers: reqHeader
 				}
@@ -195,10 +192,7 @@ export class BranchService extends HttpService {
 		});
 		return this.httpClient
 			.post(
-				this.server + BOOKING.SUSPEND_SUBSCRIPTION,
-				{
-					data
-				},
+				this.server + BOOKING.SUSPEND_SUBSCRIPTION,data,
 				{
 					headers: reqHeader
 				}
@@ -255,10 +249,7 @@ export class BranchService extends HttpService {
 		});
 		return this.httpClient
 			.post(
-				this.server + BOOKING.BUY_SUBSCRIPTION,
-				{
-					subscription
-				},
+				this.server + BOOKING.BUY_SUBSCRIPTION,subscription,
 				{
 					headers: reqHeader
 				}

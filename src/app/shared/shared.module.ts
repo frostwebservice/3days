@@ -8,6 +8,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgSpinBoxModule } from 'ng-spin-box';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+// import { ToastrModule } from 'ngx-toastr';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -24,10 +25,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
-// import { FileUploadModule } from 'ng2-file-upload';
-// import { CalendarModule, DateAdapter } from 'angular-calendar';
-// import { NgxPaginationModule } from 'ngx-pagination';
-// import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { MatNavList, MatListItem } from '@angular/material/list';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatMenuModule } from '@angular/material/menu';
@@ -40,7 +37,8 @@ import { MatRadioModule } from '@angular/material/radio';
   imports: [
     MatDialogModule,
     NgSpinBoxModule,
-    BsDatepickerModule
+    BsDatepickerModule,
+    // ToastrModule.forRoot()
   ],
   exports: [
     MatDialogModule,

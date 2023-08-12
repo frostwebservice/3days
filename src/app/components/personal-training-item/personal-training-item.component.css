@@ -1,10 +1,8 @@
-.personal-training-container .j-sessions-list{
-    /* width: 100%; */
-}
-.personal-training-container .j-pt-item {
+
+.j-session-item {
     cursor: pointer;
 }
-.personal-training-container .j-session-item .j-session-card{
+.j-session-item .j-session-card{
     padding : 12px;
     margin-bottom: 12px;
     display: flex;
@@ -12,7 +10,7 @@
     text-align: right;
     position:relative;
 }
-.personal-training-container .j-session-item .j-img.j-trainer-photo{
+.j-session-item .j-img.j-trainer-photo{
     width: 80px;
     height: 80px;
     background-color: white;
@@ -20,12 +18,12 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.personal-training-container .j-session-item .j-session-info{
+.j-session-item .j-session-info{
     display: flex;
     flex-direction: column;
     margin-right: 20px;
 }
-.personal-training-container .j-session-card .j-icon{
+.j-session-card .j-icon{
     position: absolute;
     left: 8px;
     top: calc(50% - 8px);
@@ -34,7 +32,7 @@
     align-items: center;
 }
 @media(max-width: 767px) {
-    .personal-training-container .j-session-item .j-img.j-trainer-photo{
+    .j-session-item .j-img.j-trainer-photo{
         width: 70px;
         height: 70px;
     }

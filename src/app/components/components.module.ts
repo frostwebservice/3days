@@ -34,6 +34,7 @@ import { BackProfileIconComponent } from './back-profile-icon/back-profile-icon.
 import { RateBookingComponent } from './rate-booking/rate-booking.component'
 import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component'
 import { Checkout } from './checkout/checkout.component'
+import { PersonalTrainingItemComponent } from './personal-training-item/personal-training-item.component'
 @NgModule({
 	declarations: [
 		GalleryCard1,
@@ -64,6 +65,7 @@ import { Checkout } from './checkout/checkout.component'
 		RateBookingComponent,
 		CancelSubscriptionComponent,
 		Checkout,
+		PersonalTrainingItemComponent
 	],
 	imports: [CommonModule, 
 		SharedModule,
@@ -100,6 +102,7 @@ import { Checkout } from './checkout/checkout.component'
 		BackProfileIconComponent,
 		CancelSubscriptionComponent,
 		Checkout,
+		PersonalTrainingItemComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

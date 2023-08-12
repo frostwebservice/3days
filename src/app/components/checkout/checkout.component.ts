@@ -32,7 +32,7 @@ export class Checkout implements OnInit {
 		console.log(data.subscription);
 		this.product = data.subscription;
 		this.user = this.userService.getUser();
-		this.checkoutInfo.member_id = this.user.member_id;
+		this.checkoutInfo.member_id = this.user.id;
 		this.checkoutInfo.product_id = this.product.id;
 		this.start_date = moment().format('YYYY-MM-DD');
 	}
@@ -50,6 +50,7 @@ export class Checkout implements OnInit {
 	buy(){
 		this.submitting = true;
 		this.checkoutInfo.start_date = moment(this.start_date).format('YYYY-MM-DD');
+
 		this.branchService.buySubscription(this.checkoutInfo).subscribe((res) => {
 			this.submitting = true;
 			if (!res) {

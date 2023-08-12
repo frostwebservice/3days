@@ -9,7 +9,7 @@
                     <label class="j-inputbox-label">{{'Member'|translate}}</label>
                     <div class="j-input-icons j-input-icon-right">
                         <i class="j-icon j-icon-right j-clickable j-icon-person"></i>
-                        <input class="j-inputbox" [ngModel] = "user.english_name">
+                        <input class="j-inputbox d-none" [ngModel] = "user.english_name">
                         <input class="j-inputbox" [ngModel] = "user.arabic_name">
                         <!-- <input type="text" class="j-inputbox" id="member" name = "member" placeholder="Member"> -->
                     </div>
@@ -18,8 +18,8 @@
                     <label for="product" class="j-inputbox-label">{{'Product'|translate}}</label>
                     <div class="j-input-icons j-input-icon-right">
                         <i class="j-icon j-icon-right j-icon-product"></i>
-                        <input type="text" class="j-inputbox" [ngModel] = "product.english_name">
-                        <input type="text" class="j-inputbox" [ngModel] = "product.english_name">
+                        <input type="text" class="j-inputbox d-none" [ngModel] = "product.english_name">
+                        <input type="text" class="j-inputbox" [ngModel] = "product.arabic_name">
                     </div>
                 </div>
                 <div class="j-form-group">

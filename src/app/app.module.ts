@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
+import { ToastrModule } from 'ngx-toastr';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {
@@ -10,7 +11,6 @@ import {
 	HttpClientModule,
 	HTTP_INTERCEPTORS
 } from '@angular/common/http';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ComponentsModule } from './components/components.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ApiInterceptor } from 'src/app/interceptors/api.interceptor';
@@ -24,11 +24,8 @@ import { PersonalTraining } from './pages/personal-training/personal-training.co
 
 import { environment } from '../environments/environment';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AgmCoreModule } from '@agm/core';
 
 const config: SocketIoConfig = {
@@ -53,7 +50,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 		BrowserModule, 
 		RouterModule, 
 		ComponentsModule,
-		BrowserAnimationsModule,
+		// BrowserAnimationsModule,
 		FormsModule, 
 		SharedModule,
 		HttpClientModule,
@@ -65,11 +62,11 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 			}
 		}),
 		BsDatepickerModule.forRoot(),
-		// ServiceWorkerModule.register('ngsw-worker.js', {
-		// 	enabled: environment.production
-		// }),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
-  		AppRoutingModule,
+		AppRoutingModule,
+		// ToastrModule.forRoot({
+		// 	positionClass: 'toast-top-center'
+		// }),
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
