@@ -100,20 +100,18 @@
     border: 1px solid #ffffff35;
     font-size: 14px;
     cursor: pointer;
-    opacity: 0;
+    display: none;
     position: absolute;
     top: 100%;
     right: -1px;
-}
-.j-language-btn:hover .lang-list{
-    opacity: 1;
+    z-index: 100;
 }
 .j-language-btn:hover{
     border-color: #ffffff35;
-    border-bottom: none;
+    border-bottom-color: var(--dl-color-gray-black);
 }
 .j-language-btn:hover .lang-list{
-    opacity: 1;
+    display: block;
     background-color: var(--dl-color-gray-black);
 }
 .j-language-btn .lang-list .lang-item{

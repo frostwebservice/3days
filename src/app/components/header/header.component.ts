@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Cookie } from 'src/app/utils/cookie';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -60,5 +60,19 @@ export class HeaderComponent {
 	}
 	changeLang(lang: Lang): void {
         this.langService.changeLang(lang.code);
+    }
+	ngOnInit(): void {
+        this.languageSubscription && this.languageSubscription.unsubscribe();
+        this.languageSubscription = this.langService.language$.subscribe(
+            (code: string) => {
+                LANG_OPTIONS.some((e: Lang) => {
+                if (e.code === code) {
+                    this.selectedLanguage = e;
+                    return true;
+                }
+                return false;
+                });
+            }
+        );
     }
 }
