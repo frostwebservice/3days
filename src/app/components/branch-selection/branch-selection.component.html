@@ -9,20 +9,24 @@
         <h3 class="j-smalltitle-size mb-4 mt-4 text-white">اختر فرع النادي</h3>
         <!-- <p class="j-tnSize gdTColor">اختر الفرع الي تود التدرب فيه</p> -->
         <div class="j-form-group">
-            <label for="branch" class="j-inputbox-label">{{'Select_branch_ which_train.'|translate}}</label>
+            <label for="branch" class="j-inputbox-label mb-2">{{'Select_branch_which_train.'|translate}}</label>
             <div class="j-input-icons j-input-icon-right">
                 <i class="j-icon j-icon-right j-clickable j-icon-person"></i>
-                <select class="j-inputbox dropdown-right-arrow" id="branch" name = "branch">
-                    <option>{{'choose_branch'|translate}}</option>
-                    <option *ngFor="let branch of branches" value="{{branch.id}}">
-                        {{branch.name}}
+                <select class="j-inputbox dropdown-right-arrow d-none" [(ngModel)]="selectedBranchId">
+                    <option *ngFor="let branch of branches" value="{{branch.id}}" [selected] = 'branch.id == selectedBranchId'>
+                        {{branch.name_ar}}
+                    </option>
+                </select>
+                <select class="j-inputbox dropdown-right-arrow " [(ngModel)]="selectedBranchId">
+                    <option *ngFor="let branch of branches" value="{{branch.id}}" [selected] = 'branch.id == selectedBranchId'>
+                        {{branch.name_en}}
                     </option>
                 </select>
             </div>
         </div>
         <div class="j-select mt-4">
             <div class="j-form-group">
-                <button type="button" class="j-left-button button j-submit-button"><span>{{'Save'|translate}}</span></button>
+                <button type="button" class="j-left-button button j-submit-button" (click)="setDefaultBranch()"><span>{{'Save'|translate}}</span></button>
             </div>
         </div>
     </div>

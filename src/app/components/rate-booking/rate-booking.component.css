@@ -1,0 +1,32 @@
+.j-booking-review{
+    text-align: right;
+    border: 1px solid;
+    height: 100%;
+}
+.j-booking-review .j-booking-review-box-list{
+    display:flex;
+    justify-content: space-between;
+}
+.j-booking-review .j-booking-review-box-list .j-star{
+    width : 56px;
+    height: 56px;
+}
+.j-booking-review .j-booking-review-box-list .j-review-item.active .j-star{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50% 50%;
+    background-image: url(/assets/img/star.svg);
+}
+.j-booking-review .j-comment-box{
+    height: 160px;
+    padding :8px;
+}
+.j-booking-review .j-approval{
+    width: 100%;
+}
+@media(max-width: 375px) {
+    .j-booking-review .j-booking-review-box-list .j-star{
+        width : 42px;
+        height: 42px;
+    }
+}

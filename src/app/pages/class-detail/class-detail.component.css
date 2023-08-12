@@ -1,7 +1,7 @@
 .class-detail-container{
     align-items: flex-end;
     text-align: right;
-    padding-top: 0 !important;
+    /* padding-top: 0 !important; */
 }
 .class-detail-container .j-class-photo {
     background-color: #FFF;
@@ -12,7 +12,7 @@
     width: 100%;
 }
 .class-detail-container .j-class-photo img{
-    height: 320px;
+    height: 240px;
     width: auto;
 }
 .class-detail-container .j-class-subject{
@@ -40,8 +40,8 @@
     padding: 0px var(--dl-space-space-halfunit);
 }
 .class-detail-container .j-item-img{
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -50,7 +50,7 @@
     background-color:white;
 }
 .class-detail-container .j-item-img.j-type-icon{
-    background-size: 50% 50%;
+    background-size: 40% 40%;
 }
 .j-class-appointments .j-list{
     flex-wrap: wrap;
@@ -65,7 +65,7 @@
 }
 @media(max-width: 767px) {
     .class-detail-container .j-class-photo img{
-        height: 240px;
+        height: 180px;
     }
     .class-detail-container .j-item-img{
         width: 32px;

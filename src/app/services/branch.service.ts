@@ -151,5 +151,132 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('GET MEMBER BOOKINGS', false))
 			);
 	}
+	public cancelBooking(booking_id:number): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.CANCEL_BOOKING,
+				{
+					booking_id:booking_id
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('CANCEL BOOKING', false))
+			);
+	}
+	public rateBooking(review): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.SESSION_RATING,review,
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('RATE BOOKING', false))
+			);
+	}
+	public suspendSubscription(data): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.SUSPEND_SUBSCRIPTION,data,
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('SUSPEND SUBSCRIPTION', false))
+			);
+	}
 	
+	public cancelSubscription(subscription_id): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.CANCEL_SUBSCRIPTION,
+				{
+					subscription_id : subscription_id
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('CANCEL SUBSCRIPTION', false))
+			);
+	}
+
+	public reactivateSubscription(subscription_id): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.REACTIVE_SUBSCRIPTION,
+				{
+					subscription_id : subscription_id
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('REACTIVE SUBSCRIPTION', false))
+			);
+	}
+
+	public buySubscription(subscription): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.BUY_SUBSCRIPTION,subscription,
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('BUY SUBSCRIPTION', false))
+			);
+	}
+	public checkCoupon(product_id:number,coupon_code: string = ""): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BRANCH.GET_PTS_PER_BRANCH,
+				{ 
+					coupon_code: coupon_code ,
+					product_id: product_id 
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('CEHCK COUPON', false))
+			);
+	}
 }

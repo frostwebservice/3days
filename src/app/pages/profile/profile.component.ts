@@ -5,13 +5,10 @@ import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { Cookie } from 'src/app/utils/cookie';
 import { LoaderService } from 'src/app/services/loader.service';
-import { Lang } from 'src/app/utils/data.types';
-import { Subscription } from 'rxjs';
-import { LANG_OPTIONS } from 'src/app/constants/variable.constants';
-import { LangService } from 'src/app/services/lang.service';
 
 import { MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { ReferralCodeComponent } from 'src/app/components/referral-code/referral-code.component';
+// import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-profile',
@@ -37,8 +34,8 @@ export class Profile {
 		private router: Router,
 		private route: ActivatedRoute,
         private loadingService: LoaderService,
-        private langService: LangService,
-        private dialog: MatDialog
+        private dialog: MatDialog,
+        // private toastr: ToastrService
     ) {
             this.loadingService.setLoading(true);
             this.title.setTitle('Profile - 3 Days');
@@ -63,14 +60,7 @@ export class Profile {
     }
    
     current_user_profile;
-    languages: Lang[] = LANG_OPTIONS;
-    languageSubscription: Subscription;
-    selectedLanguage: Lang = null;
-    
-    changeLang(lang: Lang): void {
-        this.langService.changeLang(lang.code);
-    }
-    openReferralCodeDialog() {
+     openReferralCodeDialog() {
         const dialogConfig = new MatDialogConfig();
 
         // dialogConfig.disableClose = true;
@@ -95,17 +85,5 @@ export class Profile {
         }
     }
     ngOnInit(): void {
-        this.languageSubscription && this.languageSubscription.unsubscribe();
-        this.languageSubscription = this.langService.language$.subscribe(
-            (code: string) => {
-                LANG_OPTIONS.some((e: Lang) => {
-                if (e.code === code) {
-                    this.selectedLanguage = e;
-                    return true;
-                }
-                return false;
-                });
-            }
-        );
     }
 }

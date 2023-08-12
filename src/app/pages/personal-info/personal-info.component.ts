@@ -21,7 +21,7 @@ export class PersonalInfo implements OnInit {
 	submitting = false;
 	constructor(
 		private userService: UserService,
-        private loadingService: LoaderService,
+        private loadingService: LoaderService
 	) {
         this.loadingService.setLoading(true);
 		this.userService.getProfile().then((res) => {

@@ -26,10 +26,10 @@
                     </div>
                     <div class="j-submit mt-2 d-flex">
                         <app-polygon-border-div j-class="j-left j-3days">
-                            <button class="j-submit-btn _3dayColor j-tnSize" *ngIf = "subs.status == 'active'">{{'Freeze' | translate}}</button>
+                            <button class="j-submit-btn _3dayColor j-tnSize" *ngIf = "subs.status == 'active'" (click) = "suspendSubscription(subs)">{{'Freeze' | translate}}</button>
                         </app-polygon-border-div>
                         <app-polygon-border-div j-class="j-right j-danger">
-                            <button class="j-submit-btn j-dangerColor j-tnSize" *ngIf = "subs.status == 'active'">{{'Cancel' | translate}}</button>
+                            <button class="j-submit-btn j-dangerColor j-tnSize" *ngIf = "subs.status == 'active'" (click) = "cancelSubscription(subs)">{{'Cancel' | translate}}</button>
                         </app-polygon-border-div>
                     </div>
                 </div>

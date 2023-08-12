@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CancelSubscriptionComponent } from './cancel-subscription.component';
+import { CancelsubscriptionComponent } from './cancel-subscription.component';
 
-describe('CancelSubscriptionComponent', () => {
-  let component: CancelSubscriptionComponent;
-  let fixture: ComponentFixture<CancelSubscriptionComponent>;
+describe('CancelsubscriptionComponent', () => {
+  let component: CancelsubscriptionComponent;
+  let fixture: ComponentFixture<CancelsubscriptionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CancelSubscriptionComponent ]
+      declarations: [ CancelsubscriptionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CancelSubscriptionComponent);
+    fixture = TestBed.createComponent(CancelsubscriptionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -25,7 +25,8 @@ export const BOOKING = {
     CANCEL_SUBSCRIPTION: 'cancel-subscription',
     REACTIVE_SUBSCRIPTION: 'reactivate-subscription',
     SESSION_RATING: 'class-session-ratings',
-    BUY_SUBSCRTIPTION: 'member/subscriptions/buy',
+    BUY_SUBSCRIPTION: 'member/subscriptions/buy',
+    CHECK_COUPON: 'check-coupon',
 };
 export const PROFILE = {
     GET_PROFILE: 'profile',
@@ -34,5 +35,4 @@ export const PROFILE = {
     TERMS_CONDITIONS: 'terms-and-conditions',
     GET_INVOICES: 'member/payments',
     POLICY: 'policy',
-    CHECK_COUPON: 'check-coupon',
 };

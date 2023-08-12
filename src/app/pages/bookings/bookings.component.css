@@ -46,6 +46,9 @@
 	align-items: center;
 }
 /* -------------------------------------------------------------- */
+.j-appointments-tab{
+	width: 100%;
+}
 .j-appointments-tab .j-appointment-item{
     margin-top: 16px;
 }

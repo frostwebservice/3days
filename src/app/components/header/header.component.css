@@ -58,11 +58,13 @@
     border-width: 0px;
     background-color: var(--dl-color-primary-3days);
     text-decoration: none;
+    font-size: 13px;
 }
 .app-navbar-logout {
     border: 1px solid var(--dl-color-grey-black);
     background-color: var(--dl-color-grey-black);
     text-decoration: none;
+    padding: 0.5rem 0.5rem;
 }
 .app-navbar-logout:hover {
     border-color: #ffffff35;
@@ -75,6 +77,59 @@
     min-height: 20px;
     display: flex;
 }
+.j-language-btn{
+    position: relative;
+    color: var(--dl-color-grey-white);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dl-color-grey-black);
+    border: 1px solid var(--dl-color-grey-black);
+    margin-right: 10px;
+    padding: 0.5rem 0.5rem;
+}
+.j-language-btn .j-icon.i-icon-earth{
+    background: url(/assets/img/earth.svg) no-repeat;
+    background-position: center;
+    width: 15px;
+    height: 15px;
+    display: block;
+}
+
+.j-language-btn .lang-list{
+    border: 1px solid #ffffff35;
+    font-size: 14px;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: -1px;
+    z-index: 100;
+}
+.j-language-btn:hover{
+    border-color: #ffffff35;
+    border-bottom-color: var(--dl-color-gray-black);
+}
+.j-language-btn:hover .lang-list{
+    display: block;
+    background-color: var(--dl-color-gray-black);
+}
+.j-language-btn .lang-list .lang-item{
+    padding: 8px 16px;
+    cursor: pointer;
+}
+.j-language-btn .lang-list .lang-item:hover{
+    opacity: 0.7;
+}
+.j-language-btn .language-icon i{
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
 .app-navbar-mobile-menu {
     top: 0px;
     left: 0px;

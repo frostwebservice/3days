@@ -69,13 +69,14 @@
 											</div>
 										</div>
 									</div>
-									<div *ngIf = "appointment.status=='completed'" class="mt-3 j-apply-btn">
+									<!-- j-frost I changed completed to cancelled to test review -->
+									<div *ngIf = "appointment.status=='completed'" class="mt-3 j-apply-btn" (click) = "rateBooking(appointment)">
 										<app-polygon-border-div j-class='j-left j-3days' class="text-center" >
 											<div class="j-btn _3dayColor p-2">{{'Rate review'|translate}}</div>
 										</app-polygon-border-div>
 									</div>
 									
-									<div *ngIf = "appointment.status=='created'" class="mt-3 j-cancel-btn">
+									<div *ngIf = "appointment.status=='created'" class="mt-3 j-cancel-btn"  (click) = "cancelBooking(appointment)">
 										<app-polygon-border-div j-class='j-left j-danger' class="text-center" >
 											<div class="j-btn j-dangerColor p-2">{{'reservation_cancel' | translate}}</div>
 										</app-polygon-border-div>

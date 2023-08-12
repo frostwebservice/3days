@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 	user = {
 		mobile: '',
 		password: '',
-		client_id : 0,
+		client_id : 3,
 		preferred_language : 'en',
 	};
 	// user = {

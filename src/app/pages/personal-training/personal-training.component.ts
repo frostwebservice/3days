@@ -4,6 +4,9 @@ import { UserService } from 'src/app/services/user.service';
 import { BranchService } from 'src/app/services/branch.service';
 import { LoaderService } from 'src/app/services/loader.service';
 import { Product } from 'src/app/models/product.model';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { ClassDetail } from '../class-detail/class-detail.component';
+
 import * as moment from 'moment';
 
 @Component({
@@ -26,7 +29,8 @@ export class PersonalTraining implements OnInit {
     constructor(
         private userService: UserService,
         private loadingService: LoaderService,
-		private branchService: BranchService
+		private branchService: BranchService,
+		private dialog: MatDialog
     ) { 
         this.branch_id = this.userService.getDefaultBranchId();
         this.getAllPts();
@@ -49,6 +53,7 @@ export class PersonalTraining implements OnInit {
     changeDate($event){
 		this.getAllPts();
 	}
+
     ngOnInit(): void {
     }
 

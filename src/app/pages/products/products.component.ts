@@ -5,6 +5,8 @@ import { UserService } from 'src/app/services/user.service';
 import { BranchService } from 'src/app/services/branch.service';
 import { LoaderService } from 'src/app/services/loader.service';
 import { Product } from 'src/app/models/product.model';
+import { Checkout } from '../../components/checkout/checkout.component';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import * as moment from 'moment';
 
 @Component({
@@ -25,7 +27,9 @@ export class Products implements OnInit {
 	constructor(private title: Title, private meta: Meta,        
 		private userService: UserService,
         private loadingService: LoaderService,
-		private branchService: BranchService) {
+		private branchService: BranchService,
+		private dialog: MatDialog
+		) {
 			this.title.setTitle('Products - 3 Days');
 			this.meta.addTags([
 				{
@@ -66,6 +70,21 @@ export class Products implements OnInit {
 	}
 	changeDate($event){
 		this.getAllPts();
+	}
+	buySubscription(subscription){
+		const dialogConfig = new MatDialogConfig();
+		dialogConfig.autoFocus = true;
+		dialogConfig.data = {
+			title: 'Buy Subscription',
+			subscription : subscription
+		};
+		this.dialog.open(Checkout, dialogConfig)
+		.afterClosed()
+		.subscribe((res) => {
+			console.log(res);
+			if (res.status) {
+			}
+		});
 	}
 	ngOnInit(): void {}
 }

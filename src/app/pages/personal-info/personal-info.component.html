@@ -1,13 +1,8 @@
 <app-header page_name="profile" ngClass="j-page-section"></app-header>
 <div class="personal-info-container j-front-page page-container">
     <div class="j-inner-container">
-        <div class="backToProfile" [routerLink] = "'/profile'">
-            <app-polygon-border-div j-class="j-left">
-                <div class="back-icon">
-                    <i class="j-icon bi bi-person"></i>
-                </div>
-            </app-polygon-border-div>
-        </div>
+        <app-back-profile-icon></app-back-profile-icon>
+        <app-select-branch-icon></app-select-branch-icon>
         <div class="page-title mb-5 mt-5">
             <h3 class="j-title-size text-white">{{'Personal data'|translate}}</h3>
         </div>

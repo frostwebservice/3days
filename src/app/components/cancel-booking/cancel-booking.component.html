@@ -1,0 +1,18 @@
+<div class="app-cancel-booking modal-container j-front-page">
+    <div class="j-inner-wrap">
+        <h4 class="j-tinySubtitle-size gdTColor mb-4 mt-4">{{'cancel_reservation'|translate}}</h4>
+        <div class="d-flex flex-row-reverse">
+            <app-polygon-border-div j-class="j-left">
+                <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/person-cross.svg);"></div>
+            </app-polygon-border-div>
+        </div>
+        <h3 class="j-membership-name j-smalltitle-size mb-4 mt-4 text-white d-none">{{data.appointment.english_class_name}}</h3>
+        <h3 class="j-membership-name j-smalltitle-size mb-4 mt-4 text-white">{{data.appointment.arabic_class_name}}</h3>
+        <p class="j-freeze-desc j-tnSize gdTColor">{{'really_cancel_question' | translate}}</p>
+        <div class="j-cancel mt-4">
+            <div class="j-form-group">
+                <button type="button" class="j-left-button j-submit-button" (click) = "cancelBooking(data.appointment.id)"><span>{{'cancel_reservation'|translate}}</span></button>
+            </div>
+        </div>
+    </div>
+</div>

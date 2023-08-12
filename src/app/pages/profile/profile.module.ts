@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common'
 import { ComponentsModule } from '../../components/components.module'
 import { Profile } from './profile.component'
 import { TranslateModule } from '@ngx-translate/core'
+import { SharedModule } from 'src/app/shared/shared.module'
 
 const routes = [
 	{
@@ -19,6 +20,7 @@ const routes = [
 		ComponentsModule, 
 		RouterModule.forChild(routes),
 		TranslateModule.forChild({ extend: true }),
+		SharedModule
 	],
 	exports: [Profile],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
