@@ -265,7 +265,7 @@ export class BranchService extends HttpService {
 		});
 		return this.httpClient
 			.post(
-				this.server + BRANCH.GET_PTS_PER_BRANCH,
+				this.server + BOOKING.CHECK_COUPON,
 				{ 
 					coupon_code: coupon_code ,
 					product_id: product_id 

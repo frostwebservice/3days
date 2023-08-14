@@ -135,10 +135,10 @@ body {
 	flex-direction: row;
 }
 .j-lang-ar .j-en-text{
-	display: none;
+	display: none !important;
 }
 .j-lang-en .j-ar-text{
-	display: none;
+	display: none !important;
 }
 .j-error{
 	color: var(--dl-color-danger-500);
