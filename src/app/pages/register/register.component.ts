@@ -287,22 +287,41 @@ export class RegisterComponent implements OnInit {
 		});
 	}
 	signup(){
-		console.log(this.user);
 		this.userService.signup(this.user).subscribe((res) => {
-			if (res) {
+			this.isSubmitted = true;
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Signup failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Signup failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
 				this.token = res['data']['token'];
 				this.member_id = res['data']['id'];
 				this.currentUser = res['data'];
 				if (this.token) {
-						Cookie.setLogin(this.member_id);
-						Cookie.setClientId(this.user.client_id);
-						this.userService.setToken(this.token);
-						this.userService.setClientId(this.user.client_id);
-						this.userService.setUser(this.currentUser);
-						localStorage.setItem('u_pass', this.user.password);
+					Cookie.setLogin(this.member_id);
+					Cookie.setClientId(this.user.client_id);
+					this.userService.setToken(this.token);
+					this.userService.setClientId(this.user.client_id);
+					this.userService.setUser(this.currentUser);
+					localStorage.setItem('u_pass', this.user.password);
 				}
-				// this.isCompleted = true;
-				this.isSubmitted = true;
+				const toast: Toast = {
+					type: 'success',
+					title: 'Buy subscription succeeded',
+					body: res.message,
+				};
 			}
 		});
 	}

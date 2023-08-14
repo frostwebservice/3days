@@ -9,6 +9,7 @@ import { Lang } from 'src/app/utils/data.types';
 import { Subscription } from 'rxjs';
 import { LANG_OPTIONS } from 'src/app/constants/variable.constants';
 import { LangService } from 'src/app/services/lang.service';
+import { ToasterService, Toast } from 'angular2-toaster';
 
 // import { MatDialog } from '@angular/material/dialog';
 // import { ToastrService } from 'ngx-toastr';
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
 		private userService: UserService,
 		private router: Router,
 		private route: ActivatedRoute,
+		private toasterService: ToasterService,
         private langService: LangService
 	) { }
 
@@ -60,16 +62,34 @@ export class LoginComponent implements OnInit {
 			// this.user.client_id = this.user.client_id - 1;
 		}
 		this.userService.login(_user).subscribe((res) => {
-				this.submitting = false;
-				if (!res) {
-						return;
-			}
-			console.log(res);
-			if (res.token !== undefined && res.token !== ""){
-				this.goHome(res);
+			this.submitting = false;
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Login failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Login failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				if (res.token !== undefined && res.token !== ""){
+					const toast: Toast = {
+						type: 'success',
+						title: 'Login Success',
+						body: res.message,
+					};
+					this.goHome(res);
+				}
 			}
 		});
-		// this.userService.test(this.user);
 	}
 	changeLang(lang: Lang): void {
         this.langService.changeLang(lang.code);
