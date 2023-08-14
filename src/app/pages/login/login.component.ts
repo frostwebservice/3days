@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit {
 						title: 'Login Success',
 						body: res.message,
 					};
+					this.toasterService.pop(toast);
 					this.goHome(res);
 				}
 			}
@@ -85,6 +86,12 @@ export class LoginComponent implements OnInit {
 	}
 	changeLang(lang: Lang): void {
         this.langService.changeLang(lang.code);
+		const toast: Toast = {
+			type: 'success',
+			title: 'Success',
+			body: 'Change language successfully',
+		};
+		this.toasterService.pop(toast);
     }
 	goHome(data: any): void {
 		Cookie.setLogin(data.member.id);

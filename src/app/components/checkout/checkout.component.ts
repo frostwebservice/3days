@@ -99,6 +99,7 @@ export class Checkout implements OnInit {
 					title: 'Buy subscription succeeded',
 					body: res.message,
 				};
+				this.toasterService.pop(toast);
 			}
 			this.dialogRef.close(res);
 		});

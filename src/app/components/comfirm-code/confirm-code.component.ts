@@ -2,6 +2,7 @@ import { Component, OnInit ,Inject} from '@angular/core';
 import { MAT_DIALOG_DATA,MatDialogRef} from "@angular/material/dialog";
 import { UserService } from 'src/app/services/user.service';
 import { LoaderService } from 'src/app/services/loader.service';
+import { ToasterService, Toast } from 'angular2-toaster';
 @Component({
 		selector: 'app-confirm-code',
 		templateUrl: './confirm-code.component.html',
@@ -19,6 +20,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 	constructor(
 		private userService: UserService,
 		private loaderService: LoaderService,
+		private toasterService: ToasterService,
 		private dialogRef: MatDialogRef<ConfirmCodeComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: any
 	) {
@@ -32,6 +34,19 @@ import { LoaderService } from 'src/app/services/loader.service';
 				if (resend){
 					this.isSent = true;
 				}
+				const toast: Toast = {
+					type: 'success',
+					title: 'Success',
+					body: 'Send OTP successfully',
+				};
+				this.toasterService.pop(toast);
+			}else{
+				const toast: Toast = {
+					type: 'error',
+					title: 'Opps',
+					body: 'Something went wrong',
+				};
+				this.toasterService.pop(toast);
 			}
 		});
 	}
@@ -39,12 +54,25 @@ import { LoaderService } from 'src/app/services/loader.service';
 		this.submitting = true;
 		this.userService.verifyOTP(this.user)
 		.subscribe((status) => {
+			this.submitting = false;
 			if (status) {
 				this.isSent = true;
+				const toast: Toast = {
+					type: 'success',
+					title: 'Success',
+					body: 'Phone number verfied successfully',
+				};
+				this.toasterService.pop(toast);
+			}else{
+				const toast: Toast = {
+					type: 'error',
+					title: 'Oops',
+					body: 'Phone number verfication failed',
+				};
+				this.toasterService.pop(toast);
 			}
 			this.phone_verified = status;
 			this.dialogRef.close(this.phone_verified);
-			this.submitting = false;
 		});
 	}
 	ngOnInit(): void {
