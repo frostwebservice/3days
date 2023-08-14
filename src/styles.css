@@ -126,9 +126,19 @@ body {
     align-items: center;
     justify-content: center;
 }
-.j-flex-row-reverse{
+.j-lang-ar .j-flex-row-reverse{
 	display: flex;
 	flex-direction: row-reverse;
+}
+.j-lang-en .j-flex-row-reverse{
+	display: flex;
+	flex-direction: row;
+}
+.j-lang-ar .j-en-text{
+	display: none;
+}
+.j-lang-en .j-ar-text{
+	display: none;
 }
 .j-error{
 	color: var(--dl-color-danger-500);
@@ -381,7 +391,6 @@ body {
 	.j-front-page{
 		padding: var(--dl-space-space-oneunit);
 	}
-
 	.j-front-page .j-title-size{
 		font-size: 32px;
 	}

@@ -22,8 +22,8 @@
                 <ng-container *ngIf="cOption; else clubTemplate">
                     <div class="j-club-detail p-3 p-md-4">
                         <h4 class="j-subtitle-size gdTColor mb-5">{{'Club details'|translate}}</h4>
-                        <h3 class="j-club-name j-smalltitle-size mb-5 text-white">{{selectedBranch?.name_ar}}</h3>
-                        <h3 class="j-club-name j-smalltitle-size mb-5 text-white d-none">{{selectedBranch?.name_en}}</h3>
+                        <h3 class="j-club-name j-smalltitle-size mb-5 text-white j-ar-text">{{selectedBranch?.name_ar}}</h3>
+                        <h3 class="j-club-name j-smalltitle-size mb-5 text-white j-en-text">{{selectedBranch?.name_en}}</h3>
                         <div class="j-club-info row">
                             <div class="col-6 j-item">
                                 <app-polygon-border-div j-class = 'j-left j-icon'>
@@ -81,8 +81,8 @@
                 <ng-template #clubTemplate>
                     <div class="j-club-review p-3 p-md-4">
                         <h4 class="j-subtitle-size gdTColor mb-5">{{'share_evaluation'|translate}}</h4>
-                        <h3 class="j-club-name j-smalltitle-size mb-4 text-white">{{selectedBranch?.name_ar}}</h3>
-                        <h3 class="j-club-name j-smalltitle-size mb-4 text-white d-none">{{selectedBranch?.name_en}}</h3>
+                        <h3 class="j-club-name j-smalltitle-size mb-4 text-white j-ar-text">{{selectedBranch?.name_ar}}</h3>
+                        <h3 class="j-club-name j-smalltitle-size mb-4 text-white j-en-text">{{selectedBranch?.name_en}}</h3>
                         <h4 class="j-smallSubtitle-size mb-5 gdTColor">{{'share_assessnment'|translate}}</h4>
                         <div class="j-club-review-box-list">
                             <div (click) = "review(number)" *ngFor="let number of [1,2,3,4,5]">

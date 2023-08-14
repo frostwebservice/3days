@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -7,7 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 export class LangService {
 	lang: BehaviorSubject<string> = new BehaviorSubject(null);
 	language$ = this.lang.asObservable();
-
 	constructor() {}
 
 	/**

@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
 		console.log('login',this.user);
 		let _user = {...this.user};
 		if (byEnter){
-			this.user.client_id = this.user.client_id - 1;
+			// this.user.client_id = this.user.client_id - 1;
 		}
 		this.userService.login(_user).subscribe((res) => {
 				this.submitting = false;

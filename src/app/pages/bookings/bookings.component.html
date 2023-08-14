@@ -37,8 +37,8 @@
 									</div>
 								</app-polygon-border-div>
 								<div class="p-2">
-									<div class="j-appointment-classname gwTColor mb-3 mt-3 d-none">{{appointment.english_class_name}}</div>
-									<div class="j-appointment-classname gwTColor mb-3 mt-3">{{appointment.arabic_class_name}}</div>
+									<div class="j-appointment-classname gwTColor mb-3 mt-3 j-en-text">{{appointment.english_class_name}}</div>
+									<div class="j-appointment-classname gwTColor mb-3 mt-3 j-ar-text">{{appointment.arabic_class_name}}</div>
 									<div class="j-appointment-info gdTColor">
 										<div class="j-sub-info ">
 											<div class="j-info mb-3">
@@ -105,8 +105,8 @@
 									<div class="j-img j-trainer-photo" style="background-image: url({{session.trainer_banner === '' ? './assets/img/personavata.png': session.trainer_banner }});"></div>
 								</app-polygon-border-div>
 								<div class="j-session-info gwTColor j-tnSize">
-									<p class="mb-1">{{session.arabic_class_name}} {{session.trainer_name}}</p>
-									<p class="mb-1 d-none">{{session.english_class_name}} {{session.trainer_name}}</p>
+									<p class="mb-1 j-ar-text">{{session.arabic_class_name}} {{session.trainer_name}}</p>
+									<p class="mb-1 j-en-text">{{session.english_class_name}} {{session.trainer_name}}</p>
 									<p class="mb-1">{{session.trainer_name}} . {{session.start_time}} - {{session.end_time}}</p>
 									<!-- <p class="mb-0">{{session.count}} / 10.</p> -->
 								</div>

@@ -37,30 +37,32 @@ export class Profile {
         private dialog: MatDialog,
         // private toastr: ToastrService
     ) {
-            this.loadingService.setLoading(true);
-            this.title.setTitle('Profile - 3 Days');
-            this.meta.addTags([
-                {
-                    property: 'og:title',
-                    content: 'Profile - 3 Days',
-                },
-            ]);
-            this.userService.getProfile().then((res) => {
-                if (!res) {
-                    console.log('get_non_profile');
-                    return;
-                }
-                this.current_user_profile = res.data;
-                console.log(res);
-                this.loadingService.setLoading(false);
-
-            }).catch((err) => {
-                console.log(err);
-            });
+        this.title.setTitle('Profile - 3 Days');
+        this.meta.addTags([
+            {
+                property: 'og:title',
+                content: 'Profile - 3 Days',
+            },
+        ]);
+        this.loadingService.setLoading(true);
+        this.current_user_profile = this.userService.getUser();
+        this.loadingService.setLoading(false);
+        // this.userService.getProfile().then((res) => {
+        //     if (!res) {
+        //         console.log('get_non_profile');
+        //         return;
+        //     }
+        //     this.current_user_profile = res.data;
+        //     console.log(res);
+        //     this.loadingService.setLoading(false);
+            
+        // }).catch((err) => {
+        //     console.log(err);
+        // });
     }
    
     current_user_profile;
-     openReferralCodeDialog() {
+    openReferralCodeDialog() {
         const dialogConfig = new MatDialogConfig();
 
         // dialogConfig.disableClose = true;

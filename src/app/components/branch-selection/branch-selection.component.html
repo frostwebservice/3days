@@ -12,12 +12,12 @@
             <label for="branch" class="j-inputbox-label mb-2">{{'Select_branch_which_train.'|translate}}</label>
             <div class="j-input-icons j-input-icon-right">
                 <i class="j-icon j-icon-right j-clickable j-icon-person"></i>
-                <select class="j-inputbox dropdown-right-arrow d-none" [(ngModel)]="selectedBranchId">
+                <select class="j-inputbox dropdown-right-arrow j-ar-text" [(ngModel)]="selectedBranchId">
                     <option *ngFor="let branch of branches" value="{{branch.id}}" [selected] = 'branch.id == selectedBranchId'>
                         {{branch.name_ar}}
                     </option>
                 </select>
-                <select class="j-inputbox dropdown-right-arrow " [(ngModel)]="selectedBranchId">
+                <select class="j-inputbox dropdown-right-arrow j-en-text" [(ngModel)]="selectedBranchId">
                     <option *ngFor="let branch of branches" value="{{branch.id}}" [selected] = 'branch.id == selectedBranchId'>
                         {{branch.name_en}}
                     </option>

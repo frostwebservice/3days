@@ -1,4 +1,4 @@
-import { Component,OnDestroy } from '@angular/core';
+import { Component,OnDestroy,Renderer2 } from '@angular/core';
 import { LoaderService } from 'src/app/services/loader.service';
 import { LangService } from './services/lang.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -12,11 +12,12 @@ import { LangRegex, LANGUAGES } from './constants/variable.constants';
 })
 export class AppComponent {
 	title = '3 Days';
-
+	lang = 'en';
 	constructor( 
 		private loadingService: LoaderService,
 		private langService: LangService,
 		private translateService: TranslateService,
+		private renderer: Renderer2
 	) {
 		this.langSubscription && this.langSubscription.unsubscribe();
 		this.langSubscription = this.langService.language$.subscribe((lang) => {
@@ -28,16 +29,20 @@ export class AppComponent {
 		const browserLang = this.translateService.getBrowserLang();
 
 		const storageLang = localStorage.getItem('lang');
-		const lang = storageLang && storageLang.match(LangRegex)
+		this.lang = storageLang && storageLang.match(LangRegex)
 			? storageLang
 			: browserLang.match(/en|ar/)
 			? browserLang
 			: 'en';
-		this.langService.changeLang(lang);
+		this.langService.changeLang(this.lang);
+		
+		this.renderer.addClass(document.body, 'j-lang-'+this.lang);
 	}
 	langSubscription: Subscription;
 
 	ngOnDestroy(): void {
 		this.langSubscription && this.langSubscription.unsubscribe();
+		this.renderer.removeClass(document.body, 'j-lang-en');
+		this.renderer.removeClass(document.body, 'j-lang-ar');
 	}
 }
