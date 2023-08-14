@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { LANG_OPTIONS } from 'src/app/constants/variable.constants';
 import { LangService } from 'src/app/services/lang.service';
 import { Lang } from 'src/app/utils/data.types';
+import { ToasterService, Toast } from 'angular2-toaster';
 @Component({
 	selector: 'app-header',
 	templateUrl: 'header.component.html',
@@ -28,6 +29,7 @@ export class HeaderComponent {
 	constructor(
 		private router: Router,
 		private userService: UserService,
+		private toasterService: ToasterService,
         private langService: LangService
 	) {
 		this.isLoggedIn = this.userService.getUser()?.id > 0 && this.userService.getToken() !== "";	
@@ -50,16 +52,32 @@ export class HeaderComponent {
 				this.userService.clearLocalStorageItem('clientId');
 				this.userService.clearLocalStorageItem('user');
 				this.userService.clearLocalStorageItem('u_pass');
-
+				const toast: Toast = {
+					type: 'success',
+					title: 'Success',
+					body: "Log out successfully",
+				};
+				this.toasterService.pop(toast);
 				this.router.navigate(['/']);
 			},
 			() => {
-				console.log('LOG OUT FAILURE');
+				const toast: Toast = {
+					type: 'error',
+					title: 'Error',
+					body: "Log out failure",
+				};
+				this.toasterService.pop(toast);
 			}
 		);
 	}
 	changeLang(lang: Lang): void {
         this.langService.changeLang(lang.code);
+		const toast: Toast = {
+			type: 'success',
+			title: 'Success',
+			body: "Change Language successfully",
+		};
+		this.toasterService.pop(toast);
     }
 	ngOnInit(): void {
         this.languageSubscription && this.languageSubscription.unsubscribe();

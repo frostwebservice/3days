@@ -8,6 +8,7 @@ import { Product } from 'src/app/models/product.model';
 import { Cookie } from 'src/app/utils/cookie';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ConfirmCodeComponent } from 'src/app/components/comfirm-code/confirm-code.component';
+import { ToasterService, Toast } from 'angular2-toaster';
 
 @Component({
 	selector: 'app-register',
@@ -36,6 +37,7 @@ export class RegisterComponent implements OnInit {
 		private branchService: BranchService,
 		private router: Router,
 		private route: ActivatedRoute,
+		private toasterService: ToasterService,
 		private dialog: MatDialog
 	) {
 		this.onSearchBranch();
@@ -230,48 +232,96 @@ export class RegisterComponent implements OnInit {
 		this.keyword = searchValue;
 		this.branchService.getBranchList(this.user.client_id,this.keyword).subscribe((res) => {
 			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get branch list failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
 				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get branch list failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				this.clubs = res['data'];
+				this.user.default_branch = this.clubs[0]?.id;
 			}
-			this.clubs = res['data'];
-			this.user.default_branch = this.clubs[0]?.id;
 		});
 	}
 	getProducts(){
 		this.branchService.getProductList(this.user.client_id).subscribe((res) => {
 			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get product failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
 				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get product failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				res['data'].forEach(element => {
+					if (element.type == "subscription"){
+						this.subscriptions.push(element);
+						// console.log(element);
+					}else{
+						// console.log(element);
+						this.personalTrainings.push(element);
+					}
+				});
+				this.pt_option = this.personalTrainings[0]?.id;
+				this.sub_option = this.subscriptions[0]?.id;
 			}
-			console.log(res);
-			res['data'].forEach(element => {
-				if (element.type == "subscription"){
-					this.subscriptions.push(element);
-					// console.log(element);
-				}else{
-					// console.log(element);
-					this.personalTrainings.push(element);
-				}
-			});
-			this.pt_option = this.personalTrainings[0]?.id;
-			this.sub_option = this.subscriptions[0]?.id;
 		});
 	}
 	signup(){
-		console.log(this.user);
 		this.userService.signup(this.user).subscribe((res) => {
-			if (res) {
+			this.isSubmitted = true;
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Signup failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Signup failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
 				this.token = res['data']['token'];
 				this.member_id = res['data']['id'];
 				this.currentUser = res['data'];
 				if (this.token) {
-						Cookie.setLogin(this.member_id);
-						Cookie.setClientId(this.user.client_id);
-						this.userService.setToken(this.token);
-						this.userService.setClientId(this.user.client_id);
-						this.userService.setUser(this.currentUser);
-						localStorage.setItem('u_pass', this.user.password);
+					Cookie.setLogin(this.member_id);
+					Cookie.setClientId(this.user.client_id);
+					this.userService.setToken(this.token);
+					this.userService.setClientId(this.user.client_id);
+					this.userService.setUser(this.currentUser);
+					localStorage.setItem('u_pass', this.user.password);
 				}
-				// this.isCompleted = true;
-				this.isSubmitted = true;
+				const toast: Toast = {
+					type: 'success',
+					title: 'Buy subscription succeeded',
+					body: res.message,
+				};
 			}
 		});
 	}

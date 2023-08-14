@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { ToasterService, Toast } from 'angular2-toaster';
 
 @Component({
     selector: 'app-reset-password',
@@ -24,6 +25,7 @@ export class ResetPasswordComponent implements OnInit {
     constructor(    
         private router: Router,
         private route: ActivatedRoute,
+		private toasterService: ToasterService,
         private userService: UserService,
     ) { }
 
@@ -39,7 +41,20 @@ export class ResetPasswordComponent implements OnInit {
             .subscribe((status) => {
                 this.loading = false;
                 if (status) {
+                    const toast: Toast = {
+                        type: 'success',
+                        title: 'Success',
+                        body: 'Reset password successfully',
+                    };
+                    this.toasterService.pop(toast);
                     this.router.navigate(['/login']);
+                }else{
+                    const toast: Toast = {
+                        type: 'error',
+                        title: 'Oops',
+                        body: "Reset password failed",
+                    };
+                    this.toasterService.pop(toast);
                 }
             });
       }

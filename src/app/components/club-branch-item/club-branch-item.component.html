@@ -1,6 +1,7 @@
 <app-polygon-border-div j-class = 'j-left' class="j-club-branch-item" [ngClass]="{'selected': selected}">
     <div class="club-card">
-        <p class="club_name">{{club?.name_ar}} <span class="d-none">{{club?.name_en}}</span></p>
+        <p class="club_name">{{club?.name_ar}} <span class="j-en-text">{{club?.name_en}}</span></p>
+        <p class="club_name">{{club?.name_ar}} <span class="j-ar-text">{{club?.name_ar}}</span></p>
         <p class="club_address">{{club?.address1}} {{club?.address2}}</p>
         <div class="club-button-group">
             <app-polygon-border-div j-class = 'j-left' class="j-club-detail-btn"><a class="btn" (click)="loadClubDetail($event,club)">{{'Club_details'|translate}}</a></app-polygon-border-div>

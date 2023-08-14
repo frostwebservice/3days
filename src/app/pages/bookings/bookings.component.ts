@@ -4,6 +4,7 @@ import { TimeSession ,AppointmentItem} from 'src/app/utils/data.types';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { CancelBookingComponent } from 'src/app/components/cancel-booking/cancel-booking.component';
 import { RateBookingComponent } from 'src/app/components/rate-booking/rate-booking.component';
+import { ToasterService, Toast } from 'angular2-toaster';
 import {
 	NgbDateStruct,
 	NgbCalendar,
@@ -47,6 +48,7 @@ export class Bookings {
 		private userService: UserService,
         private loadingService: LoaderService,
 		private branchService: BranchService,
+		private toasterService: ToasterService,
 		private dialog: MatDialog
 		) {
 			this.title.setTitle('Bookings - 3 Days')
@@ -63,24 +65,52 @@ export class Bookings {
 	getMemberBookings(){
 		this.loadingService.setLoading(true);
 		this.branchService.getMemberBookings(this.userService.getDefaultBranchId()).subscribe((res) => {
-			if (!res) {
-				return;
-			}
-			console.log(res);
-			this.appointmentlist = res.data;
 			this.loadingService.setLoading(false);
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get member booking failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get member booking failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				this.appointmentlist = res.data;
+			}
 		});
 	}
 	getMemberPTSessions(){
 		console.log(this.session_date);
 		this.loadingService.setLoading(true);
 		this.branchService.getMemberPTSessions(this.userService.getDefaultBranchId(),moment(this.session_date).format('YYYY-MM-DD')).subscribe((res) => {
-			if (!res) {
-				return;
-			}
-			console.log(res);
-			this.sessionlist = res.data;
 			this.loadingService.setLoading(false);
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get member PT session failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get member PT session failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				this.sessionlist = res.data;
+			}
 		});
 	}
 	changeDate($event){

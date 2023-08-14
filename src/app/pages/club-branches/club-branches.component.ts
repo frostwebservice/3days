@@ -4,6 +4,7 @@ import {Branch} from 'src/app/utils/data.types';
 import { BranchService } from 'src/app/services/branch.service';
 import { UserService } from 'src/app/services/user.service';
 import { LoaderService } from 'src/app/services/loader.service';
+import { ToasterService, Toast } from 'angular2-toaster';
 
 @Component({
     selector: 'app-club-branches',
@@ -14,6 +15,7 @@ export class ClubBranches {
     constructor(
         private branchService: BranchService,
         private userService: UserService,
+		private toasterService: ToasterService,
         private loadingService: LoaderService
     ) { 
         this.onSearchBranch();
@@ -44,15 +46,27 @@ export class ClubBranches {
 	onSearchBranch(searchValue: string = ""): void {  
 		this.keyword = searchValue;
 		this.branchService.getBranchList(this.userService.getClientId(),this.keyword).subscribe((res) => {
-			if (!res) {
-                this.loadingService.setLoading(false);
-                console.log('non-search-branch');
-				return;
-			}
             this.loadingService.setLoading(false);
-            console.log(res['data']);
-			this.branches = res['data'];
-            this.selectedBranch  = this.branches[0];
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get branch failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get branch failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+                this.branches = res['data'];
+                this.selectedBranch  = this.branches[0];
+			}
 		});
 	}
     rateSession():void{

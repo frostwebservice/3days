@@ -6,6 +6,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 import { SuspendSubscriptionComponent } from 'src/app/components/suspend-subscription/suspend-subscription.component';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { CancelSubscriptionComponent } from 'src/app/components/cancel-subscription/cancel-subscription.component';
+import { ToasterService, Toast } from 'angular2-toaster';
 
 @Component({
     selector: 'app-subscriptions',
@@ -26,6 +27,7 @@ export class Subscriptions implements OnInit {
         private userService: UserService,
         private loadingService: LoaderService,
 		private branchService: BranchService,
+		private toasterService: ToasterService,
 		private dialog: MatDialog
     ) { 
         this.getMemberSubscriptions();
@@ -35,12 +37,26 @@ export class Subscriptions implements OnInit {
     getMemberSubscriptions(){
 		this.loadingService.setLoading(true);
 		this.branchService.getMemberSubscriptions().subscribe((res) => {
-			if (!res) {
-				return;
-			}
-			console.log(res);
-			this.slist = res.data;
 			this.loadingService.setLoading(false);
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get member subscription failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get member subscription failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				this.slist = res.data;
+			}
 		});
 	}
     suspendSubscription(subs){

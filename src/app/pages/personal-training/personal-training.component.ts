@@ -6,6 +6,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 import { Product } from 'src/app/models/product.model';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ClassDetail } from '../class-detail/class-detail.component';
+import { ToasterService, Toast } from 'angular2-toaster';
 
 import * as moment from 'moment';
 
@@ -30,6 +31,7 @@ export class PersonalTraining implements OnInit {
         private userService: UserService,
         private loadingService: LoaderService,
 		private branchService: BranchService,
+		private toasterService: ToasterService,
 		private dialog: MatDialog
     ) { 
         this.branch_id = this.userService.getDefaultBranchId();
@@ -42,12 +44,26 @@ export class PersonalTraining implements OnInit {
     getAllPts(){
 		this.loadingService.setLoading(true);
 		this.branchService.getBranchAllPTSessions(this.branch_id,moment(this.session_date).format('YYYY-MM-DD')).subscribe((res) => {
+            this.loadingService.setLoading(false);
 			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get PT session failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
 				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get PT session failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+                this.personalTrainings = res.data;
 			}
-			console.log(res);
-			this.personalTrainings = res.data;
-			this.loadingService.setLoading(false);
 		});
 	}
     changeDate($event){

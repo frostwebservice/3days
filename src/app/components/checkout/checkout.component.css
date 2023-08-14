@@ -7,15 +7,11 @@
 .payment-form .promo-code-field .j-active-wrap{
     display: flex;
     align-items:center;
-    left: 5px !important;
-}
-.payment-form .promo-code-field .j-active-wrap .j-active-btn{
-    background-color: var(--dl-color-primary-3days);
-    padding: 6px 16px;
+    left: 6px!important;
 }
 .payment-form .promo-code-field .j-active-btn{
     background-color: var(--dl-color-primary-3days);
-    padding: 6px 16px;
+    padding: 4px 14px;
 }
 .payment-form .promo-code-field .j-form-group input#promoCode{
     padding-left: 84px;
@@ -24,6 +20,9 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+}
+.payment-form #couponCode{
+    padding-right: 20px;
 }
 .payment-form .payment-result-field .price-item{
     display: flex;

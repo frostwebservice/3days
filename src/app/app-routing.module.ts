@@ -136,7 +136,7 @@ const routes: Routes = [
 @NgModule({
 	imports: [
 		CommonModule,
-		BrowserModule,
+		// BrowserModule,
 		RouterModule.forRoot(routes, {
 			useHash: false
 		})
