@@ -67,14 +67,6 @@ export class LoginComponent implements OnInit {
 				const toast: Toast = {
 					type: 'error',
 					title: 'Login failed',
-					body: "Something went wrong",
-				};
-				this.toasterService.pop(toast);
-				return;
-			}else if(!res.status){
-				const toast: Toast = {
-					type: 'error',
-					title: 'Login failed',
 					body: res.message,
 				};
 				this.toasterService.pop(toast);
