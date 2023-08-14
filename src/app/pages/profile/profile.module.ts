@@ -5,7 +5,6 @@ import { ComponentsModule } from '../../components/components.module'
 import { Profile } from './profile.component'
 import { TranslateModule } from '@ngx-translate/core'
 import { SharedModule } from 'src/app/shared/shared.module'
-
 const routes = [
 	{
 		path: '',

@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA,MatDialog,MatDialogRef} from "@angular/material/dialog";
 import { BranchService } from 'src/app/services/branch.service';
 import { UserService } from 'src/app/services/user.service';
+import { ToasterService, Toast } from 'angular2-toaster';
 import * as moment from 'moment';
 @Component({
 	selector: 'app-class-detail',
@@ -21,6 +22,7 @@ export class ClassDetail implements OnInit {
 		private dialogRef: MatDialogRef<ClassDetail>,
 		private branchService: BranchService,
 		private userService: UserService,
+		private toasterService: ToasterService,
         @Inject(MAT_DIALOG_DATA) public data: any
 	) {
 		this.personalTraining = data.personalTraining;
@@ -37,9 +39,28 @@ export class ClassDetail implements OnInit {
 		this.branchService.buySubscription(this.checkoutInfo).subscribe((res) => {
 			this.submitting = true;
 			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Reserve seat failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
 				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Reserve seat failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				const toast: Toast = {
+					type: 'success',
+					title: 'Reserve seat succeeded',
+					body: res.message,
+				};
 			}
-			console.log(res);
 			this.dialogRef.close(res);
 		});
 	}

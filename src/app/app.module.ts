@@ -27,6 +27,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
+import { ToasterModule ,ToasterService, ToasterConfig} from 'angular2-toaster';
 
 const config: SocketIoConfig = {
 	url: environment.api,
@@ -48,9 +49,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 	],
 	imports: [
 		BrowserModule, 
+		BrowserAnimationsModule,
 		RouterModule, 
 		ComponentsModule,
-		// BrowserAnimationsModule,
 		FormsModule, 
 		SharedModule,
 		HttpClientModule,
@@ -67,9 +68,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 		// ToastrModule.forRoot({
 		// 	positionClass: 'toast-top-center'
 		// }),
+		ToasterModule.forRoot(),
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
+		ToasterService,
+		{ provide: ToasterConfig, useClass: ToasterConfig },
 	],
 	bootstrap: [AppComponent],
 })

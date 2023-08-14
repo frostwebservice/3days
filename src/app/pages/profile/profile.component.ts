@@ -8,7 +8,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 
 import { MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { ReferralCodeComponent } from 'src/app/components/referral-code/referral-code.component';
-// import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
     selector: 'app-profile',
@@ -19,6 +19,7 @@ import { ReferralCodeComponent } from 'src/app/components/referral-code/referral
     ]  
 })
 export class Profile {
+
     pitems = [
         {id:'personal-data',label: 'Personal data',iconclass: 'j-icon-active-person',href:'/personal-data'},
         {id:'club-branches',label: 'Club branches',iconclass: 'j-icon-marker',href:'/branches'},
@@ -35,7 +36,6 @@ export class Profile {
 		private route: ActivatedRoute,
         private loadingService: LoaderService,
         private dialog: MatDialog,
-        // private toastr: ToastrService
     ) {
         this.title.setTitle('Profile - 3 Days');
         this.meta.addTags([

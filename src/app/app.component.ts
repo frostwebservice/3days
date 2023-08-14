@@ -4,7 +4,7 @@ import { LangService } from './services/lang.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { LangRegex, LANGUAGES } from './constants/variable.constants';
-
+import {ToasterConfig} from 'angular2-toaster';
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -13,11 +13,15 @@ import { LangRegex, LANGUAGES } from './constants/variable.constants';
 export class AppComponent {
 	title = '3 Days';
 	lang = 'en';
+	public toasterConfig: ToasterConfig = new ToasterConfig({
+        positionClass: 'toast-bottom-right', // Default toast position
+        timeout: 100000, // Default toast timeout in milliseconds
+    });
 	constructor( 
 		private loadingService: LoaderService,
 		private langService: LangService,
 		private translateService: TranslateService,
-		private renderer: Renderer2
+		private renderer: Renderer2,
 	) {
 		this.langSubscription && this.langSubscription.unsubscribe();
 		this.langSubscription = this.langService.language$.subscribe((lang) => {

@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule,NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgSpinBoxModule } from 'ng-spin-box';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     MatDialogModule,
     NgSpinBoxModule,
     BsDatepickerModule,
+    // NgbToastModule,
     // ToastrModule.forRoot()
   ],
   exports: [
