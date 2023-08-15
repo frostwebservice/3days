@@ -50,7 +50,7 @@
 .profile-container .profile-notification {
     display: flex;
     position: absolute;
-    right: 0px;
+    left: 0px;
     top: 10px;
 }
 .profile-container .profile-notification .notification-icon{

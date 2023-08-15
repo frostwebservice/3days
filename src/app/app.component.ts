@@ -15,7 +15,7 @@ export class AppComponent {
 	lang = 'en';
 	public toasterConfig: ToasterConfig = new ToasterConfig({
         positionClass: 'toast-bottom-right', // Default toast position
-        timeout: 100000, // Default toast timeout in milliseconds
+        timeout: 5000, // Default toast timeout in milliseconds
     });
 	constructor( 
 		private loadingService: LoaderService,
