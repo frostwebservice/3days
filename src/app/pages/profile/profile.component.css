@@ -1,9 +1,6 @@
 .profile-container{
     text-align:center;
 }
-.profile-container .container-inner{
-    position: relative;
-}
 .profile-container .profile-photo{
     display: flex;
     justify-content: center;
@@ -53,8 +50,8 @@
 .profile-container .profile-notification {
     display: flex;
     position: absolute;
-    right: 10px;
-    top: 0px;
+    left: 0px;
+    top: 10px;
 }
 .profile-container .profile-notification .notification-icon{
     width: 48px;

@@ -126,20 +126,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-.j-lang-ar .j-flex-row-reverse{
-	display: flex;
-	flex-direction: row-reverse;
-}
-.j-lang-en .j-flex-row-reverse{
-	display: flex;
-	flex-direction: row;
-}
-.j-lang-ar .j-en-text{
-	display: none !important;
-}
-.j-lang-en .j-ar-text{
-	display: none !important;
-}
 .j-error{
 	color: var(--dl-color-danger-500);
 	display: none;
@@ -217,7 +203,6 @@ body {
 }
 .j-inputbox{
 	background:var(--dl-color-grey-black);
-	text-align: right;
 	height: 44px;
     /* min-width: 350px; */
 	width:100%;
@@ -225,18 +210,6 @@ body {
 	color: white;
 	border:1px #FFFFFF14 solid;
 	padding: 2px 8px;
-}
-.j-input-icons .j-inputbox{
-	padding-right : var(--dl-space-space-threeunits);
-	padding-left: 8px;
-}
-.j-input-icons.j-input-icon-left .j-inputbox{
-	padding-right: 8px;
-	padding-left : var(--dl-space-space-threeunits);
-}
-.j-input-icons.j-input-icon-both .j-inputbox{
-	padding-left : var(--dl-space-space-threeunits);
-	padding-left : var(--dl-space-space-threeunits);
 }
 .j-submit-button.loading{
 	color: transparent!important;
@@ -271,12 +244,7 @@ body {
 	background-color: var(--dl-color-primary-3days);
 	cursor: pointer;
 }
-.j-form-group .j-input-icons i.j-icon.j-icon-right{
-	right: 0;
-}
-.j-form-group .j-input-icons i.j-icon.j-icon-left{
-	left: 0;
-}
+
 .j-form-group .j-input-icons i.bi.j-icon{
     display: flex;
     justify-content: center;
@@ -330,6 +298,8 @@ body {
     background-color: var(--dl-color-gray-black);
 	border: 1px solid var(--dl-color-grey-white);
 	border-radius: 4px;
+	overflow: auto;
+	max-height: 80vh;
 }
 .j-front-page.modal-container .j-form-group .j-submit-button{
 	height: 46px;
@@ -382,6 +352,63 @@ body {
 	-webkit-appearance: none;
 	margin: 0;
 }
+/* ---------------------------------------------------Multi lang----------------------------------------- */
+.j-lang-ar .j-flex-row-reverse{
+	display: flex;
+	flex-direction: row-reverse;
+}
+.j-lang-en .j-flex-row-reverse{
+	display: flex;
+	flex-direction: row;
+}
+.j-lang-ar .j-en-text{
+	display: none !important;
+}
+.j-lang-en .j-ar-text{
+	display: none !important;
+}
+
+.j-lang-ar .j-form-group .j-input-icons i.j-icon.j-icon-right{
+	right: 0;
+}
+.j-lang-ar .j-form-group .j-input-icons i.j-icon.j-icon-left{
+	left: 0;
+}
+.j-lang-en .j-form-group .j-input-icons i.j-icon.j-icon-right{
+	left: 0;
+}
+.j-lang-en .j-form-group .j-input-icons i.j-icon.j-icon-left{
+	right: 0;
+}
+.j-lang-ar .j-inputbox {
+    text-align: right;
+}
+.j-lang-en .j-inputbox {
+    text-align: left;
+}
+.j-lang-ar .j-input-icons .j-inputbox{
+	padding-right : var(--dl-space-space-threeunits);
+	padding-left: 8px;
+}
+.j-lang-ar .j-input-icons.j-input-icon-left .j-inputbox{
+	padding-right: 8px;
+	padding-left : var(--dl-space-space-threeunits);
+}
+.j-lang-ar .j-input-icons.j-input-icon-both .j-inputbox{
+	padding-left : var(--dl-space-space-threeunits);
+}
+.j-lang-en .j-input-icons .j-inputbox{
+	padding-left : var(--dl-space-space-threeunits);
+	padding-right: 8px;
+}
+.j-lang-en .j-input-icons.j-input-icon-left .j-inputbox{
+	padding-left: 8px;
+	padding-right : var(--dl-space-space-threeunits);
+}
+.j-lang-en .j-input-icons.j-input-icon-both .j-inputbox{
+	padding-right : var(--dl-space-space-threeunits);
+}
+/* ------------------------------------------------------------------------------------------------------ */
 .page-container a.j-text-hover:hover{
 	text-decoration: none;
     color: var(--dl-color-grey-dark) !important;
