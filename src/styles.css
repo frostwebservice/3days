@@ -330,6 +330,8 @@ body {
     background-color: var(--dl-color-gray-black);
 	border: 1px solid var(--dl-color-grey-white);
 	border-radius: 4px;
+	overflow: auto;
+	max-height: 80vh;
 }
 .j-front-page.modal-container .j-form-group .j-submit-button{
 	height: 46px;

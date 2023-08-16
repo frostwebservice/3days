@@ -1,86 +1,89 @@
 <div class="checkout-container modal-container j-front-page">
-    <div class="page-title mb-5 mt-5">
-        <h3 class="j-title-size gwTColor">{{'paying off'|translate}}</h3>
-    </div>
-    <form class="payment-form">
-        <div class="row">
-            <div class="col-md-6 col-12 payment-input-field">
-                <div class="j-form-group">
-                    <label class="j-inputbox-label">{{'Member'|translate}}</label>
-                    <div class="j-input-icons j-input-icon-right">
-                        <i class="j-icon j-icon-right j-icon-person"></i>
-                        <input type="text" class="j-inputbox j-en-text" [ngModel] = "user.english_name" name="english_name" readonly>
-                        <input type="text" class="j-inputbox j-ar-text" [ngModel] = "user.arabic_name" name="arabic_name" readonly>
-                        <!-- <input type="text" class="j-inputbox" id="member" name = "member" placeholder="Member"> -->
+    <div class="j-inner-wrap">
+        <div class="page-title mb-5 mt-5">
+            <h3 class="j-title-size gwTColor">{{'paying off'|translate}}</h3>
+        </div>
+    
+        <form class="payment-form">
+            <div class="row">
+                <div class="col-md-6 col-12 payment-input-field">
+                    <div class="j-form-group">
+                        <label class="j-inputbox-label">{{'Member'|translate}}</label>
+                        <div class="j-input-icons j-input-icon-right">
+                            <i class="j-icon j-icon-right j-icon-person"></i>
+                            <input type="text" class="j-inputbox j-en-text" [ngModel] = "user.english_name" name="english_name" readonly>
+                            <input type="text" class="j-inputbox j-ar-text" [ngModel] = "user.arabic_name" name="arabic_name" readonly>
+                            <!-- <input type="text" class="j-inputbox" id="member" name = "member" placeholder="Member"> -->
+                        </div>
                     </div>
-                </div>
-                <div class="j-form-group">
-                    <label for="product" class="j-inputbox-label">{{'Product'|translate}}</label>
-                    <div class="j-input-icons j-input-icon-right">
-                        <i class="j-icon j-icon-right j-icon-product"></i>
-                        <input type="text" class="j-inputbox j-en-text" [ngModel] = "product.english_name" name="product_english_name" readonly>
-                        <input type="text" class="j-inputbox j-ar-text" [ngModel] = "product.arabic_name" name="product_arabic_name" readonly>
+                    <div class="j-form-group">
+                        <label for="product" class="j-inputbox-label">{{'Product'|translate}}</label>
+                        <div class="j-input-icons j-input-icon-right">
+                            <i class="j-icon j-icon-right j-icon-product"></i>
+                            <input type="text" class="j-inputbox j-en-text" [ngModel] = "product.english_name" name="product_english_name" readonly>
+                            <input type="text" class="j-inputbox j-ar-text" [ngModel] = "product.arabic_name" name="product_arabic_name" readonly>
+                        </div>
                     </div>
-                </div>
-                <div class="j-form-group">
-                    <label for="start_date" class="j-inputbox-label">{{'Subscription Start Date'|translate}}</label>
-                    <div class="j-input-icons j-input-icon-right">
-                        <i class="j-icon j-icon-right j-clickable j-icon-calendar"></i>
-                        <input type="text" class="j-inputbox" id="start_date" name = "start_date" [(ngModel)] = "start_date" placeholder="Subscription Start Date" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}">
+                    <div class="j-form-group">
+                        <label for="start_date" class="j-inputbox-label">{{'Subscription Start Date'|translate}}</label>
+                        <div class="j-input-icons j-input-icon-right">
+                            <i class="j-icon j-icon-right j-clickable j-icon-calendar"></i>
+                            <input type="text" class="j-inputbox" id="start_date" name = "start_date" [(ngModel)] = "start_date" placeholder="Subscription Start Date" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}">
+                        </div>
                     </div>
-                </div>
-                <div class="j-form-group promo-code-field mt-5">
-                    <app-polygon-border-div class="" specify = "1" bgColor ="" borderColor="#c09043" [cornerStatus] = "[1,1,1,1]" cutRange = "15" weight="2" j-class = ''>
-                        <div class="j-inner-wrap p-3">
-                            <p class="text-center _3dayColor">{{'promotional code'|translate}}</p>
-                            <app-polygon-border-div j-class = 'j-left'>
-                                <div class="j-form-group">
-                                    <div class="j-input-icons j-input-icon-left">
-                                        <i class="j-icon j-icon-left j-active-wrap" (click) = "checkCoupon()">
-                                            <app-polygon-border-div j-class = 'j-left j-icon' class="bdTColor">
-                                                <div class="j-active-btn">{{'activation'|translate}}</div>
-                                            </app-polygon-border-div>
-                                        </i>
-                                        <input type="text" class="j-inputbox" id="couponCode" name = "couponCode" [(ngModel)] = "checkoutInfo.coupon_code" placeholder="3DAYJOIN">
+                    <div class="j-form-group promo-code-field mt-5">
+                        <app-polygon-border-div class="" specify = "1" bgColor ="" borderColor="#c09043" [cornerStatus] = "[1,1,1,1]" cutRange = "15" weight="2" j-class = ''>
+                            <div class="j-inner-wrap p-3">
+                                <p class="text-center _3dayColor">{{'promotional code'|translate}}</p>
+                                <app-polygon-border-div j-class = 'j-left'>
+                                    <div class="j-form-group">
+                                        <div class="j-input-icons j-input-icon-left">
+                                            <i class="j-icon j-icon-left j-active-wrap" (click) = "checkCoupon()">
+                                                <app-polygon-border-div j-class = 'j-left j-icon' class="bdTColor">
+                                                    <div class="j-active-btn">{{'activation'|translate}}</div>
+                                                </app-polygon-border-div>
+                                            </i>
+                                            <input type="text" class="j-inputbox" id="couponCode" name = "couponCode" [(ngModel)] = "checkoutInfo.coupon_code" placeholder="3DAYJOIN">
+                                        </div>
                                     </div>
-                                </div>
-                            </app-polygon-border-div>
+                                </app-polygon-border-div>
+                            </div>
+                        </app-polygon-border-div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12 payment-result-field mt-4">
+                    <app-polygon-border-div specify = "1" [cornerStatus] = "[1,1,1,1]" cutRange = "15" weight="2">
+                        <div class="j-inner-wrap p-4">
+                            <div class="price-item">
+                                <p class="gwTColor p-desc">{{'regist_price'|translate}}</p>
+                                <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.price}}</span></p>
+                            </div>
+                            <div class="price-item">
+                                <p class="gwTColor p-desc">{{'discount'|translate}}</p>
+                                <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{discount_price}}</span></p>
+                            </div>
+                            <div class="price-item">
+                                <p class="gwTColor p-desc">{{'after_discount_price'|translate}}</p>
+                                <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.price - discount_price}}</span></p>
+                            </div>
+                            <div class="price-item">
+                                <p class="gwTColor p-desc">{{'Tax'|translate}} 15%</p>
+                                <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.vat}}</span></p>
+                            </div>
+                            <div class="price-item">
+                                <p class="gwTColor p-desc">{{'Total'|translate}}</p>
+                                <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.amount_after_vat - discount_price}}</span></p>
+                            </div>
                         </div>
                     </app-polygon-border-div>
-                </div>
-            </div>
-            <div class="col-md-6 col-12 payment-result-field mt-4">
-                <app-polygon-border-div specify = "1" [cornerStatus] = "[1,1,1,1]" cutRange = "15" weight="2">
-                    <div class="j-inner-wrap p-4">
-                        <div class="price-item">
-                            <p class="gwTColor p-desc">{{'regist_price'|translate}}</p>
-                            <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.price}}</span></p>
+    
+                    <div class="j-checkout-pay mt-4">
+                        <div class="j-form-group">
+                            <button type="button" class="j-left-button button j-submit-button" [class.loading] = "submitting" (click) = "showGosell()"><span>{{'to push'|translate}}</span></button>
                         </div>
-                        <div class="price-item">
-                            <p class="gwTColor p-desc">{{'discount'|translate}}</p>
-                            <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{discount_price}}</span></p>
-                        </div>
-                        <div class="price-item">
-                            <p class="gwTColor p-desc">{{'after_discount_price'|translate}}</p>
-                            <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.price - discount_price}}</span></p>
-                        </div>
-                        <div class="price-item">
-                            <p class="gwTColor p-desc">{{'Tax'|translate}} 15%</p>
-                            <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.vat}}</span></p>
-                        </div>
-                        <div class="price-item">
-                            <p class="gwTColor p-desc">{{'Total'|translate}}</p>
-                            <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.amount_after_vat - discount_price}}</span></p>
-                        </div>
-                    </div>
-                </app-polygon-border-div>
-
-                <div class="j-checkout-pay mt-4">
-                    <div class="j-form-group">
-                        <button type="button" class="j-left-button button j-submit-button" [class.loading] = "submitting" (click) = "buy()"><span>{{'to push'|translate}}</span></button>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>

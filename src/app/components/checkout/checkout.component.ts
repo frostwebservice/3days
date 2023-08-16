@@ -4,9 +4,11 @@ import { MAT_DIALOG_DATA,MatDialog,MatDialogRef} from "@angular/material/dialog"
 import { BranchService } from 'src/app/services/branch.service';
 import { UserService } from 'src/app/services/user.service';
 import { ToasterService, Toast } from 'angular2-toaster';
-
+import { environment } from 'src/environments/environment';
 import * as moment from 'moment';
-BranchService
+// BranchService
+// declare var goSell;
+
 @Component({
 	selector: 'app-checkout',
 	templateUrl: './checkout.component.html',
@@ -76,7 +78,7 @@ export class Checkout implements OnInit {
 		this.checkoutInfo.start_date = moment(this.start_date).format('YYYY-MM-DD');
 
 		this.branchService.buySubscription(this.checkoutInfo).subscribe((res) => {
-			this.submitting = true;
+			this.submitting = false;
 			if (!res) {
 				const toast: Toast = {
 					type: 'error',
@@ -103,6 +105,10 @@ export class Checkout implements OnInit {
 			}
 			this.dialogRef.close(res);
 		});
+	}
+	showGosell(){
+		this.buy();
+		// goSell.openLightBox();
 	}
 	ngOnInit(): void {
 	}
