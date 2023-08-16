@@ -10,7 +10,8 @@
     "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    // "src/**/*.d.ts" // Include your declaration file here
   ],
   "exclude": [
     "src/test.ts",
