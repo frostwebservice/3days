@@ -193,7 +193,7 @@
 										</label>
 										<div class="j-input-icons j-input-icon-both" [ngClass] = "{'j-verified' : phone_verified}">
 											<i class="j-icon j-icon-left bi bi-chat-left-text" [ngClass]="{'j-clickable':!mobile.invalid && !phone_verified}" (click) = "openConfirmDialog()"></i>
-											<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="رقم الجوال" required  pattern = '^[- +()0-9]+' #mobile="ngModel" [readonly]="phone_verified"> 
+											<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="رقم الجوال" required  pattern = '^05\d{8}$' #mobile="ngModel" [readonly]="phone_verified"> 
 											<i class="j-icon j-icon-right j-icon-phone"></i>
 										</div>
 									</div>
