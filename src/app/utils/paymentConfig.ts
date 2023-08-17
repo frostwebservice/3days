@@ -40,7 +40,7 @@ export const goSellPaymentConfiguration = {
 		}
 	},
 	customer : {
-		id:"cus_m1QB0320181401l1LD1812485",
+		id:"",
 		first_name: "",
 		middle_name: "",
 		last_name: "",

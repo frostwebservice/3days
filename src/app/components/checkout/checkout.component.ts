@@ -113,7 +113,7 @@ export class Checkout implements OnInit {
 		// this.buy();
 		let customer = {
 			...this.paymentConf.customer,
-			id : "cus_" + this.user.national_id,
+			// id : "cus_" + this.user.national_id,
 			first_name : this.user.english_name,
 			email : this.user.email,
 			phone: {
@@ -151,9 +151,32 @@ export class Checkout implements OnInit {
 			transaction: transaction,
 			order: order
 		}
-		goSell.config(
-			this.paymentConf
-		);
+		goSell.config({
+			...this.paymentConf,
+			callback:(response) => {
+				if (response?.id){
+					let success_message = response.currency + " " + response.amount + " Paid successfully. ID is " + response.id
+					const toast: Toast = {
+						type: 'success',
+						title: 'Payment Done',
+						body: success_message,
+					};
+					this.toasterService.pop(toast);
+					this.buy();
+				}else{
+					const toast: Toast = {
+						type: 'error',
+						title: 'Payment Failed',
+						body: response.message,
+					};
+					this.toasterService.pop(toast);
+					this.dialogRef.close(false);
+				}
+			},
+			onClose: () => {
+				console.log("onClose Event");
+			},
+		});
 		goSell.openLightBox();
 	}
 	ngOnInit(): void {
