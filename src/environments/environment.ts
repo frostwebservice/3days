@@ -6,7 +6,7 @@
 export const environment = {
 	production: false,
 	api: 'https://memvera.com/api/',
-	front: 'http://localhost:4200',
+	front: 'http://localhost:4200/',
 	domain: {
 		server: 'memvera.com',
 	},
