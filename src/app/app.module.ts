@@ -28,6 +28,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
 import { ToasterModule ,ToasterService, ToasterConfig} from 'angular2-toaster';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 const config: SocketIoConfig = {
 	url: environment.api,
@@ -65,9 +66,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 		BsDatepickerModule.forRoot(),
 		AgmCoreModule.forRoot({apiKey: 'AIzaSyAVqwHQGAyMBx6u8BD_FMn1Qo3wSYvYflc' }),
 		AppRoutingModule,
-		// ToastrModule.forRoot({
-		// 	positionClass: 'toast-top-center'
-		// }),
+		ClipboardModule,
 		ToasterModule.forRoot(),
 	],
 	providers: [

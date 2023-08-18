@@ -11,7 +11,7 @@
 			</div>
 		</div>
 		<div class="j-pts-tab" *ngIf = 'selected_tab == 1'>
-			<div class="j-form-group mb-4">
+			<div class="j-form-group mb-4 j-max-width-360">
 				<label for="session_date" class="j-inputbox-label">{{'Select_Date'|translate}}</label>
 				<div class="j-input-icons j-input-icon-left">
 					<input type="text" class="j-inputbox" id="session_date" [(ngModel)] = "session_date" #sessionDate="ngModel" name = "session_date" (ngModelChange)="changeDate($event)" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}">
