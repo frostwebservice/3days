@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { LoaderService } from 'src/app/services/loader.service';
+import { ToasterService, Toast } from 'angular2-toaster';
 
 @Component({
 	selector: 'app-personal-info',
@@ -21,7 +22,8 @@ export class PersonalInfo implements OnInit {
 	submitting = false;
 	constructor(
 		private userService: UserService,
-        private loadingService: LoaderService
+        private loadingService: LoaderService,
+		private toasterService: ToasterService,
 	) {
         this.loadingService.setLoading(true);
 		this.userService.getProfile().then((res) => {
@@ -39,8 +41,23 @@ export class PersonalInfo implements OnInit {
 	update(){
 		this.submitting = true;
 		this.userService.updateProfile(this.current_user_data)
-		.subscribe(() => {
-				this.submitting = false;
-			});
+		.subscribe((res) => {
+			this.submitting = false;
+			if (res.status){
+				const toast: Toast = {
+					type: 'success',
+					title: 'Success',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+			}else{
+				const toast: Toast = {
+					type: 'error',
+					title: 'Update failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+			}
+		});
 	}
 }

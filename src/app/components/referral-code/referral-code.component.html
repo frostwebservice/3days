@@ -8,10 +8,10 @@
         </div>
         <h3 class="j-smalltitle-size mb-4 mt-4 text-white text-uppercase">{{referral_code}}</h3>
         <p class="gwTColor j-tsSize">{{'share_code_25%'|translate}}</p>
-        <p class="gwTColor j-tsSize flex-row-reverse"><span class="gdTColor">{{'code_used_number'|translate}}</span> <span>{{data.count}}</span></p>
+        <p class="gwTColor j-tsSize flex-row-reverse"><span class="gdTColor">{{'code_used_number'|translate}}</span> <span> {{data.count}}</span></p>
         <div class="j-select mt-4">
             <div class="j-form-group">
-                <button type="button" class="j-left-button j-submit-button"><span>{{'Code_sharing'|translate}}</span></button>
+                <button type="button" class="j-left-button j-submit-button" (click)="copyToClipboard()"><span>{{'Code_sharing'|translate}}</span></button>
             </div>
         </div>
     </div>

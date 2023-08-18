@@ -44,7 +44,7 @@
 					</span>
 				</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="text" class="j-inputbox" tabindex = "1" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="Mobile Number" required  #mobile="ngModel" pattern = '[- +()0-9]+'> 
+					<input type="text" class="j-inputbox" tabindex = "1" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="Mobile Number" required  #mobile="ngModel" pattern = '^05\d{8}$'> 
 					<i class="j-icon j-icon-right j-icon-phone"></i>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 					</span>
 				</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="password" class="j-inputbox" id="password" name="password" tabindex = "3" [(ngModel)]="user.password" placeholder="كلمة المرور" #password="ngModel" required>
+					<input type="password" class="j-inputbox" id="password" name="password" tabindex = "3" [(ngModel)]="user.password" placeholder="{{'password' | translate}}" #password="ngModel" required>
 					<i class="j-icon j-icon-right j-icon-key"></i>
 				</div>
 			</div>

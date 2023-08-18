@@ -134,6 +134,9 @@ body {
 	padding: var(--dl-space-space-twounits) var(--dl-space-space-threeunits);
 	/* padding-bottom: var(--dl-space-space-twounits); */
 }
+.j-front-page .j-max-width-360{
+	max-width: 360px;
+}
 .j-front-page .error {
 	font-size: 11px;
 	color: var(--dl-color-danger-300);
@@ -225,6 +228,8 @@ body {
 }
 .j-form-group .j-submit-button{
 	width: 100%;
+	max-width: 340px;
+	margin-left: auto;
 	height: 48px;
 	background-color: var(--dl-color-primary-3days);
 	font-size:20px;
@@ -352,6 +357,9 @@ body {
 	-webkit-appearance: none;
 	margin: 0;
 }
+.j-text-align-center {
+    text-align: center;
+}
 /* ---------------------------------------------------Multi lang----------------------------------------- */
 .j-lang-ar .j-flex-row-reverse{
 	display: flex;
@@ -385,6 +393,12 @@ body {
 }
 .j-lang-en .j-inputbox {
     text-align: left;
+}
+.j-lang-en .j-text-align {
+	text-align: left;
+}
+.j-lang-ar .j-text-align {
+	text-align: right;
 }
 .j-lang-ar .j-input-icons .j-inputbox{
 	padding-right : var(--dl-space-space-threeunits);

@@ -176,5 +176,6 @@
 	"resent_otp" : "Resent Code Successfully",
 	"Verified" : "Verified",
 	"Password doesn't match" : "Password doesn't match",
-	"Create an acccount" : "Create an acccount"
+	"Create an acccount" : "Create an acccount",
+	"Write here the details" : "Write here the details"
 }	

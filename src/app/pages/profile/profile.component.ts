@@ -47,25 +47,12 @@ export class Profile {
         this.loadingService.setLoading(true);
         this.current_user_profile = this.userService.getUser();
         this.loadingService.setLoading(false);
-        // this.userService.getProfile().then((res) => {
-        //     if (!res) {
-        //         console.log('get_non_profile');
-        //         return;
-        //     }
-        //     this.current_user_profile = res.data;
-        //     console.log(res);
-        //     this.loadingService.setLoading(false);
-            
-        // }).catch((err) => {
-        //     console.log(err);
-        // });
     }
    
     current_user_profile;
+    imageUrl:string = "./assets/img/manavatar.png";
     openReferralCodeDialog() {
-        const dialogConfig = new MatDialogConfig();
-
-        // dialogConfig.disableClose = true;
+        const dialogConfig = new MatDialogConfig();      
         dialogConfig.autoFocus = true;
         dialogConfig.data = {
             id: 1,
@@ -87,5 +74,17 @@ export class Profile {
         }
     }
     ngOnInit(): void {
+    }
+    onImageSelected(event: any) {
+        if (event.target.files && event.target.files.length > 0) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+        
+            reader.onload = (e: any) => {
+                this.imageUrl = e.target.result;
+            };
+    
+            reader.readAsDataURL(file);
+        }
     }
 }

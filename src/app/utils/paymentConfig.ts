@@ -1,9 +1,8 @@
-declare var goSell : any;
-
-goSell.config({
-	containerID:"goSell-container",
-	gateway:{
-		publicKey:"pk_test_Vlk842B1EA7tDN5QbrfGjYzh",
+export const goSellPaymentConfiguration = {
+	containerID : "goSell-container",
+	gateway : {
+		publicKey:"pk_test_1hsKbNj9MGIABwrDfPcYWRxU",
+		// publicKey:"pk_test_Vlk842B1EA7tDN5QbrfGjYzh",
 		language:"en",
 		contactInfo:true,
 		supportedCurrencies:"all",
@@ -11,12 +10,6 @@ goSell.config({
 		saveCardOption:false,
 		customerCards: true,
 		notifications:'standard',
-		callback:(response) => {
-			console.log('response', response);
-		},
-		onClose: () => {
-			console.log("onClose Event");
-		},
 		backgroundImg: {
 			url: 'imgURL',
 			opacity: '0.5'
@@ -46,20 +39,20 @@ goSell.config({
 			}
 		}
 	},
-	customer:{
-		id:"cus_m1QB0320181401l1LD1812485",
-		first_name: "First Name",
-		middle_name: "Middle Name",
-		last_name: "Last Name",
-		email: "demo@email.com",
+	customer : {
+		id:"",
+		first_name: "",
+		middle_name: "",
+		last_name: "",
+		email: "",
 		phone: {
 			country_code: "965",
 			number: "99999999"
 		}
 	},
-	order:{
+	order : {
 		amount: 100,
-		currency:"KWD",
+		currency:"SAR",
 		items:[{
 			id:1,
 			name:'item1',
@@ -71,52 +64,28 @@ goSell.config({
 				value: '10%'
 			},
 			total_amount: 'KD000.000'
-		},
-		{
-			id:2,
-			name:'item2',
-			description: 'item2 desc',
-			quantity:'x2',
-			amount_per_unit:'KD00.000',
-			discount: {
-				type: 'P',
-				value: '10%'
-			},
-			total_amount: 'KD000.000'
-		},
-		{
-			id:3,
-			name:'item3',
-			description: 'item3 desc',
-			quantity:'x1',
-			amount_per_unit:'KD00.000',
-			discount: {
-				type: 'P',
-				value: '10%'
-			},
-			total_amount: 'KD000.000'
 		}],
 		shipping:null,
 		taxes: null
 	},
-	transaction:{
+	transaction : {
 		mode: 'charge',
 		charge:{
-			saveCard: false,
+			saveCard: true,
 			threeDSecure: true,
 			description: "Test Description",
-			statement_descriptor: "Sample",
+			statement_descriptor: "Statement Descriptor",
 			reference:{
 				transaction: "txn_0001",
 				order: "ord_0001"
 			},
 			metadata:{},
 			receipt:{
-				email: false,
+				email: true,
 				sms: true
 			},
 			redirect: "./redirect.html",
 			post: null,
 		}
 	}
-});
+}
