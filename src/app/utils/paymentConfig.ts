@@ -1,3 +1,5 @@
+import { environment } from "src/environments/environment"
+
 export const goSellPaymentConfiguration = {
 	containerID : "goSell-container",
 	gateway : {
@@ -84,7 +86,7 @@ export const goSellPaymentConfiguration = {
 				email: true,
 				sms: true
 			},
-			redirect: "./redirect.html",
+			redirect: environment.front + "product",
 			post: null,
 		}
 	}

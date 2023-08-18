@@ -177,5 +177,7 @@
 	"Verified" : "Verified",
 	"Password doesn't match" : "Password doesn't match",
 	"Create an acccount" : "Create an acccount",
-	"Write here the details" : "اكتب هنا التفاصيل"
+	"Write here the details" : "اكتب هنا التفاصيل",
+	"select_branch" : "اختر فرع النادي",
+	"E-mail":"البريد الإلكتروني"
 }

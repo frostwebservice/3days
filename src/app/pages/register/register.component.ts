@@ -10,6 +10,7 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ConfirmCodeComponent } from 'src/app/components/comfirm-code/confirm-code.component';
 import { ToasterService, Toast } from 'angular2-toaster';
 
+import * as moment from 'moment';
 @Component({
 	selector: 'app-register',
 	templateUrl: 'register.component.html',
@@ -82,37 +83,15 @@ export class RegisterComponent implements OnInit {
 	// 	{ icon: '', label: 'الدفع', id: 'payment' },
 	// ];
 	
+	mem_res;
 	clubs: Branch[];
-	// clubs: Club[] = [
-	// 	{ name: 'Pulse & Power Gym', address: 'شارع موسى بن نصير، العليا، الرياض 12241، المملكة العربية السعودية',id: 100,email: 'pulsepowergym@hotmail.com',launch_date: '2023-05-01',capacity: 100,branch:'الفرع الرئيسي',type:'رجال' },
-	// 	{ name: 'ProFit Athletic Club', address: 'شارع آمنة بنت وهب، النعيم، جدة 23621، المملكة العربية السعودية' ,id: 101,email: 'pulsepowergym@hotmail.com',launch_date: '2023-05-01',capacity: 100,branch:'الفرع الرئيسي',type:'رجال' },
-	// 	{ name: 'الرياض لكمال الأجسام', address: 'طريق الملك خالد، العاقول، المدينة المنورة 42241، المملكة العربية السعودية' ,id: 102,email: 'pulsepowergym@hotmail.com',launch_date: '2023-05-01',capacity: 100,branch:'الفرع الرئيسي',type:'رجال' },
-	// 	{ name: 'Sculpt & Sprint Fitness Haven', address: 'الخالدية، المدينة المنورة 42317، المملكة العربية السعودية',id: 103,email: 'pulsepowergym@hotmail.com',launch_date: '2023-05-01',capacity: 100,branch:'الفرع الرئيسي',type:'رجال'  },
-		// { name: '_Pulse & Power Gym', address: 'شارع موسى بن نصير، العليا، الرياض 12241، المملكة العربية السعودية' },
-		// { name: '_ProFit Athletic Club', address: 'شارع آمنة بنت وهب، النعيم، جدة 23621، المملكة العربية السعودية' },
-		// { name: '_الرياض لكمال الأجسام', address: 'طريق الملك خالد، العاقول، المدينة المنورة 42241، المملكة العربية السعودية' },
-		// { name: '_Sculpt & Sprint Fitness Haven', address: 'الخالدية، المدينة المنورة 42317، المملكة العربية السعودية' },
-	// ];
-
 	subscriptions: Product[] = [];
-		//  = [
-		// { id:0, cycle: 'شهـــري', price: 2999 , currency: '$', _per: 'كل شهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-		// { id:1, cycle: 'ثـــلاث أشـــهـر', price: 5990 , currency: '$', _per: 'كل ٣ أشهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-		// { id:2, cycle: 'ستــــة أشـــهر', price: 7999 , currency: '$', _per: 'كل ٦ أشهر', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-	// ];
-
 	personalTrainings: Product[] = [];
-	// PersonalTrainingItem[] = [
-	// 	{ id:1, shares: 'حصص 10', price: 500 , currency: '$', _per: 'كل 10 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-	// 	{ id:2, shares: '5 حصص', price: 350 , currency: '$', _per: 'كل 5 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-	// 	{ id:3, shares: 'حصة واحدة', price: 100 , currency: '$', _per: 'كل 5 حصص', description: 'بإمكانك إلغاء الاشتراك في أي وقت.'},
-	// ];
-	
 	selectedTab: TabItem = this.tabs[0];
 	submittedTab: TabItem =this.tabs[0];
 	isStarted : boolean = false;
 	isCompleted : boolean = false;
-	isSubmitted : boolean = false;
+	isCreated : boolean = false;
 	gender_option : string = "male";
 	site_option : string = "manual";
 	pt_option : number = 1;
@@ -127,17 +106,19 @@ export class RegisterComponent implements OnInit {
 	phone_verified = false;
 	lat = 21.4858;
 	lng = 39.1925;
+	submitting : boolean = false;
+	
 	ngOnInit(): void {	}
 
 	changeTab(tab: TabItem): void {
 		// this.selectedTab = tab;
 		this.submittedTab = this.selectedTab;
-		let id = this.selectedTab.id;
+		let id = this.selectedTab.id; // current Tab ID
 		let invalid = false;
 		const index = this.tabs.findIndex(t => t.id === id);
 		const target_index = this.tabs.findIndex(t => t.id === tab.id);
 
-		if (tab.passed || index == target_index-1){
+		if (tab.passed || index == target_index - 1){
 	
 			switch (id) {
 				case 'site':
@@ -154,19 +135,30 @@ export class RegisterComponent implements OnInit {
 							|| this.subscription_day['invalid']
 							|| this.dob['invalid'];
 					break;
+				case 'products':
+					invalid = !(tab.id == 'payment');
+					break;
 				case 'payment':
-					invalid = this.card_number['invalid'] 
+					invalid = !(tab.id == 'products')
+							&& (this.card_number['invalid'] 
 							|| this.cvv['invalid']
 							|| this.date_month['invalid']
-							|| this.date_year['invalid'];
+							|| this.date_year['invalid']);
 					break;
 				default:
 					break;
 			}
 			
 			if (!invalid){
-				this.tabs[index].passed = true;
-				this.selectedTab = tab;
+				let res = true;
+				if (id == 'account'){
+					res = this.signup();
+					console.log(res);
+				}
+				if (res){
+					this.tabs[index].passed = true;
+					this.selectedTab = tab;
+				}
 			}
 		}
 	}
@@ -182,9 +174,6 @@ export class RegisterComponent implements OnInit {
 			if (index === this.tabs.length - 1) {
 				this.isCompleted = true;
 			}else{
-				if (this.selectedTab.id == 'account'){
-					this.signup();
-				}
 				this.changeTab(this.tabs[index + 1]);
 			}
 		}
@@ -196,7 +185,9 @@ export class RegisterComponent implements OnInit {
 		}else if (index === 0) {
 			this.isStarted = false;
 		}else{
-			this.selectedTab = this.tabs[index - 1];
+			if (id !== 'products'){
+				this.selectedTab = this.tabs[index - 1];
+			}
 			// this.changeTab(this.tabs[index - 1]);
 		}
 	}
@@ -275,9 +266,7 @@ export class RegisterComponent implements OnInit {
 				res['data'].forEach(element => {
 					if (element.type == "subscription"){
 						this.subscriptions.push(element);
-						// console.log(element);
 					}else{
-						// console.log(element);
 						this.personalTrainings.push(element);
 					}
 				});
@@ -286,9 +275,13 @@ export class RegisterComponent implements OnInit {
 			}
 		});
 	}
-	signup(){
+	signup():boolean {
+		let rF = false;
+		this.submitting = true;
+		this.user.dob = moment(this.user.dob).format('YYYY-MM-DD');
+		this.user.subscription_day = moment(this.user.subscription_day).format('YYYY-MM-DD');
 		this.userService.signup(this.user).subscribe((res) => {
-			this.isSubmitted = true;
+			this.submitting = false;
 			if (!res) {
 				const toast: Toast = {
 					type: 'error',
@@ -296,7 +289,7 @@ export class RegisterComponent implements OnInit {
 					body: "Something went wrong",
 				};
 				this.toasterService.pop(toast);
-				return;
+				rF = false;
 			}else if(!res.status){
 				const toast: Toast = {
 					type: 'error',
@@ -304,28 +297,34 @@ export class RegisterComponent implements OnInit {
 					body: res.message,
 				};
 				this.toasterService.pop(toast);
-				return;
+				rF = false;
 			}else{
-				this.token = res['data']['token'];
-				this.member_id = res['data']['id'];
-				this.currentUser = res['data'];
-				if (this.token) {
-					Cookie.setLogin(this.member_id);
-					Cookie.setClientId(this.user.client_id);
-					this.userService.setToken(this.token);
-					this.userService.setClientId(this.user.client_id);
-					this.userService.setUser(this.currentUser);
-					localStorage.setItem('u_pass', this.user.password);
-				}
+				this.isCreated = true;
+				this.mem_res = res;
 				const toast: Toast = {
 					type: 'success',
-					title: 'Buy subscription succeeded',
+					title: 'Success',
 					body: res.message,
 				};
+				this.toasterService.pop(toast);
+				rF = true;
 			}
 		});
+		return rF;
 	}
-
+	registeredUser(){
+		this.token = this.mem_res['data']['token'];
+		this.member_id = this.mem_res['data']['id'];
+		this.currentUser = this.mem_res['data'];
+		if (this.token) {
+			Cookie.setLogin(this.member_id);
+			Cookie.setClientId(this.user.client_id);
+			this.userService.setToken(this.token);
+			this.userService.setClientId(this.user.client_id);
+			this.userService.setUser(this.currentUser);
+			localStorage.setItem('u_pass', this.user.password);
+		}
+	}
 	openConfirmDialog() {
 		if (!this.mobile['invalid'] && !this.phone_verified){
 			const dialogConfig = new MatDialogConfig();
@@ -342,5 +341,9 @@ export class RegisterComponent implements OnInit {
 				}
 			});
 		}
+	}
+	congratulation(){
+		this.registeredUser();
+		this.router.navigate(['/profile']);
 	}
 }

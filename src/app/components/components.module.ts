@@ -34,7 +34,8 @@ import { BackProfileIconComponent } from './back-profile-icon/back-profile-icon.
 import { RateBookingComponent } from './rate-booking/rate-booking.component'
 import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component'
 import { Checkout } from './checkout/checkout.component'
-import { PersonalTrainingItemComponent } from './personal-training-item/personal-training-item.component'
+import { PersonalTrainingItemComponent } from './personal-training-item/personal-training-item.component';
+import { ProductItemComponent } from './product-item/product-item.component'
 @NgModule({
 	declarations: [
 		GalleryCard1,
@@ -65,7 +66,8 @@ import { PersonalTrainingItemComponent } from './personal-training-item/personal
 		RateBookingComponent,
 		CancelSubscriptionComponent,
 		Checkout,
-		PersonalTrainingItemComponent
+		PersonalTrainingItemComponent,
+		ProductItemComponent
 	],
 	imports: [CommonModule, 
 		SharedModule,
@@ -102,7 +104,8 @@ import { PersonalTrainingItemComponent } from './personal-training-item/personal
 		BackProfileIconComponent,
 		CancelSubscriptionComponent,
 		Checkout,
-		PersonalTrainingItemComponent
+		PersonalTrainingItemComponent,
+		ProductItemComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

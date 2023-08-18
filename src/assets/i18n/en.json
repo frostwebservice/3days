@@ -139,11 +139,11 @@
 	"sprouts":"Kids",
 	"previous":"Previous",
 	"site":"Site",
-	"location":"LocationPlease select a method for locating the gym",
+	"location":"Please select a method for locating the gym",
 	"manual":"Manual",
 	"map":"Map",
 	"next":"Next",
-	"Find_club":"Find_club",
+	"Find_club":"Find club",
 	"choose_membership":"Please choose your membership package",
 	"subscribe":"You can unsubscribe at any time",
 	"Subscriptions":"Subscriptions",
@@ -177,5 +177,7 @@
 	"Verified" : "Verified",
 	"Password doesn't match" : "Password doesn't match",
 	"Create an acccount" : "Create an acccount",
-	"Write here the details" : "Write here the details"
+	"Write here the details" : "Write here the details",
+	"select_branch" : "Select Branch",
+	"E-mail":"Email"
 }	

@@ -45,13 +45,13 @@
 												<app-polygon-border-div j-class="j-left j-icon">
 													<div class="j-item-img" style="background-image: url(/assets/img/automark.svg);"></div>
 												</app-polygon-border-div>
-												<span class="mr-2 ml-2">#{{appointment.id}}</span>
+												<span class="mx-3">#{{appointment.id}}</span>
 											</div>
 											<div class="j-info j-flex-row-reverse">
 												<app-polygon-border-div j-class="j-left j-icon">
 													<div class="j-item-img" style="background-image: url(/assets/img/l.svg);"></div>
 												</app-polygon-border-div>
-												<span class="mr-2 ml-2">{{appointment.start_time}} - {{appointment.end_time}}</span>
+												<span class="mx-3">{{appointment.start_time}} - {{appointment.end_time}}</span>
 											</div>
 										</div>
 										<div class="j-sub-info">
@@ -59,13 +59,13 @@
 												<app-polygon-border-div j-class="j-left j-icon">
 													<div class="j-item-img j-item-photo" style="background-image: url({{appointment.trainer_banner}});"></div>
 												</app-polygon-border-div>
-												<span class="mr-2 ml-2">{{appointment.trainer_name}}</span>
+												<span class="mx-3">{{appointment.trainer_name}}</span>
 											</div>
 											<div class="j-info j-flex-row-reverse">
 												<app-polygon-border-div j-class="j-left j-icon">
 													<div class="j-item-img" style="background-image: url(/assets/img/calendar.svg);"></div>
 												</app-polygon-border-div>
-												<span class="mr-2 ml-2">{{appointment.session_date}}</span>
+												<span class="mx-3">{{appointment.session_date}}</span>
 											</div>
 										</div>
 									</div>
@@ -93,8 +93,8 @@
 				<div class="j-form-group mb-4">
 					<label for="session_date" class="j-inputbox-label">{{'Select Date'|translate}}</label>
 					<div class="j-input-icons j-input-icon-left">
-						<input type="text" class="j-inputbox" id="session_date"  [(ngModel)] = "session_date"  #sessionDate="ngModel" name = "session_date" (ngModelChange)="changeDate($event)" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" >
 						<i class="j-icon j-icon-left j-icon-calendar"></i>
+						<input type="text" class="j-inputbox" id="session_date"  [(ngModel)] = "session_date"  #sessionDate="ngModel" name = "session_date" (ngModelChange)="changeDate($event)" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" >
 					</div>
 				</div>
 				<div class="j-sessions-list row">

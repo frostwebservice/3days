@@ -111,6 +111,7 @@ export class Checkout implements OnInit {
 	}
 	showGosell(){
 		// this.buy();
+		console.log(environment.front + "product");
 		let customer = {
 			...this.paymentConf.customer,
 			// id : "cus_" + this.user.national_id,
