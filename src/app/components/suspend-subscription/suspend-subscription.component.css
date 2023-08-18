@@ -1,7 +1,12 @@
 .suspend-subscription .j-inner-wrap{
     display: flex;
     flex-direction: column;
+}
+.j-lang-ar .suspend-subscription .j-inner-wrap{
     text-align: right;
+}
+.j-lang-en .suspend-subscription .j-inner-wrap{
+    text-align: left;
 }
 .suspend-subscription .j-item-img{
     width: 48px;

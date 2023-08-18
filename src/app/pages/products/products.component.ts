@@ -17,7 +17,7 @@ import * as moment from 'moment';
 })
 export class Products implements OnInit {
 	subscriptions: Product[] = [];
-	personalTrainings: [] = [];
+	personalTrainings: Product[] = [];
 	
 	selected_tab :number = 2;
 	// session_date = "2000-01-01" ;
@@ -43,7 +43,7 @@ export class Products implements OnInit {
 			
 			// this.loadingService.setLoading(false);
 			this.getProducts();
-			this.getAllPts();
+			// this.getAllPts();
 	}
 	selectTab (tab:number):void{
 		this.selected_tab = tab;
@@ -69,38 +69,18 @@ export class Products implements OnInit {
 				this.toasterService.pop(toast);
 				return;
 			}else{
-				this.subscriptions = res.data;
+				// this.subscriptions = res.data;
+				res.data.forEach(element => {
+					if (element.type == "subscription"){
+						this.subscriptions.push(element);
+					}else{
+						this.personalTrainings.push(element);
+					}
+				});
 			}
 		});
 	}
-	getAllPts(){
-		this.loadingService.setLoading(true);
-		this.branchService.getBranchAllPTSessions(this.branch_id,moment(this.session_date).format('YYYY-MM-DD')).subscribe((res) => {
-			this.loadingService.setLoading(false);
-			if (!res) {
-				const toast: Toast = {
-					type: 'error',
-					title: 'Get PT session failed',
-					body: "Something went wrong",
-				};
-				this.toasterService.pop(toast);
-				return;
-			}else if(!res.status){
-				const toast: Toast = {
-					type: 'error',
-					title: 'Get PT session failed',
-					body: res.message,
-				};
-				this.toasterService.pop(toast);
-				return;
-			}else{
-				this.personalTrainings = res.data;
-			}
-		});
-	}
-	changeDate($event){
-		this.getAllPts();
-	}
+
 	buySubscription(subscription){
 		const dialogConfig = new MatDialogConfig();
 		dialogConfig.autoFocus = true;

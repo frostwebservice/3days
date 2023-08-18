@@ -186,7 +186,7 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('RATE BOOKING', false))
 			);
 	}
-	public suspendSubscription(data): Observable<any> {
+	public suspendSubscription(data: { subscription_id: number; suspension_days: number; suspension_date: string; }): Observable<any> {
 		const reqHeader = new HttpHeaders({
 			'Content-Type': 'application/json',
 		});
@@ -203,7 +203,7 @@ export class BranchService extends HttpService {
 			);
 	}
 	
-	public cancelSubscription(subscription_id): Observable<any> {
+	public cancelSubscription(subscription_id: number): Observable<any> {
 		const reqHeader = new HttpHeaders({
 			'Content-Type': 'application/json',
 		});

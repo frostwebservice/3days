@@ -55,7 +55,6 @@
 .j-appointments-tab .j-appointment-item .j-appointment-card{
 	display: flex;
 	flex-direction: column;
-	text-align: right;
 }
 .j-appointments-tab .j-appointment-item .j-banner{
 	min-height: 120px;
@@ -90,10 +89,18 @@
 }
 .j-appointments-tab .j-appointment-item .j-appointment-info .j-info{
 	display: flex;
-	flex-direction: row-reverse;
 	align-items: center;
 }
-.j-appointments-tab .j-appointment-item .j-appointment-info .j-info app-polygon-border-div{
+.j-lang-en .j-appointments-tab .j-appointment-item .j-appointment-info .j-info{
+	flex-direction: row;
+}
+.j-lang-ar .j-appointments-tab .j-appointment-item .j-appointment-info .j-info{
+	flex-direction: row-reverse;
+}
+.j-lang-en .j-appointments-tab .j-appointment-item .j-appointment-info .j-info app-polygon-border-div{
+	margin-right: 12px;
+}
+.j-lang-ar .j-appointments-tab .j-appointment-item .j-appointment-info .j-info app-polygon-border-div{
 	margin-left: 12px;
 } 
 .j-appointments-tab .j-appointment-item .j-appointment-info .j-info .j-item-img{
@@ -113,7 +120,7 @@
 /* --------------------------------------------------------------- */
 @media(max-width: 767px) {
 	.j-sessions-tab .j-session-item .j-img.j-trainer-photo{
-			width: 70px;
-			height: 70px;
+		width: 70px;
+		height: 70px;
 	}
 }

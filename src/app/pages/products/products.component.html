@@ -11,16 +11,25 @@
 			</div>
 		</div>
 		<div class="j-pts-tab" *ngIf = 'selected_tab == 1'>
-			<div class="j-form-group mb-4 j-max-width-360">
-				<label for="session_date" class="j-inputbox-label">{{'Select_Date'|translate}}</label>
-				<div class="j-input-icons j-input-icon-left">
-					<input type="text" class="j-inputbox" id="session_date" [(ngModel)] = "session_date" #sessionDate="ngModel" name = "session_date" (ngModelChange)="changeDate($event)" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}">
-					<i class="j-icon j-icon-left j-icon-calendar"></i>
-				</div>
-			</div>
 			<div class="j-pts-list row">
-				<div class="col-md-6 col-12" *ngFor="let personalTraining of personalTrainings;let i = index">
-					<app-personal-training-item [personalTraining] = "personalTraining"></app-personal-training-item>
+				<div class="j-pts-item col-md-6 col-12" *ngFor="let personalTraining of personalTrainings;let i = index">
+					<app-polygon-border-div j-class = 'j-left'>
+						<div class="personalTrainings-card j-product-card" >
+							<p class="product_cycle j-en-text">{{personalTraining.period}} {{personalTraining.period_unit}}</p>
+							<p class="product_price j-en-text">{{personalTraining.price }} {{currency}} / <b> {{personalTraining.period_unit}}</b></p>
+							<p class="product_description j-en-text">{{personalTraining.english_name}}</p>
+
+							<p class="product_cycle j-ar-text">{{personalTraining.period}} {{personalTraining.arabic_period_unit}}</p>
+							<p class="product_price j-ar-text">{{personalTraining.price }} {{currency}} / <b> {{personalTraining.arabic_period_unit}}</b></p>
+							<p class="product_description j-ar-text">{{personalTraining.arabic_name}}</p>
+	
+							<div class="mt-3 j-apply-btn" (click)="buySubscription(personalTraining)">
+								<app-polygon-border-div j-class='j-left j-3days' class="text-center" >
+									<div class="j-btn _3dayColor p-2">{{'buy_subscription' | translate}}</div>
+								</app-polygon-border-div>
+							</div>
+						</div>
+					</app-polygon-border-div>
 				</div>
 			</div>
 		</div>
@@ -29,13 +38,13 @@
 				<div class="j-subs-item col-md-6 col-12" *ngFor="let subscription of subscriptions;let i = index">
 					<app-polygon-border-div j-class = 'j-left'>
 						<div class="subscriptions-card j-product-card" >
-							<p class="product_cycle j-en-text">{{subscription.english_name}}</p>
-							<p class="product_price j-en-text">{{subscription.price }} {{subscription.currency}} / <b> {{subscription.period_unit}}</b></p>
-							<p class="product_description j-en-text">{{subscription.english_description}}</p>
+							<p class="product_cycle j-en-text">{{subscription.period}} {{subscription.period_unit}}</p>
+							<p class="product_price j-en-text">{{subscription.price }} {{currency}} / <b> {{subscription.period_unit}}</b></p>
+							<p class="product_description j-en-text">{{subscription.english_name}}</p>
 
-							<p class="product_cycle j-ar-text">{{subscription.arabic_name}}</p>
-							<p class="product_price j-ar-text"><b> {{subscription.period_unit}}</b> / {{subscription.price }} {{subscription.currency}}</p>
-							<p class="product_description j-ar-text">{{subscription.arabic_description}}</p>
+							<p class="product_cycle j-ar-text">{{subscription.period}} {{subscription.arabic_period_unit}}</p>
+							<p class="product_price j-ar-text">{{subscription.price }} {{currency}} / <b> {{subscription.arabic_period_unit}}</b></p>
+							<p class="product_description j-ar-text">{{subscription.arabic_name}}</p>
 	
 							<!-- <div *ngIf = "subscription.type == 'session' " class="mt-3 j-cancel-btn">
 								<app-polygon-border-div j-class='j-left' class="text-center" >
