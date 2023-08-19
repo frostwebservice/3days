@@ -279,4 +279,11 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('CEHCK COUPON', false))
 			);
 	}
+	public setTransaction(data): void {
+        localStorage.setItem('transaction', JSON.stringify(data));
+    }
+	public getTransaction(): any {
+        return localStorage.getItem('transaction');
+    }
+
 }

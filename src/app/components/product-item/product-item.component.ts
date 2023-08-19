@@ -15,6 +15,7 @@ export class ProductItemComponent implements OnInit {
 	) { }
 
 	@Input('product') product;
+	@Input('checkoutRedirectUrl') checkoutRedirectUrl;
 
 	currency = "SAR";
 	buyProduct(){
@@ -22,7 +23,8 @@ export class ProductItemComponent implements OnInit {
 		dialogConfig.autoFocus = true;
 		dialogConfig.data = {
 			title: 'Buy Subscription',
-			subscription : this.product
+			subscription : this.product,
+			checkoutRedirectUrl: this.checkoutRedirectUrl
 		};
 		this.dialog.open(Checkout, dialogConfig)
 		.afterClosed()

@@ -13,14 +13,14 @@
 		<div class="j-pts-tab" *ngIf = 'selected_tab == 1'>
 			<div class="j-pts-list row">
 				<div class="j-pts-item col-md-6 col-12" *ngFor="let personalTraining of personalTrainings;let i = index">
-					<app-product-item [product] = "personalTraining"></app-product-item>
+					<app-product-item [product] = "personalTraining" checkoutRedirectUrl="products/buy/{{personalTraining.id}}"></app-product-item>
 				</div>
 			</div>
 		</div>
 		<div class="j-subs-tab" *ngIf = 'selected_tab == 2'>
 			<div class="j-subs-list row">
 				<div class="j-subs-item col-md-6 col-12" *ngFor="let subscription of subscriptions;let i = index">
-					<app-product-item [product] = "subscription"></app-product-item>
+					<app-product-item [product] = "subscription" checkoutRedirectUrl="products/buy/{{subscription.id}}"></app-product-item>
 				</div>
 			</div>
 		</div>

@@ -2,6 +2,7 @@ import { Component ,OnInit} from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 import { PersonalTrainingItem , SubscriptionItem} from 'src/app/utils/data.types';
 import { UserService } from 'src/app/services/user.service';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { BranchService } from 'src/app/services/branch.service';
 import { LoaderService } from 'src/app/services/loader.service';
 import { Product } from 'src/app/models/product.model';
@@ -9,6 +10,8 @@ import { Checkout } from '../../components/checkout/checkout.component';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ToasterService, Toast } from 'angular2-toaster';
 import * as moment from 'moment';
+import { Subscription } from 'rxjs';
+declare var goSell;
 
 @Component({
 	selector: 'app-products',
@@ -24,12 +27,14 @@ export class Products implements OnInit {
 	session_date = moment().format('YYYY-MM-DD') ;
 	branch_id = 4;
 	currency = "SAR";
-
+	routeChangeSubscription: Subscription;
+	_id = 0;
 	constructor(private title: Title, private meta: Meta,        
 		private userService: UserService,
         private loadingService: LoaderService,
 		private branchService: BranchService,
 		private toasterService: ToasterService,
+		private route: ActivatedRoute,
 		private dialog: MatDialog
 		) {
 			this.title.setTitle('Products - 3 Days');
@@ -39,11 +44,25 @@ export class Products implements OnInit {
 					content: 'Products - 3 Days',
 				},
 			]);
+			const path = this.route.snapshot.routeConfig['path'];
+			if (path.includes('buy')) {
+				this.routeChangeSubscription && this.routeChangeSubscription.unsubscribe();
+				this.routeChangeSubscription = this.route.params.subscribe((params) => {
+					if (this._id !== params['id']) {
+						this._id = params['id'];
+						goSell.showResult({
+							callback: response => {
+								console.log("callback", response);
+							}
+						});
+					}
+				});
+			}
+
 			this.branch_id = this.userService.getDefaultBranchId();
 			
 			// this.loadingService.setLoading(false);
 			this.getProducts();
-			// this.getAllPts();
 	}
 	selectTab (tab:number):void{
 		this.selected_tab = tab;

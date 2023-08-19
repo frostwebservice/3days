@@ -84,6 +84,11 @@ const routes: Routes = [
 			import('./pages/products/products.module').then((m) => m.ProductsModule),
 	},
 	{
+		path: 'products/buy/:id',
+		loadChildren: () =>
+			import('./pages/products/products.module').then((m) => m.ProductsModule),
+	},
+	{
 		path: 'bookings',
 		loadChildren: () =>
 			import('./pages/bookings/bookings.module').then((m) => m.BookingsModule),

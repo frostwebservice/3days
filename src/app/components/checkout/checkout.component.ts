@@ -23,6 +23,7 @@ export class Checkout implements OnInit {
 	coupon_is_activated : boolean = false;
 	submitting : boolean = false;
 	discount_price = 0;
+	checkoutRedirectUrl = '';
 	checkoutInfo = {
 		product_id: 0,
 		coupon_code: "",
@@ -42,6 +43,7 @@ export class Checkout implements OnInit {
 		this.checkoutInfo.member_id = this.user.id;
 		this.checkoutInfo.product_id = this.product.id;
 		this.start_date = moment().format('YYYY-MM-DD');
+		this.checkoutRedirectUrl = data.checkoutRedirectUrl;
 	}
 	checkCoupon(){
 		this.branchService.checkCoupon(this.checkoutInfo.product_id,this.checkoutInfo.coupon_code).subscribe((res) => {
@@ -127,7 +129,7 @@ export class Checkout implements OnInit {
 			charge:{
 				...this.paymentConf.transaction.charge,
 				description: "Pay for product",
-				redirect : environment.front + "product"
+				redirect : environment.front + this.checkoutRedirectUrl
 			}
 		};
 		let order = {
@@ -155,6 +157,7 @@ export class Checkout implements OnInit {
 		goSell.config({
 			...this.paymentConf,
 			callback:(response) => {
+				console.log("transjaction",response);
 				if (response?.id){
 					let success_message = response.currency + " " + response.amount + " Paid successfully. ID is " + response.id
 					const toast: Toast = {
@@ -163,6 +166,7 @@ export class Checkout implements OnInit {
 						body: success_message,
 					};
 					this.toasterService.pop(toast);
+					this.branchService.setTransaction(response);
 					this.buy();
 				}else{
 					const toast: Toast = {

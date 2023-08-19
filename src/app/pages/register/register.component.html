@@ -21,7 +21,7 @@
 						<img alt="logo" src="/assets/external/logo.svg" class="j-app-logo"/>
 					</a>
 					<h4 class="j-page-text mb-2">{{'Congratulations'|translate}}</h4>
-					<p class="j-page-text">{{'success'|translate}}: MAV34522</p>
+					<p class="j-page-text">{{'success'|translate}}:{{transaction_id}} </p>
 					<a type="button" class="j-left-button button j-complete-button" (click) = "congratulation()"><span>{{'Back to main'|translate}}</span></a>
 				</div>
 			</div>
@@ -140,31 +140,17 @@
 								<div class="j-personal-trainings-wrap pb-md-0 pb-2">
 									<div class="j-personalTrainings-list-panel j-product-list-panel">
 										<h4 class="j-page-text mb-2">{{'personal training'|translate}}</h4>
-										<app-polygon-border-div j-class = 'j-left' *ngFor="let personalTraining of personalTrainings;let i = index">
-											<div class="personalTrainings-card j-product-card" (click)="setPTOption(personalTraining.id)"  [ngClass] = '{ active : pt_option == personalTraining.id}'>
-												<p class="product_share">{{personalTraining.number_of_bookings}}</p>
-												<p class="product_price">كل {{personalTraining.number_of_bookings}} حصص / <b>{{currency}} {{personalTraining.price}}</b></p>
-												<p class="product_description">{{'subscribe'|translate}}.</p>
-												<label class="option_btn" for="personalTraining{{personalTraining.id}}">
-													<input type="radio" name="personalTraining" id="personalTraining{{personalTraining.id}}" value="{{personalTraining.id}}" class="product_opt" [checked]="pt_option == personalTraining.id">
-												</label>
-											</div>
-										</app-polygon-border-div>
+										<div class="j-pts-item" *ngFor="let personalTraining of personalTrainings;let i = index">
+											<app-product-item checkoutRedirectUrl = "signup/congratulation" [product] = "personalTraining"></app-product-item>
+										</div>
 									</div>
 								</div>
 								<div class="j-subscriptions-wrap">
 									<div class="j-subscriptions-list-panel j-product-list-panel">
 										<h4 class="j-page-text mb-2">{{'Subscriptions'|translate}}</h4>
-										<app-polygon-border-div j-class = 'j-right' *ngFor="let subscription of subscriptions;let i = index">
-											<div class="subscriptions-card j-product-card" (click)="setSubOption(subscription.id)" [ngClass]="{active: sub_option == subscription.id}">
-												<p class="product_cycle">{{subscription.period }} {{subscription.period_unit }}</p>
-												<p class="product_price">{{subscription.period }} {{subscription.period_unit }} / <b>{{currency}} {{subscription.price}}</b></p>
-												<p class="product_description">{{'unSubscript'|translate}}.</p>
-												<label class="option_btn" for="subscription{{subscription.id}}">
-													<input type="radio" name="subscription" id="subscription{{subscription.id}}" value="{{subscription.id}}" class="product_opt" [checked]="sub_option == subscription.id">
-												</label>
-											</div>
-										</app-polygon-border-div>
+										<div class="j-subs-item" *ngFor="let subscription of subscriptions;let i = index">
+											<app-product-item checkoutRedirectUrl = "signup/congratulation" [product] = "subscription"></app-product-item>
+										</div>
 									</div>
 								</div>
 							</div>

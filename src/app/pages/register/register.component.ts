@@ -43,6 +43,14 @@ export class RegisterComponent implements OnInit {
 	) {
 		this.onSearchBranch();
 		this.getProducts();
+		this.isCompleted = this.route.snapshot.data.isCompleted;
+		if (this.isCompleted){
+			if (this.branchService.getTransaction() == null || this.userService.isAuthenticated()){
+				this.router.navigate(['/signup']);
+			}else{
+				this.transaction_id = this.branchService.getTransaction().transaction_id;
+			}
+		}
 	}
 	user = {
 		client_id : 3,
@@ -71,7 +79,7 @@ export class RegisterComponent implements OnInit {
 		{ icon: '', label: 'find a club', id: 'find a club' , passed: false},
 		{ icon: '', label: 'account', id: 'account' , passed: false},
 		{ icon: '', label: 'products', id: 'products' , passed: false},
-		{ icon: '', label: 'payment', id: 'payment' , passed: false}
+		// { icon: '', label: 'payment', id: 'payment' , passed: false}
 	];
 	// tabs: TabItem[] = [
 	// 	{ icon: '', label: 'الجنس', id: 'gender' },
@@ -89,9 +97,6 @@ export class RegisterComponent implements OnInit {
 	personalTrainings: Product[] = [];
 	selectedTab: TabItem = this.tabs[0];
 	submittedTab: TabItem =this.tabs[0];
-	isStarted : boolean = false;
-	isCompleted : boolean = false;
-	isCreated : boolean = false;
 	gender_option : string = "male";
 	site_option : string = "manual";
 	pt_option : number = 1;
@@ -102,12 +107,16 @@ export class RegisterComponent implements OnInit {
     confirm_password = '';
 	keyword= '';
     agree_terms_conditions_checkbox = false;
-	currency = "﷼";
+	currency = "SAR";
 	phone_verified = false;
 	lat = 21.4858;
 	lng = 39.1925;
+	isStarted : boolean = false;
+	isCompleted : boolean = false;
+	isCreated : boolean = false;
 	submitting : boolean = false;
-	
+	transaction_id = "MAV34522";
+
 	ngOnInit(): void {	}
 
 	changeTab(tab: TabItem): void {
@@ -135,9 +144,6 @@ export class RegisterComponent implements OnInit {
 							|| this.subscription_day['invalid']
 							|| this.dob['invalid'];
 					break;
-				case 'products':
-					invalid = !(tab.id == 'payment');
-					break;
 				case 'payment':
 					invalid = !(tab.id == 'products')
 							&& (this.card_number['invalid'] 
@@ -152,10 +158,8 @@ export class RegisterComponent implements OnInit {
 			if (!invalid){
 				let res = true;
 				if (id == 'account'){
-					res = this.signup();
-					console.log(res);
-				}
-				if (res){
+					this.signup();
+				}else{
 					this.tabs[index].passed = true;
 					this.selectedTab = tab;
 				}
@@ -275,7 +279,7 @@ export class RegisterComponent implements OnInit {
 			}
 		});
 	}
-	signup():boolean {
+	signup() {
 		let rF = false;
 		this.submitting = true;
 		this.user.dob = moment(this.user.dob).format('YYYY-MM-DD');
@@ -289,7 +293,7 @@ export class RegisterComponent implements OnInit {
 					body: "Something went wrong",
 				};
 				this.toasterService.pop(toast);
-				rF = false;
+				return;
 			}else if(!res.status){
 				const toast: Toast = {
 					type: 'error',
@@ -297,10 +301,11 @@ export class RegisterComponent implements OnInit {
 					body: res.message,
 				};
 				this.toasterService.pop(toast);
-				rF = false;
+				return;
 			}else{
 				this.isCreated = true;
 				this.mem_res = res;
+				this.registeredUser()
 				const toast: Toast = {
 					type: 'success',
 					title: 'Success',
@@ -308,9 +313,13 @@ export class RegisterComponent implements OnInit {
 				};
 				this.toasterService.pop(toast);
 				rF = true;
+				const index = this.tabs.findIndex(tab => tab.id === 'account');
+				this.tabs[index].passed = true;
+				this.selectedTab = this.tabs[index+1];
 			}
+		},(error) => {
+			rF = false;
 		});
-		return rF;
 	}
 	registeredUser(){
 		this.token = this.mem_res['data']['token'];
@@ -343,7 +352,10 @@ export class RegisterComponent implements OnInit {
 		}
 	}
 	congratulation(){
-		this.registeredUser();
-		this.router.navigate(['/profile']);
+		if (this.userService.isAuthenticated()){
+			this.router.navigate(['/profile']);
+		}else{
+			this.router.navigate(['/signup']);
+		}
 	}
 }
