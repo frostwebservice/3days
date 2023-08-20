@@ -9,6 +9,7 @@ import { Product } from 'src/app/models/product.model';
 import { Checkout } from '../../components/checkout/checkout.component';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ToasterService, Toast } from 'angular2-toaster';
+
 import * as moment from 'moment';
 import { Subscription } from 'rxjs';
 declare var goSell;
@@ -23,7 +24,12 @@ export class Products implements OnInit {
 	personalTrainings: Product[] = [];
 	
 	selected_tab :number = 2;
-	// session_date = "2000-01-01" ;
+	checkoutInfo = {
+		product_id: 0,
+		coupon_code: "",
+		member_id: 0,
+		start_date:""
+	};
 	session_date = moment().format('YYYY-MM-DD') ;
 	branch_id = 4;
 	currency = "SAR";
@@ -35,6 +41,7 @@ export class Products implements OnInit {
 		private branchService: BranchService,
 		private toasterService: ToasterService,
 		private route: ActivatedRoute,
+		private router: Router,
 		private dialog: MatDialog
 		) {
 			this.title.setTitle('Products - 3 Days');
@@ -44,21 +51,12 @@ export class Products implements OnInit {
 					content: 'Products - 3 Days',
 				},
 			]);
-			const path = this.route.snapshot.routeConfig['path'];
-			if (path.includes('buy')) {
-				this.routeChangeSubscription && this.routeChangeSubscription.unsubscribe();
-				this.routeChangeSubscription = this.route.params.subscribe((params) => {
-					if (this._id !== params['id']) {
-						this._id = params['id'];
-						goSell.showResult({
-							callback: response => {
-								console.log("callback", response);
-							}
-						});
-					}
-				});
-			}
-
+			goSell.showResult({
+				callback: response => {
+					localStorage.setItem('goSell_response', JSON.stringify(response.callback));
+					console.log("callback", response);
+				}
+			});
 			this.branch_id = this.userService.getDefaultBranchId();
 			
 			// this.loadingService.setLoading(false);
@@ -99,21 +97,58 @@ export class Products implements OnInit {
 			}
 		});
 	}
-
-	buySubscription(subscription){
-		const dialogConfig = new MatDialogConfig();
-		dialogConfig.autoFocus = true;
-		dialogConfig.data = {
-			title: 'Buy Subscription',
-			subscription : subscription
-		};
-		this.dialog.open(Checkout, dialogConfig)
-		.afterClosed()
-		.subscribe((res) => {
-			console.log(res);
-			if (res.status) {
+	buy(){
+		this.branchService.buySubscription(this.checkoutInfo).subscribe((res) => {
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Buy subscription failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Buy subscription failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				const toast: Toast = {
+					type: 'success',
+					title: 'Buy subscription succeeded',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
 			}
+			this.unsetCheckoutInfo();
+			this.router.navigate(['/bookings']);
 		});
 	}
-	ngOnInit(): void {}
+	unsetCheckoutInfo(){
+		localStorage.removeItem('goSell_response');
+		localStorage.removeItem('checkoutInfo');
+	}
+	ngOnInit() {
+		// const path = this.route.snapshot.routeConfig['path'];
+		console.log('path',this.router.url);
+		if (this.router.url.includes('buy')) {
+			this.routeChangeSubscription && this.routeChangeSubscription.unsubscribe();
+			this.routeChangeSubscription = this.route.params.subscribe((params) => {
+				if (this._id !== params['id']) {
+					this._id = params['id'];
+					let goSell_response = localStorage.getItem('goSell_response');
+					let checkoutInfo = localStorage.getItem('checkoutInfo');
+					if (null !== goSell_response && null !== checkoutInfo){
+						this.checkoutInfo = JSON.parse(checkoutInfo);
+						if (this.checkoutInfo.product_id == this._id){
+							this.buy();
+						}
+					}
+				}
+			});
+		}
+	}
 }

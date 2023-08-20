@@ -259,6 +259,22 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('BUY SUBSCRIPTION', false))
 			);
 	}
+	public validateBuySubscription(subscription): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.VALIDATE_BUY_SUBSCRIPTION,subscription,
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('BUY SUBSCRIPTION', false))
+			);
+	}
 	public checkCoupon(product_id:number,coupon_code: string = ""): Observable<any> {
 		const reqHeader = new HttpHeaders({
 			'Content-Type': 'application/json',

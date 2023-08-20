@@ -78,16 +78,16 @@ export class Checkout implements OnInit {
 			}
 		});
 	}
-	buy(){
+	buyValidate(){
 		this.submitting = true;
 		this.checkoutInfo.start_date = moment(this.start_date).format('YYYY-MM-DD');
 
-		this.branchService.buySubscription(this.checkoutInfo).subscribe((res) => {
+		this.branchService.validateBuySubscription(this.checkoutInfo).subscribe((res) => {
 			this.submitting = false;
 			if (!res) {
 				const toast: Toast = {
 					type: 'error',
-					title: 'Buy subscription failed',
+					title: 'Buy validation failed',
 					body: "Something went wrong",
 				};
 				this.toasterService.pop(toast);
@@ -95,7 +95,7 @@ export class Checkout implements OnInit {
 			}else if(!res.status){
 				const toast: Toast = {
 					type: 'error',
-					title: 'Buy subscription failed',
+					title: 'Buy validation failed',
 					body: res.message,
 				};
 				this.toasterService.pop(toast);
@@ -103,12 +103,13 @@ export class Checkout implements OnInit {
 			}else{
 				const toast: Toast = {
 					type: 'success',
-					title: 'Buy subscription succeeded',
-					body: res.message,
+					title: 'Buy validation succeeded',
+					body: "You can buy this subscription now",
 				};
 				this.toasterService.pop(toast);
+				localStorage.setItem('checkoutInfo', JSON.stringify(this.checkoutInfo));
+				this.showGosell();
 			}
-			this.dialogRef.close(res);
 		});
 	}
 	showGosell(){
@@ -116,7 +117,6 @@ export class Checkout implements OnInit {
 		console.log(environment.front + "product");
 		let customer = {
 			...this.paymentConf.customer,
-			// id : "cus_" + this.user.national_id,
 			first_name : this.user.english_name,
 			email : this.user.email,
 			phone: {
@@ -167,7 +167,6 @@ export class Checkout implements OnInit {
 					};
 					this.toasterService.pop(toast);
 					this.branchService.setTransaction(response);
-					this.buy();
 				}else{
 					const toast: Toast = {
 						type: 'error',
