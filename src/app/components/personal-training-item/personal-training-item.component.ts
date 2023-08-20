@@ -47,7 +47,9 @@ export class PersonalTrainingItemComponent implements OnInit {
 			this.dialog.open(ConfirmDialogComponent, dialogConfig)
 			.afterClosed()
 			.subscribe((res) => {
-				this.router.navigate(['/products']);
+				if (res){
+					this.router.navigate(['/products']);
+				}
 			});
 
 		}
