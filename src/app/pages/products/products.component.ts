@@ -150,5 +150,9 @@ export class Products implements OnInit {
 				}
 			});
 		}
+		this.route.queryParams.subscribe(params => {
+			const paramValue = params['tab']; 
+			if (paramValue == 'subscriptions') this.selectTab(2);
+		});
 	}
 }

@@ -35,7 +35,8 @@ import { RateBookingComponent } from './rate-booking/rate-booking.component'
 import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscription.component'
 import { Checkout } from './checkout/checkout.component'
 import { PersonalTrainingItemComponent } from './personal-training-item/personal-training-item.component';
-import { ProductItemComponent } from './product-item/product-item.component'
+import { ProductItemComponent } from './product-item/product-item.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component'
 @NgModule({
 	declarations: [
 		GalleryCard1,
@@ -67,7 +68,8 @@ import { ProductItemComponent } from './product-item/product-item.component'
 		CancelSubscriptionComponent,
 		Checkout,
 		PersonalTrainingItemComponent,
-		ProductItemComponent
+		ProductItemComponent,
+  ConfirmDialogComponent
 	],
 	imports: [CommonModule, 
 		SharedModule,

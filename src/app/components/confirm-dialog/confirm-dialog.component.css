@@ -1,0 +1,10 @@
+.j-true-btn{
+    color: var(--dl-color-grey-white);
+    background-color: var(--dl-color-primary-3days);
+    border: none;
+}
+.j-false-btn{
+    background-color: #1c1a17aa;
+    color: var(--dl-color-grey-white);
+    border: none;
+}

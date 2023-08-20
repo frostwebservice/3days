@@ -179,5 +179,6 @@
 	"Create an acccount" : "Create an acccount",
 	"Write here the details" : "اكتب هنا التفاصيل",
 	"select_branch" : "اختر فرع النادي",
-	"E-mail":"البريد الإلكتروني"
+	"E-mail":"البريد الإلكتروني",
+	"not_subscribed_buy_pt_session":"You are not subscribed in this session, please buy PT session"
 }
