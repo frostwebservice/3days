@@ -45,10 +45,17 @@
 	--dl-space-space-oneunit: 16px;
 	--dl-space-space-halfunit: 8px;
 }
-.dropdown-right-arrow {
+.dropdown-left-arrow {
 	background-image: url(/assets/img/downarrow.svg) !important;
     background-repeat: no-repeat !important;
     background-position: left 1rem center !important;
+    background-size: 1em !important;
+	appearance: none !important;
+}
+.dropdown-right-arrow {
+	background-image: url(/assets/img/downarrow.svg) !important;
+    background-repeat: no-repeat !important;
+    background-position: right 1rem center !important;
     background-size: 1em !important;
 	appearance: none !important;
 }
@@ -430,6 +437,9 @@ body {
 
 .toast-container .toast{
 	display: block !important;
+}
+body.gosell-payment-gateway-open{
+	/* position: relative !important; */
 }
 @media(max-width: 767px) {
 	.j-front-page{

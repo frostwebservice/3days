@@ -21,12 +21,12 @@
 						<img alt="logo" src="/assets/external/logo.svg" class="j-app-logo"/>
 					</a>
 					<h4 class="j-page-text mb-2">{{'Congratulations'|translate}}</h4>
-					<p class="j-page-text">{{'success'|translate}}: MAV34522</p>
-					<a type="button" class="j-left-button button j-complete-button" routerLink = "/"><span>{{'Back to main'|translate}}</span></a>
+					<p class="j-page-text">{{'success'|translate}}:{{transaction_id}} </p>
+					<a type="button" class="j-left-button button j-complete-button" (click) = "congratulation()"><span>{{'Back to main'|translate}}</span></a>
 				</div>
 			</div>
 		</ng-container>
-		<form class="j-form" *ngIf="isStarted && !isCompleted" #signupForm="ngForm" (ngSubmit)="isSubmitted && signupForm.form.valid ? signup() : false">
+		<form class="j-form" *ngIf="isStarted && !isCompleted" #signupForm="ngForm" >
 			<div class="j-signup-process">
 				<app-page-tab [tabs]="tabs" [selected]="selectedTab" (onChange)="changeTab($event)" class="pl-0 rounded-0 j-tab-bar">
 				</app-page-tab>
@@ -109,7 +109,7 @@
 									</agm-map>
 								</div>
 								<div class="j-club-search-wrap">
-									<h4 class="j-page-text mb-2">{{'Find_club'|translate}}</h4>
+									<h4 class="j-page-text mb-2">{{'Find_club' | translate }}</h4>
 									<div class="j-form-group">
 										<div class="j-input-icons j-input-icon-right">
 											<input type="text" class="j-inputbox j-searchbox" placeholder="البحث عن طريق المدينة أو الدولة" (input)="onSearchBranch($event.target.value)">
@@ -140,31 +140,17 @@
 								<div class="j-personal-trainings-wrap pb-md-0 pb-2">
 									<div class="j-personalTrainings-list-panel j-product-list-panel">
 										<h4 class="j-page-text mb-2">{{'personal training'|translate}}</h4>
-										<app-polygon-border-div j-class = 'j-left' *ngFor="let personalTraining of personalTrainings;let i = index">
-											<div class="personalTrainings-card j-product-card" (click)="setPTOption(personalTraining.id)"  [ngClass] = '{ active : pt_option == personalTraining.id}'>
-												<p class="product_share">{{personalTraining.number_of_bookings}}</p>
-												<p class="product_price">كل {{personalTraining.number_of_bookings}} حصص / <b>{{currency}} {{personalTraining.price}}</b></p>
-												<p class="product_description">{{'subscribe'|translate}}.</p>
-												<label class="option_btn" for="personalTraining{{personalTraining.id}}">
-													<input type="radio" name="personalTraining" id="personalTraining{{personalTraining.id}}" value="{{personalTraining.id}}" class="product_opt" [checked]="pt_option == personalTraining.id">
-												</label>
-											</div>
-										</app-polygon-border-div>
+										<div class="j-pts-item" *ngFor="let personalTraining of personalTrainings;let i = index">
+											<app-product-item checkoutRedirectUrl = "signup/congratulation" [product] = "personalTraining"></app-product-item>
+										</div>
 									</div>
 								</div>
 								<div class="j-subscriptions-wrap">
 									<div class="j-subscriptions-list-panel j-product-list-panel">
 										<h4 class="j-page-text mb-2">{{'Subscriptions'|translate}}</h4>
-										<app-polygon-border-div j-class = 'j-right' *ngFor="let subscription of subscriptions;let i = index">
-											<div class="subscriptions-card j-product-card" (click)="setSubOption(subscription.id)" [ngClass]="{active: sub_option == subscription.id}">
-												<p class="product_cycle">{{subscription.period }} {{subscription.period_unit }}</p>
-												<p class="product_price">{{subscription.period }} {{subscription.period_unit }} / <b>{{currency}} {{subscription.price}}</b></p>
-												<p class="product_description">{{'unSubscript'|translate}}.</p>
-												<label class="option_btn" for="subscription{{subscription.id}}">
-													<input type="radio" name="subscription" id="subscription{{subscription.id}}" value="{{subscription.id}}" class="product_opt" [checked]="sub_option == subscription.id">
-												</label>
-											</div>
-										</app-polygon-border-div>
+										<div class="j-subs-item" *ngFor="let subscription of subscriptions;let i = index">
+											<app-product-item checkoutRedirectUrl = "signup/congratulation" [product] = "subscription"></app-product-item>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -178,7 +164,81 @@
 						<div class="j-content-wrap">
 							<h4 class="j-page-text mb-2">{{'account'|translate}}</h4>
 							<p class="j-page-text">{{'enter_account'|translate}}</p>
-							<div class="j-account-wrap">
+							<div class="j-account-wrap j-flex-row-reverse">
+								<div class="j-profile-panel">
+									<h4 class="j-page-text mb-2">{{'Personal data'|translate}}</h4>
+									<div class="j-name-field j-flex-row-reverse">
+										<div class="j-first-name-field j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || first_name.touched || first_name.dirty ) && first_name.invalid}">
+											<label for="first_name" class="j-inputbox-label j-flex-row-reverse">
+												<span>{{'First Name'|translate}}</span>
+												<span class="j-error" *ngIf="first_name.errors" translate>
+													<ng-container *ngIf="first_name.errors.required">{{'Required'|translate}} !</ng-container>
+												</span>
+											</label>
+											<div class="j-input-icons j-input-icon-right">
+												<input type="first_name" class="j-inputbox" id="first_name" name="first_name" aria-describedby="first_nameHelp" placeholder="{{'First Name'|translate}}" [(ngModel)]="user.first_name" #first_name="ngModel" required> 
+												<i class="j-icon j-icon-right j-icon-person"></i>
+											</div>
+										</div>
+										<div class="j-last-name-field j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || last_name.touched || last_name.dirty ) && last_name.invalid}">
+											<label for="last_name" class="j-inputbox-label j-flex-row-reverse">
+												<span>{{'family name'|translate}}</span>
+												<span class="j-error" *ngIf="last_name.errors">
+													<ng-container *ngIf="last_name.errors.required">{{'Required'|translate}} !</ng-container>
+												</span>
+											</label>
+											<div class="j-input-icons j-input-icon-right">
+												<input type="last_name" class="j-inputbox" id="last_name" name="last_name" aria-describedby="last_nameHelp" placeholder="{{'family name'|translate}}" [(ngModel)]="user.last_name" #last_name="ngModel" required> 
+												<i class="j-icon j-icon-right j-icon-person"></i>
+											</div>
+										</div>
+									</div>
+									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || national_id.touched || national_id.dirty ) && national_id.invalid}">
+										<label for="national_id" class="j-inputbox-label j-flex-row-reverse" >
+											<span>{{'ID Number'|translate}}</span>
+											<span class="j-error" *ngIf="national_id.errors">
+												<ng-container *ngIf="national_id.errors.required">{{'Required'|translate}} !</ng-container>
+											</span>
+										</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="text" class="j-inputbox" id="national_id" name = "national_id" placeholder="{{'ID Number'|translate}}" [(ngModel)]="user.national_id" #national_id="ngModel" required>
+											<i class="j-icon j-icon-right j-icon-idcard"></i>
+										</div>
+									</div>
+									<div class="j-form-group"  [ngClass]="{invalid: (stepSubmitted('account') || dob.touched || dob.dirty ) && dob.invalid}">
+										<label for="dob" class="j-inputbox-label j-flex-row-reverse">
+											<span>{{'date of birth'|translate}}</span>
+											<span class="j-error" *ngIf="dob.errors">
+												<ng-container *ngIf="dob.errors.required">{{'Required'|translate}} !</ng-container>
+											</span>
+										</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="text" class="j-inputbox" id="dob" name = "dob" placeholder="{{'date of birth'|translate}}" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" [(ngModel)]="user.dob" #dob="ngModel" required>
+											<i class="j-icon j-icon-right j-icon-calendar"></i>
+										</div>
+									</div>
+									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || subscription_day.touched || subscription_day.dirty ) && subscription_day.invalid}">
+										<label for="subscription_day" class="j-inputbox-label j-flex-row-reverse">
+											<span>{{'Subscription start date'|translate}}</span>
+											<span class="j-error" *ngIf="subscription_day.errors">
+												<ng-container *ngIf="subscription_day.errors.required">{{'Required'|translate}} !</ng-container>
+											</span>
+										</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="text" class="j-inputbox" id="subscription_day" name = "subscription_day" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" placeholder="{{'Subscription start date'|translate}}" [(ngModel)]="user.subscription_day" #subscription_day="ngModel" required>
+											<i class="j-icon j-icon-right j-icon-calendar"></i>
+										</div>
+									</div>
+									<div class="j-form-group">
+										<label for="promotional_code" class="j-inputbox-label j-flex-row-reverse">
+											<span>{{'Promotional code'|translate}}</span>
+										</label>
+										<div class="j-input-icons j-input-icon-right">
+											<input type="text" class="j-inputbox" id="promotional_code" name = "promotional_code" placeholder="{{'Promotional code'|translate}}" [(ngModel)]="user.promotional_code" #promotional_code="ngModel">
+											<i class="j-icon j-icon-right bi bi-person-lock"></i>
+										</div>
+									</div>
+								</div>
 								<div class="j-account-panel pb-md-0 pb-2">
 									<h4 class="j-page-text mb-2">{{'account'|translate}}</h4>
 									<div class="j-form-group" [ngClass]="{invalid:  (stepSubmitted('account') || mobile.touched || mobile.dirty )  && mobile.invalid}">
@@ -193,7 +253,7 @@
 										</label>
 										<div class="j-input-icons j-input-icon-both" [ngClass] = "{'j-verified' : phone_verified}">
 											<i class="j-icon j-icon-left bi bi-chat-left-text" [ngClass]="{'j-clickable':!mobile.invalid && !phone_verified}" (click) = "openConfirmDialog()"></i>
-											<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="رقم الجوال" required  pattern = '^05\d{8}$' #mobile="ngModel" [readonly]="phone_verified"> 
+											<input type="text" class="j-inputbox" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder='{{"Mobile Number"|translate}}' required  pattern = '^05\d{8}$' #mobile="ngModel" [readonly]="phone_verified"> 
 											<i class="j-icon j-icon-right j-icon-phone"></i>
 										</div>
 									</div>
@@ -206,7 +266,7 @@
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
-											<input type="email" class="j-inputbox" id="email" [(ngModel)]="user.email" name = "email" aria-describedby="emailHelp" placeholder="البريد الإلكتروني" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$" #email="ngModel"> 
+											<input type="email" class="j-inputbox" id="email" [(ngModel)]="user.email" name = "email" aria-describedby="emailHelp" placeholder="{{'E-mail' | translate}}" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$" #email="ngModel"> 
 											<i class="j-icon j-icon-right j-icon-automark"></i>
 										</div>
 									</div>
@@ -218,7 +278,7 @@
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
-											<input type="password" class="j-inputbox" [(ngModel)]="user.password" id="password" name ="password" placeholder="كلمة المرور" #password="ngModel" required>
+											<input type="password" class="j-inputbox" [(ngModel)]="user.password" id="password" name ="password" placeholder="{{ 'password' | translate}}" #password="ngModel" required>
 											<i class="j-icon j-icon-right j-icon-key"></i>
 										</div>
 									</div>
@@ -232,16 +292,17 @@
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-right">
-											<input type="password" class="j-inputbox" [(ngModel)]="confirm_password" id="confirmPassword" name = "confirmPassword" placeholder="تأكيد كلمة المرور" #confirmPassword="ngModel" required>
+											<input type="password" class="j-inputbox" [(ngModel)]="confirm_password" id="confirmPassword" name = "confirmPassword" placeholder="{{'confirm password'|translate}}" #confirmPassword="ngModel" required>
 											<i class="j-icon j-icon-right j-icon-key"></i>
 										</div>
 									</div>
 									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || agree_terms_conditions.touched || agree_terms_conditions.dirty ) && agree_terms_conditions.invalid}">
 										<div class="agree_terms_conditions j-flex-row-reverse justify-content-between">
-											<div>
-												<span>{{'I agree'|translate}} </span>
-												<a class="j-tc-link" href="/terms-conditions" target="_blank">{{'Terms and Conditions'|translate}}</a> 
-												<input type="checkbox" name="agree_terms_conditions" class="agree_terms_conditions_checkbox ml-2" [(ngModel)]="agree_terms_conditions_checkbox" #agree_terms_conditions="ngModel" required>
+											<div class="j-flex-row-reverse">
+												<input type="checkbox" name="agree_terms_conditions" class="agree_terms_conditions_checkbox mx-2" [(ngModel)]="agree_terms_conditions_checkbox" #agree_terms_conditions="ngModel" required>
+												<span>{{'I agree'|translate}} 
+													<a class="j-tc-link" href="/terms-conditions" target="_blank">{{'Terms and Conditions'|translate}}</a> 
+												</span>
 											</div>
 											<span class="j-error" *ngIf="agree_terms_conditions.errors">
 												{{'Required'|translate}} !
@@ -249,84 +310,11 @@
 										</div>
 									</div>
 								</div>
-								<div class="j-profile-panel">
-									<h4 class="j-page-text mb-2">{{'Personal data'|translate}}</h4>
-									<div class="j-name-field">
-										<div class="j-first-name-field j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || first_name.touched || first_name.dirty ) && first_name.invalid}">
-											<label for="first_name" class="j-inputbox-label j-flex-row-reverse">
-												<span>{{'family name'|translate}}</span>
-												<span class="j-error" *ngIf="first_name.errors" translate>
-													<ng-container *ngIf="first_name.errors.required">{{'Required'|translate}} !</ng-container>
-												</span>
-											</label>
-											<div class="j-input-icons j-input-icon-right">
-												<input type="first_name" class="j-inputbox" id="first_name" name="first_name" aria-describedby="first_nameHelp" placeholder="اسم العائلة" [(ngModel)]="user.first_name" #first_name="ngModel" required> 
-												<i class="j-icon j-icon-right j-icon-person"></i>
-											</div>
-										</div>
-										<div class="j-last-name-field j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || last_name.touched || last_name.dirty ) && last_name.invalid}">
-											<label for="last_name" class="j-inputbox-label j-flex-row-reverse">
-												<span>{{'First Name'|translate}}</span>
-												<span class="j-error" *ngIf="last_name.errors">
-													<ng-container *ngIf="last_name.errors.required">{{'Required'|translate}} !</ng-container>
-												</span>
-											</label>
-											<div class="j-input-icons j-input-icon-right">
-												<input type="last_name" class="j-inputbox" id="last_name" name="last_name" aria-describedby="last_nameHelp" placeholder="الاسم الأول" [(ngModel)]="user.last_name" #last_name="ngModel" required> 
-												<i class="j-icon j-icon-right j-icon-person"></i>
-											</div>
-										</div>
-									</div>
-									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || national_id.touched || national_id.dirty ) && national_id.invalid}">
-										<label for="national_id" class="j-inputbox-label j-flex-row-reverse" >
-											<span>{{'ID Number'|translate}}</span>
-											<span class="j-error" *ngIf="national_id.errors">
-												<ng-container *ngIf="national_id.errors.required">{{'Required'|translate}} !</ng-container>
-											</span>
-										</label>
-										<div class="j-input-icons j-input-icon-right">
-											<input type="text" class="j-inputbox" id="national_id" name = "national_id" placeholder="رقم الهوية" [(ngModel)]="user.national_id" #national_id="ngModel" required>
-											<i class="j-icon j-icon-right j-icon-idcard"></i>
-										</div>
-									</div>
-									<div class="j-form-group"  [ngClass]="{invalid: (stepSubmitted('account') || dob.touched || dob.dirty ) && dob.invalid}">
-										<label for="dob" class="j-inputbox-label j-flex-row-reverse">
-											<span>{{'date of birth'|translate}}</span>
-											<span class="j-error" *ngIf="dob.errors">
-												<ng-container *ngIf="dob.errors.required">{{'Required'|translate}} !</ng-container>
-											</span>
-										</label>
-										<div class="j-input-icons j-input-icon-right">
-											<input type="text" class="j-inputbox" id="dob" name = "dob" placeholder="تاريخ الميلاد" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" [(ngModel)]="user.dob" #dob="ngModel" required>
-											<i class="j-icon j-icon-right j-icon-calendar"></i>
-										</div>
-									</div>
-									<div class="j-form-group" [ngClass]="{invalid: (stepSubmitted('account') || subscription_day.touched || subscription_day.dirty ) && subscription_day.invalid}">
-										<label for="subscription_day" class="j-inputbox-label j-flex-row-reverse">
-											<span>{{'Subscription start date'|translate}}</span>
-											<span class="j-error" *ngIf="subscription_day.errors">
-												<ng-container *ngIf="subscription_day.errors.required">{{'Required'|translate}} !</ng-container>
-											</span>
-										</label>
-										<div class="j-input-icons j-input-icon-right">
-											<input type="text" class="j-inputbox" id="subscription_day" name = "subscription_day" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" placeholder="تاريخ بدء الاشتراك" [(ngModel)]="user.subscription_day" #subscription_day="ngModel" required>
-											<i class="j-icon j-icon-right j-icon-calendar"></i>
-										</div>
-									</div>
-									<div class="j-form-group">
-										<label for="promotional_code" class="j-inputbox-label j-flex-row-reverse">
-											<span>{{'Promotional code'|translate}}</span>
-										</label>
-										<div class="j-input-icons j-input-icon-right">
-											<input type="text" class="j-inputbox" id="promotional_code" name = "promotional_code" placeholder="الكود الترويجي" [(ngModel)]="user.promotional_code" #promotional_code="ngModel">
-											<i class="j-icon j-icon-right bi bi-person-lock"></i>
-										</div>
-									</div>
-								</div>
+								
 							</div>
 						</div>
 						<div class="go-btn-group">
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('account')">{{'next'|translate}}</a>
+							<a class="btn j-next-btn j-left-button j-submit-button" [class.loading] = "submitting" (click)="nextTab('account')">{{'next'|translate}}</a>
 							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('account')">{{'previous'|translate}}</a></app-polygon-border-div>
 						</div>
 					</ng-container>
@@ -381,7 +369,7 @@
 									</div>
 								</div>
 								<div class="j-form-group">
-									<p class="save_payment_info">{{'save_payment'|translate}}<input type="checkbox" name="save_payment_info" class="save_payment_info_checkbox ml-2" required></p>
+									<p class="save_payment_info">{{'save_payment'|translate}}<input type="checkbox" name="save_payment_info" class="save_payment_info_checkbox ms-2" required></p>
 								</div>
 							</div>
 						</div>

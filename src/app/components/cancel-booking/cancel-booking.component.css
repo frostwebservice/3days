@@ -3,6 +3,12 @@
     flex-direction: column;
     text-align: right;
 }
+.j-lang-ar .app-cancel-booking .j-inner-wrap{
+    text-align: right;
+}
+.j-lang-en .app-cancel-booking .j-inner-wrap{
+    text-align: right;
+}
 .app-cancel-booking .j-item-img{
     width: 48px;
     height:48px;

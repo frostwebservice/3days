@@ -48,6 +48,13 @@ export class BranchSelectionComponent implements OnInit {
 	}
 	setDefaultBranch(){
 		this.userService.setDefaultBranchId(this.selectedBranchId);
+		const toast: Toast = {
+			type: 'success',
+			title: 'Success',
+			body: 'Default Branch Selected.',
+		};
+		
+		this.toasterService.pop(toast);
 		this.dialogRef.close();
 	}
 	ngOnInit(): void {

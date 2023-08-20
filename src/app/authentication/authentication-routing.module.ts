@@ -17,7 +17,16 @@ export const AuthenticationRoutingModule: Routes = [
 		path: 'signup',
 		component: RegisterComponent,
 		data: {
-			title: 'Sign Up'
+			title: 'Sign Up',
+			isCompleted : false
+		}
+	},
+	{
+		path: 'signup/congratulation',
+		component: RegisterComponent,
+		data: {
+			title: 'Sign Up',
+			isCompleted : true
 		}
 	},
 	{

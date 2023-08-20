@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { MAT_DIALOG_DATA,MatDialog,MatDialogRef} from "@angular/material/dialog";
 import { BranchService } from 'src/app/services/branch.service';
+import { ToasterService, Toast } from 'angular2-toaster';
 import * as moment from 'moment';
 
 @Component({
@@ -18,6 +19,7 @@ export class SuspendSubscriptionComponent implements OnInit {
 	};
 	constructor(
 		private branchService : BranchService,
+		private toasterService: ToasterService,
 		private dialogRef: MatDialogRef<SuspendSubscriptionComponent>,
 			@Inject(MAT_DIALOG_DATA) public data: any
 	) {
@@ -31,5 +33,35 @@ export class SuspendSubscriptionComponent implements OnInit {
 	}
 	ngOnInit(): void {
 	}
-
+	suspendSubscription():void{
+		this.submitting = true;
+		this.branchService.suspendSubscription(this.param).subscribe((res) => {
+			this.submitting = false;
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Suspend subscription failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Suspend subscription failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				const toast: Toast = {
+					type: 'success',
+					title: 'Suspend subscription succeeded',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+			}
+			this.dialogRef.close(res);
+		});
+	}
 }

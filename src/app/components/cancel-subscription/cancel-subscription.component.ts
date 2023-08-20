@@ -16,11 +16,11 @@ export class CancelSubscriptionComponent implements OnInit {
 		private dialogRef: MatDialogRef<CancelSubscriptionComponent>,
 			@Inject(MAT_DIALOG_DATA) public data: any
 	) {
-		console.log(data.subscription);
 	}
 	ngOnInit(): void {
 	}
-	cancelSubscription(subscription_id){
+	cancelSubscription(subscription_id:number){
+		this.submitting = true;
 		this.branchService.cancelSubscription(subscription_id).subscribe((res) => {
 			this.submitting = false;
 			if (!res) {

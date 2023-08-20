@@ -23,6 +23,7 @@ export class Checkout implements OnInit {
 	coupon_is_activated : boolean = false;
 	submitting : boolean = false;
 	discount_price = 0;
+	checkoutRedirectUrl = '';
 	checkoutInfo = {
 		product_id: 0,
 		coupon_code: "",
@@ -42,6 +43,7 @@ export class Checkout implements OnInit {
 		this.checkoutInfo.member_id = this.user.id;
 		this.checkoutInfo.product_id = this.product.id;
 		this.start_date = moment().format('YYYY-MM-DD');
+		this.checkoutRedirectUrl = data.checkoutRedirectUrl;
 	}
 	checkCoupon(){
 		this.branchService.checkCoupon(this.checkoutInfo.product_id,this.checkoutInfo.coupon_code).subscribe((res) => {
@@ -76,16 +78,16 @@ export class Checkout implements OnInit {
 			}
 		});
 	}
-	buy(){
+	buyValidate(){
 		this.submitting = true;
 		this.checkoutInfo.start_date = moment(this.start_date).format('YYYY-MM-DD');
 
-		this.branchService.buySubscription(this.checkoutInfo).subscribe((res) => {
+		this.branchService.validateBuySubscription(this.checkoutInfo).subscribe((res) => {
 			this.submitting = false;
 			if (!res) {
 				const toast: Toast = {
 					type: 'error',
-					title: 'Buy subscription failed',
+					title: 'Buy validation failed',
 					body: "Something went wrong",
 				};
 				this.toasterService.pop(toast);
@@ -93,7 +95,7 @@ export class Checkout implements OnInit {
 			}else if(!res.status){
 				const toast: Toast = {
 					type: 'error',
-					title: 'Buy subscription failed',
+					title: 'Buy validation failed',
 					body: res.message,
 				};
 				this.toasterService.pop(toast);
@@ -101,19 +103,20 @@ export class Checkout implements OnInit {
 			}else{
 				const toast: Toast = {
 					type: 'success',
-					title: 'Buy subscription succeeded',
-					body: res.message,
+					title: 'Buy validation succeeded',
+					body: "You can buy this subscription now",
 				};
 				this.toasterService.pop(toast);
+				localStorage.setItem('checkoutInfo', JSON.stringify(this.checkoutInfo));
+				this.showGosell();
 			}
-			this.dialogRef.close(res);
 		});
 	}
 	showGosell(){
 		// this.buy();
+		console.log(environment.front + "product");
 		let customer = {
 			...this.paymentConf.customer,
-			// id : "cus_" + this.user.national_id,
 			first_name : this.user.english_name,
 			email : this.user.email,
 			phone: {
@@ -126,7 +129,7 @@ export class Checkout implements OnInit {
 			charge:{
 				...this.paymentConf.transaction.charge,
 				description: "Pay for product",
-				redirect : environment.front + "product"
+				redirect : environment.front + this.checkoutRedirectUrl
 			}
 		};
 		let order = {
@@ -154,6 +157,7 @@ export class Checkout implements OnInit {
 		goSell.config({
 			...this.paymentConf,
 			callback:(response) => {
+				console.log("transjaction",response);
 				if (response?.id){
 					let success_message = response.currency + " " + response.amount + " Paid successfully. ID is " + response.id
 					const toast: Toast = {
@@ -162,7 +166,7 @@ export class Checkout implements OnInit {
 						body: success_message,
 					};
 					this.toasterService.pop(toast);
-					this.buy();
+					this.branchService.setTransaction(response);
 				}else{
 					const toast: Toast = {
 						type: 'error',

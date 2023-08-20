@@ -22,7 +22,6 @@
 }
 .subscriptions-container .j-subs-item .j-subs-content .j-sub-info{
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
     margin-bottom: 11px;
 }
@@ -34,4 +33,10 @@
 .subscriptions-container .j-subs-item .j-subs-content .j-submit-btn{
     display: inline-block;
     padding: 8px 25px;
+}
+.j-lang-en .j-sub-info{
+    flex-direction: row;
+}
+.j-lang-ar .j-sub-info{
+    flex-direction: row-reverse;
 }

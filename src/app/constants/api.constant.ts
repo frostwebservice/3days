@@ -26,6 +26,7 @@ export const BOOKING = {
     REACTIVE_SUBSCRIPTION: 'reactivate-subscription',
     SESSION_RATING: 'class-session-ratings',
     BUY_SUBSCRIPTION: 'member/subscriptions/buy',
+    VALIDATE_BUY_SUBSCRIPTION: 'member/subscriptions/buy/validate',
     CHECK_COUPON: 'check-coupon',
 };
 export const PROFILE = {
