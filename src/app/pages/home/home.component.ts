@@ -20,6 +20,6 @@ export class Home {
 				content: 'Home - 3 Days',
 			},
 		]);
-		loaderService.setLoading(false);
+		this.loaderService.setLoading(false);
 	}
 }
