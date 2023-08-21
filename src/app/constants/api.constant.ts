@@ -18,6 +18,7 @@ export const BRANCH = {
 };
 export const BOOKING = {
     GET_MEMBER_BOOKINGS: 'member-bookings',
+    GET_SESSIONS_SEATS: 'class-sessions/count',
     GET_MEMBER_AVAILABLE_BOOKINGS: 'available-bookings',
     BOOK_SESSION: 'book',
     CANCEL_BOOKING: 'cancel-book',

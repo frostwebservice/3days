@@ -61,12 +61,12 @@ export class Bookings {
 				this.toasterService.pop(toast);
 				return;
 			}else if(!res.status){
-				const toast: Toast = {
-					type: 'error',
-					title: 'Get member booking failed',
-					body: res.message,
-				};
-				this.toasterService.pop(toast);
+				// const toast: Toast = {
+				// 	type: 'error',
+				// 	title: 'Get member booking failed',
+				// 	body: res.message,
+				// };
+				// this.toasterService.pop(toast);
 				return;
 			}else{
 				this.appointmentlist = res.data;
@@ -76,7 +76,7 @@ export class Bookings {
 	getMemberPTSessions(){
 		console.log(this.session_date);
 		this.loadingService.setLoading(true);
-		this.branchService.getMemberPTSessions(this.userService.getDefaultBranchId(),moment(this.session_date).format('YYYY-MM-DD')).subscribe((res) => {
+		this.branchService.getSubscriptionSessions(this.userService.getDefaultBranchId(),moment(this.session_date).format('YYYY-MM-DD')).subscribe((res) => {
 			this.loadingService.setLoading(false);
 			if (!res) {
 				const toast: Toast = {
@@ -87,12 +87,12 @@ export class Bookings {
 				this.toasterService.pop(toast);
 				return;
 			}else if(!res.status){
-				const toast: Toast = {
-					type: 'error',
-					title: 'Get member PT session failed',
-					body: res.message,
-				};
-				this.toasterService.pop(toast);
+				// const toast: Toast = {
+				// 	type: 'error',
+				// 	title: 'Get member PT session failed',
+				// 	body: res.message,
+				// };
+				// this.toasterService.pop(toast);
 				return;
 			}else{
 				this.sessionlist = res.data;

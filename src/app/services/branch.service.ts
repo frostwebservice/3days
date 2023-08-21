@@ -97,6 +97,26 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('Get ALL PT SESSIONS PER BRNACH', false))
 			);
 	}
+	public getSubscriptionSessions(branch_id:number,session_date: string = ""): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BRANCH.GET_SUBSCRIPTIONS_PER_BRANCH,
+				{ 
+					branch_id: branch_id ,
+					session_date: session_date 
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('GET MEMBER SUBSCRIPTION SESSIONS PER BRANCH', false))
+			);
+	}
 	public getMemberPTSessions(branch_id:number,session_date: string = ""): Observable<any> {
 		const reqHeader = new HttpHeaders({
 			'Content-Type': 'application/json',
@@ -168,6 +188,44 @@ export class BranchService extends HttpService {
 			.pipe(
 				map((res) => res),
 				catchError(this.handleError('CANCEL BOOKING', false))
+			);
+	}
+	public bookSession(session_id:number): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.BOOK_SESSION,
+				{
+					class_session_id:session_id
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('BOOK SESSION', false))
+			);
+	}
+	public getSessionsSeats(session_id:number): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + BOOKING.GET_SESSIONS_SEATS,
+				{
+					class_session_id:session_id
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('AVAILABLE SEATS', false))
 			);
 	}
 	public rateBooking(review): Observable<any> {

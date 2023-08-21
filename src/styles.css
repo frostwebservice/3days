@@ -263,41 +263,41 @@ body {
     align-items: center;
 }
 
-.j-front-page .gwTColor{
+.gwTColor{
 	color: var(--dl-color-grey-white); /*FAFAFAF7*/
 }
-.j-front-page .gdTColor{
+.gdTColor{
 	color: var(--dl-color-grey-dark) !important;  /*8E8D91*/
 }
-.j-front-page .bdTColor{
+.bdTColor{
     color: var(--dl-color-black-dark);
 }
-.j-front-page ._3dayColor{
+._3dayColor{
     color: var(--dl-color-primary-3days);
 }
-.j-front-page .j-dangerColor{
+.j-dangerColor{
     color: #b6361a;
 }
-.j-front-page .j-title-size{
+.j-title-size{
     font-size: 36px;
 }
-.j-front-page .j-smalltitle-size{
+.j-smalltitle-size{
 	font-size: 32px;
 }
-.j-front-page .j-subtitle-size{
+.j-subtitle-size{
     font-size: 28px;
 }
-.j-front-page .j-smallSubtitle-size{
+.j-smallSubtitle-size{
     font-size: 24px;
 }
-.j-front-page .j-tinySubtitle-size{
+.j-tinySubtitle-size{
     font-size: 20px;
 }
-.j-front-page .j-tnSize,
-.j-front-page .j-normal-size{
+.j-tnSize,
+.j-normal-size{
     font-size: 16px;
 }
-.j-front-page .j-tsSize{
+.j-tsSize{
     font-size: 14px;
 }
 
@@ -438,8 +438,8 @@ body {
 .toast-container .toast{
 	display: block !important;
 }
-body.gosell-payment-gateway-open{
-	/* position: relative !important; */
+body.j-lang-en.gosell-payment-gateway-open {
+    height: auto;
 }
 @media(max-width: 767px) {
 	.j-front-page{
