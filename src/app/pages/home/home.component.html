@@ -19,7 +19,7 @@
 					{{'alerts'|translate}}
 				</span>
 			</span>
-			<div class="home-btn-group1">
+			<div class="home-btn-group1" *ngIf = "!is_authenticated">
 				<a class="home-button button j-left-button" href="/signup">{{'Create an acccount'|translate}}</a>
 				<a class="home-button1 home-login-btn button j-right-button" href="/login">{{'Sign in'|translate}}</a>
 			</div>

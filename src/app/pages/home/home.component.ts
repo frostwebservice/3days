@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core'
 import { Title, Meta } from '@angular/platform-browser'
 import { LoaderService } from 'src/app/services/loader.service'
+import { UserService } from 'src/app/services/user.service'
 @Component({
 	selector: 'app-home',
 	templateUrl: 'home.component.html',
@@ -12,7 +13,8 @@ export class Home {
 	rawwas1: string = ' '
 	rawbzek: string = ' '
 	rawiiqk: string = ' '
-	constructor(private title: Title, private meta: Meta, private loaderService:LoaderService) {
+	is_authenticated :boolean = false;
+	constructor(private title: Title, private meta: Meta, private loaderService:LoaderService, private userService:UserService) {
 		this.title.setTitle('Home -3 Days');
 		this.meta.addTags([
 			{
@@ -21,5 +23,6 @@ export class Home {
 			},
 		]);
 		this.loaderService.setLoading(false);
+		this.is_authenticated = this.userService.isAuthenticated();
 	}
 }
