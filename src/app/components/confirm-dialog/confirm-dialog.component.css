@@ -1,3 +1,6 @@
+.confirm-dialog.modal-container.j-front-page {
+    padding: 10px;
+}
 .j-true-btn{
     color: var(--dl-color-grey-white);
     background-color: var(--dl-color-primary-3days);
@@ -7,4 +10,10 @@
     background-color: #1c1a17aa;
     color: var(--dl-color-grey-white);
     border: none;
+}
+.j-description{
+    color : var(--dl-color-grey-dark);
+}
+.j-title{
+    color : var(--dl-color-grey-white);
 }

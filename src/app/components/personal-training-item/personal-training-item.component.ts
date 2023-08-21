@@ -22,21 +22,7 @@ export class PersonalTrainingItemComponent implements OnInit {
 	showClassDetail(){
 		const dialogConfig = new MatDialogConfig();
 		dialogConfig.autoFocus = true;
-		if (this.personalTraining.subscribed){
-			dialogConfig.height ="80vh";
-			// dialogConfig.width ="600px";
-			dialogConfig.data = {
-				title: 'Class Detail',
-				personalTraining : this.personalTraining
-			};
-			this.dialog.open(ClassDetail, dialogConfig)
-			.afterClosed()
-			.subscribe((res) => {
-				console.log(res);
-				if (res.status) {
-				}
-			});
-		}else{
+		if (!this.personalTraining.subscribed ){
 			dialogConfig.autoFocus = true;
 			dialogConfig.data = {
 				title: 'Buy PT Session',
@@ -51,7 +37,20 @@ export class PersonalTrainingItemComponent implements OnInit {
 					this.router.navigate(['/products']);
 				}
 			});
-
+		}else{
+			dialogConfig.height ="80vh";
+			// dialogConfig.width ="600px";
+			dialogConfig.data = {
+				title: 'Class Detail',
+				personalTraining : this.personalTraining
+			};
+			this.dialog.open(ClassDetail, dialogConfig)
+			.afterClosed()
+			.subscribe((res) => {
+				console.log(res);
+				if (res.status) {
+				}
+			});
 		}
 	}
 }
