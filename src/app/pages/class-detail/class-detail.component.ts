@@ -52,6 +52,7 @@ export class ClassDetail implements OnInit {
 					title: 'Reserve seat succeeded',
 					body: res.message,
 				};
+				this.toasterService.pop(toast);
 			}
 			this.dialogRef.close(res);
 		});

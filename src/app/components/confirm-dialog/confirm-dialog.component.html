@@ -1,8 +1,10 @@
-<h2 mat-dialog-title>{{data.title | translate}}</h2>
-<mat-dialog-content>
-	{{data.description | translate}}
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-	<button mat-button mat-dialog-close class="j-false-btn mx-2  button j-left-button">{{data.falseLabel | translate}}</button>
-	<button mat-button (click)="onConfirm()" class="j-true-btn  button j-right-button">{{data.trueLabel | translate}}</button>
-</mat-dialog-actions>
+<div class="confirm-dialog modal-container j-front-page">
+	<h2 mat-dialog-title>{{data.title | translate}}</h2>
+	<mat-dialog-content>
+		{{data.description | translate}}
+	</mat-dialog-content>
+	<mat-dialog-actions align="end">
+		<app-polygon-border-div><button mat-button mat-dialog-close class="j-false-btn">{{data.falseLabel | translate}}</button></app-polygon-border-div>
+		<app-polygon-border-div><button mat-button (click)="onConfirm()" class="j-true-btn">{{data.trueLabel | translate}}</button></app-polygon-border-div>
+	</mat-dialog-actions>
+</div>

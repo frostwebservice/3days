@@ -15,6 +15,9 @@
 }
 .j-sessions-tab {
 	width: 100%;
+	align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 .j-sessions-tab .j-session-item .j-session-card{
 	padding : 12px;
