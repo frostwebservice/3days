@@ -15,9 +15,9 @@
     width:100%;
 }
 
-.class-detail-container .j-class-detail-item,
-.class-detail-container .j-apt-day-item,
-.class-detail-container .j-apt-time-item{
+.class-detail-container .j-class-detail-item:not(:last-child),
+.class-detail-container .j-apt-day-item:not(:last-child),
+.class-detail-container .j-apt-time-item:not(:last-child){
     padding-left: var(--dl-space-space-halfunit);
 }
 .class-detail-container .j-inner-wrap{
@@ -50,7 +50,7 @@
     margin-top: var(--dl-space-space-halfunit);
 }
 .class-detail-container .j-class-reserve{
-    max-width: 360px;
+    max-width: 340px;
     width: 100%;
 }
 @media(max-width: 767px) {

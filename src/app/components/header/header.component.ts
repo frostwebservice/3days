@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Cookie } from 'src/app/utils/cookie';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,6 +30,7 @@ export class HeaderComponent {
 		private router: Router,
 		private userService: UserService,
 		private toasterService: ToasterService,
+		private renderer: Renderer2,
         private langService: LangService
 	) {
 		this.isLoggedIn = this.userService.getUser()?.id > 0 && this.userService.getToken() !== "";	
@@ -78,6 +79,10 @@ export class HeaderComponent {
 			body: "Change Language successfully",
 		};
 		this.toasterService.pop(toast);
+		
+		this.renderer.removeClass(document.body, 'j-lang-en');
+		this.renderer.removeClass(document.body, 'j-lang-ar');
+		this.renderer.addClass(document.body, 'j-lang-'+lang.code);
     }
 	ngOnInit(): void {
         this.languageSubscription && this.languageSubscription.unsubscribe();
