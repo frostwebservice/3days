@@ -124,7 +124,7 @@ export class Products implements OnInit {
 				this.toasterService.pop(toast);
 			}
 			this.unsetCheckoutInfo();
-			this.router.navigate(['/bookings']);
+			this.router.navigate(['/subscriptions']);
 		});
 	}
 	unsetCheckoutInfo(){

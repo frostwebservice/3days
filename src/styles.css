@@ -438,8 +438,8 @@ body {
 .toast-container .toast{
 	display: block !important;
 }
-body.gosell-payment-gateway-open{
-	/* position: relative !important; */
+body.j-lang-en.gosell-payment-gateway-open {
+    height: auto;
 }
 @media(max-width: 767px) {
 	.j-front-page{
