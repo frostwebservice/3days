@@ -190,7 +190,7 @@ export class BranchService extends HttpService {
 				catchError(this.handleError('CANCEL BOOKING', false))
 			);
 	}
-	public bookSession(session_id:number): Observable<any> {
+	public bookSession(session_id:number,product_id: number): Observable<any> {
 		const reqHeader = new HttpHeaders({
 			'Content-Type': 'application/json',
 		});
@@ -198,7 +198,8 @@ export class BranchService extends HttpService {
 			.post(
 				this.server + BOOKING.BOOK_SESSION,
 				{
-					class_session_id:session_id
+					class_session_id:session_id,
+					product_id:product_id
 				},
 				{
 					headers: reqHeader

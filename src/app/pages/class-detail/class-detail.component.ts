@@ -31,7 +31,7 @@ export class ClassDetail implements OnInit {
 	}
 	reserveSeat(){
 		this.submitting = true;
-		this.branchService.bookSession(this.data.personalTraining.id).subscribe((res) => {
+		this.branchService.bookSession(this.data.personalTraining.id,this.data.product_id).subscribe((res) => {
 			this.submitting = true;
 			if (!res) {
 				const toast: Toast = {
