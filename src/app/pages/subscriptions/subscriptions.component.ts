@@ -7,6 +7,7 @@ import { SuspendSubscriptionComponent } from 'src/app/components/suspend-subscri
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { CancelSubscriptionComponent } from 'src/app/components/cancel-subscription/cancel-subscription.component';
 import { ToasterService, Toast } from 'angular2-toaster';
+import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
     selector: 'app-subscriptions',
@@ -59,6 +60,50 @@ export class Subscriptions implements OnInit {
 			}
 		});
 	}
+    reactivateSubscription(subs){
+        const dialogConfig = new MatDialogConfig();
+		dialogConfig.autoFocus = true;
+		dialogConfig.data = {
+			title: 'Reactivate Subscription',
+			description : 'not_subscribed_buy_pt_session',
+			trueLabel : 'Activate',
+			falseLabel : 'Cancel'
+		};
+		this.dialog.open(ConfirmDialogComponent, dialogConfig)
+		.afterClosed()
+		.subscribe((res) => {
+			if (res){
+				this.branchService.reactivateSubscription(subs.id).subscribe((res) => {
+					if (!res) {
+						const toast: Toast = {
+							type: 'error',
+							title: 'Reactivate failed',
+							body: "Something went wrong",
+						};
+						this.toasterService.pop(toast);
+						return;
+					}else if(!res.status){
+						const toast: Toast = {
+							type: 'error',
+							title: 'Reactivate failed',
+							body: res.message,
+						};
+						this.toasterService.pop(toast);
+						return;
+					}else{
+						const toast: Toast = {
+							type: 'success',
+							title: 'Success',
+							body: res.message,
+						};
+						this.toasterService.pop(toast);
+						this.getMemberSubscriptions();
+					}
+				});
+				
+			}
+		});
+    }
     suspendSubscription(subs){
         const dialogConfig = new MatDialogConfig();
 		dialogConfig.autoFocus = true;
@@ -70,7 +115,7 @@ export class Subscriptions implements OnInit {
 		this.dialog.open(SuspendSubscriptionComponent, dialogConfig)
 		.afterClosed()
 		.subscribe((res) => {
-			console.log(res);
+			if (res && res?.status) this.getMemberSubscriptions();
 		});
     }
     cancelSubscription(subs){
@@ -84,7 +129,7 @@ export class Subscriptions implements OnInit {
 		this.dialog.open(CancelSubscriptionComponent, dialogConfig)
 		.afterClosed()
 		.subscribe((res) => {
-			console.log(res);
+			if (res && res?.status) this.getMemberSubscriptions();
 		});
     }
 }

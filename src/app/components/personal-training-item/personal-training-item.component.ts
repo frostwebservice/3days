@@ -23,7 +23,6 @@ export class PersonalTrainingItemComponent implements OnInit {
 		const dialogConfig = new MatDialogConfig();
 		dialogConfig.autoFocus = true;
 		if (!this.personalTraining.subscribed ){
-			dialogConfig.autoFocus = true;
 			dialogConfig.data = {
 				title: 'Buy PT Session',
 				description : 'not_subscribed_buy_pt_session',
