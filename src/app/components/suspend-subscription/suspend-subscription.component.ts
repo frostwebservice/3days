@@ -35,6 +35,7 @@ export class SuspendSubscriptionComponent implements OnInit {
 	}
 	suspendSubscription():void{
 		this.submitting = true;
+		this.param.suspension_date = moment(this.param.suspension_date).format('YYYY-MM-DD') ;
 		this.branchService.suspendSubscription(this.param).subscribe((res) => {
 			this.submitting = false;
 			if (!res) {
