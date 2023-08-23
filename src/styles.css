@@ -195,7 +195,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	margin-top: 16px;
-	width: 100%;
+	width: 100%
+}
+.j-lang-ar .j-form-group{
+	align-items: flex-end;
 }
 .j-form-group.invalid .j-inputbox{
 	border-color: var(--dl-color-danger-500);
@@ -437,6 +440,12 @@ body {
 .j-lang-ar .class-detail-container{
     align-items: flex-end;
     text-align: right;
+}
+.j-lang-en .j-inner-wrap{
+	text-align: left;
+}
+.j-lang-ar .j-inner-wrap{
+	text-align: right;
 }
 /* ------------------------------------------------------------------------------------------------------ */
 .page-container a.j-text-hover:hover{
