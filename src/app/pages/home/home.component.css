@@ -506,8 +506,9 @@
 	flex-direction: column;
 	background-size: cover;
 	justify-content: center;
-	margin-top:-80vh;
-	/* background-image: url("/assets/bg/hero-bg-1500h.png"); */
+	/* margin-top:-80vh; */
+	background-image: url("/assets/bg/hero-bg-1500h.png");
+    background-position: center;
 }
 .home-introduction-section{
 	width: 100%;

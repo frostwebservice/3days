@@ -16,9 +16,9 @@
         </div>
         <div class="j-form-group">
             <label for="number_days" class="j-inputbox-label">{{'Number_days'|translate}}</label>
-            <input class="j-inputbox"  type = "number" id="number_days" name = "number_days" ngSpinBox stepperIncrementOnEnter="false" (change) = "calcReturnDate()" placeholder="" [(ngModel)] = "param.suspension_days" #number_days="ngModel">
+            <input class="j-inputbox"  type = "number" ngSpinBox  stepperIncrementOnEnter="false" id="number_days" name = "number_days" ngSpinBox stepperIncrementOnEnter="false" (change) = "calcReturnDate()" placeholder="" [(ngModel)] = "param.suspension_days" #number_days="ngModel">
         </div>
-        <p class="mt-4 text-center j-flex-row-reverse"><span class="gdTColor j-tsSize">{{'return'|translate}}</span><span class="gwTColor j-tsSize"> {{return_date}}</span></p>
+        <p class="mt-4 text-center j-flex-row-reverse"><span class="gdTColor j-tsSize">{{'return'|translate}} </span> <span class="gwTColor j-tsSize mx-2"> {{return_date}}</span></p>
         <div class="j-suspend">
             <div class="j-form-group">
                 <button type="button" class="j-left-button button j-submit-button" (click) = "suspendSubscription()" [class.loading]="submitting"><span>{{'Subscription_freeze'|translate}}</span></button>

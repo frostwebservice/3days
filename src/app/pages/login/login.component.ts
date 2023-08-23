@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
@@ -46,7 +46,8 @@ export class LoginComponent implements OnInit {
 		private router: Router,
 		private route: ActivatedRoute,
 		private toasterService: ToasterService,
-        private langService: LangService
+        private langService: LangService,
+		private renderer: Renderer2
 	) { }
 
 	ngOnInit(): void {
@@ -92,6 +93,9 @@ export class LoginComponent implements OnInit {
 			body: 'Change language successfully',
 		};
 		this.toasterService.pop(toast);
+		this.renderer.removeClass(document.body, 'j-lang-en');
+		this.renderer.removeClass(document.body, 'j-lang-ar');
+		this.renderer.addClass(document.body, 'j-lang-'+lang.code);
     }
 	goHome(data: any): void {
 		Cookie.setLogin(data.member.id);

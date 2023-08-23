@@ -3,11 +3,11 @@
         <img src="{{personalTraining.trainer_banner}}" class="j-class-photo"/>
     </div>
     <div class="j-class-subject mt-4 j-en-text">
-        <h3 class="j-class-title j-title-size gwTColor">{{personalTraining.english_name}}</h3>
+        <h3 class="j-class-title j-title-size gwTColor j-ml-2">{{personalTraining.english_class_name}}</h3>
         <p class="j-class-description j-tnSize gdTColor mt-4 mb-4">{{personalTraining.english_description}}</p>
     </div>
     <div class="j-class-subject mt-4 j-ar-text">
-        <h3 class="j-class-title j-title-size gwTColor">{{personalTraining.arabic_name}}</h3>
+        <h3 class="j-class-title j-title-size gwTColor j-ml-2">{{personalTraining.arabic_class_name}}</h3>
         <p class="j-class-description j-tnSize gdTColor mt-4 mb-4">{{personalTraining.arabic_description}}</p>
     </div>
     <div class="j-class-detail mt-4 mb-5">
@@ -33,8 +33,8 @@
     </div>
     <div class="j-class-appointments mt-4">
         <h4 class="j-class-subtitle j-subtitle-size gwTColor">{{'Appointments'|translate}}</h4>
-        <div class="j-class-apt-date-list j-list j-tnSize mt-4">
-            <app-polygon-border-div class="j-apt-day-item j-item" j-class = 'j-left' >
+        <div class="j-class-apt-date-list j-list j-flex-row-reverse j-tnSize mt-4">
+            <app-polygon-border-div class="j-apt-day-item j-item j-ml-2" j-class = 'j-left' >
                 <div class="j-inner-wrap gdTColor">
                     <div class="j-item-title">{{personalTraining.session_date}}</div>
                     <app-polygon-border-div j-class = 'j-left j-icon'>
@@ -43,8 +43,8 @@
                 </div>
             </app-polygon-border-div>
         </div>
-        <div class="j-class-apt-time-list j-list j-tnSize mt-4">
-            <app-polygon-border-div class="j-apt-time-item j-item" j-class = 'j-left' >
+        <div class="j-class-apt-time-list j-list j-flex-row-reverse j-tnSize mt-4">
+            <app-polygon-border-div class="j-apt-time-item j-item j-ml-2" j-class = 'j-left' >
                 <div class="j-inner-wrap gdTColor">
                     <div class="j-item-title">{{personalTraining.start_time}} - {{personalTraining.end_time}}</div>
                     <app-polygon-border-div j-class = 'j-left j-icon'>

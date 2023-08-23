@@ -1,10 +1,9 @@
 <div class="home-container">
 	<app-header page_name="home" ngClass="j-page-section"></app-header>
 	<div class="home-introduction-section">
-		<video muted loop class="background-video" autoplay>
+		<!-- <video muted loop class="background-video" autoplay>
 			<source src="https://player.vimeo.com/external/371817283.sd.mp4?s=56639e00db07ad3f26d837314e3da531bad01b1b&amp;profile_id=164&amp;oauth2_token_id=57447761"  type="video/mp4">
-			<!-- <source src="../../../assets/bg/rain.mp4" type="video/mp4"> -->
-		</video>
+		</video> -->
 		<div class="home-introduction">
 			<h1 class="home-text11">
 				<span>
@@ -19,7 +18,7 @@
 					{{'alerts'|translate}}
 				</span>
 			</span>
-			<div class="home-btn-group1">
+			<div class="home-btn-group1" *ngIf = "!is_authenticated">
 				<a class="home-button button j-left-button" href="/signup">{{'Create an acccount'|translate}}</a>
 				<a class="home-button1 home-login-btn button j-right-button" href="/login">{{'Sign in'|translate}}</a>
 			</div>

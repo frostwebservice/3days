@@ -1,8 +1,3 @@
-.class-detail-container{
-    align-items: flex-end;
-    text-align: right;
-    /* padding-top: 0 !important; */
-}
 .class-detail-container .j-class-photo {
     background-color: #FFF;
     display: flex;
@@ -20,15 +15,10 @@
     width:100%;
 }
 
-.class-detail-container .j-class-detail-item,
-.class-detail-container .j-apt-day-item,
-.class-detail-container .j-apt-time-item{
+.class-detail-container .j-class-detail-item:not(:last-child),
+.class-detail-container .j-apt-day-item:not(:last-child),
+.class-detail-container .j-apt-time-item:not(:last-child){
     padding-left: var(--dl-space-space-halfunit);
-}
-.class-detail-container  .j-class-apt-time-list,
-.class-detail-container  .j-class-apt-date-list{
-    display: flex;
-    flex-direction: row-reverse;
 }
 .class-detail-container .j-inner-wrap{
     padding: var(--dl-space-space-halfunit);
@@ -60,7 +50,7 @@
     margin-top: var(--dl-space-space-halfunit);
 }
 .class-detail-container .j-class-reserve{
-    max-width: 360px;
+    max-width: 340px;
     width: 100%;
 }
 @media(max-width: 767px) {

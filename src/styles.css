@@ -195,7 +195,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	margin-top: 16px;
-	width: 100%;
+	width: 100%
+}
+.j-lang-ar .j-form-group{
+	align-items: flex-end;
 }
 .j-form-group.invalid .j-inputbox{
 	border-color: var(--dl-color-danger-500);
@@ -236,7 +239,7 @@ body {
 .j-form-group .j-submit-button{
 	width: 100%;
 	max-width: 340px;
-	margin-left: auto;
+	/* margin-left: auto; */
 	height: 48px;
 	background-color: var(--dl-color-primary-3days);
 	font-size:20px;
@@ -428,6 +431,21 @@ body {
 }
 .j-lang-en .j-input-icons.j-input-icon-both .j-inputbox{
 	padding-right : var(--dl-space-space-threeunits);
+}
+/* ------------------------------------------------------------------------------------------------------ */
+.j-lang-en .class-detail-container{
+    align-items: flex-start;
+    text-align: left;
+}
+.j-lang-ar .class-detail-container{
+    align-items: flex-end;
+    text-align: right;
+}
+.j-lang-en .j-inner-wrap{
+	text-align: left;
+}
+.j-lang-ar .j-inner-wrap{
+	text-align: right;
 }
 /* ------------------------------------------------------------------------------------------------------ */
 .page-container a.j-text-hover:hover{

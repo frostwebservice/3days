@@ -39,7 +39,6 @@
 .app-footer .app-container6 {
 	display: flex;
 	align-items: flex-start;
-	margin-right: 10rem;
 	flex-direction: row;
 	justify-content: space-between;
 }
@@ -50,11 +49,6 @@
 	margin-right: 10rem;
 	flex-direction: column;
 	justify-content: flex-start;
-}
-.app-footer .app-text29 {
-	color: var(--dl-color-gray-900);
-	font-weight: 700;
-	margin-bottom: var(--dl-space-space-oneandhalfunits);
 }
 .app-footer .app-text30 {
 	color: var(--dl-color-gray-900);
@@ -111,11 +105,6 @@
 	flex-direction: column;
 	justify-content: flex-start;
 }
-.app-footer .app-text39 {
-	color: var(--dl-color-gray-900);
-	font-weight: 700;
-	margin-bottom: var(--dl-space-space-oneandhalfunits);
-}
 .app-footer .app-text40 {
 	color: var(--dl-color-gray-900);
 	margin-bottom: var(--dl-space-space-unit);
@@ -129,10 +118,14 @@
 	flex-direction: column;
 	justify-content: flex-start;
 }
-.app-footer .app-text42 {
+.app-footer .app-text42,
+.app-footer .app-text29,
+.app-footer .app-text39  {
 	color: var(--dl-color-gray-900);
 	font-weight: 700;
-	margin-bottom: var(--dl-space-space-oneandhalfunits);
+    margin-bottom: var(--dl-space-space-unit);
+	border-bottom: 1px solid var(--dl-color-primary-3days);
+    padding-bottom: 10px;
 }
 .app-footer .app-icon-group1 {
 	display: flex;
@@ -184,17 +177,15 @@
     .app-footer {
 		flex-direction: column;
 	}
-	.app-footer .app-container6 {
-		margin-right: var(--dl-space-space-fourunits);
-	}
 	.app-footer .app-product-container {
-		margin-right: var(--dl-space-space-fourunits);
+		margin-right: var(--dl-space-space-unit);
 	}
 }
 @media(max-width: 767px) {
-    .app-footer .app-footer {
+    .app-footer {
 		padding-left: var(--dl-space-space-twounits);
 		padding-right: var(--dl-space-space-twounits);
+		font-size: 13px;
 	}
 	.app-footer .app-container5 {
 		align-items: center;
@@ -219,10 +210,10 @@
 		justify-content: center;
 	}
 	.app-footer .app-container6 {
-		margin-right: var(--dl-space-space-fourunits);
+		width: 100%;
 	}
 	.app-footer .app-product-container {
-		margin-right: var(--dl-space-space-fourunits);
+		margin-right: var(--dl-space-space-unit);
 	}
 }
 
@@ -238,7 +229,7 @@
 		margin-bottom: 0px;
 	}
 	.app-footer .app-text26 {
-		margin-top: var(--dl-space-space-twounits);
+		margin-top: var(--dl-space-space-unit);
 		margin-bottom: var(--dl-space-space-twounits);
 	}
 	.app-footer .app-links-container {
@@ -249,7 +240,6 @@
 		margin-right: 0px;
 	}
 	.app-footer .app-container7 {
-		margin-top: var(--dl-space-space-oneandhalfunits);
 		align-items: flex-start;
 		margin-bottom: 0px;
 	}

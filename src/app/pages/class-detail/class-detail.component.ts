@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA,MatDialog,MatDialogRef} from "@angular/material/dialog"
 import { BranchService } from 'src/app/services/branch.service';
 import { UserService } from 'src/app/services/user.service';
 import { ToasterService, Toast } from 'angular2-toaster';
+import { LoaderService } from 'src/app/services/loader.service';
 import * as moment from 'moment';
 @Component({
 	selector: 'app-class-detail',
@@ -17,6 +18,7 @@ export class ClassDetail implements OnInit {
 		private dialogRef: MatDialogRef<ClassDetail>,
 		private branchService: BranchService,
 		private userService: UserService,
+        private loadingService: LoaderService,
 		private toasterService: ToasterService,
         @Inject(MAT_DIALOG_DATA) public data: any
 	) {
@@ -25,10 +27,11 @@ export class ClassDetail implements OnInit {
 	// openDays = ['11-06-2023','12-06-2023','15-06-2023','18-06-2023','19-06-2023','23-06-2023','27-06-2023',];
 	// openTimes = ['13:00 - 14:00','15:00 - 16:00','17:00 - 19:00','19:00 - 20:00','21:00 - 22:00'];
 	ngOnInit(): void {
+		this.getSessionsSeats();
 	}
 	reserveSeat(){
 		this.submitting = true;
-		this.branchService.bookSession(this.data.personalTraining.id).subscribe((res) => {
+		this.branchService.bookSession(this.data.personalTraining.id,this.data.product_id).subscribe((res) => {
 			this.submitting = true;
 			if (!res) {
 				const toast: Toast = {
@@ -58,8 +61,9 @@ export class ClassDetail implements OnInit {
 		});
 	}
 	getSessionsSeats(){
+		this.loadingService.setLoading(true);
 		this.branchService.getSessionsSeats(this.data.personalTraining.id).subscribe((res) => {
-			this.submitting = true;
+			this.loadingService.setLoading(false);
 			if (!res) {
 				const toast: Toast = {
 					type: 'error',
@@ -77,9 +81,8 @@ export class ClassDetail implements OnInit {
 				this.toasterService.pop(toast);
 				return;
 			}else{
-				this.availableSeats=parseInt(res.capacity) - parseInt(res.bookings_count)
+				this.availableSeats=parseInt(res.data.capacity) - parseInt(res.data.bookings_count)
 			}
-			this.dialogRef.close(res);
 		});
 	}
 }

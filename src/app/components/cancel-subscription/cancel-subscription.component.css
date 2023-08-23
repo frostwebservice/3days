@@ -1,7 +1,6 @@
 .app-cancel-subscription .j-inner-wrap{
     display: flex;
     flex-direction: column;
-    text-align: right;
 }
 .app-cancel-subscription .j-item-img{
     width: 48px;
