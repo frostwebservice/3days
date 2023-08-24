@@ -48,20 +48,7 @@
 					<i class="j-icon j-icon-right j-icon-phone"></i>
 				</div>
 			</div>
-			<!-- <div class="j-form-group d-none" [ngClass]="{invalid: signForm.submitted && client_id.invalid && (client_id.dirty || client_id.touched || signForm.submitted)}">
-				<label for="client_id" class="j-inputbox-label j-flex-row-reverse">
-					<span>{{'Client ID'|translate}}</span>
-					<span class="j-error" *ngIf="client_id.errors" translate>
-						<ng-container *ngIf="client_id.errors.required">{{'Required'|translate}}!</ng-container>
-						<ng-container *ngIf="client_id.errors.min">{{'Invaild ID'|translate}}</ng-container>
-					</span>
-				</label>
-				<div class="j-input-icons j-input-icon-right">
-					<input type="text" ngSpinBox  stepperIncrementOnEnter="false" class="j-inputbox" tabindex = "2" [(ngModel)]="user.client_id" id="client_id" name="client_id" aria-describedby="client_idHelp" placeholder="Client ID" required  #client_id="ngModel" min = 0 > 
-					
-					<i class="j-icon j-icon-right j-icon-person"></i>
-				</div>
-			</div> -->
+	
 			<div class="j-form-group" [ngClass]="{invalid: signForm.submitted && password.invalid && (password.dirty || password.touched || signForm.submitted)}">
 				<label for="password" class="j-inputbox-label j-flex-row-reverse">
 					<span>{{'Password'|translate}}</span>
