@@ -459,6 +459,16 @@ body {
 body.j-lang-en.gosell-payment-gateway-open {
     /* height: auto; */
 }
+.j-unread_notification_symbol{
+	width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    border: 1px solid #1c1a17;
+    top: 16px;
+    right: 15px;
+}
 @media(max-width: 767px) {
 	.j-front-page{
 		padding: var(--dl-space-space-oneunit);

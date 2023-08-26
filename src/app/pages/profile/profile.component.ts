@@ -51,6 +51,7 @@ export class Profile {
    
     current_user_profile;
     imageUrl:string = "./assets/img/manavatar.png";
+    unreadNotifications:boolean = false;
     openReferralCodeDialog() {
         const dialogConfig = new MatDialogConfig();      
         dialogConfig.autoFocus = true;
@@ -74,6 +75,13 @@ export class Profile {
         }
     }
     ngOnInit(): void {
+        this.getNotificationStatus();
+    }
+    getNotificationStatus(){
+        this.userService.notificationStatus()
+        .subscribe((res) => {
+            this.unreadNotifications = res.data?.unreadNotifications;
+        });
     }
     onImageSelected(event: any) {
         if (event.target.files && event.target.files.length > 0) {

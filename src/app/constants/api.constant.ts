@@ -37,4 +37,5 @@ export const PROFILE = {
     TERMS_CONDITIONS: 'terms-and-conditions',
     GET_INVOICES: 'member/payments',
     POLICY: 'policy',
+    NOTIFICATION_STATUS : 'member/notifications/status',
 };
