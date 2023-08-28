@@ -270,11 +270,6 @@
 	flex-direction: column;
 	background-color: var(--dl-color-gray-black);
 }
-.home-text25 {
-	color: var(--dl-color-gray-white);
-	font-size: 3rem;
-	margin-bottom: var(--dl-space-space-threeunits);
-}
 .home-container3 {
 	width: 100%;
 	display: grid;
