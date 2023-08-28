@@ -23,7 +23,6 @@
 .class-detail-container .j-inner-wrap{
     padding: var(--dl-space-space-halfunit);
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 .class-detail-container .j-inner-wrap .j-item-title{

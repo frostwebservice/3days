@@ -14,7 +14,7 @@
         <h4 class="j-class-subtitle j-subtitle-size gwTColor">{{'details'|translate}}</h4>
         <div class="j-class-detail-wrap d-flex flex-row-reverse mt-4 j-tnSize">
             <app-polygon-border-div j-class = 'j-left' class="j-class-detail-item">
-                <div class="j-inner-wrap gdTColor">
+                <div class="j-inner-wrap gdTColor  j-flex-row-reverse">
                     <div class="j-item-title">{{personalTraining.trainer_name}}</div>
                     <app-polygon-border-div j-class = 'j-left j-icon'>
                         <div class="j-item-img j-type-img" style="background-image: url({{personalTraining.trainer_banner}});"></div>
@@ -22,7 +22,7 @@
                 </div>
             </app-polygon-border-div>
             <app-polygon-border-div j-class = 'j-left' class="j-class-detail-item">
-                <div class="j-inner-wrap gdTColor">
+                <div class="j-inner-wrap gdTColor  j-flex-row-reverse">
                     <div class="j-item-title">{{availableSeats}} {{'seats available'|translate}}</div>
                     <app-polygon-border-div j-class = 'j-left j-icon'>
                         <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/earth.svg);"></div>
@@ -33,23 +33,23 @@
     </div>
     <div class="j-class-appointments mt-4">
         <h4 class="j-class-subtitle j-subtitle-size gwTColor">{{'Appointments'|translate}}</h4>
-        <div class="j-class-apt-date-list j-list j-flex-row-reverse j-tnSize mt-4">
+        <div class="j-class-apt-date-list j-list j-tnSize mt-4">
             <app-polygon-border-div class="j-apt-day-item j-item j-ml-2" j-class = 'j-left' >
-                <div class="j-inner-wrap gdTColor">
-                    <div class="j-item-title">{{personalTraining.session_date}}</div>
+                <div class="j-inner-wrap gdTColor j-flex-row-reverse ">
                     <app-polygon-border-div j-class = 'j-left j-icon'>
                         <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/calendar.svg);"></div>
                     </app-polygon-border-div>
+                    <div class="j-item-title">{{personalTraining.session_date}}</div>
                 </div>
             </app-polygon-border-div>
         </div>
-        <div class="j-class-apt-time-list j-list j-flex-row-reverse j-tnSize mt-4">
+        <div class="j-class-apt-time-list j-list j-tnSize mt-4">
             <app-polygon-border-div class="j-apt-time-item j-item j-ml-2" j-class = 'j-left' >
-                <div class="j-inner-wrap gdTColor">
-                    <div class="j-item-title">{{personalTraining.start_time}} - {{personalTraining.end_time}}</div>
+                <div class="j-inner-wrap gdTColor j-flex-row-reverse ">
                     <app-polygon-border-div j-class = 'j-left j-icon'>
                         <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/l.svg);"></div>
                     </app-polygon-border-div>
+                    <div class="j-item-title">{{personalTraining.start_time}} - {{personalTraining.end_time}}</div>
                 </div>
             </app-polygon-border-div>
         </div>

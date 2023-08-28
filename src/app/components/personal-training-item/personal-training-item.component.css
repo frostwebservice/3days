@@ -3,7 +3,7 @@
     cursor: pointer;
 }
 .j-session-item .j-session-card{
-    padding : 12px;
+    padding: 12px 12px 12px 24px;
     margin-bottom: 12px;
     display: flex;
     flex-direction: row-reverse;
