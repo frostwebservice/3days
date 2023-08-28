@@ -45,6 +45,9 @@
 .j-normal.pbd-parent > .pbd-child{
     background-color: #1C1A17;
 }
+.j-normal.j-3days.pbd-parent > .pbd-child{
+    background-color: var(--dl-color-primary-3days);
+}
 /* -------------------------------------------------------------- */
 .j-normal.j-right.pbd-parent{
     clip-path :polygon(0% 15px, 15px 0%, 100% 0%, 100% 0px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0px 100%, 0% 100%);

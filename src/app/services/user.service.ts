@@ -242,6 +242,17 @@ export class UserService extends HttpService {
                 catchError(this.handleError('GET NOTIFICATIONS', null))
             );
     }
+    public notificationStatus():any{
+        const reqHeader = new HttpHeaders();
+        return this.httpClient
+            .get(this.server + PROFILE.NOTIFICATION_STATUS, {
+                headers: reqHeader
+            })
+            .pipe(
+                map((res) => res),
+                catchError(this.handleError('GET NOTIFICATION STATUS', null))
+            );
+    }
     public getTermsConditions():any{
         const method = 'GET';
         const myHeaders = new Headers();
