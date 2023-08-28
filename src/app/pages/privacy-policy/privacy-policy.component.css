@@ -9,17 +9,21 @@
 .privacy-policy-container .j-phrase{
     color: white;
     align-items: flex-end;
-    text-align: right;
-    margin-top: var(--dl-space-space-oneunit);
+    margin-bottom: var(--dl-space-space-twounits);
 }
 .privacy-policy-container .j-phrase .j-phrase-title{
     color: white;
-    font-size: 17px;
+    font-size: 24px;
+    margin-bottom: 16px;
 }
-.privacy-policy-container .j-phrase .j-phrase-desc{
+.privacy-policy-container .j-phrase p{
     color: white;
     font-size: 15px;
     opacity: 0.87;
+    margin-bottom: 10px;
+}
+.privacy-policy-container .j-phrase li p{
+    margin-bottom: 0px;
 }
 @media(max-width: 767px) {
     .privacy-policy-container .j-phrase .j-phrase-title{

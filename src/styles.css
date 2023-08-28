@@ -432,6 +432,10 @@ body {
 .j-lang-en .j-input-icons.j-input-icon-both .j-inputbox{
 	padding-right : var(--dl-space-space-threeunits);
 }
+.j-lang-ar ul{
+	direction: rtl;
+    padding-right: 2rem;
+}
 /* ------------------------------------------------------------------------------------------------------ */
 .j-lang-en .class-detail-container{
     align-items: flex-start;

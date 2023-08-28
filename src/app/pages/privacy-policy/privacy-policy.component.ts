@@ -13,17 +13,17 @@ export class PrivacyPolicy implements OnInit {
 		private userService: UserService,
 		private loadingService: LoaderService
 	) { 
-		this.loadingService.setLoading(true);
-		this.userService.getPrivacyPolicy().then((res) => {
-            if (!res) {
-                console.log('get_non_privacy_policy');
-                return;
-            }
-			this.policy = res.policy;
-            this.loadingService.setLoading(false);
-        });
+		// this.loadingService.setLoading(true);
+		// this.userService.getPrivacyPolicy().then((res) => {
+        //     if (!res) {
+        //         console.log('get_non_privacy_policy');
+        //         return;
+        //     }
+		// 	this.policy = res.policy;
+        //     this.loadingService.setLoading(false);
+        // });
 	}
-	policy;
+	// policy;
 
 	ngOnInit(): void {
 	}
