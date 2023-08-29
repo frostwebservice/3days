@@ -80,7 +80,7 @@
                             <div class="j-flex-row-reverse text-white">
                                 <input type="checkbox" name="agree_terms_conditions" class="agree_terms_conditions_checkbox mx-2" [(ngModel)]="agree_terms_conditions_checkbox" #agree_terms_conditions="ngModel" required>
                                 <span>{{'I agree'|translate}} 
-                                    <a class="j-tc-link _3dayColor" (click)="openTCDialog()">{{'Terms and Conditions'|translate}}</a> 
+                                    <a class="j-tc-link _3dayColor cursor-pointer" (click)="openTCDialog()">{{'Terms and Conditions'|translate}}</a> 
                                 </span>
                             </div>
                             <span class="j-error" *ngIf="agree_terms_conditions.errors">

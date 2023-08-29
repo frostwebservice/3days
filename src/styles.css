@@ -137,6 +137,9 @@ body {
 	color: var(--dl-color-danger-500);
 	display: none;
 }
+.cursor-pointer{
+	cursor: pointer;
+}
 .j-front-page{
 	padding: var(--dl-space-space-twounits) var(--dl-space-space-threeunits);
 	/* padding-bottom: var(--dl-space-space-twounits); */
