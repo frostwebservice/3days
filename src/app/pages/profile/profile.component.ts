@@ -26,8 +26,8 @@ export class Profile {
         {id:'referral-code',label: 'Promotional code',iconclass: 'j-icon-active-two-person',href:'/referral-code'},
         {id:'financial-operations',label: 'financial operations',iconclass: 'j-icon-active-cash',href:'/financial-operations'},
         {id:'technical-support',label: 'Technical support',iconclass: 'j-icon-receiver',href:'/profile'},
-        {id:'privacy-policy',label: 'privacy policy',iconclass: 'j-icon-capman',href:'/privacy-policy'},
-        {id:'terms-conditions',label: 'Terms and conditions',iconclass: 'j-icon-file',href:'/terms-conditions'},
+        // {id:'privacy-policy',label: 'privacy policy',iconclass: 'j-icon-capman',href:'/privacy-policy'},
+        // {id:'terms-conditions',label: 'Terms and conditions',iconclass: 'j-icon-file',href:'/terms-conditions'},
     ];
     constructor(
         private title: Title, private meta: Meta,
@@ -80,7 +80,7 @@ export class Profile {
     getNotificationStatus(){
         this.userService.notificationStatus()
         .subscribe((res) => {
-            this.unreadNotifications = res.data?.unreadNotifications;
+            this.unreadNotifications = res?.data?.unreadNotifications;
         });
     }
     onImageSelected(event: any) {

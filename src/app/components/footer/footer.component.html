@@ -15,10 +15,10 @@
             <div class="app-container6">
                 <div class="app-product-container">
                     <span class="app-text29">{{'Product'|translate}}</span>
-                    <span class="app-text30">{{'Products'|translate}}</span>
-                    <span class="app-text31">{{'Personal Training'|translate}}</span>
-                    <span class="app-text32">{{'Membership'|translate}}</span>
-                    <span class="app-text33">{{'Sessions'|translate}}</span>
+                    <a href="{{page_name == 'products' ? '' : '/products' }}" class="app-navbar-text-color app-navbar-text01 {{page_name == 'products' ? 'app-navbar-active' : '' }}">{{'Products'|translate}}</a>
+                    <a href="{{page_name == 'personal-training' ? '' : '/personal-training' }}" class="app-navbar-text-color app-navbar-text02 {{page_name == 'personal-training' ? 'app-navbar-active' : '' }}">{{'Personal_Training'|translate}}</a>
+                    <a href="{{page_name == 'subscriptions' ? '' : '/subscriptions' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'subscriptions' ? 'app-navbar-active' : '' }}">{{'Membership'|translate}}</a>
+                    <a href="{{page_name == 'bookings' ? '' : '/bookings' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'bookings' ? 'app-navbar-active' : '' }}">{{'Sessions'|translate}}</a>        
                 </div>
                 
                 <div class="app-container7">
