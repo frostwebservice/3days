@@ -137,6 +137,9 @@ body {
 	color: var(--dl-color-danger-500);
 	display: none;
 }
+.cursor-pointer{
+	cursor: pointer;
+}
 .j-front-page{
 	padding: var(--dl-space-space-twounits) var(--dl-space-space-threeunits);
 	/* padding-bottom: var(--dl-space-space-twounits); */
@@ -281,27 +284,33 @@ body {
 .j-dangerColor{
     color: #b6361a;
 }
+.j-large-title-size{
+    font-size: 48px !important;
+}
 .j-title-size{
-    font-size: 36px;
+    font-size: 36px !important;
 }
 .j-smalltitle-size{
-	font-size: 32px;
+	font-size: 32px !important;
 }
 .j-subtitle-size{
-    font-size: 28px;
+    font-size: 28px !important;
 }
 .j-smallSubtitle-size{
-    font-size: 24px;
+    font-size: 24px !important;
 }
 .j-tinySubtitle-size{
-    font-size: 20px;
+    font-size: 20px !important;
 }
 .j-tnSize,
 .j-normal-size{
-    font-size: 16px;
+    font-size: 16px !important;
 }
 .j-tsSize{
-    font-size: 14px;
+    font-size: 14px !important;
+}
+.j-ttSize{
+    font-size: 12px !important;
 }
 
 .j-front-page.modal-container{
@@ -477,27 +486,33 @@ body.j-lang-en.gosell-payment-gateway-open {
 	.j-front-page{
 		padding: var(--dl-space-space-oneunit);
 	}
-	.j-front-page .j-title-size{
-		font-size: 32px;
+	.j-large-title-size{
+		font-size: 42px !important;
 	}
-	.j-front-page .j-smalltitle-size{
-		font-size: 28px;
+	.j-title-size{
+		font-size: 32px !important;
 	}
-	.j-front-page .j-subtitle-size{
-		font-size: 24px;
+	.j-smalltitle-size{
+		font-size: 28px !important;
 	}
-	.j-front-page .j-smallSubtitle-size{
-		font-size: 20px;
+	.j-subtitle-size{
+		font-size: 24px !important;
 	}
-	.j-front-page .j-tinySubtitle-size{
-		font-size: 16px;
+	.j-smallSubtitle-size{
+		font-size: 20px !important;
 	}
-	.j-front-page .j-tnSize,
-	.j-front-page .j-normal-size{
-		font-size: 12px;
+	.j-tinySubtitle-size{
+		font-size: 16px !important;
 	}
-	.j-front-page .j-tsSize{
-		font-size: 10px;
+	.j-tnSize,
+	.j-normal-size{
+		font-size: 12px !important;
+	}
+	.j-tsSize{
+		font-size: 10px !important;
+	}
+	.j-ttSize{
+		font-size: 8px !important;
 	}
 }
 @media(max-width: 425px) {

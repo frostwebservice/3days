@@ -39,7 +39,7 @@
 				<app-polygon-border-div j-class="j-right">
 					<div class="notification-icon">
 						<i class="j-icon bi bi-bell"></i>
-						<div class="j-unread_notification_symbol"></div>
+						<div class="j-unread_notification_symbol" *ngIf = 'unreadNotifications'></div>
 					</div>
 				</app-polygon-border-div>
 			</div>
@@ -47,4 +47,4 @@
 		</div>
 	</div>
 </div>
-<app-footer ngClass="j-page-section"></app-footer>
+<app-footer page_name="profile" ngClass="j-page-section"></app-footer>

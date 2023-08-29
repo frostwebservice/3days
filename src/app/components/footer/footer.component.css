@@ -173,6 +173,19 @@
 	color: var(--dl-color-gray-white);
 	align-self: center;
 }
+/* custom by Jfrost */
+.app-navbar-text-color {
+    color: var(--dl-color-grey-white);
+    cursor: pointer;
+    text-decoration: none;
+	margin-bottom: 8px;
+}
+.app-navbar-active {
+    color: var(--dl-color-primary-3days);
+}
+.app-navbar-text-color:hover {
+    color: var(--dl-color-primary-3days);
+}
 @media(max-width: 991px) {
     .app-footer {
 		flex-direction: column;

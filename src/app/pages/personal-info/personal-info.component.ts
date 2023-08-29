@@ -27,12 +27,12 @@ export class PersonalInfo implements OnInit {
 	) {
         this.loadingService.setLoading(true);
 		this.userService.getProfile().then((res) => {
+			this.loadingService.setLoading(false);
             if (!res) {
                 console.log('get_non_profile_info');
                 return;
             }
             this.current_user_data = {...res.data};
-            this.loadingService.setLoading(false);
         });
 	}
 
