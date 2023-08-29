@@ -1,10 +1,11 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject ,Input, ViewChild, ElementRef } from '@angular/core';
 import { Member } from 'src/app/utils/data.types';
-import { MAT_DIALOG_DATA,MatDialog,MatDialogRef} from "@angular/material/dialog";
+import { MAT_DIALOG_DATA,MatDialog,MatDialogRef,MatDialogConfig} from "@angular/material/dialog";
 import { BranchService } from 'src/app/services/branch.service';
 import { UserService } from 'src/app/services/user.service';
 import { ToasterService, Toast } from 'angular2-toaster';
 import { environment } from 'src/environments/environment';
+import { ProductTermsConditionsDialogComponent } from '../product-terms-conditions-dialog/product-terms-conditions-dialog.component';
 import * as moment from 'moment';
 // BranchService
 import { goSellPaymentConfiguration } from 'src/app/utils/paymentConfig';
@@ -17,11 +18,14 @@ declare var goSell;
 	styleUrls: ['./checkout.component.css']
 })
 export class Checkout implements OnInit {
+	
+	@ViewChild('agree_terms_conditions') agree_terms_conditions: ElementRef;
 	user;
 	product;
 	start_date;
 	coupon_is_activated : boolean = false;
 	submitting : boolean = false;
+	submitted : boolean = false;
 	discount_price = 0;
 	checkoutRedirectUrl = '';
 	checkoutInfo = {
@@ -30,12 +34,14 @@ export class Checkout implements OnInit {
 		member_id: 0,
 		start_date:""
 	};
+	agree_terms_conditions_checkbox = false;
 	paymentConf = goSellPaymentConfiguration;
 	constructor(
 		private branchService : BranchService,
 		private userService: UserService,
 		private toasterService: ToasterService,
 		private dialogRef: MatDialogRef<Checkout>,
+		private dialog: MatDialog,
 		@Inject(MAT_DIALOG_DATA) public data: any
 	) {
 		this.product = data.subscription;
@@ -79,38 +85,53 @@ export class Checkout implements OnInit {
 		});
 	}
 	buyValidate(){
-		this.submitting = true;
-		this.checkoutInfo.start_date = moment(this.start_date).format('YYYY-MM-DD');
-
-		this.branchService.validateBuySubscription(this.checkoutInfo).subscribe((res) => {
-			this.submitting = false;
-			if (!res) {
-				const toast: Toast = {
-					type: 'error',
-					title: 'Buy validation failed',
-					body: "Something went wrong",
-				};
-				this.toasterService.pop(toast);
-				return;
-			}else if(!res.status){
-				const toast: Toast = {
-					type: 'error',
-					title: 'Buy validation failed',
-					body: res.message,
-				};
-				this.toasterService.pop(toast);
-				return;
-			}else{
-				const toast: Toast = {
-					type: 'success',
-					title: 'Buy validation succeeded',
-					body: "You can buy this subscription now",
-				};
-				this.toasterService.pop(toast);
-				localStorage.setItem('checkoutInfo', JSON.stringify(this.checkoutInfo));
-				this.showGosell();
-			}
-		});
+		this.submitted = true;
+		if (this.agree_terms_conditions_checkbox){
+			this.submitted = false;
+			this.submitting = true;
+			this.checkoutInfo.start_date = moment(this.start_date).format('YYYY-MM-DD');
+	
+			this.branchService.validateBuySubscription(this.checkoutInfo).subscribe((res) => {
+				this.submitting = false;
+				if (!res) {
+					const toast: Toast = {
+						type: 'error',
+						title: 'Buy validation failed',
+						body: "Something went wrong",
+					};
+					this.toasterService.pop(toast);
+					return;
+				}else if(!res.status){
+					const toast: Toast = {
+						type: 'error',
+						title: 'Buy validation failed',
+						body: res.message,
+					};
+					this.toasterService.pop(toast);
+					return;
+				}else{
+					const toast: Toast = {
+						type: 'success',
+						title: 'Buy validation succeeded',
+						body: "You can buy this subscription now",
+					};
+					this.toasterService.pop(toast);
+					localStorage.setItem('checkoutInfo', JSON.stringify(this.checkoutInfo));
+					this.showGosell();
+				}
+			});
+		}
+	}
+	openTCDialog(){
+		const dialogConfig = new MatDialogConfig();
+		dialogConfig.data = {
+			title: 'Terms and Conditions',
+			ar_description : this.product.arabic_terms_conditions,
+			en_description : this.product.terms_conditions,
+		};
+		this.dialog.open(ProductTermsConditionsDialogComponent, dialogConfig)
+		.afterClosed()
+		.subscribe((res) => {});
 	}
 	showGosell(){
 		// this.buy();

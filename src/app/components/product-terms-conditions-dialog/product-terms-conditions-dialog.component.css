@@ -1,0 +1,9 @@
+.terms-conditions-dialog.modal-container.j-front-page {
+    padding: 10px;
+}
+.j-description{
+    color : var(--dl-color-grey-dark);
+}
+.j-title{
+    color : var(--dl-color-grey-white);
+}

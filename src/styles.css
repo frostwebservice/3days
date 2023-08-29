@@ -306,6 +306,9 @@ body {
 .j-tsSize{
     font-size: 14px !important;
 }
+.j-ttSize{
+    font-size: 12px !important;
+}
 
 .j-front-page.modal-container{
 	width: 100%;
@@ -504,6 +507,9 @@ body.j-lang-en.gosell-payment-gateway-open {
 	}
 	.j-tsSize{
 		font-size: 10px !important;
+	}
+	.j-ttSize{
+		font-size: 8px !important;
 	}
 }
 @media(max-width: 425px) {

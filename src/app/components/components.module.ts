@@ -36,7 +36,8 @@ import { CancelSubscriptionComponent } from './cancel-subscription/cancel-subscr
 import { Checkout } from './checkout/checkout.component'
 import { PersonalTrainingItemComponent } from './personal-training-item/personal-training-item.component';
 import { ProductItemComponent } from './product-item/product-item.component';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component'
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { ProductTermsConditionsDialogComponent } from './product-terms-conditions-dialog/product-terms-conditions-dialog.component'
 @NgModule({
 	declarations: [
 		GalleryCard1,
@@ -69,7 +70,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 		Checkout,
 		PersonalTrainingItemComponent,
 		ProductItemComponent,
-  ConfirmDialogComponent
+		ConfirmDialogComponent,
+		ProductTermsConditionsDialogComponent
 	],
 	imports: [CommonModule, 
 		SharedModule,
@@ -107,7 +109,9 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 		CancelSubscriptionComponent,
 		Checkout,
 		PersonalTrainingItemComponent,
-		ProductItemComponent
+		ProductItemComponent,
+		ConfirmDialogComponent,
+		ProductTermsConditionsDialogComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

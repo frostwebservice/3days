@@ -4,7 +4,7 @@
 		{{data.description | translate}}
 	</mat-dialog-content>
 	<mat-dialog-actions align="end">
-		<app-polygon-border-div j-class = 'j-left' class="mx-2"><button mat-button mat-dialog-close class="j-false-btn py-2 px-4">{{data.falseLabel | translate}}</button></app-polygon-border-div>
-		<app-polygon-border-div j-class = 'j-right' class="mx-2"><button mat-button (click)="onConfirm()" class="j-true-btn py-2 px-4">{{data.trueLabel | translate}}</button></app-polygon-border-div>
+		<app-polygon-border-div j-class = 'j-left' class="mx-2" *ngIf='data.falseLabel !== ""'><button mat-button mat-dialog-close class="j-false-btn py-2 px-4">{{data.falseLabel | translate}}</button></app-polygon-border-div>
+		<app-polygon-border-div j-class = 'j-right' class="mx-2" *ngIf='data.trueLabel !== ""'><button mat-button (click)="onConfirm()" class="j-true-btn py-2 px-4">{{data.trueLabel | translate}}</button></app-polygon-border-div>
 	</mat-dialog-actions>
 </div>

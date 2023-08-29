@@ -29,7 +29,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row-reverse;
     text-align: right;
 }
 .payment-form .payment-result-field .price-item .p-value{

@@ -3,7 +3,7 @@
         <div class="page-title mb-5 mt-5">
             <h3 class="j-title-size gwTColor">{{'paying off'|translate}}</h3>
         </div>
-        <form class="payment-form">
+        <form class="payment-form" #checkoutForm="ngForm">
             <div class="row">
                 <div class="col-md-6 col-12 payment-input-field">
                     <div class="j-form-group">
@@ -53,29 +53,41 @@
                 <div class="col-md-6 col-12 payment-result-field mt-4">
                     <app-polygon-border-div specify = "1" [cornerStatus] = "[1,1,1,1]" cutRange = "15" weight="2">
                         <div class="j-inner-wrap p-4">
-                            <div class="price-item">
+                            <div class="price-item j-flex-row-reverse">
                                 <p class="gwTColor p-desc">{{'regist_price'|translate}}</p>
                                 <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.price}}</span></p>
                             </div>
-                            <div class="price-item">
+                            <div class="price-item j-flex-row-reverse">
                                 <p class="gwTColor p-desc">{{'discount'|translate}}</p>
                                 <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{discount_price}}</span></p>
                             </div>
-                            <div class="price-item">
+                            <div class="price-item j-flex-row-reverse">
                                 <p class="gwTColor p-desc">{{'after_discount_price'|translate}}</p>
                                 <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.price - discount_price}}</span></p>
                             </div>
-                            <div class="price-item">
+                            <div class="price-item j-flex-row-reverse">
                                 <p class="gwTColor p-desc">{{'Tax'|translate}} 15%</p>
                                 <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.vat}}</span></p>
                             </div>
-                            <div class="price-item">
+                            <div class="price-item j-flex-row-reverse">
                                 <p class="gwTColor p-desc">{{'Total'|translate}}</p>
                                 <p class="gdTColor p-value"><span>{{'SAR'|translate}}</span><span> {{product.amount_after_vat - discount_price}}</span></p>
                             </div>
                         </div>
                     </app-polygon-border-div>
-    
+                    <div class="j-form-group" [ngClass]="{invalid: (submitted || agree_terms_conditions.touched || agree_terms_conditions.dirty ) && agree_terms_conditions.invalid}">
+                        <div class="agree_terms_conditions j-flex-row-reverse justify-content-between j-ttSize">
+                            <div class="j-flex-row-reverse text-white">
+                                <input type="checkbox" name="agree_terms_conditions" class="agree_terms_conditions_checkbox mx-2" [(ngModel)]="agree_terms_conditions_checkbox" #agree_terms_conditions="ngModel" required>
+                                <span>{{'I agree'|translate}} 
+                                    <a class="j-tc-link _3dayColor" (click)="openTCDialog()">{{'Terms and Conditions'|translate}}</a> 
+                                </span>
+                            </div>
+                            <span class="j-error" *ngIf="agree_terms_conditions.errors">
+                                {{'Required'|translate}}
+                            </span>
+                        </div>
+                    </div>
                     <div class="j-checkout-pay mt-4">
                         <div class="j-form-group">
                             <button type="button" class="j-left-button button j-submit-button" [class.loading] = "submitting" (click) = "buyValidate()"><span>{{'to push'|translate}}</span></button>
