@@ -3,11 +3,10 @@
     cursor: pointer;
 }
 .j-session-item .j-session-card{
-    padding: 12px 12px 12px 24px;
+    padding: 12px 12px 12px 36px;
     margin-bottom: 12px;
     display: flex;
     flex-direction: row-reverse;
-    text-align: right;
     position:relative;
 }
 .j-session-item .j-img.j-trainer-photo{

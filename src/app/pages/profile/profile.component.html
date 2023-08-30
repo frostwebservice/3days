@@ -7,7 +7,7 @@
 					<!-- <img *ngIf="imageUrl" [src]="imageUrl" alt="Profile Avatar"> -->
 					<div class="j-img" style="background-image: url( {{imageUrl}} );">
 						<input type="file" class="d-none" id="profileAvatar" (change)="onImageSelected($event)">
-						<label for ="profileAvatar" class="j-edit-btn">{{'amendment'|translate}}</label>
+						<label for ="profileAvatar" class="j-edit-btn cursor-pointer">{{'amendment'|translate}}</label>
 					</div>
 				</app-polygon-border-div>
 			</div>

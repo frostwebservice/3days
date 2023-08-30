@@ -20,7 +20,7 @@
             </div>
         </div>
         <a class="app-navbar-login button" *ngIf = "!isLoggedIn" routerLink="/signup">
-            <span>{{'Join Us'|translate}}</span>
+            <span>{{'Join_Us'|translate}}</span>
         </a>
         <a class="app-navbar-logout" *ngIf = "isLoggedIn" (click) = "logout($event)">
             <i class="j-icon j-icon-out"></i>
@@ -41,14 +41,14 @@
             <nav data-thq="thq-mobile-menu-nav-links" data-role="Nav" class="app-navbar-nav2" >
                 <a href="{{page_name == 'home' ? '' : '/' }}" class="app-navbar-text-color app-navbar-text {{page_name == 'home' ? 'app-navbar-active' : '' }}">{{'Home'|translate}}</a>
                 <a href="{{page_name == 'products' ? '' : '/products' }}" class="app-navbar-text-color app-navbar-text01 {{page_name == 'products' ? 'app-navbar-active' : '' }}">{{'Products'|translate}}</a>
-                <a href="{{page_name == 'personal-training' ? '' : '/personal-training' }}" class="app-navbar-text-color app-navbar-text02 {{page_name == 'personal-training' ? 'app-navbar-active' : '' }}">{{'Personal Training'|translate}}</a>
+                <a href="{{page_name == 'personal-training' ? '' : '/personal-training' }}" class="app-navbar-text-color app-navbar-text02 {{page_name == 'personal-training' ? 'app-navbar-active' : '' }}">{{'Personal_Training'|translate}}</a>
                 <a href="{{page_name == 'subscriptions' ? '' : '/subscriptions' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'subscriptions' ? 'app-navbar-active' : '' }}">{{'Membership'|translate}}</a>
                 <a href="{{page_name == 'bookings' ? '' : '/bookings' }}" class="app-navbar-text-color app-navbar-text03 {{page_name == 'bookings' ? 'app-navbar-active' : '' }}">{{'Sessions'|translate}}</a>
                 <a href="{{page_name == 'profile' ? '' : '/profile' }}" class="app-navbar-text-color app-navbar-text04 {{page_name == 'profile' ? 'app-navbar-active' : '' }}">{{'Profile'|translate}}</a>
             </nav>
             <div class="app-navbar-container2">
                 <a class="app-navbar-login button" *ngIf = "!isLoggedIn" routerLink="/signup">
-                    {{'Join Us'|translate}}
+                    {{'Join_Us'|translate}}
                 </a>
                 <a class="app-navbar-logout button" *ngIf = "isLoggedIn" (click) = "logout($event)">
                     {{'Log out'|translate}}

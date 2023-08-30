@@ -1,16 +1,16 @@
 <div class="branch-selection modal-container j-front-page">
-    <div class="j-inner-wrap">
+    <div class="j-inner-wrap j-text-align">
         <h4 class="j-tinySubtitle-size gdTColor mb-4 mt-4">{{'Branch selection'|translate}}</h4>
-        <div class="d-flex flex-row-reverse">
+        <div class="d-flex j-flex-row-reverse">
             <app-polygon-border-div j-class="j-left">
-                <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/marker.svg);"></div>
+                <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-marker.svg);"></div>
             </app-polygon-border-div>
         </div>
         <h3 class="j-smalltitle-size mb-4 mt-4 text-white">{{"select_branch" | translate}}</h3>
         <div class="j-form-group">
             <label for="branch" class="j-inputbox-label mb-2">{{'Select_branch_which_train.'|translate}}</label>
             <div class="j-input-icons j-input-icon-right">
-                <i class="j-icon j-icon-right j-clickable j-icon-person"></i>
+                <i class="j-icon j-icon-right j-clickable j-icon-marker"></i>
                 <select class="j-inputbox dropdown-left-arrow j-ar-text" [(ngModel)]="selectedBranchId">
                     <option *ngFor="let branch of branches" value="{{branch.id}}" [selected] = 'branch.id == selectedBranchId'>
                         {{branch.name_ar}}

@@ -286,4 +286,23 @@ export class UserService extends HttpService {
                 catchError(this.handleError('UPDATE PROFILE', null))
             );
     }
+    public updateMemberImage(photo): any {
+        const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+		return this.httpClient
+			.post(
+				this.server + PROFILE.UPDATE_MEMBER_IMAGE,
+				{
+					photo : photo
+				},
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('UPDATE MEMBER IMAGE', false))
+			);
+    }
 }

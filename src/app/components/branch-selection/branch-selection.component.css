@@ -1,7 +1,6 @@
 .branch-selection .j-inner-wrap{
     display: flex;
     flex-direction: column;
-    text-align: right;
 }
 .branch-selection .j-item-img{
     width: 48px;

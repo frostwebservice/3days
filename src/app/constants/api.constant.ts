@@ -33,6 +33,7 @@ export const BOOKING = {
 export const PROFILE = {
     GET_PROFILE: 'profile',
     UPDATE_PROFILE: 'update-profile',
+    UPDATE_MEMBER_IMAGE: 'profile/image/update',
     GET_NOTIFICATIONS: 'member/notifications',
     TERMS_CONDITIONS: 'terms-and-conditions',
     GET_INVOICES: 'member/payments',

@@ -263,7 +263,7 @@
         margin-left: var(--dl-space-space-unit);
     }
 }
-@media(max-width: 479px) {
+@media(max-width: 768px) {
     .app-navbar-interactive {
         padding: var(--dl-space-space-unit);
     }
