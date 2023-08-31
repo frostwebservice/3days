@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class FinancialOperations implements OnInit {
     invoice_list:Invoice[] = [
-        {id: 104,amount_after_vat: 1150.45,vat_amount: 150.00,amount: 1000.45,name: "اشتراك 3 أشهر",payment_way:"نقدي",status:"paid",created_at: '21 Jun 2023 14:30'},
+        // {id: 104,amount_after_vat: 1150.45,vat_amount: 150.00,amount: 1000.45,name: "اشتراك 3 أشهر",payment_way:"نقدي",status:"paid",created_at: '21 Jun 2023 14:30'},
     ];
     constructor(
         private userService: UserService,

@@ -92,6 +92,9 @@
     margin-bottom: var(--dl-space-space-oneandhalfunits);
     display: flex;
 }
+.j-auth-section app-page-tab{
+    width: 100%;
+}
 /* ------------------------------next / prev button------------------------- */
 .j-auth-section .j-signup-process .j-tab-content .go-btn-group .btn{
     width: 162px;
@@ -101,10 +104,12 @@
     justify-content: center;
     align-items: center;
 }
+.j-auth-section .j-signup-process .j-tab-content .go-btn-group .go-btn{
+    margin:10px;
+}
 .j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-next-btn{
     background-color: var(--dl-color-primary-3days);
     color: var(--dl-color-black-dark);
-    margin-right:16px;
 }
 .j-auth-section .j-signup-process .j-tab-content .go-btn-group .j-prev-btn{
     background-color: var(--dl-color-grey-black);

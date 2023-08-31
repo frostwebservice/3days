@@ -116,8 +116,10 @@ export class RegisterComponent implements OnInit {
 	isCreated : boolean = false;
 	submitting : boolean = false;
 	transaction_id = "MAV34522";
-
-	ngOnInit(): void {	}
+	storageLang = 'en';
+	ngOnInit(): void {
+		this.storageLang = localStorage.getItem('lang');
+	}
 
 	changeTab(tab: TabItem): void {
 		// this.selectedTab = tab;

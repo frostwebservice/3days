@@ -28,7 +28,7 @@
 		</ng-container>
 		<form class="j-form" *ngIf="isStarted && !isCompleted" #signupForm="ngForm" >
 			<div class="j-signup-process">
-				<app-page-tab [tabs]="tabs" [selected]="selectedTab" (onChange)="changeTab($event)" class="pl-0 rounded-0 j-tab-bar">
+				<app-page-tab [tabs]="tabs" [selected]="selectedTab" (onChange)="changeTab($event)" class="pl-0 rounded-0 j-tab-bar j-tab-{{storageLang}}">
 				</app-page-tab>
 				<div class="j-tab-content">
 					<ng-container *ngIf="selectedTab.id == 'gender'">
@@ -66,12 +66,12 @@
 							</div>
 						</div>
 						<div class="go-btn-group j-flex-row-reverse j-ar-text">
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('gender')">{{'previous'|translate}}</a></app-polygon-border-div>
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('gender')">{{'next'|translate}}</a>
+							<app-polygon-border-div j-class = 'j-right' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('gender')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-left-button " (click)="nextTab('gender')">{{'next'|translate}}</a>
 						</div>
 						<div class="go-btn-group j-flex-row-reverse j-en-text">
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('gender')">{{'previous'|translate}}</a></app-polygon-border-div>
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('gender')">{{'next'|translate}}</a>
+							<app-polygon-border-div j-class = 'j-left' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('gender')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-right-button" (click)="nextTab('gender')">{{'next'|translate}}</a>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.id == 'site'">
@@ -100,12 +100,12 @@
 							</div>
 						</div>
 						<div class="go-btn-group j-flex-row-reverse j-ar-text">
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('site')">{{'previous'|translate}}</a></app-polygon-border-div>
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('site')">{{'next'|translate}}</a>
+							<app-polygon-border-div j-class = 'j-right' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('site')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-left-button" (click)="nextTab('site')">{{'next'|translate}}</a>
 						</div>
 						<div class="go-btn-group j-flex-row-reverse j-en-text">
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('site')">{{'previous'|translate}}</a></app-polygon-border-div>
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('site')">{{'next'|translate}}</a>
+							<app-polygon-border-div j-class = 'j-left' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('site')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-right-button" (click)="nextTab('site')">{{'next'|translate}}</a>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.id == 'find a club'">
@@ -136,12 +136,12 @@
 							</div>
 						</div>
 						<div class="go-btn-group j-flex-row-reverse j-ar-text">
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('find a club')">{{'previous'|translate}}</a></app-polygon-border-div>
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('find a club')">{{'next'|translate}}</a>
+							<app-polygon-border-div j-class = 'j-right' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('find a club')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-left-button" (click)="nextTab('find a club')">{{'next'|translate}}</a>
 						</div>
 						<div class="go-btn-group j-flex-row-reverse j-en-text">
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('find a club')">{{'previous'|translate}}</a></app-polygon-border-div>
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('find a club')">{{'next'|translate}}</a>
+							<app-polygon-border-div j-class = 'j-left' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('find a club')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-right-button" (click)="nextTab('find a club')">{{'next'|translate}}</a>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.id == 'products'">
@@ -167,9 +167,13 @@
 								</div>
 							</div>
 						</div>
-						<div class="go-btn-group j-flex-row-reverse">
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('products')">{{'previous'|translate}}</a></app-polygon-border-div>
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('products')">{{'next'|translate}}</a>
+						<div class="go-btn-group j-flex-row-reverse j-ar-text">
+							<app-polygon-border-div j-class = 'j-right' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('products')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-left-button" (click)="nextTab('products')">{{'next'|translate}}</a>
+						</div>
+						<div class="go-btn-group j-flex-row-reverse j-en-text">
+							<app-polygon-border-div j-class = 'j-left' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('products')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-right-button" (click)="nextTab('products')">{{'next'|translate}}</a>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.id == 'account'">
@@ -260,7 +264,7 @@
 											<span *ngIf ="phone_verified" class="text-success">{{"Verified"|translate}}</span>
 											<span class="j-error" *ngIf="mobile.errors" translate>
 												<ng-container *ngIf="mobile.errors.required">{{'Required'|translate}} !</ng-container>
-												<ng-container *ngIf="mobile.errors.pattern">{{'Wrong_format|translate'}}!</ng-container>
+												<ng-container *ngIf="mobile.errors.pattern">{{'Wrong_format'|translate}}!</ng-container>
 											</span>
 										</label>
 										<div class="j-input-icons j-input-icon-both" [ngClass] = "{'j-verified' : phone_verified}">
@@ -325,9 +329,13 @@
 								
 							</div>
 						</div>
-						<div class="go-btn-group j-flex-row-reverse">
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('account')">{{'previous'|translate}}</a></app-polygon-border-div>
-							<a class="btn j-next-btn j-left-button j-submit-button" [class.loading] = "submitting" (click)="nextTab('account')">{{'next'|translate}}</a>
+						<div class="go-btn-group j-flex-row-reverse j-ar-text">
+							<app-polygon-border-div j-class = 'j-right' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('account')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-left-button j-submit-button" [class.loading] = "submitting" (click)="nextTab('account')">{{'next'|translate}}</a>
+						</div>
+						<div class="go-btn-group j-flex-row-reverse j-en-text">
+							<app-polygon-border-div j-class = 'j-left' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('account')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-right-button j-submit-button" [class.loading] = "submitting" (click)="nextTab('account')">{{'next'|translate}}</a>
 						</div>
 					</ng-container>
 					<ng-container *ngIf="selectedTab.id == 'payment'">
@@ -385,9 +393,13 @@
 								</div>
 							</div>
 						</div>
-						<div class="go-btn-group j-flex-row-reverse">
-							<app-polygon-border-div j-class = 'j-right'><a class="btn j-prev-btn" (click)="prevTab('payment')">{{'previous'|translate}}</a></app-polygon-border-div>
-							<a class="btn j-next-btn j-left-button" (click)="nextTab('payment')">{{'next'|translate}}</a>
+						<div class="go-btn-group j-flex-row-reverse j-ar-text">
+							<app-polygon-border-div j-class = 'j-right' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('payment')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-left-button" (click)="nextTab('payment')">{{'next'|translate}}</a>
+						</div>
+						<div class="go-btn-group j-flex-row-reverse j-en-text">
+							<app-polygon-border-div j-class = 'j-left' class="go-btn"><a class="btn j-prev-btn" (click)="prevTab('payment')">{{'previous'|translate}}</a></app-polygon-border-div>
+							<a class="btn j-next-btn go-btn j-right-button" (click)="nextTab('payment')">{{'next'|translate}}</a>
 						</div>
 					</ng-container>
 				</div>

@@ -4,8 +4,11 @@
     background-color: var(--dl-color-grey-white);
     overflow-x: auto;
 }
-.tab-container .tab.active{
+.j-tab-ar.tab-container .tab.active{
     filter:drop-shadow(-1px 0px 0px rgba(0,0,0,0.97));
+}
+.j-tab-en.tab-container .tab.active{
+    filter:drop-shadow(2px 0px 0px rgba(0,0,0,0.97));
 }
 .tab-container .tab{
     width:100%;
@@ -20,9 +23,14 @@
     padding-left: 15px;
     min-width: 160px;
 }
-.tab-container .tab.active .tab-btn{
+.j-tab-ar.tab-container .tab.active .tab-btn{
     background: var(--dl-color-primary-3days) 0% 0% no-repeat padding-box;
     clip-path: polygon(30px 0, 100% 0, 100% 100%, 0px 100%);
+    transition: 0.3s;
+}
+.j-tab-en.tab-container .tab.active .tab-btn{
+    background: var(--dl-color-primary-3days) 0% 0% no-repeat padding-box;
+    clip-path: polygon(0 0,calc(100% - 30px) 0,100% 100%,0px 100%);
     transition: 0.3s;
 }
 .tab-container .tab.active:last-child{

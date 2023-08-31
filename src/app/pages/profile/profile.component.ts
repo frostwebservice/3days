@@ -22,7 +22,7 @@ import { ReferralCodeComponent } from 'src/app/components/referral-code/referral
 export class Profile {
 
     pitems = [
-        {id:'personal-data',label: 'Personal data',iconclass: 'j-icon-active-person',href:'/personal-data'},
+        {id:'personal-data',label: 'Personal_data',iconclass: 'j-icon-active-person',href:'/personal-data'},
         {id:'club-branches',label: 'Club branches',iconclass: 'j-icon-active-marker',href:'/branches'},
         {id:'referral-code',label: 'Promotional code',iconclass: 'j-icon-active-two-person',href:'/referral-code'},
         {id:'financial-operations',label: 'financial operations',iconclass: 'j-icon-active-cash',href:'/financial-operations'},
