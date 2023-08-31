@@ -3,7 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
-import { Cookie } from 'src/app/utils/cookie';
+import { File } from 'src/app/utils/data.types';
 import { LoaderService } from 'src/app/services/loader.service';
 import { ToasterService, Toast } from 'angular2-toaster';
 
@@ -99,32 +99,39 @@ export class Profile {
     onImageSelected(event: any) {
         if (event.target.files && event.target.files.length > 0) {
             const file = event.target.files[0];
-            const reader = new FileReader();
-            console.log(file);
-            reader.onload = (e: any) => {
-                this.imageUrl = e.target.result;
-                // this.userService.updateMemberImage(file)
-                //     .subscribe((res) => {
-                //         if (res.status){
-                //             const toast: Toast = {
-                //                 type: 'success',
-                //                 title: 'Success',
-                //                 body: res.message,
-                //             };
-                //             this.toasterService.pop(toast);
-                //         }else{
-                //             const toast: Toast = {
-                //                 type: 'error',
-                //                 title: 'Update photo failed',
-                //                 body: res.data,
-                //             };
-                //             this.toasterService.pop(toast);
-                //         }
-                //     }
-                // );
-            };
-    
-            reader.readAsDataURL(file);
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e: any) => {
+                    this.imageUrl = e.target.result;
+                    const newFile: File = {
+                        uri: this.imageUrl,
+                        type: file.type,
+                        name: file.name,
+                        content: file
+                    };
+                    console.log(newFile);
+                    this.userService.updateMemberImage(file)
+                        .subscribe((res) => {
+                            if (res.status){
+                                const toast: Toast = {
+                                    type: 'success',
+                                    title: 'Success',
+                                    body: "Profile photo updated",
+                                };
+                                this.toasterService.pop(toast);
+                            }else{
+                                const toast: Toast = {
+                                    type: 'error',
+                                    title: 'Update photo failed',
+                                    body: res.data,
+                                };
+                                this.toasterService.pop(toast);
+                            }
+                        }
+                    );
+                };
+                reader.readAsDataURL(file);
+            }
         }
     }
 }

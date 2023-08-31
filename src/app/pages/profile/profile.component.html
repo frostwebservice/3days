@@ -6,7 +6,7 @@
 				<app-polygon-border-div specify="1" [cornerStatus] = "[0,1,0,1]" weight="4" cutRange = "24" borderColor = "var(--dl-color-primary-3days)">
 					<!-- <img *ngIf="imageUrl" [src]="imageUrl" alt="Profile Avatar"> -->
 					<div class="j-img" style="background-image: url( {{imageUrl}} );">
-						<input type="file" class="d-none" id="profileAvatar" (change)="onImageSelected($event)">
+						<input type="file" class="d-none" id="profileAvatar" name = "profileAvatar" (change)="onImageSelected($event)">
 						<label for ="profileAvatar" class="j-edit-btn cursor-pointer">{{'amendment'|translate}}</label>
 					</div>
 				</app-polygon-border-div>

@@ -188,6 +188,9 @@
 	text-transform: uppercase;
 	background-color: var(--dl-color-primary-3days);
 }
+.home-container .j-normal.pbd-parent > .pbd-child{
+	background-color: unset;
+}
 .home-button:hover {
 	transform: scale(1.02);
 }

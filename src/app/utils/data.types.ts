@@ -8,6 +8,14 @@ export interface ClubItem {
 	name: string;
 	address: string;
 }
+export interface File {
+	uri: string;
+	name?: string;
+	size?: number;
+	type: string;
+	extension?: string;
+	content?: ArrayBuffer;
+}
 export interface SubscriptionItem {
 	id:Number;
 	cycle: string;
