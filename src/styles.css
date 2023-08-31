@@ -382,6 +382,10 @@ body {
 .j-text-align-center {
     text-align: center;
 }
+.highlight-today {
+  background-color: var(--dl-color-primary-3days); /* Adjust the color as needed */
+  color: black; /* Adjust the text color as needed */
+}
 /* ---------------------------------------------------Multi lang----------------------------------------- */
 .j-lang-ar .j-flex-row-reverse{
 	display: flex;

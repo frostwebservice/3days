@@ -54,7 +54,7 @@
                         </span>
                     </label>
                     <div class="j-input-icons j-input-icon-right">
-                        <input type="text" class="j-inputbox" id="dob" name = "dob" placeholder="تاريخ الميلاد" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" [(ngModel)]="current_user_data.dob" #dob="ngModel" required>
+                        <input type="text" class="j-inputbox" id="dob" name = "dob" placeholder="{{'date of birth'|translate}}" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD',customTodayClass: 'highlight-today'}" [(ngModel)]="current_user_data.dob" #dob="ngModel" required>
                         <i class="j-icon j-icon-right j-icon-calendar"></i>
                     </div>
                 </div>

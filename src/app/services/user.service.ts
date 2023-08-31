@@ -156,7 +156,11 @@ export class UserService extends HttpService {
         localStorage.setItem('clientId', clientId.toString());
     }
     public getClientId():number {
-        return Number(localStorage.getItem('clientId'));
+        if (localStorage.getItem('clientId') != null) {
+            return Number(localStorage.getItem('clientId'));
+        } else {
+            return 3;
+        }
     }
     public setUser(user: User): any {
         localStorage.setItem('user', JSON.stringify(user));

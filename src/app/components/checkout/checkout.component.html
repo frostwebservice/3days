@@ -27,7 +27,7 @@
                         <label for="start_date" class="j-inputbox-label">{{'Subscription Start Date'|translate}}</label>
                         <div class="j-input-icons j-input-icon-right">
                             <i class="j-icon j-icon-right j-clickable j-icon-calendar"></i>
-                            <input type="text" class="j-inputbox" id="start_date" name = "start_date" [(ngModel)] = "start_date" placeholder="Subscription Start Date" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}">
+                            <input type="text" class="j-inputbox" id="start_date" name = "start_date" [(ngModel)] = "start_date" placeholder="Subscription Start Date" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD',customTodayClass: 'highlight-today'}">
                         </div>
                     </div>
                     <div class="j-form-group promo-code-field mt-5">

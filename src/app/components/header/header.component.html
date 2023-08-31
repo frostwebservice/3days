@@ -22,7 +22,7 @@
         <a class="app-navbar-login button" *ngIf = "!isLoggedIn" routerLink="/signup">
             <span>{{'Join_Us'|translate}}</span>
         </a>
-        <a class="app-navbar-logout" *ngIf = "isLoggedIn" (click) = "logout($event)">
+        <a class="app-navbar-logout" *ngIf = "!isLoggedIn" (click) = "logout($event)">
             <i class="j-icon j-icon-out"></i>
         </a>
     </div>
