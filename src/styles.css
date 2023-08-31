@@ -101,6 +101,9 @@
 	display: flex !important;
 	transform: translateX(0%) !important;
 }
+.button{
+	border-radius: unset;
+}
 .Content {
 	font-size: 16px;
 	font-family: Inter;
@@ -201,7 +204,7 @@ body {
 	width: 100%
 }
 .j-lang-ar .j-form-group{
-	align-items: flex-end;
+	/* align-items: flex-end; */
 }
 .j-form-group.invalid .j-inputbox{
 	border-color: var(--dl-color-danger-500);
@@ -573,6 +576,10 @@ body.j-lang-en.gosell-payment-gateway-open {
 }
 .j-icon.j-icon-marker{
     background: url(/assets/img/marker.svg) no-repeat;
+    background-position: center;
+}
+.j-icon.j-icon-active-marker{
+    background: url(/assets/img/active-marker.svg) no-repeat;
     background-position: center;
 }
 .j-icon.j-icon-cash{

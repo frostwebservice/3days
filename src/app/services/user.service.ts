@@ -7,7 +7,7 @@ import { AUTH,PROFILE } from '../constants/api.constant';
 import { Account, User } from '../models/user.model';
 import { ErrorService } from './error.service';
 import { HttpService } from './http.service';
-
+import { File } from '../utils/data.types';
 @Injectable({
     providedIn: 'root'
 })
@@ -285,5 +285,24 @@ export class UserService extends HttpService {
                 map((res) => res),
                 catchError(this.handleError('UPDATE PROFILE', null))
             );
+    }
+    public updateMemberImage(file): any {
+        const reqHeader = new HttpHeaders({
+			'Content-Type': 'multipart/form-data',
+		});
+        const formData = new FormData();
+        formData.append("photo", file);
+		return this.httpClient
+			.post(
+				this.server + PROFILE.UPDATE_MEMBER_IMAGE,
+				formData,
+				{
+					headers: reqHeader
+				}
+			)
+			.pipe(
+				map((res) => res),
+				catchError(this.handleError('UPDATE MEMBER IMAGE', false))
+			);
     }
 }

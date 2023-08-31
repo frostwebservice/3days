@@ -1,11 +1,12 @@
 <ng-container>
-	<div class="tab-container {{class}}" #container>
+	<div class="tab-container j-flex-row-reverse {{class}}" #container>
 		<ng-container *ngFor="let tab of tabs;let i = index">
 			<div class="tab {{tab.id == _selected?.id ? 'active' : '' }} {{i < currentIndex ?  'processed' : ''}}" [class.disable]="isDisableTab(tab)"  (click)="changeTab($event, tab)">
-				<button type="button" class="tab-btn">
-					<i class="bi bi-chevron-left"></i>
-					<span class="tab-label">{{ tab.label }}</span>
+				<button type="button" class="tab-btn j-flex-row-reverse">
 					<i class="bi bi-{{i+1}}-circle-fill"></i>
+					<span class="tab-label">{{ tab.label | translate}}</span>
+					<i class="bi bi-chevron-left j-ar-text"></i>
+					<i class="bi bi-chevron-right j-en-text"></i>
 				</button>
 			</div>
 	  	</ng-container>

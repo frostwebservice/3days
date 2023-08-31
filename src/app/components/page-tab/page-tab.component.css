@@ -1,7 +1,6 @@
 .tab-container{
     display: flex;
     justify-content: space-between;
-    flex-direction: row-reverse;
     background-color: var(--dl-color-grey-white);
     overflow-x: auto;
 }

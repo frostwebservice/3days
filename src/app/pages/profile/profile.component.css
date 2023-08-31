@@ -8,9 +8,8 @@
 .profile-container .profile-photo .j-img{
     background-color: white;
     background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
-    background-position: bottom;
-    background-size: 90% 90%;
     width: 100px;
     height: 100px;
     position: relative;

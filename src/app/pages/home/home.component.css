@@ -188,6 +188,9 @@
 	text-transform: uppercase;
 	background-color: var(--dl-color-primary-3days);
 }
+.home-container .j-normal.pbd-parent > .pbd-child{
+	background-color: unset;
+}
 .home-button:hover {
 	transform: scale(1.02);
 }
@@ -200,7 +203,6 @@
 	padding-left: var(--dl-space-space-twounits);
 	padding-right: var(--dl-space-space-twounits);
 	padding-bottom: var(--dl-space-space-unit);
-	text-transform: uppercase;
 	background-color: transparent;
 }
 .home-button1:hover {

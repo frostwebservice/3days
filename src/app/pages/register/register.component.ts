@@ -74,11 +74,11 @@ export class RegisterComponent implements OnInit {
 	};
 
 	tabs: TabItem[] = [
-		{ icon: '', label: 'gender', id: 'gender', passed: false },
+		{ icon: '', label: 'sex', id: 'gender', passed: false },
 		{ icon: '', label: 'site', id: 'site' , passed: false},
-		{ icon: '', label: 'find a club', id: 'find a club' , passed: false},
+		{ icon: '', label: 'Find_club', id: 'find a club' , passed: false},
 		{ icon: '', label: 'account', id: 'account' , passed: false},
-		{ icon: '', label: 'products', id: 'products' , passed: false},
+		{ icon: '', label: 'Products', id: 'products' , passed: false},
 		// { icon: '', label: 'payment', id: 'payment' , passed: false}
 	];
 	// tabs: TabItem[] = [

@@ -1,5 +1,5 @@
 <app-polygon-border-div j-class = 'j-left'>
-    <div class="personalTrainings-card j-product-card" >
+    <div class="personalTrainings-card j-product-card j-text-align" >
         <p class="product_cycle j-en-text">{{product.period}} {{product.period_unit}}</p>
         <p class="product_price j-en-text">{{product.price }} {{currency}} / <b> {{product.period_unit}}</b></p>
         <p class="product_description j-en-text">{{product.english_name}}</p>
@@ -10,7 +10,7 @@
 
         <div class="mt-3 j-apply-btn" (click)="buyProduct()">
             <app-polygon-border-div j-class='j-left j-3days' class="text-center" >
-                <div class="j-btn p-2">{{'buy_subscription' | translate}}</div>
+                <div class="j-btn _3dayColor p-2">{{'buy_subscription' | translate}}</div>
             </app-polygon-border-div>
         </div>
     </div>
