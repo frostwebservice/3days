@@ -26,7 +26,7 @@ import { CancelBookingComponent } from './cancel-booking/cancel-booking.componen
 import { BranchSelectionComponent } from './branch-selection/branch-selection.component'
 import { SuspendSubscriptionComponent } from './suspend-subscription/suspend-subscription.component'
 import { ReferralCodeComponent } from './referral-code/referral-code.component'
-import { ConfirmCodeComponent } from './comfirm-code/confirm-code.component'
+import { ConfirmCodeComponent } from './confirm-code/confirm-code.component'
 import { SpinnerComponent } from './spinner/spinner.component'
 import { TranslateModule } from '@ngx-translate/core'
 import { FormsModule } from '@angular/forms'
@@ -38,7 +38,8 @@ import { Checkout } from './checkout/checkout.component'
 import { PersonalTrainingItemComponent } from './personal-training-item/personal-training-item.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import { ProductTermsConditionsDialogComponent } from './product-terms-conditions-dialog/product-terms-conditions-dialog.component'
+import { ProductTermsConditionsDialogComponent } from './product-terms-conditions-dialog/product-terms-conditions-dialog.component';
+import { BranchDetailsComponent } from './branch-details/branch-details.component'
 @NgModule({
 	declarations: [
 		GalleryCard1,
@@ -72,7 +73,8 @@ import { ProductTermsConditionsDialogComponent } from './product-terms-condition
 		PersonalTrainingItemComponent,
 		ProductItemComponent,
 		ConfirmDialogComponent,
-		ProductTermsConditionsDialogComponent
+		ProductTermsConditionsDialogComponent,
+		BranchDetailsComponent
 	],
 	imports: [CommonModule, 
 		SharedModule,
@@ -113,7 +115,8 @@ import { ProductTermsConditionsDialogComponent } from './product-terms-condition
 		PersonalTrainingItemComponent,
 		ProductItemComponent,
 		ConfirmDialogComponent,
-		ProductTermsConditionsDialogComponent
+		ProductTermsConditionsDialogComponent,
+		BranchDetailsComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

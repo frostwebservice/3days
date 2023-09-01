@@ -1,0 +1,51 @@
+.branch-detail-container .j-club-detail{
+    text-align: right;
+    height: 100%;
+}
+.branch-detail-container .j-club-detail .j-club-name{
+    font-weight: bolder;
+}
+.branch-detail-container .j-club-detail .j-club-address{
+    border-top: 1px solid #FFFFFF1F;
+}
+.branch-detail-container .j-club-info .j-item-img.j-type-icon{
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50% 50%;
+    background-image: url(/assets/img/active-stand-person.svg);
+}
+.branch-detail-container .j-club-info .j-item{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 16px;
+}
+.branch-detail-container .j-club-info  .j-item .j-item-desc{
+    display:flex;
+    flex-direction: column;
+    margin-right: 12px;
+}
+.branch-detail-container .j-club-info  .j-item .j-item-desc .j-label{
+    color: var(--dl-color-grey-dark);
+    font-size:12px;
+}
+.branch-detail-container .j-club-info  .j-item .j-item-desc .j-value{
+    color: var(--dl-color-grey-white);
+    font-size:14px;
+}
+.branch-detail-container .j-club-detail .j-contact-btn-wrap{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.branch-detail-container .j-club-detail .j-contact-btn-wrap i{ 
+    width: 24px;
+    height: 24px;
+    display: flex;
+}
+.branch-detail-container .j-club-detail .j-contact-btn{ 
+    padding: 18px 12px;
+    font-size: 14px;
+}

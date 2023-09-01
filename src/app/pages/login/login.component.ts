@@ -107,7 +107,7 @@ export class LoginComponent implements OnInit {
 		localStorage.setItem('u_pass', this.user.password);
 		
 		console.log('*******',data.member);
-		this.returnUrl = '/profile';
+		// this.returnUrl = '/profile';
 		this.router.navigate([this.returnUrl]);
 	}
 }

@@ -22,7 +22,7 @@ export class ProductItemComponent implements OnInit {
 		private dialog: MatDialog,		
 		private router: Router,
 		private toasterService: ToasterService,
-		private state: RouterStateSnapshot,
+		// private state: RouterStateSnapshot,
 		private userService:UserService
 	) { }
 

@@ -7,10 +7,11 @@ import { Branch } from 'src/app/models/branch.model';
 import { Product } from 'src/app/models/product.model';
 import { Cookie } from 'src/app/utils/cookie';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { ConfirmCodeComponent } from 'src/app/components/comfirm-code/confirm-code.component';
+import { ConfirmCodeComponent } from 'src/app/components/confirm-code/confirm-code.component';
 import { ToasterService, Toast } from 'angular2-toaster';
 
 import * as moment from 'moment';
+import { BranchDetailsComponent } from 'src/app/components/branch-details/branch-details.component';
 @Component({
 	selector: 'app-register',
 	templateUrl: 'register.component.html',
@@ -352,6 +353,19 @@ export class RegisterComponent implements OnInit {
 				}
 			});
 		}
+	}
+	openDetailModal(data):void{
+        let club = data.club;
+
+		const dialogConfig = new MatDialogConfig();
+		dialogConfig.autoFocus = true;
+		dialogConfig.data = {
+			club:club
+		};
+		this.dialog.open(BranchDetailsComponent, dialogConfig)
+		.afterClosed()
+		.subscribe((status) => {
+		});
 	}
 	congratulation(){
 		if (this.userService.isAuthenticated()){

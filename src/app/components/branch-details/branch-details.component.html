@@ -1,0 +1,59 @@
+<div class="branch-detail-container modal-container j-front-page pt-2">
+    <div class="j-club-detail">
+        <h4 class="j-subtitle-size gdTColor mb-5">{{'Club details'| translate}}</h4>
+        <h3 class="j-club-name j-smalltitle-size mb-5 text-white j-ar-text">{{selectedBranch?.name_ar}}</h3>
+        <h3 class="j-club-name j-smalltitle-size mb-5 text-white j-en-text">{{selectedBranch?.name_en}}</h3>
+        <div class="j-club-info row">
+            <div class="col-6 j-item">
+                <app-polygon-border-div j-class = 'j-left j-icon'>
+                    <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-stand-person.svg);"></div>
+                </app-polygon-border-div>
+                <div class="j-item-desc">
+                    <span class="j-label">{{'branch type'|translate}}</span>
+                    <span class="j-value">{{selectedBranch?.branch_category}}</span>
+                </div>
+            </div>
+            <div class="col-6 j-item">
+                <app-polygon-border-div j-class = 'j-left j-icon'>
+                    <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-stand-person.svg);"></div>
+                </app-polygon-border-div>
+                <div class="j-item-desc">
+                    <span class="j-label">{{'absorptive capacity'|translate}}</span>
+                    <span class="j-value">{{selectedBranch?.branch_capacity}}</span>
+                </div>
+            </div>
+            <div class="col-6 j-item">
+                <app-polygon-border-div j-class = 'j-left j-icon'>
+                    <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-branch.svg);"></div>
+                </app-polygon-border-div>
+                <div class="j-item-desc">
+                    <span class="j-label">{{'branch'|translate}}</span>
+                    <span class="j-value">{{selectedBranch?.location_type}}</span>
+                </div>
+            </div>
+            <div class="col-6 j-item">
+                <app-polygon-border-div j-class = 'j-left j-icon'>
+                    <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-calendar.svg);"></div>
+                </app-polygon-border-div>
+                <div class="j-item-desc">
+                    <span class="j-label">{{'launch date'|translate}}</span>
+                    <span class="j-value">{{selectedBranch?.startup_date}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="j-club-address pt-4 pb-2">
+            <h5 class="gdTColor">{{'Club address'|translate}}</h5>
+            <p class="text-white">{{selectedBranch?.address1}} {{selectedBranch?.address2}}</p>
+        </div>
+        <div class="j-club-email pt-4 pb-2 mb-4">
+            <h5 class="gdTColor">{{'Email'|translate}}</h5>
+            <p class="text-white">{{selectedBranch?.email}}</p>
+        </div>
+        <app-polygon-border-div specify = "1" [cornerStatus] = "[0,1,0,1]" borderColor="var(--dl-color-primary-3days)">
+            <a class="j-contact-btn-wrap" href="tel:{{selectedBranch?.phone}}">
+                <div class="_3dayColor j-contact-btn text-center">{{'club connection'|translate}}</div>
+                <i class="j-icon j-icon-right j-icon-phone"></i>
+            </a>
+        </app-polygon-border-div>
+    </div>
+</div>

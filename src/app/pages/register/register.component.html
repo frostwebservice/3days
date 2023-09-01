@@ -120,13 +120,13 @@
 									<h4 class="j-page-text mb-2">{{'Find_club' | translate }}</h4>
 									<div class="j-form-group">
 										<div class="j-input-icons j-input-icon-right">
-											<input type="text" class="j-inputbox j-searchbox" placeholder="البحث عن طريق المدينة أو الدولة" (input)="onSearchBranch($event.target.value)">
+											<input type="text" class="j-inputbox j-searchbox" placeholder="{{'Search_city' | translate}}" (input)="onSearchBranch($event.target.value)">
 											<i class="bi bi-search j-icon j-icon-right "></i>
 										</div>
 									</div>
 									<div class="j-club-list-panel">
 										<label class="branch_item" [ngClass]="{active:user.default_branch == club.id}"  (click)="setBranchOption(club.id)"  *ngFor="let club of clubs;let i = index">
-											<app-club-branch-items [club]='club'></app-club-branch-items>
+											<app-club-branch-items [club]='club' (loadClub) = "openDetailModal($event)"></app-club-branch-items>
 											<div class="option_btn">
 												<input type="radio" name = "default_branch" value="{{club.id}}" [checked]="user.default_branch == club.id">
 											</div>

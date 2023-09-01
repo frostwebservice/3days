@@ -1,6 +1,5 @@
 import { Component, OnInit, Input ,Output, EventEmitter} from '@angular/core';
 // import { Branch } from 'src/app/utils/data.types';
-import { PolygonBorderDiv } from '../polygon-border-div/polygon-border-div.component'
 import { Branch } from 'src/app/models/branch.model';
 
 @Component({
