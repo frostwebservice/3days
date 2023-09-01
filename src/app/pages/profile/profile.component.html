@@ -20,7 +20,7 @@
 			<div class="profile-email j-tnSize gdTColor mb-2">
 				{{current_user_profile?.email}}
 			</div>
-			<div class="profile-subscription-countdown mt-5 col-12 col-md-5 mx-auto">
+			<div class="profile-subscription-countdown mt-5 col-11 col-md-5 mx-auto">
 				<app-polygon-border-div j-class="j-right">
 					<div class="j-inner-wrap text-center p-3">
 						<p class="text-white j-tinySubtitle-size">
@@ -33,7 +33,7 @@
 				</app-polygon-border-div>
 			</div>
 			<div class="profile-detail row mt-5">
-				<div class="detail-item col-md-3 col-6 p-{{pitem.id}} p-3" (click) = "doActive(pitem.href)" *ngFor="let pitem of pitems">
+				<div class="detail-item col-md-3 col-6 p-{{pitem.id}} p-md-3 p-2" (click) = "doActive(pitem.href)" *ngFor="let pitem of pitems">
 					<app-polygon-border-div j-class = 'j-left'>
 						<div class="detail-inner-wrap p-4">
 							<app-polygon-border-div j-class="j-right">
