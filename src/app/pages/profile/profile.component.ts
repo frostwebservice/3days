@@ -61,7 +61,10 @@ export class Profile {
 		});
         this.loadingService.setLoading(false);
     }
-   
+    memberSubscription =  {
+        "color": "#00FF00",
+        "remainingDays": 365
+    }
     current_user_profile;
     imageUrl:string = "./assets/img/manavatar.png";
     unreadNotifications:boolean = false;
@@ -89,12 +92,21 @@ export class Profile {
     }
     ngOnInit(): void {
         this.getNotificationStatus();
+        this.getSubscription();
     }
     getNotificationStatus(){
         this.userService.notificationStatus()
         .subscribe((res) => {
             if (res.status){
                 this.unreadNotifications = res?.data?.unreadNotifications;
+            }
+        });
+    }
+    getSubscription(){
+        this.userService.getMemberSubscription()
+        .subscribe((res) => {
+            if (res.status){
+                this.memberSubscription = res?.data;
             }
         });
     }

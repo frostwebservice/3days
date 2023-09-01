@@ -1,5 +1,4 @@
 .branch-detail-container .j-club-detail{
-    text-align: right;
     height: 100%;
 }
 .branch-detail-container .j-club-detail .j-club-name{
@@ -18,13 +17,12 @@
 }
 .branch-detail-container .j-club-info .j-item{
     display: flex;
-    flex-direction: row-reverse;
     margin-bottom: 16px;
 }
 .branch-detail-container .j-club-info  .j-item .j-item-desc{
     display:flex;
     flex-direction: column;
-    margin-right: 12px;
+    margin: 0 12px;
 }
 .branch-detail-container .j-club-info  .j-item .j-item-desc .j-label{
     color: var(--dl-color-grey-dark);

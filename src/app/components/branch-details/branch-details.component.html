@@ -1,10 +1,10 @@
-<div class="branch-detail-container modal-container j-front-page pt-2">
-    <div class="j-club-detail">
+<div class="branch-detail-container modal-container j-front-page py-3">
+    <div class="j-club-detail j-text-align">
         <h4 class="j-subtitle-size gdTColor mb-5">{{'Club details'| translate}}</h4>
         <h3 class="j-club-name j-smalltitle-size mb-5 text-white j-ar-text">{{selectedBranch?.name_ar}}</h3>
         <h3 class="j-club-name j-smalltitle-size mb-5 text-white j-en-text">{{selectedBranch?.name_en}}</h3>
         <div class="j-club-info row">
-            <div class="col-6 j-item">
+            <div class="col-6 j-item j-flex-row-reverse">
                 <app-polygon-border-div j-class = 'j-left j-icon'>
                     <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-stand-person.svg);"></div>
                 </app-polygon-border-div>
@@ -13,7 +13,7 @@
                     <span class="j-value">{{selectedBranch?.branch_category}}</span>
                 </div>
             </div>
-            <div class="col-6 j-item">
+            <div class="col-6 j-item  j-flex-row-reverse">
                 <app-polygon-border-div j-class = 'j-left j-icon'>
                     <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-stand-person.svg);"></div>
                 </app-polygon-border-div>
@@ -22,7 +22,7 @@
                     <span class="j-value">{{selectedBranch?.branch_capacity}}</span>
                 </div>
             </div>
-            <div class="col-6 j-item">
+            <div class="col-6 j-item  j-flex-row-reverse">
                 <app-polygon-border-div j-class = 'j-left j-icon'>
                     <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-branch.svg);"></div>
                 </app-polygon-border-div>
@@ -31,7 +31,7 @@
                     <span class="j-value">{{selectedBranch?.location_type}}</span>
                 </div>
             </div>
-            <div class="col-6 j-item">
+            <div class="col-6 j-item  j-flex-row-reverse">
                 <app-polygon-border-div j-class = 'j-left j-icon'>
                     <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-calendar.svg);"></div>
                 </app-polygon-border-div>

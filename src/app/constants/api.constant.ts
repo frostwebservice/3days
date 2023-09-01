@@ -39,4 +39,5 @@ export const PROFILE = {
     GET_INVOICES: 'member/payments',
     POLICY: 'policy',
     NOTIFICATION_STATUS : 'member/notifications/status',
+    GET_MEMBER_SUBSCRIPTION: 'member/subscription',
 };

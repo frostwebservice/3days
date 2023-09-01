@@ -162,6 +162,19 @@ export class UserService extends HttpService {
             return 3;
         }
     }
+    public getMemberSubscription(): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+        return this.httpClient
+        .get(this.server + PROFILE.GET_MEMBER_SUBSCRIPTION, {
+            headers: reqHeader
+        })
+        .pipe(
+            map((res) => res),
+            catchError(this.handleError('GET MEMBER SUBSCRIPTIONS', false))
+        );
+	}
     public setUser(user: User): any {
         localStorage.setItem('user', JSON.stringify(user));
     }

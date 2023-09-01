@@ -20,12 +20,12 @@
             </div>
             <div class="col-md-6 col-12 mb-3">
                 <ng-container *ngIf="cOption; else clubTemplate">
-                    <div class="j-club-detail p-3 p-md-4">
+                    <div class="j-club-detail p-3 p-md-4 j-text-align">
                         <h4 class="j-subtitle-size gdTColor mb-5">{{'Club details'|translate}}</h4>
                         <h3 class="j-club-name j-smalltitle-size mb-5 text-white j-ar-text">{{selectedBranch?.name_ar}}</h3>
                         <h3 class="j-club-name j-smalltitle-size mb-5 text-white j-en-text">{{selectedBranch?.name_en}}</h3>
                         <div class="j-club-info row">
-                            <div class="col-6 j-item">
+                            <div class="col-6 j-item j-flex-row-reverse">
                                 <app-polygon-border-div j-class = 'j-left j-icon'>
                                     <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-stand-person.svg);"></div>
                                 </app-polygon-border-div>
@@ -34,7 +34,7 @@
                                     <span class="j-value">{{selectedBranch?.branch_category}}</span>
                                 </div>
                             </div>
-                            <div class="col-6 j-item">
+                            <div class="col-6 j-item  j-flex-row-reverse">
                                 <app-polygon-border-div j-class = 'j-left j-icon'>
                                     <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-stand-person.svg);"></div>
                                 </app-polygon-border-div>
@@ -43,7 +43,7 @@
                                     <span class="j-value">{{selectedBranch?.branch_capacity}}</span>
                                 </div>
                             </div>
-                            <div class="col-6 j-item">
+                            <div class="col-6 j-item  j-flex-row-reverse">
                                 <app-polygon-border-div j-class = 'j-left j-icon'>
                                     <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-branch.svg);"></div>
                                 </app-polygon-border-div>
@@ -52,7 +52,7 @@
                                     <span class="j-value">{{selectedBranch?.location_type}}</span>
                                 </div>
                             </div>
-                            <div class="col-6 j-item">
+                            <div class="col-6 j-item  j-flex-row-reverse">
                                 <app-polygon-border-div j-class = 'j-left j-icon'>
                                     <div class="j-item-img j-type-icon" style="background-image: url(/assets/img/active-calendar.svg);"></div>
                                 </app-polygon-border-div>
