@@ -4,8 +4,15 @@ import { MAT_DIALOG_DATA,MatDialog,MatDialogRef,MatDialogConfig} from "@angular/
 import { BranchService } from 'src/app/services/branch.service';
 import { UserService } from 'src/app/services/user.service';
 import { ToasterService, Toast } from 'angular2-toaster';
+import { LoaderService } from 'src/app/services/loader.service';
+import { Product } from 'src/app/models/product.model';
 import { environment } from 'src/environments/environment';
 import { ProductTermsConditionsDialogComponent } from '../product-terms-conditions-dialog/product-terms-conditions-dialog.component';
+import {
+	RouterStateSnapshot,
+	Router
+} from '@angular/router';
+
 import * as moment from 'moment';
 // BranchService
 import { goSellPaymentConfiguration } from 'src/app/utils/paymentConfig';
@@ -34,14 +41,19 @@ export class Checkout implements OnInit {
 		member_id: 0,
 		start_date:""
 	};
+	products: Product[] = [];
 	agree_terms_conditions_checkbox = false;
 	paymentConf = goSellPaymentConfiguration;
+	selected_product_id;
 	constructor(
 		private branchService : BranchService,
 		private userService: UserService,
 		private toasterService: ToasterService,
 		private dialogRef: MatDialogRef<Checkout>,
 		private dialog: MatDialog,
+		private loadingService: LoaderService,
+		private router: Router,
+		private state: RouterStateSnapshot,
 		@Inject(MAT_DIALOG_DATA) public data: any
 	) {
 		this.product = data.subscription;
@@ -84,41 +96,52 @@ export class Checkout implements OnInit {
 			}
 		});
 	}
+	selectProduct(){
+		const index = this.products.findIndex(p => p.id == this.checkoutInfo.product_id);
+		this.product = this.products[index];
+		console.log(this.product);
+	}
 	buyValidate(){
-		this.submitted = true;
-		if (this.agree_terms_conditions_checkbox){
-			this.submitted = false;
-			this.submitting = true;
-			this.checkoutInfo.start_date = moment(this.start_date).format('YYYY-MM-DD');
-	
-			this.branchService.validateBuySubscription(this.checkoutInfo).subscribe((res) => {
-				this.submitting = false;
-				if (!res) {
-					const toast: Toast = {
-						type: 'error',
-						title: 'Buy validation failed',
-						body: "Something went wrong",
-					};
-					this.toasterService.pop(toast);
-					return;
-				}else if(!res.status){
-					const toast: Toast = {
-						type: 'error',
-						title: 'Buy validation failed',
-						body: res.message,
-					};
-					this.toasterService.pop(toast);
-					return;
-				}else{
-					const toast: Toast = {
-						type: 'success',
-						title: 'Buy validation succeeded',
-						body: "You can buy this subscription now",
-					};
-					this.toasterService.pop(toast);
-					localStorage.setItem('checkoutInfo', JSON.stringify(this.checkoutInfo));
-					this.showGosell();
-				}
+		if (this.userService.isAuthenticated()){
+			this.submitted = true;
+			if (this.agree_terms_conditions_checkbox){
+				this.submitted = false;
+				this.submitting = true;
+				this.checkoutInfo.start_date = moment(this.start_date).format('YYYY-MM-DD');
+		
+				this.branchService.validateBuySubscription(this.checkoutInfo).subscribe((res) => {
+					this.submitting = false;
+					if (!res) {
+						const toast: Toast = {
+							type: 'error',
+							title: 'Buy validation failed',
+							body: "Something went wrong",
+						};
+						this.toasterService.pop(toast);
+						return;
+					}else if(!res.status){
+						const toast: Toast = {
+							type: 'error',
+							title: 'Buy validation failed',
+							body: res.message,
+						};
+						this.toasterService.pop(toast);
+						return;
+					}else{
+						const toast: Toast = {
+							type: 'success',
+							title: 'Buy validation succeeded',
+							body: "You can buy this subscription now",
+						};
+						this.toasterService.pop(toast);
+						localStorage.setItem('checkoutInfo', JSON.stringify(this.checkoutInfo));
+						this.showGosell();
+					}
+				});
+			}
+		}else{
+			this.router.navigate(['/login'], {
+				queryParams: { returnUrl: this.state.url }
 			});
 		}
 	}
@@ -205,6 +228,38 @@ export class Checkout implements OnInit {
 		goSell.openLightBox();
 	}
 	ngOnInit(): void {
+		this.getProducts();
 	}
-
+	getProducts(){
+		this.loadingService.setLoading(true);
+		this.branchService.getProductList(this.userService.getClientId()).subscribe((res) => {
+			this.loadingService.setLoading(false);
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get product failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get product failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				res.data.forEach(element => {
+					this.products.push(element);
+					// if (element.type == "subscription"){
+					// 	this.subscriptions.push(element);
+					// }else{
+					// 	this.personalTrainings.push(element);
+					// }
+				});
+			}
+		});
+	}
 }

@@ -93,7 +93,9 @@ export class Profile {
     getNotificationStatus(){
         this.userService.notificationStatus()
         .subscribe((res) => {
-            this.unreadNotifications = res?.data?.unreadNotifications;
+            if (res.status){
+                this.unreadNotifications = res?.data?.unreadNotifications;
+            }
         });
     }
     onImageSelected(event: any) {

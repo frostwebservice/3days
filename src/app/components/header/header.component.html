@@ -13,16 +13,16 @@
     <div data-thq="thq-navbar-btn-group" class="app-navbar-btn-group">
         <div class="j-language-btn">
             <div class="language-icon">
-                <i class="j-icon j-icon-earth"></i>
+                <i class="j-icon j-ttSize text-uppercase">{{selectedLanguage.code}}</i>
             </div>
             <div class="lang-list text-white">
                 <div class="lang-item" *ngFor="let option of languages" (click)="changeLang(option)" >{{option.country}}</div>
             </div>
         </div>
-        <a class="app-navbar-login button" *ngIf = "!isLoggedIn" routerLink="/signup">
+        <a class="app-navbar-login button" matTooltip="Create an account" matTooltipClass="custom-tooltip" *ngIf = "!isLoggedIn" routerLink="/signup">
             <span>{{'Join_Us'|translate}}</span>
         </a>
-        <a class="app-navbar-logout" *ngIf = "!isLoggedIn" (click) = "logout($event)">
+        <a class="app-navbar-logout" matTooltip="Logout" matTooltipClass="custom-tooltip" matTooltipPosition="below" *ngIf = "isLoggedIn" (click) = "logout($event)">
             <i class="j-icon j-icon-out"></i>
         </a>
     </div>

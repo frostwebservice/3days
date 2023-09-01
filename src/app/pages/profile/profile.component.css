@@ -94,3 +94,8 @@
     align-items: center;
     cursor: pointer;
 }
+.unreadNotificationsCount{
+    font-size: 6px;
+    color: white;
+    position: absolute;
+}

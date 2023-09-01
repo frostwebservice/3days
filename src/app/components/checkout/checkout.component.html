@@ -19,8 +19,18 @@
                         <label for="product" class="j-inputbox-label">{{'Product'|translate}}</label>
                         <div class="j-input-icons j-input-icon-right">
                             <i class="j-icon j-icon-right j-icon-product"></i>
-                            <input type="text" class="j-inputbox j-en-text" [ngModel] = "product.english_name" name="product_english_name" readonly>
-                            <input type="text" class="j-inputbox j-ar-text" [ngModel] = "product.arabic_name" name="product_arabic_name" readonly>
+                            <select class="j-inputbox dropdown-left-arrow j-ar-text" [(ngModel)]="checkoutInfo.product_id" (change) = "selectProduct()">
+                                <option *ngFor="let _pro of products" value="{{_pro.id}}" [selected] = '_pro.id == checkoutInfo.product_id'>
+                                    {{_pro.arabic_name}}
+                                </option>
+                            </select>
+                            <select class="j-inputbox dropdown-right-arrow j-en-text" [(ngModel)]="checkoutInfo.product_id" (change) = "selectProduct()">
+                                <option *ngFor="let _pro of products" value="{{_pro.id}}" [selected] = '_pro.id == checkoutInfo.product_id'>
+                                    {{_pro.english_name}}
+                                </option>
+                            </select>
+                            <!-- <input type="text" class="j-inputbox j-en-text" [ngModel] = "product.english_name" name="product_english_name" readonly>
+                            <input type="text" class="j-inputbox j-ar-text" [ngModel] = "product.arabic_name" name="product_arabic_name" readonly> -->
                         </div>
                     </div>
                     <div class="j-form-group">
