@@ -8,11 +8,6 @@ import { LoaderService } from 'src/app/services/loader.service';
 import { Product } from 'src/app/models/product.model';
 import { environment } from 'src/environments/environment';
 import { ProductTermsConditionsDialogComponent } from '../product-terms-conditions-dialog/product-terms-conditions-dialog.component';
-import {
-	RouterStateSnapshot,
-	Router
-} from '@angular/router';
-
 import * as moment from 'moment';
 // BranchService
 import { goSellPaymentConfiguration } from 'src/app/utils/paymentConfig';
@@ -52,8 +47,6 @@ export class Checkout implements OnInit {
 		private dialogRef: MatDialogRef<Checkout>,
 		private dialog: MatDialog,
 		private loadingService: LoaderService,
-		private router: Router,
-		private state: RouterStateSnapshot,
 		@Inject(MAT_DIALOG_DATA) public data: any
 	) {
 		this.product = data.subscription;
@@ -102,46 +95,40 @@ export class Checkout implements OnInit {
 		console.log(this.product);
 	}
 	buyValidate(){
-		if (this.userService.isAuthenticated()){
-			this.submitted = true;
-			if (this.agree_terms_conditions_checkbox){
-				this.submitted = false;
-				this.submitting = true;
-				this.checkoutInfo.start_date = moment(this.start_date).format('YYYY-MM-DD');
-		
-				this.branchService.validateBuySubscription(this.checkoutInfo).subscribe((res) => {
-					this.submitting = false;
-					if (!res) {
-						const toast: Toast = {
-							type: 'error',
-							title: 'Buy validation failed',
-							body: "Something went wrong",
-						};
-						this.toasterService.pop(toast);
-						return;
-					}else if(!res.status){
-						const toast: Toast = {
-							type: 'error',
-							title: 'Buy validation failed',
-							body: res.message,
-						};
-						this.toasterService.pop(toast);
-						return;
-					}else{
-						const toast: Toast = {
-							type: 'success',
-							title: 'Buy validation succeeded',
-							body: "You can buy this subscription now",
-						};
-						this.toasterService.pop(toast);
-						localStorage.setItem('checkoutInfo', JSON.stringify(this.checkoutInfo));
-						this.showGosell();
-					}
-				});
-			}
-		}else{
-			this.router.navigate(['/login'], {
-				queryParams: { returnUrl: this.state.url }
+		this.submitted = true;
+		if (this.agree_terms_conditions_checkbox){
+			this.submitted = false;
+			this.submitting = true;
+			this.checkoutInfo.start_date = moment(this.start_date).format('YYYY-MM-DD');
+	
+			this.branchService.validateBuySubscription(this.checkoutInfo).subscribe((res) => {
+				this.submitting = false;
+				if (!res) {
+					const toast: Toast = {
+						type: 'error',
+						title: 'Buy validation failed',
+						body: "Something went wrong",
+					};
+					this.toasterService.pop(toast);
+					return;
+				}else if(!res.status){
+					const toast: Toast = {
+						type: 'error',
+						title: 'Buy validation failed',
+						body: res.message,
+					};
+					this.toasterService.pop(toast);
+					return;
+				}else{
+					const toast: Toast = {
+						type: 'success',
+						title: 'Buy validation succeeded',
+						body: "You can buy this subscription now",
+					};
+					this.toasterService.pop(toast);
+					localStorage.setItem('checkoutInfo', JSON.stringify(this.checkoutInfo));
+					this.showGosell();
+				}
 			});
 		}
 	}
