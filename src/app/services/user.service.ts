@@ -221,19 +221,6 @@ export class UserService extends HttpService {
             }
         ).then((res) => res.json(), catchError(this.handleError('GET PROFILE', null)));
 
-        // const reqHeader = new HttpHeaders({
-        //     'Content-Type': 'application/json',
-        //     // 'No-Auth': 'True',
-        //     'Authorization': "Bearer " + this.getToken(),
-        // });
-        // return this.httpClient
-        //     .get(this.server + PROFILE.GET_PROFILE , {
-        //         headers: reqHeader
-        //     })
-        //     .pipe(
-        //         map((res) => res),
-        //         catchError(this.handleError('GET PROFILE REQUEST'))
-        //     );
     }
     
     public getInvoices():any{
