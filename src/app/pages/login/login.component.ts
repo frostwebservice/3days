@@ -64,7 +64,8 @@ export class LoginComponent implements OnInit {
 		}
 		this.userService.login(_user).subscribe((res) => {
 			this.submitting = false;
-			if (!res) {
+			console.log(res);
+			if (!res.status) {
 				const toast: Toast = {
 					type: 'error',
 					title: 'Login failed',
