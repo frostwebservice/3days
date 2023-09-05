@@ -292,16 +292,26 @@ export class UserService extends HttpService {
     }
     public updateMemberImage(file): any {
         const reqHeader = new HttpHeaders({
-			'Content-Type': 'multipart/form-data',
+			// 'Content-Type': 'multipart/form-data',
+            'No-Content': 'True'
 		});
         const formData = new FormData();
         formData.append("photo", file);
+        // return this.httpClient.post(this.server + PROFILE.UPDATE_MEMBER_IMAGE, formData, {
+        //     headers: reqHeader,
+        //     reportProgress: true,
+        //     observe: 'events'
+        // }).pipe(
+        //     map((res) => res),
+        //     catchError(this.handleError('UPDATE MEMBER IMAGE', false))
+        // );
 		return this.httpClient
 			.post(
 				this.server + PROFILE.UPDATE_MEMBER_IMAGE,
 				formData,
 				{
-					headers: reqHeader
+					headers: reqHeader,
+                    observe: 'events'
 				}
 			)
 			.pipe(
