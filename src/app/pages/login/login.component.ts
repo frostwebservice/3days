@@ -64,24 +64,23 @@ export class LoginComponent implements OnInit {
 		}
 		this.userService.login(_user).subscribe((res) => {
 			this.submitting = false;
-			console.log(res);
-			if (!res.status) {
+			if (res.token !== undefined && res.token !== ""){
 				const toast: Toast = {
-					type: 'error',
-					title: 'Login failed',
+					type: 'success',
+					title: 'Login Success',
 					body: res.message,
 				};
 				this.toasterService.pop(toast);
-				return;
+				this.goHome(res);
 			}else{
-				if (res.token !== undefined && res.token !== ""){
+				if (!res.status) {
 					const toast: Toast = {
-						type: 'success',
-						title: 'Login Success',
+						type: 'error',
+						title: 'Login failed',
 						body: res.message,
 					};
 					this.toasterService.pop(toast);
-					this.goHome(res);
+					return;
 				}
 			}
 		});
