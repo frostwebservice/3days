@@ -9,20 +9,6 @@ import { FinancialOperations } from '../pages/financial-operations/financial-ope
 import { PersonalInfo } from '../pages/personal-info/personal-info.component';
 
 export const ProfileRoutingModule: Routes = [
-	// {
-	// 	path: 'privacy-policy',
-	// 	component: PrivacyPolicy,
-	// 	data: {
-	// 		title: 'Privacy Policy'
-	// 	}
-	// },
-	// {
-	// 	path: 'terms-conditions',
-	// 	component: TermsConditons,
-	// 	data: {
-	// 		title: 'Terms Conditions'
-	// 	}
-	// },
 	{
 		path: 'personal-data',
 		component: PersonalInfo,

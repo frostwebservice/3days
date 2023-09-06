@@ -56,8 +56,9 @@
 						<ng-container *ngIf="password.errors.required">{{'Required'|translate}}!</ng-container>
 					</span>
 				</label>
-				<div class="j-input-icons j-input-icon-right">
-					<input type="password" class="j-inputbox" id="password" name="password" tabindex = "3" [(ngModel)]="user.password" placeholder="{{'password' | translate}}" #password="ngModel" required>
+				<div class="j-input-icons j-input-icon-both">
+					<i class="j-icon j-icon-left bi j-eye-icon" [ngClass]="{'j-show-password':is_show_password}" (click)="showPassword()"></i>
+					<input type="{{is_show_password ? 'text' : 'password'}}" class="j-inputbox" id="password" name="password" tabindex = "3" [(ngModel)]="user.password" placeholder="{{'password' | translate}}" #password="ngModel" required>
 					<i class="j-icon j-icon-right j-icon-key"></i>
 				</div>
 			</div>

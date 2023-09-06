@@ -98,3 +98,15 @@
     align-items: center;
     cursor: pointer;
 }
+.j-login-section .bi.j-eye-icon{
+    opacity: 0.5;
+}
+.j-login-section .bi.j-eye-icon:hover{
+    opacity: 1;
+}
+.j-login-section .bi.j-eye-icon:before{
+    content: "\f341";
+}
+.j-login-section .bi.j-eye-icon.j-show-password:before{
+    content: "\f340";
+}

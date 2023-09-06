@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
     languages: Lang[] = LANG_OPTIONS;
     languageSubscription: Subscription;
     selectedLanguage: Lang = null;
+	is_show_password: boolean = false;
     
 	constructor(
 		private userService: UserService,
@@ -109,5 +110,8 @@ export class LoginComponent implements OnInit {
 		console.log('*******',data.member);
 		// this.returnUrl = '/profile';
 		this.router.navigate([this.returnUrl]);
+	}
+	showPassword(){
+		this.is_show_password = !this.is_show_password;
 	}
 }
