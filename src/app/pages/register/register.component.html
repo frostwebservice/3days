@@ -113,6 +113,7 @@
 							<div class="j-club-wrap">
 								<div class="j-club-map-wrap pb-md-0 pb-2" id="club-map">
 									<agm-map [latitude]="lat" [longitude]="lng" class="armmap">
+										<agm-marker class="house-marker" [latitude]="club.lat" [longitude]="club.lng" [iconUrl]="'/assets/img/icons8-gym-20.png'" *ngFor="let club of clubs;let i = index"></agm-marker>
 										<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 									</agm-map>
 								</div>
@@ -317,7 +318,7 @@
 											<div class="j-flex-row-reverse">
 												<input type="checkbox" name="agree_terms_conditions" class="agree_terms_conditions_checkbox mx-2" [(ngModel)]="agree_terms_conditions_checkbox" #agree_terms_conditions="ngModel" required>
 												<span>{{'I agree'|translate}} 
-													<a class="j-tc-link" href="/terms-conditions" target="_blank">{{'Terms and Conditions'|translate}}</a> 
+													<span class="j-tc-link terms-conditions-btn cursor-pointer" (click)="openTermsConditionsDialog()">{{'Terms and Conditions'|translate}}</span> 
 												</span>
 											</div>
 											<span class="j-error" *ngIf="agree_terms_conditions.errors">

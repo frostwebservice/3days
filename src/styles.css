@@ -247,6 +247,7 @@ body {
 	max-width: 340px;
 	/* margin-left: auto; */
 	height: 48px;
+	margin: auto;
 	background-color: var(--dl-color-primary-3days);
 	font-size:20px;
 }
@@ -382,10 +383,6 @@ body {
 .j-text-align-center {
     text-align: center;
 }
-.highlight-today {
-  background-color: var(--dl-color-primary-3days); /* Adjust the color as needed */
-  color: black; /* Adjust the text color as needed */
-}
 /* ---------------------------------------------------Multi lang----------------------------------------- */
 .j-lang-ar .j-flex-row-reverse{
 	display: flex;
@@ -489,6 +486,49 @@ body.j-lang-en.gosell-payment-gateway-open {
     top: 16px;
     right: 15px;
 }
+.house-marker {
+    width: 32px;
+    height: 32px;
+    background-image: url(/assets/img/icons8-gym-50.png);
+    background-size: cover;
+}
+.bs-datepicker{
+    background: #1c1a17 !important;
+}
+.bs-datepicker-head {
+    background-color: #3d3d3d !important;
+}
+.bs-datepicker-body table td {
+    color: #d4d5d5 !important;
+}
+.bs-datepicker-body table td.week span {
+    color: #596059e6 !important;
+}
+.bs-datepicker-head button {
+	color: white !important;
+}
+.highlight-today {
+	background-color:var(--dl-color-primary-3days); 
+	color : black !important;
+}
+.bs-datepicker-body table td.is-highlighted:not(.disabled):not(.selected) span,
+.bs-datepicker-body table td span.is-highlighted:not(.disabled):not(.selected) ,
+.bs-datepicker-body table td.is-active-other-month:not(.disabled):not(.selected) span,
+.bs-datepicker-body table td span.is-active-other-month:not(.disabled):not(.selected) {
+	background-color: unset;
+	border: solid 1px #e9edf0 !important;
+	color : black !important;
+}
+.bs-datepicker-body table td span.selected,
+.bs-datepicker-body table td.selected span,
+.bs-datepicker-body table td span[class*=select-]:after,
+.bs-datepicker-body table td[class*=select-] span:after ,
+.bs-datepicker-body table td.is-active-other-month:not(.disabled):not(.selected) span,
+.bs-datepicker-body table td span.is-active-other-month:not(.disabled):not(.selected) {
+	background-color: unset !important;
+	border: solid 1px var(--dl-color-primary-3days) !important;
+}
+
 @media(max-width: 767px) {
 	.j-front-page{
 		padding: var(--dl-space-space-oneunit);

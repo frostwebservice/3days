@@ -123,28 +123,27 @@ export class Profile {
                         name: file.name,
                         content: file
                     };
-                    console.log(newFile);
-                    this.userService.updateMemberImage(file)
-                        .subscribe((res) => {
-                            if (res.status){
-                                const toast: Toast = {
-                                    type: 'success',
-                                    title: 'Success',
-                                    body: "Profile photo updated",
-                                };
-                                this.toasterService.pop(toast);
-                            }else{
-                                const toast: Toast = {
-                                    type: 'error',
-                                    title: 'Update photo failed',
-                                    body: res.data,
-                                };
-                                this.toasterService.pop(toast);
-                            }
-                        }
-                    );
                 };
                 reader.readAsDataURL(file);
+                this.userService.updateMemberImage(file)
+                    .subscribe((res) => {
+                        if (res.status){
+                            const toast: Toast = {
+                                type: 'success',
+                                title: 'Success',
+                                body: "Profile photo updated",
+                            };
+                            this.toasterService.pop(toast);
+                        }else{
+                            // const toast: Toast = {
+                            //     type: 'error',
+                            //     title: 'Update photo failed',
+                            //     body: res.data,
+                            // };
+                            // this.toasterService.pop(toast);
+                        }
+                    }
+                );
             }
         }
     }

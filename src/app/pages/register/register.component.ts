@@ -8,6 +8,7 @@ import { Product } from 'src/app/models/product.model';
 import { Cookie } from 'src/app/utils/cookie';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ConfirmCodeComponent } from 'src/app/components/confirm-code/confirm-code.component';
+import { TermsConditons } from '../terms-conditions/terms-conditions.component';
 import { ToasterService, Toast } from 'angular2-toaster';
 
 import * as moment from 'moment';
@@ -76,7 +77,7 @@ export class RegisterComponent implements OnInit {
 
 	tabs: TabItem[] = [
 		{ icon: '', label: 'sex', id: 'gender', passed: false },
-		{ icon: '', label: 'site', id: 'site' , passed: false},
+		// { icon: '', label: 'site', id: 'site' , passed: false},
 		{ icon: '', label: 'Find_club', id: 'find a club' , passed: false},
 		{ icon: '', label: 'account', id: 'account' , passed: false},
 		{ icon: '', label: 'Products', id: 'products' , passed: false},
@@ -112,7 +113,7 @@ export class RegisterComponent implements OnInit {
 	phone_verified = false;
 	lat = 21.4858;
 	lng = 39.1925;
-	isStarted : boolean = false;
+	isStarted : boolean = true;
 	isCompleted : boolean = false;
 	isCreated : boolean = false;
 	submitting : boolean = false;
@@ -190,7 +191,8 @@ export class RegisterComponent implements OnInit {
 		if (index === -1 ) {
 			this.selectedTab = this.tabs[0];
 		}else if (index === 0) {
-			this.isStarted = false;
+			this.router.navigate(['/']);
+			// this.isStarted = false;  // show register splash page but now no need so commented it
 		}else{
 			if (id !== 'products'){
 				this.selectedTab = this.tabs[index - 1];
@@ -208,6 +210,11 @@ export class RegisterComponent implements OnInit {
 	setBranchOption(option:number){
 		console.log(option);
 		this.user.default_branch = option;
+
+		const index = this.clubs.findIndex(club => club.id === option);
+
+		this.lat = this.clubs[index]?.lat;
+		this.lng = this.clubs[index]?.lng;
 	}
 	setPTOption(option:number){
 		this.pt_option = option;
@@ -248,6 +255,8 @@ export class RegisterComponent implements OnInit {
 			}else{
 				this.clubs = res['data'];
 				this.user.default_branch = this.clubs[0]?.id;
+				this.lat = this.clubs[0]?.lat;
+				this.lng = this.clubs[0]?.lng;
 			}
 		});
 	}
@@ -353,6 +362,14 @@ export class RegisterComponent implements OnInit {
 				}
 			});
 		}
+	}
+	openTermsConditionsDialog(){
+		const dialogConfig = new MatDialogConfig();
+		dialogConfig.autoFocus = true;
+		this.dialog.open(TermsConditons, dialogConfig)
+		.afterClosed()
+		.subscribe((status) => {
+		});
 	}
 	openDetailModal(data):void{
         let club = data.club;
