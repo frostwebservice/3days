@@ -44,7 +44,7 @@
 					</span>
 				</label>
 				<div class="j-input-icons j-input-icon-right">
-					<input type="text" class="j-inputbox" tabindex = "1" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="Mobile Number" required  #mobile="ngModel" pattern = '^05\d{8}$'> 
+					<input type="text" class="j-inputbox" tabindex = "1" [(ngModel)]="user.mobile" id="mobile" name="mobile" aria-describedby="mobileHelp" placeholder="05XXXXXXXX" required  #mobile="ngModel" pattern = '^05\d{8}$'> 
 					<i class="j-icon j-icon-right j-icon-phone"></i>
 				</div>
 			</div>
@@ -56,8 +56,9 @@
 						<ng-container *ngIf="password.errors.required">{{'Required'|translate}}!</ng-container>
 					</span>
 				</label>
-				<div class="j-input-icons j-input-icon-right">
-					<input type="password" class="j-inputbox" id="password" name="password" tabindex = "3" [(ngModel)]="user.password" placeholder="{{'password' | translate}}" #password="ngModel" required>
+				<div class="j-input-icons j-input-icon-both">
+					<i class="j-icon j-icon-left bi j-eye-icon" [ngClass]="{'j-show-password':is_show_password}" (click)="showPassword()"></i>
+					<input type="{{is_show_password ? 'text' : 'password'}}" class="j-inputbox" id="password" name="password" tabindex = "3" [(ngModel)]="user.password" placeholder="{{'password' | translate}}" #password="ngModel" required>
 					<i class="j-icon j-icon-right j-icon-key"></i>
 				</div>
 			</div>

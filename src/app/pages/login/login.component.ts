@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
     languages: Lang[] = LANG_OPTIONS;
     languageSubscription: Subscription;
     selectedLanguage: Lang = null;
+	is_show_password: boolean = false;
     
 	constructor(
 		private userService: UserService,
@@ -64,23 +65,23 @@ export class LoginComponent implements OnInit {
 		}
 		this.userService.login(_user).subscribe((res) => {
 			this.submitting = false;
-			if (!res) {
+			if (res.token !== undefined && res.token !== ""){
 				const toast: Toast = {
-					type: 'error',
-					title: 'Login failed',
+					type: 'success',
+					title: 'Login Success',
 					body: res.message,
 				};
 				this.toasterService.pop(toast);
-				return;
+				this.goHome(res);
 			}else{
-				if (res.token !== undefined && res.token !== ""){
+				if (!res.status) {
 					const toast: Toast = {
-						type: 'success',
-						title: 'Login Success',
+						type: 'error',
+						title: 'Login failed',
 						body: res.message,
 					};
 					this.toasterService.pop(toast);
-					this.goHome(res);
+					return;
 				}
 			}
 		});
@@ -107,7 +108,10 @@ export class LoginComponent implements OnInit {
 		localStorage.setItem('u_pass', this.user.password);
 		
 		console.log('*******',data.member);
-		this.returnUrl = '/profile';
+		// this.returnUrl = '/profile';
 		this.router.navigate([this.returnUrl]);
+	}
+	showPassword(){
+		this.is_show_password = !this.is_show_password;
 	}
 }

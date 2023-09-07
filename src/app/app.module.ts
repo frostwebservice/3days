@@ -29,7 +29,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
 import { ToasterModule ,ToasterService, ToasterConfig} from 'angular2-toaster';
 import { ClipboardModule } from '@angular/cdk/clipboard';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
 const config: SocketIoConfig = {
 	url: environment.api,
 	options: {}
@@ -68,6 +68,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 		AppRoutingModule,
 		ClipboardModule,
 		ToasterModule.forRoot(),
+		MatTooltipModule,
 	],
 	providers: [
 		{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },

@@ -4,6 +4,8 @@ import { MAT_DIALOG_DATA,MatDialog,MatDialogRef,MatDialogConfig} from "@angular/
 import { BranchService } from 'src/app/services/branch.service';
 import { UserService } from 'src/app/services/user.service';
 import { ToasterService, Toast } from 'angular2-toaster';
+import { LoaderService } from 'src/app/services/loader.service';
+import { Product } from 'src/app/models/product.model';
 import { environment } from 'src/environments/environment';
 import { ProductTermsConditionsDialogComponent } from '../product-terms-conditions-dialog/product-terms-conditions-dialog.component';
 import * as moment from 'moment';
@@ -34,14 +36,17 @@ export class Checkout implements OnInit {
 		member_id: 0,
 		start_date:""
 	};
+	products: Product[] = [];
 	agree_terms_conditions_checkbox = false;
 	paymentConf = goSellPaymentConfiguration;
+	selected_product_id;
 	constructor(
 		private branchService : BranchService,
 		private userService: UserService,
 		private toasterService: ToasterService,
 		private dialogRef: MatDialogRef<Checkout>,
 		private dialog: MatDialog,
+		private loadingService: LoaderService,
 		@Inject(MAT_DIALOG_DATA) public data: any
 	) {
 		this.product = data.subscription;
@@ -83,6 +88,11 @@ export class Checkout implements OnInit {
 				this.discount_price = 10;
 			}
 		});
+	}
+	selectProduct(){
+		const index = this.products.findIndex(p => p.id == this.checkoutInfo.product_id);
+		this.product = this.products[index];
+		console.log(this.product);
 	}
 	buyValidate(){
 		this.submitted = true;
@@ -205,6 +215,38 @@ export class Checkout implements OnInit {
 		goSell.openLightBox();
 	}
 	ngOnInit(): void {
+		this.getProducts();
 	}
-
+	getProducts(){
+		this.loadingService.setLoading(true);
+		this.branchService.getProductList(this.userService.getClientId()).subscribe((res) => {
+			this.loadingService.setLoading(false);
+			if (!res) {
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get product failed',
+					body: "Something went wrong",
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else if(!res.status){
+				const toast: Toast = {
+					type: 'error',
+					title: 'Get product failed',
+					body: res.message,
+				};
+				this.toasterService.pop(toast);
+				return;
+			}else{
+				res.data.forEach(element => {
+					this.products.push(element);
+					// if (element.type == "subscription"){
+					// 	this.subscriptions.push(element);
+					// }else{
+					// 	this.personalTrainings.push(element);
+					// }
+				});
+			}
+		});
+	}
 }

@@ -22,7 +22,7 @@ import { ReferralCodeComponent } from 'src/app/components/referral-code/referral
 export class Profile {
 
     pitems = [
-        {id:'personal-data',label: 'Personal data',iconclass: 'j-icon-active-person',href:'/personal-data'},
+        {id:'personal-data',label: 'Personal_data',iconclass: 'j-icon-active-person',href:'/personal-data'},
         {id:'club-branches',label: 'Club branches',iconclass: 'j-icon-active-marker',href:'/branches'},
         {id:'referral-code',label: 'Promotional code',iconclass: 'j-icon-active-two-person',href:'/referral-code'},
         {id:'financial-operations',label: 'financial operations',iconclass: 'j-icon-active-cash',href:'/financial-operations'},
@@ -61,7 +61,10 @@ export class Profile {
 		});
         this.loadingService.setLoading(false);
     }
-   
+    memberSubscription =  {
+        "color": "#00FF00",
+        "remainingDays": 365
+    }
     current_user_profile;
     imageUrl:string = "./assets/img/manavatar.png";
     unreadNotifications:boolean = false;
@@ -89,11 +92,22 @@ export class Profile {
     }
     ngOnInit(): void {
         this.getNotificationStatus();
+        this.getSubscription();
     }
     getNotificationStatus(){
         this.userService.notificationStatus()
         .subscribe((res) => {
-            this.unreadNotifications = res?.data?.unreadNotifications;
+            if (res.status){
+                this.unreadNotifications = res?.data?.unreadNotifications;
+            }
+        });
+    }
+    getSubscription(){
+        this.userService.getMemberSubscription()
+        .subscribe((res) => {
+            if (res.status){
+                this.memberSubscription = res?.data;
+            }
         });
     }
     onImageSelected(event: any) {
@@ -109,28 +123,27 @@ export class Profile {
                         name: file.name,
                         content: file
                     };
-                    console.log(newFile);
-                    this.userService.updateMemberImage(file)
-                        .subscribe((res) => {
-                            if (res.status){
-                                const toast: Toast = {
-                                    type: 'success',
-                                    title: 'Success',
-                                    body: "Profile photo updated",
-                                };
-                                this.toasterService.pop(toast);
-                            }else{
-                                const toast: Toast = {
-                                    type: 'error',
-                                    title: 'Update photo failed',
-                                    body: res.data,
-                                };
-                                this.toasterService.pop(toast);
-                            }
-                        }
-                    );
                 };
                 reader.readAsDataURL(file);
+                this.userService.updateMemberImage(file)
+                    .subscribe((res) => {
+                        if (res.status){
+                            const toast: Toast = {
+                                type: 'success',
+                                title: 'Success',
+                                body: "Profile photo updated",
+                            };
+                            this.toasterService.pop(toast);
+                        }else{
+                            // const toast: Toast = {
+                            //     type: 'error',
+                            //     title: 'Update photo failed',
+                            //     body: res.data,
+                            // };
+                            // this.toasterService.pop(toast);
+                        }
+                    }
+                );
             }
         }
     }

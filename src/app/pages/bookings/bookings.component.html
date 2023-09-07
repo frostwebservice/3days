@@ -94,7 +94,7 @@
 					<label for="session_date" class="j-inputbox-label">{{'Select Date'|translate}}</label>
 					<div class="j-input-icons j-input-icon-left">
 						<i class="j-icon j-icon-left j-icon-calendar"></i>
-						<input type="text" class="j-inputbox" id="session_date"  [(ngModel)] = "session_date"  #sessionDate="ngModel" name = "session_date" (ngModelChange)="changeDate($event)" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" >
+						<input type="text" class="j-inputbox" id="session_date"  [(ngModel)] = "session_date"  #sessionDate="ngModel" name = "session_date" (ngModelChange)="changeDate($event)" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD',customTodayClass: 'highlight-today'}" >
 					</div>
 				</div>
 				<div class="j-sessions-list row">

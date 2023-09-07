@@ -2,7 +2,6 @@ import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Cookie } from 'src/app/utils/cookie';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { Subscription } from 'rxjs';
 import { LANG_OPTIONS } from 'src/app/constants/variable.constants';
 import { LangService } from 'src/app/services/lang.service';
@@ -89,11 +88,11 @@ export class HeaderComponent {
         this.languageSubscription = this.langService.language$.subscribe(
             (code: string) => {
                 LANG_OPTIONS.some((e: Lang) => {
-                if (e.code === code) {
-                    this.selectedLanguage = e;
-                    return true;
-                }
-                return false;
+					if (e.code === code) {
+						this.selectedLanguage = e;
+						return true;
+					}
+					return false;
                 });
             }
         );

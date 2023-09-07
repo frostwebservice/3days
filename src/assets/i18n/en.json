@@ -100,7 +100,7 @@
 	"comments":"Do you have any comments? Write it down",
 	"Evaluation approval":"Evaluation approval",
 	"reservation_cancel": "Reservation Cancel",
-	"financial operations":"Transactions",
+	"financial operations":"Bills Statement",
 	"VAT":"VAT",
 	"Amount":"Amount",
 	"item":"item",
@@ -133,6 +133,7 @@
 	"Congratulations":"Congratulations",
 	"Back to main":"Back to main",
 	"sex":"Gender",
+	"Gender Selection Options":"Gender Selection Options",
 	"sel_category":"Please select a category",
 	"men":"Men",
 	"women":"Women",
@@ -153,7 +154,7 @@
 	"confirm password":"Confirm password",
 	"I agree":"I agree",
 	"Terms and Conditions":"Terms and Conditions",
-	"Personal_data":"Personal data",
+	"Personal_data":"My Information",
 	"family name":"Family name",
 	"First Name":"First Name",
 	"Subscription start date":"Subscription start date",
@@ -190,6 +191,7 @@
 	"policy_content_6": "Personal data should be relevant to the purposes for which it is to be used, and, to the extent necessary for those purposes, should be accurate, complete, and up-to-date.",
 	"policy_content_7": "We will protect personal information by reasonable security safeguards against loss or theft, as well as unauthorized access, disclosure, copying, use or modification.",
 	"policy_content_8": "We will make readily available to customers’ information about our policies and practices relating to the management of personal information.",
-	"policy_content_9": "We are committed to conducting our business in accordance with these principles in order to ensure that the confidentiality of personal information is protected and maintained."
-
+	"policy_content_9": "We are committed to conducting our business in accordance with these principles in order to ensure that the confidentiality of personal information is protected and maintained.",
+	"subscription_countdown" : "Subscription Countdown",
+	"days" : "days"
 }	

@@ -3,7 +3,6 @@
     max-width: 1075px;
 }
 .club-branches-container .j-club-detail{
-    text-align: right;
     border: 1px solid;
     height: 100%;
 }
@@ -28,13 +27,12 @@
 }
 .club-branches-container .j-club-info .j-item{
     display: flex;
-    flex-direction: row-reverse;
     margin-bottom: 16px;
 }
 .club-branches-container .j-club-info  .j-item .j-item-desc{
     display:flex;
     flex-direction: column;
-    margin-right: 12px;
+    margin: 0 12px;
 }
 .club-branches-container .j-club-info  .j-item .j-item-desc .j-label{
     color: var(--dl-color-grey-dark);

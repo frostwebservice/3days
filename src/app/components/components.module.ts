@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common'
 import { SharedModule } from '../shared/shared.module'
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { GalleryCard1 } from './gallery-card1/gallery-card1.component'
 import { GalleryCard12 } from './gallery-card12/gallery-card12.component'
@@ -25,7 +26,7 @@ import { CancelBookingComponent } from './cancel-booking/cancel-booking.componen
 import { BranchSelectionComponent } from './branch-selection/branch-selection.component'
 import { SuspendSubscriptionComponent } from './suspend-subscription/suspend-subscription.component'
 import { ReferralCodeComponent } from './referral-code/referral-code.component'
-import { ConfirmCodeComponent } from './comfirm-code/confirm-code.component'
+import { ConfirmCodeComponent } from './confirm-code/confirm-code.component'
 import { SpinnerComponent } from './spinner/spinner.component'
 import { TranslateModule } from '@ngx-translate/core'
 import { FormsModule } from '@angular/forms'
@@ -37,7 +38,8 @@ import { Checkout } from './checkout/checkout.component'
 import { PersonalTrainingItemComponent } from './personal-training-item/personal-training-item.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
-import { ProductTermsConditionsDialogComponent } from './product-terms-conditions-dialog/product-terms-conditions-dialog.component'
+import { ProductTermsConditionsDialogComponent } from './product-terms-conditions-dialog/product-terms-conditions-dialog.component';
+import { BranchDetailsComponent } from './branch-details/branch-details.component'
 @NgModule({
 	declarations: [
 		GalleryCard1,
@@ -71,14 +73,16 @@ import { ProductTermsConditionsDialogComponent } from './product-terms-condition
 		PersonalTrainingItemComponent,
 		ProductItemComponent,
 		ConfirmDialogComponent,
-		ProductTermsConditionsDialogComponent
+		ProductTermsConditionsDialogComponent,
+		BranchDetailsComponent
 	],
 	imports: [CommonModule, 
 		SharedModule,
 		RouterModule, 
 		TranslateModule ,
 		FormsModule,
-		BsDatepickerModule
+		BsDatepickerModule,
+		MatTooltipModule,
 	],
 	exports: [
 		GalleryCard1,
@@ -111,7 +115,8 @@ import { ProductTermsConditionsDialogComponent } from './product-terms-condition
 		PersonalTrainingItemComponent,
 		ProductItemComponent,
 		ConfirmDialogComponent,
-		ProductTermsConditionsDialogComponent
+		ProductTermsConditionsDialogComponent,
+		BranchDetailsComponent
 	],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

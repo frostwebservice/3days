@@ -156,8 +156,25 @@ export class UserService extends HttpService {
         localStorage.setItem('clientId', clientId.toString());
     }
     public getClientId():number {
-        return Number(localStorage.getItem('clientId'));
+        if (localStorage.getItem('clientId') != null) {
+            return Number(localStorage.getItem('clientId'));
+        } else {
+            return 3;
+        }
     }
+    public getMemberSubscription(): Observable<any> {
+		const reqHeader = new HttpHeaders({
+			'Content-Type': 'application/json',
+		});
+        return this.httpClient
+        .get(this.server + PROFILE.GET_MEMBER_SUBSCRIPTION, {
+            headers: reqHeader
+        })
+        .pipe(
+            map((res) => res),
+            catchError(this.handleError('GET MEMBER SUBSCRIPTIONS', false))
+        );
+	}
     public setUser(user: User): any {
         localStorage.setItem('user', JSON.stringify(user));
     }
@@ -204,19 +221,6 @@ export class UserService extends HttpService {
             }
         ).then((res) => res.json(), catchError(this.handleError('GET PROFILE', null)));
 
-        // const reqHeader = new HttpHeaders({
-        //     'Content-Type': 'application/json',
-        //     // 'No-Auth': 'True',
-        //     'Authorization': "Bearer " + this.getToken(),
-        // });
-        // return this.httpClient
-        //     .get(this.server + PROFILE.GET_PROFILE , {
-        //         headers: reqHeader
-        //     })
-        //     .pipe(
-        //         map((res) => res),
-        //         catchError(this.handleError('GET PROFILE REQUEST'))
-        //     );
     }
     
     public getInvoices():any{
@@ -288,16 +292,26 @@ export class UserService extends HttpService {
     }
     public updateMemberImage(file): any {
         const reqHeader = new HttpHeaders({
-			'Content-Type': 'multipart/form-data',
+			// 'Content-Type': 'multipart/form-data',
+            'No-Content': 'True'
 		});
         const formData = new FormData();
         formData.append("photo", file);
+        // return this.httpClient.post(this.server + PROFILE.UPDATE_MEMBER_IMAGE, formData, {
+        //     headers: reqHeader,
+        //     reportProgress: true,
+        //     observe: 'events'
+        // }).pipe(
+        //     map((res) => res),
+        //     catchError(this.handleError('UPDATE MEMBER IMAGE', false))
+        // );
 		return this.httpClient
 			.post(
 				this.server + PROFILE.UPDATE_MEMBER_IMAGE,
 				formData,
 				{
-					headers: reqHeader
+					headers: reqHeader,
+                    observe: 'events'
 				}
 			)
 			.pipe(

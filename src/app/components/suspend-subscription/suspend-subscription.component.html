@@ -11,7 +11,7 @@
             <label for="suspension_date" class="j-inputbox-label">{{'Start_date'|translate}}</label>
             <div class="j-input-icons j-input-icon-right">
                 <i class="j-icon j-icon-right j-clickable j-icon-calendar"></i>
-                <input class="j-inputbox" id="suspension_date" name = "suspension_date" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD'}" [(ngModel)]="param.suspension_date" #suspension_date="ngModel" required>
+                <input class="j-inputbox" id="suspension_date" name = "suspension_date" bsDatepicker [bsConfig]="{dateInputFormat: 'YYYY-MM-DD',customTodayClass: 'highlight-today'}" [(ngModel)]="param.suspension_date" #suspension_date="ngModel" required>
             </div>
         </div>
         <div class="j-form-group">
