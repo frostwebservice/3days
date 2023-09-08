@@ -7,7 +7,8 @@ import { UserService } from 'src/app/services/user.service';
 import { ToasterService, Toast } from 'angular2-toaster';
 import {
 	RouterStateSnapshot,
-	Router
+	Router,
+	NavigationExtras
 } from '@angular/router';
 
 @Component({
@@ -37,20 +38,26 @@ export class ProductItemComponent implements OnInit {
 	currency = "SAR";
 	buyProduct(){
 		if (this.userService.isAuthenticated()){
-			const dialogConfig = new MatDialogConfig();
-			dialogConfig.autoFocus = true;
-			dialogConfig.data = {
-				title: 'Buy Subscription',
-				subscription : this.product,
-				checkoutRedirectUrl: this.checkoutRedirectUrl
-			};
-			this.dialog.open(Checkout, dialogConfig)
-			.afterClosed()
-			.subscribe((res) => {
-				console.log(res);
-				if (res.status) {
-				}
+			// const dialogConfig = new MatDialogConfig();
+			// dialogConfig.autoFocus = true;
+			// dialogConfig.data = {
+			// 	title: 'Buy Subscription',
+			// 	subscription : this.product,
+			// 	checkoutRedirectUrl: this.checkoutRedirectUrl
+			// };
+			// this.dialog.open(Checkout, dialogConfig)
+			// .afterClosed()
+			// .subscribe((res) => {
+			// 	console.log(res);
+			// 	if (res.status) {
+			// 	}
+			// });
+
+			// this.router.navigate(['checkout', {checkoutRedirectUrl: this.checkoutRedirectUrl, subscription: this.product }]);
+			this.router.navigateByUrl('checkout', {
+				state: {subscription:this.product,checkoutRedirectUrl:this.checkoutRedirectUrl}
 			});
+
 		}else{
 			this.router.navigate(['/login'], {
 				queryParams: { returnUrl: '/products' }

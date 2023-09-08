@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 // import { PrivacyPolicy } from '../pages/privacy-policy/privacy-policy.component';
 // import { TermsConditons } from '../pages/terms-conditions/terms-conditions.component';
-import { Checkout } from '../components/checkout/checkout.component';
+// import { Checkouts } from '../pages/checkouts/checkouts.component';
 import { ClubBranches } from '../pages/club-branches/club-branches.component';
 import { Notifications } from '../pages/notifications/notifications.component';
 import { FinancialOperations } from '../pages/financial-operations/financial-operations.component';
@@ -16,13 +16,7 @@ export const ProfileRoutingModule: Routes = [
 			title: 'Personal Information'
 		}
 	},
-	{
-		path: 'checkout',
-		component: Checkout,
-		data: {
-			title: 'Checkout'
-		}
-	},
+
 	{
 		path: 'branches',
 		component: ClubBranches,

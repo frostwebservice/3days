@@ -8,6 +8,7 @@ import { LoginComponent } from '../pages/login/login.component';
 import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from '../pages/reset-password/reset-password.component';
 import { RegisterComponent } from '../pages/register/register.component';
+import { VerifyCodeComponent } from '../pages/verify-code/verify-code.component';
 import { ReferralCodeComponent } from '../components/referral-code/referral-code.component';
 import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 		LoginComponent,
 		ForgotPasswordComponent,
 		ResetPasswordComponent,
+		VerifyCodeComponent,
 		RegisterComponent,
 	],
 	imports: [

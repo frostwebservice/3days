@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject ,Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Inject ,Input, ViewChild, ElementRef,SimpleChanges } from '@angular/core';
 import { Member } from 'src/app/utils/data.types';
 import { MAT_DIALOG_DATA,MatDialog,MatDialogRef,MatDialogConfig} from "@angular/material/dialog";
 import { BranchService } from 'src/app/services/branch.service';
@@ -20,7 +20,6 @@ declare var goSell;
 	styleUrls: ['./checkout.component.css']
 })
 export class Checkout implements OnInit {
-	
 	@ViewChild('agree_terms_conditions') agree_terms_conditions: ElementRef;
 	user;
 	product;
@@ -29,7 +28,7 @@ export class Checkout implements OnInit {
 	submitting : boolean = false;
 	submitted : boolean = false;
 	discount_price = 0;
-	checkoutRedirectUrl = '';
+
 	checkoutInfo = {
 		product_id: 0,
 		coupon_code: "",
@@ -40,22 +39,33 @@ export class Checkout implements OnInit {
 	agree_terms_conditions_checkbox = false;
 	paymentConf = goSellPaymentConfiguration;
 	selected_product_id;
+	
+	@Input() selectedProduct:any;
+	@Input() redirectUrl:any;
+
 	constructor(
 		private branchService : BranchService,
 		private userService: UserService,
 		private toasterService: ToasterService,
-		private dialogRef: MatDialogRef<Checkout>,
+		// private dialogRef: MatDialogRef<Checkout>,
 		private dialog: MatDialog,
 		private loadingService: LoaderService,
-		@Inject(MAT_DIALOG_DATA) public data: any
+		// @Inject(MAT_DIALOG_DATA) public data: any
 	) {
-		this.product = data.subscription;
+
 		this.user = this.userService.getUser();
 		this.checkoutInfo.member_id = this.user.id;
-		this.checkoutInfo.product_id = this.product.id;
 		this.start_date = moment().format('YYYY-MM-DD');
-		this.checkoutRedirectUrl = data.checkoutRedirectUrl;
+		// this.checkoutRedirectUrl = this.redirectUrl;
 	}
+    ngOnChanges(changes: SimpleChanges) {
+		console.log(changes);
+        // only run when property "data" changed
+        if (changes['redirectUrl']||changes['selectedProduct']) {
+            this.product = this.selectedProduct;
+			this.checkoutInfo.product_id = this.product.id;
+        }
+    }
 	checkCoupon(){
 		this.branchService.checkCoupon(this.checkoutInfo.product_id,this.checkoutInfo.coupon_code).subscribe((res) => {
 			if (!res) {
@@ -160,7 +170,7 @@ export class Checkout implements OnInit {
 			charge:{
 				...this.paymentConf.transaction.charge,
 				description: "Pay for product",
-				redirect : environment.front + this.checkoutRedirectUrl
+				redirect : environment.front + this.redirectUrl
 			}
 		};
 		let order = {
@@ -205,7 +215,7 @@ export class Checkout implements OnInit {
 						body: response.message,
 					};
 					this.toasterService.pop(toast);
-					this.dialogRef.close(false);
+					// this.dialogRef.close(false);
 				}
 			},
 			onClose: () => {

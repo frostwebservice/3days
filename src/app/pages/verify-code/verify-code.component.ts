@@ -1,56 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute,Params } from '@angular/router';
 import { ToasterService, Toast } from 'angular2-toaster';
 
 @Component({
-    selector: 'app-forgot-password',
-    templateUrl: 'forgot-password.component.html',
-    styleUrls: ['forgot-password.component.css']
+    selector: 'app-verify-code',
+    templateUrl: 'verify-code.component.html',
+    styleUrls: ['verify-code.component.css']
 })
-export class ForgotPasswordComponent implements OnInit {
+export class VerifyCodeComponent implements OnInit {
     loading = false;
     submitted = false;
     submitting = false;
 
 	user = {
-		mobile: '',
-		client_id : 3
+        mobile:'',
+        client_id : 3,
+		otp: ''
+		
 	};
 
     constructor(
         private userService: UserService,
         private router: Router,
-		private toasterService: ToasterService
-    ) {}
+		private toasterService: ToasterService,
+        private activatedRoute: ActivatedRoute
+    ) {
+
+        this.activatedRoute.queryParams.subscribe(params => {
+            const mobileNumber = params['resetMobile'];
+            this.user.mobile = mobileNumber;
+        });
+    }
 
     ngOnInit(): void { }
 
-    sendResetCode(): void {
+    sendVerifyCode(): void {
         this.loading = true;
         this.submitting = true;
 
         this.userService
-            // .requestResetPassword(this.user)
-            .sendOTP(this.user)
+            .verifyOTP(this.user)
             .subscribe((status) => {
                 this.loading = false;
                 this.submitting = false;
                 if (status) {
-                    this.router.navigate(['/verify-code'], {
+                    this.router.navigate(['/reset-password'], {
                         queryParams: { resetMobile: this.user.mobile }
                     });
                     const toast: Toast = {
                         type: 'success',
                         title: 'Success',
-                        body: "Verification Code sent successfully",
+                        body: "Verified successfully",
                     };
                     this.toasterService.pop(toast);
                 }else{
                     const toast: Toast = {
                         type: 'error',
                         title: 'Oops',
-                        body: "Verification Code send failed",
+                        body: "Verification failed",
                     };
                     this.toasterService.pop(toast);
                 }
