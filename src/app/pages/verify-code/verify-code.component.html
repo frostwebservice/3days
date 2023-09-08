@@ -1,0 +1,47 @@
+<div class="authentication-container page-container">
+	<div class="j-forgot-password-section j-page-section j-auth-section">
+		<a class="j-signup-btn button j-right-button" routerLink="/signup">{{'Create_account'|translate}}</a>
+		<a class="j-login-btn button j-left-button" routerLink="/login">{{'sign in'|translate}}</a>
+		<img alt="logo" src="/assets/external/logo.svg" class="j-app-logo"/>
+		<h4 class="j-page-title">{{'Verify_code' | translate}}</h4>
+		<form class="j-form" #forgotForm="ngForm" (ngSubmit)="forgotForm.form.valid ? sendVerifyCode() : false">
+			<div class="j-form-group" [ngClass]="{invalid: forgotForm.submitted && otp.invalid && (otp.dirty || otp.touched || forgotForm.submitted)}">
+				<label for="mobile" class="j-inputbox-label j-flex-row-reverse">
+					<span class="v-lg-span text-white">{{'Enter Verification Code'|translate}}</span>
+					<span class="j-error" *ngIf="otp.errors" translate>
+						<ng-container *ngIf="otp.errors.required">{{'Required'|translate}}!</ng-container>
+					</span>
+				</label>
+				<div class="j-input-icons j-input-icon-right">
+					<input type="text" class="j-inputbox" [(ngModel)]="user.otp" id="otp" name="otp" aria-describedby="mobileHelp" placeholder="Enter Verification Code" required  #otp="ngModel"> 
+					<i class="j-icon j-icon-right j-icon-phone"></i>
+				</div>
+			</div>
+			<div class="j-form-group d-none" [ngClass]="{invalid: forgotForm.submitted && client_id.invalid && (client_id.dirty || client_id.touched || forgotForm.submitted)}">
+				<label for="client_id" class="j-inputbox-label j-flex-row-reverse">
+					<span>{{'Client ID'|translate}}</span>
+					<span class="j-error" *ngIf="client_id.errors" translate>
+						<ng-container *ngIf="client_id.errors.required">{{'Required'|translate}}!</ng-container>
+						<ng-container *ngIf="client_id.errors.min">{{'Invaild ID'|translate}}</ng-container>
+					</span>
+				</label>
+				<div class="j-input-icons j-input-icon-right">
+					<input type="number" ngSpinBox  class="j-inputbox" [(ngModel)]="user.client_id" id="client_id" name="client_id" aria-describedby="client_idHelp" placeholder="Client ID" required  #client_id="ngModel" min = 0 > 
+					
+					<i class="j-icon j-icon-right j-icon-person"></i>
+				</div>
+			</div>
+            <div class="small text-white mt-3">
+                <span> {{'not_received'|translate}} </span>
+                <span>
+                    <a routerLink="/forgot-password" class="text-yellow mt-3 j-text-hover"> {{'Resend'|translate}}</a>
+                </span>
+
+
+            </div>
+			<div class="j-form-group">
+				<button type="submit" class="j-left-button button j-submit-button" [class.loading]="submitting"><span>{{'verify_code'|translate}}</span></button>
+			</div>
+		</form>
+	</div>
+</div>

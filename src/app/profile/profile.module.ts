@@ -11,6 +11,7 @@ import { ClubBranches } from '../pages/club-branches/club-branches.component';
 import { Notifications } from '../pages/notifications/notifications.component';
 import { FinancialOperations } from '../pages/financial-operations/financial-operations.component';
 import { PersonalInfo } from '../pages/personal-info/personal-info.component';
+// import { Checkouts } from '../pages/checkouts/checkouts.component';
 
 import { ComponentsModule } from '../components/components.module';
 import { AgmCoreModule } from '@agm/core';

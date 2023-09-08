@@ -12,17 +12,19 @@ import { ToasterService, Toast } from 'angular2-toaster';
 
 import * as moment from 'moment';
 import { Subscription } from 'rxjs';
+
 declare var goSell;
 
 @Component({
-	selector: 'app-products',
-	templateUrl: 'products.component.html',
-	styleUrls: ['products.component.css'],
+	selector: 'app-checkouts',
+	templateUrl: 'checkouts.component.html',
+	styleUrls: ['checkouts.component.css'],
 })
-export class Products implements OnInit {
+export class Checkouts implements OnInit {
 	subscriptions: Product[] = [];
 	personalTrainings: Product[] = [];
-	
+	selectedProduct: Product;
+	redirectUrl:string;
 	selected_tab :number = 2;
 	checkoutInfo = {
 		product_id: 0,
@@ -30,6 +32,8 @@ export class Products implements OnInit {
 		member_id: 0,
 		start_date:""
 	};
+	state = this.router.getCurrentNavigation().extras.state;
+
 	session_date = moment().format('YYYY-MM-DD') ;
 	branch_id = 4;
 	currency = "SAR";
@@ -44,6 +48,7 @@ export class Products implements OnInit {
 		private router: Router,
 		private dialog: MatDialog
 		) {
+
 			this.title.setTitle('Products - 3 Days');
 			this.meta.addTags([
 				{
@@ -61,6 +66,7 @@ export class Products implements OnInit {
 			
 			// this.loadingService.setLoading(false);
 			this.getProducts();
+			
 	}
 	selectTab (tab:number):void{
 		this.selected_tab = tab;
@@ -132,6 +138,9 @@ export class Products implements OnInit {
 		localStorage.removeItem('checkoutInfo');
 	}
 	ngOnInit() {
+		this.selectedProduct = this.state.subscription;
+		this.redirectUrl = this.state.checkoutRedirectUrl;
+		this.personalTrainings.push(this.selectedProduct );
 		// const path = this.route.snapshot.routeConfig['path'];
 		console.log('path',this.router.url);
 		if (this.router.url.includes('buy')) {

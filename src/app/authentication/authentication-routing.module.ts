@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from '../pages/login/login.component';
 import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from '../pages/reset-password/reset-password.component';
+import { VerifyCodeComponent } from '../pages/verify-code/verify-code.component';
 import { RegisterComponent } from '../pages/register/register.component';
 
 
@@ -34,6 +35,13 @@ export const AuthenticationRoutingModule: Routes = [
 		component: ForgotPasswordComponent,
 		data: {
 			title: 'Password Reset 1'
+		}
+	},
+	{
+		path: 'verify-code',
+		component: VerifyCodeComponent,
+		data: {
+			title: 'Verification Code'
 		}
 	},
 	{

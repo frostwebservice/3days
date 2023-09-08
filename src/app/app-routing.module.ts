@@ -84,6 +84,12 @@ const routes: Routes = [
 			import('./pages/products/products.module').then((m) => m.ProductsModule),
 	},
 	{
+		path: 'checkout',
+		loadChildren: () =>
+			import('./pages/checkouts/checkouts.module').then((m) => m.CheckoutsModule),
+		canActivate: [AuthGuard]
+	},
+	{
 		path: 'products/buy/:id',
 		loadChildren: () =>
 			import('./pages/products/products.module').then((m) => m.ProductsModule),
@@ -125,13 +131,13 @@ const routes: Routes = [
 			title: 'Privacy Policy'
 		}
 	},
-	{
-		path: 'terms-conditions',
-		component: TermsConditons,
-		data: {
-			title: 'Terms Conditions'
-		}
-	},
+	// {
+	// 	path: 'terms-conditions',
+	// 	component: TermsConditons,
+	// 	data: {
+	// 		title: 'Terms Conditions'
+	// 	}
+	// },
 	{
 		path: '**',
 		redirectTo: '/'
